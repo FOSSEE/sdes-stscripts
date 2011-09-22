@@ -1,0 +1,299 @@
+\documentclass[12pt,presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[english]{babel} \usepackage{ae,aecompl}
+\usepackage{mathpazo,courier,euler} \usepackage[scaled=.95]{helvet}
+\usepackage{listings}
+\lstset{language=Python, basicstyle=\ttfamily\bfseries,
+commentstyle=\color{red}\itshape, stringstyle=\color{green},
+showstringspaces=false, keywordstyle=\color{blue}\bfseries}
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{Getting started with TDD}
+\author{FOSSEE}
+\institute{IIT Bombay}
+
+\usetheme{Warsaw}\usecolortheme{default}\useoutertheme{infolines}\setbeamercovered{transparent}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+\begin{frame}
+
+\begin{center}
+\vspace{12pt}
+\textcolor{blue}{\huge Using Python Testing Frameworks}
+\end{center}
+\vspace{18pt}
+\begin{center}
+\vspace{10pt}
+\includegraphics[scale=0.95]{../../images/fossee-logo.png}\\
+\vspace{5pt}
+\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
+\scriptsize Funded by National Mission on Education through ICT\\
+\scriptsize  MHRD,Govt. of India\\
+\includegraphics[scale=0.30]{../../images/iitb-logo.png}\\
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Objectives}
+  At the end of this section, you will be able to:
+  \begin{itemize}
+  \item Use doctests to test your Python code.
+  \item Use unittests to test your Python code.
+  \item Use the nose module to test your code.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pre-requisite}
+\label{sec-3}
+
+Spoken tutorial on Basic Python
+\begin{itemize}
+\item Topic of tutorial here
+\end{itemize}
+\end{frame}
+
+
+\section{Python Testing Frameworks}
+
+\begin{frame}[fragile]
+  \frametitle{Python Testing Frameworks}
+  \begin{itemize}
+  \item Testing frameworks essentially, ease the job of the user
+  \item Python provides two frameworks for testing code
+    \begin{itemize}
+    \item \texttt{unittest} framework
+    \item \texttt{doctest} module
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{\texttt{doctest} module}
+
+\begin{frame}[fragile]
+  \frametitle{doctest}
+  \begin{itemize}
+  \item Documentation always accompanies a well written piece of code
+  \item Use \texttt{docstring} to document functions or modules
+  \item Along with description and usage, examples can be added
+  \item Interactive interpreter session inputs and outputs are
+    copy-pasted 
+  \item \texttt{doctest} module picks up all such interactive examples
+  \item Executes them and determines if the code runs, as documented
+  \end{itemize}
+  Let's use the \texttt{doctest} module for our \texttt{gcd} function
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{doctest for \texttt{gcd.py}}
+\begin{tiny}
+\begin{lstlisting}
+def gcd(a, b):
+    """Returns the Greatest Common Divisor of the two integers
+    passed as arguments.
+
+    Args:
+      a: an integer
+      b: another integer
+
+    Returns: Greatest Common Divisor of a and b
+
+    >>> gcd(48, 64)
+    16
+    >>> gcd(44, 19)
+    1
+    """
+    if b == 0:
+        return a
+    return gcd(b, a%b) 
+\end{lstlisting}
+\end{tiny}
+\begin{itemize}
+\item We have added examples to the \texttt{docstring}
+\item Now we need to tell the \texttt{doctest} module to execute
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{doctest for \texttt{gcd.py} \ldots}
+\begin{lstlisting}
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+\end{lstlisting}
+\begin{itemize}
+\item \texttt{testmod} automatically picks all sample sessions
+\item Executes them and compares output with documented output
+\item It doesn't give any output, when all the results match 
+\item Complains only when one or more tests fail. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{doctest} -- Execution}
+  \begin{itemize}
+  \item Run the doctests by running \texttt{gcd.py}
+\begin{lstlisting}
+$ python gcd.py
+\end{lstlisting} %$
+  \item All the tests pass, and doctest gives no output
+  \item For a more detailed report we can run with -v argument
+\begin{lstlisting}
+$ python gcd.py -v
+\end{lstlisting} %$
+  \item If the output contains a blank line, use \texttt{<BLANKLINE>}
+  \item To see a failing test case, replace \texttt{return a} with \texttt{b}
+  \end{itemize}
+\end{frame}
+
+\subsection{\texttt{unittest} framework}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{unittest}}
+  \begin{itemize}
+  \item It won't be long, before we complain about the power of
+    \texttt{doctest} 
+  \item \texttt{unittest} framework can efficiently automate tests
+  \item Easily initialize code and data for executing the specific
+    tests
+  \item Cleanly shut them down once the tests are executed
+  \item Easily aggregate tests into collections and improved reporting
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{unittest}}
+  \begin{itemize}
+  \item It won't be long, before we complain about the power of
+    \texttt{doctest} 
+  \item \texttt{unittest} framework can efficiently automate tests
+  \item Easily initialize code and data for executing the specific
+    tests
+  \item Cleanly shut them down once the tests are executed
+  \item Easily aggregate tests into collections and improved reporting
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{unittest}ing \texttt{gcd.py}}
+  \begin{itemize}
+  \item Subclass the \texttt{TestCase} class in \texttt{unittest}
+  \item Place all the test code as methods of this class
+  \item Use the test cases present in \texttt{gcd\_testcases.dat}
+  \item Place the code in \texttt{test\_gcd.py} 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]
+  \frametitle{\texttt{test\_gcd.py}}
+\small
+\begin{lstlisting}
+import gcd
+import unittest
+
+class TestGcdFunction(unittest.TestCase):
+
+    def setUp(self):
+        self.test_file = open('gcd_testcases.dat')
+        self.test_cases = []
+        for line in self.test_file:
+            values = line.split(', ')
+            a = int(values[0])
+            b = int(values[1])
+            g = int(values[2])
+
+            self.test_cases.append([a, b, g])
+
+    def test_gcd(self):
+        for case in self.test_cases:
+            a = case[0]
+            b = case[1]
+            g = case[2]
+            self.assertEqual(gcd.gcd(a, b), g)
+
+    def tearDown(self):
+        self.test_file.close()
+        del self.test_cases
+
+if __name__ == '__main__':
+    unittest.main()
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{test\_gcd.py}}
+  \begin{itemize}
+  \item \texttt{setUp} -- we read all the test data and store it in a
+    list
+  \item \texttt{tearDown} -- delete the data to free up memory and
+    close open file
+  \item \texttt{test\_gcd} -- actual test code
+  \item \texttt{assertEqual} -- compare actual result with expected one
+  \item Write documentation for above code. 
+  \end{itemize}
+\end{frame}
+
+\section{\texttt{nose}}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{nose} tests}
+  \begin{itemize}
+  \item It is not easy to organize, choose and run tests scattered
+    across multiple files. 
+  \item \texttt{nose} module aggregate these tests automatically
+  \item Can aggregate \texttt{unittests} and \texttt{doctests}
+  \item Allows us to pick and choose which tests to run
+  \item Helps output the test-results and aggregate them in various
+    formats
+  \item Not part of the Python distribution itself
+\begin{lstlisting}
+$ easy_install nose
+\end{lstlisting} %$
+  \item Run the following command in the top level directory
+\begin{lstlisting}
+$ nosetests
+\end{lstlisting} %$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{}
+  \begin{center}
+  \textcolor{blue}{\Large THANK YOU!} 
+  \end{center}
+  \end{block}
+\begin{block}{}
+  \begin{center}
+    For more Information, visit our website\\
+    \url{http://fossee.in/}
+  \end{center}  
+  \end{block}
+\end{frame}
+
+\end{document}
