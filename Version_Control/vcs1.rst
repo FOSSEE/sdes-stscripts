@@ -1,3 +1,14 @@
+
+.. Prerequisites
+.. -------------
+
+.. None
+
+.. Author : Primal Pappachan
+   Internal Reviewer :
+  
+
+
 --------
 Script
 --------
@@ -24,7 +35,7 @@ At the end of this tutorial you will be able to
 
 .. R3
 
-First let's define what Version Control is
+First let's understand what Version Control is
 
 .. L3
 
@@ -32,7 +43,9 @@ First let's define what Version Control is
 
 .. R4
 
-A way to track changes made to files over time, by keeping copies of files as we change them.
+Version control is just a way to track your files over time and share them. This allows you to go back to older versions when something goes wrong, see what changed when and why, collaborate on a single piece of work with a bunch of people.
+
+Version control is just a way of backing up your files, before making changes to it. Most people would have cooked up their own version control system, without realizing there are tools built by others which takes the task much more organized and systematic.  
 
 .. L4
 
@@ -42,11 +55,13 @@ A way to track changes made to files over time, by keeping copies of files as we
 
 Let's look at an example of home-brew Version Control system
 
-Let's look at the various problems associated with this setup.
+Version control is just a way of backing up your files, before making changes to it. Most people would have cooked up their own version control system, without realizing there are tools built by others which takes the task much more organized and systematic.  
 
 .. L5
 
 {{{Show the slide 'Problems'}}}
+
+Let's look at the various problems associated with this setup.
 
 .. R6
 
@@ -65,6 +80,8 @@ Now let's move onto identifying the needs for a Version Control System.
 #. Allows for effective collaboration on the project as everything is shared.
 
 #. Helps to identify which additions have broken down the project and thus aids in efficient tracking down of the bugs.
+
+#. It is good for a one man show as it is for a big group of people working on a project.
 
 .. R8
 
@@ -86,52 +103,71 @@ It is similar to playing an Video game.
 
 .. R9
 
+Some of the Version Control tool available and used widely are:
+
+1. cvs(Concurrent Version Systems)
+
+#. svn(subversion)
+
+#. hg(mercurial)
+
+#. git
+
+.. R10
+
+Each of these tools have their own merits and demerits. In this tutorial we will be learning to use mercurial or hg.
+
 Let's now get into Installation
 
 .. L8
 
 sudo apt-get install mercurial
 
-.. R10
+.. R11
 
-For Windows, install TortoiseHg
-
-Type 'hg' which lists out all the commands 
+For Windows,
 
 .. L9
 
-$hg
+http://mercurial.selenic.com/downloads/
 
-.. R11
-
-and 'hg version' which gives the version number.
+Type 'hg' which lists out all the commands 
 
 .. L10
 
-$hg version
+$hg
 
 .. R12
 
-Now why do we need a Repo?
+and 'hg version' which gives the version number.
 
 .. L11
 
-{{{Show the slide for 'We need a repo!'}}}
+$hg version
 
 .. R13
 
-Let's now see how to initialize a repo
+Now why exactly is a repo? A repp/repository is a folder with all your files and a store of all the changes that were made to it. To save disk space, hg doesn't save all files, but only saves only a series of changes made to the files.
 
-.. L12
+.. L13
 
-$hg init
+{{{Show the slide for 'We need a repo!'}}}
 
 .. R14
 
-Creates a fresh repository
+Let's now see how to initialize a repo
 
-It adds a .hg directory to our working directory. This directory keeps log of changes made henceforth.
+.. L14
 
+cd working-directory/
+
+$hg init
+
+ls -a
+
+.. R15
+
+The .hg directory indicates that our book directory is now a hg repository. Mercurial keeps all the history of the changes made and a few other config files etc. in this directory.
 
 .. L13
 
@@ -147,17 +183,17 @@ $hg help 'status'
 
 .. R16
 
-You can use 'hg help commandname' which gives the details about the command.
+You can use 'hg help commandname' which gives the details about the command. For example.
 
 .. L15
+
+hg help status
 
 {{{Show the slides for 'Status Codes'}}}
 
 .. R17
 
-Have a look at what various status codes associated with files means.
-
-Let's move onto Adding Files.
+Have a look at what various status codes associated with files means. By looking at the codes, it is clear that our files are not yet being tracked by hg. Now Let's move onto Adding Files.
 
 .. L16
 
@@ -173,83 +209,107 @@ $hg add
 
 .. R19
 
-Appends an A to the filenames.
-
-Now let's take a snapshot of this working directory.
+This simply adds all the files in the (working) directory, to the repository, As expected, the status command shows an A has been appeneded to the filenames. We could also specify files individually, for example
 
 .. L18
 
-$hg commit
+$ hg add filename
 
 .. R20
 
-It remembers the changes made to the directory. The parameter -m is used to attach a commit message which gives a description of the changes committed to the repository.
+We have added a set of files to the repository, but we haven't told mercurial to remember these changes. Now let's take a snapshot of this working directory. This can be done by using commit command.
 
 .. L19
+
+$hg commit -u "Primal Papppachan <primal007@gmail.com>" -m "Initial Commit."
+
+.. R20
+
+The -u parameter allows to specify the user details. The parameter -m is used to attach a commit message which gives a description of the changes committed to the repository. Check the status of repository by typing
+
+.. L20
+
+$ hg st
+
+.. R21
+
+To see the history of changes made to our repository, we use hg log. We can view the change that we just made to our repoistory.
+
+.. L21
 
 {{{Show the slide 'Thumbnail views'}}}
 
 .. R21
 
-hg log gives the log of the changes made in the form of changesets.
+hg log gives the log of the changes made in the form of changesets. A changeset is a set of changes made to the repository between two consecutive commits. It also shows the date at which the commit was made.
+
 
 .. R22
 
 User information is set in the hgrc file. It can be either globally or locally to the project.
 
-.. L20
+.. L23
 
 For linux systems
 
-cat ~/.hgrc 
+cat ~8.hgrc 
+[ui]
+username = Primal Pappachan <primal007@gmail.com>
+editor = vim
 
-.. L21
+
+.. R23
+
+
+We have now set the username details for mercurial to use.
+
+.. L24
 
 {{{Show the slide 'Advice: commits, messages'}}} 
 
-.. R23
+.. R24
 
 1. Atomic changes; one change with one commit
 
 #. Single line summary — 60 to 65 characters long
 
 #. Followed by paragraphs of detailed description
- -  Why the change?
- - What does it effect?
- - Known bugs/issues?
- - etc.
+   -  Why the change?
+   - What does it effect?
+   - Known bugs/issues?
+   - etc.
 
-.. L22
+.. L25
 
 {{{Show the 'summary' slide'}}}
 
-.. R23
+.. R25
 
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt to,
 
-.. L24
+.. L26
 
 {{{Show self assessment questions slide}}}
 
-.. R24
+.. R26
 
 Here are some self assessment questions for you to solve
 
-.. L25
+.. L27
 
 {{{Show the solutions slide to self assessment questions }}}
 
-.. R25
+.. R27
 
 And the answers,
 
 
-.. L26
+.. L27
 
 {{{Show the thank you slide}}}
 
-.. R26
+.. R28
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you
