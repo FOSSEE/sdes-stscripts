@@ -6,6 +6,7 @@
 
 .. Author : Primal Pappachan
    Internal Reviewer :
+   Date: Sept 23, 2011
 --------
 Script
 --------
@@ -70,9 +71,9 @@ Now let's move onto identifying the needs for a Version Control System.
 
 .. R7
 
-1. To err is Human...
+We have seen that one of the main motivation to use a version system control system is the ability to go back to a working version of the file, when something stops working. Below are a few more advantages of using an automated version control system.
 
-#. By tracking the history of the project, an outsider can see the evolution of a project.
+1. By tracking the history of the project, an outsider can see the evolution of a project.
 
 #. Allows for effective collaboration on the project as everything is shared.
 
@@ -80,21 +81,16 @@ Now let's move onto identifying the needs for a Version Control System.
 
 #. It is good for a one man show as it is for a big group of people working on a project.
 
-.. R8
-
-It is similar to playing an Video game.
-
-1. We play games in stages
-
-#. Once we finish a stage or a task - we SAVE
-
-#. We continue playing
-
-#. But, if necessary, we could choose from one of the saved states and start from there
-
-#. We could alter the course of the game
 
 .. L7
+
+{{{Show the slide 'How does it work? - Analogy}}}
+
+.. R8
+
+It is, in some ways, similar to playing a video game. We generally play games in stages, saving the game, each time we finish a stage or complete a task. We continue playing, but we could, if necessary, choose to go back to one of the saved states and start over. In this manner we could change the state of the game.
+
+.. L8
 
 {{{Show the slide 'Mercurial or hg'}}}
 
@@ -144,7 +140,7 @@ $hg version
 
 .. R13
 
-Now why exactly is a repo? A repp/repository is a folder with all your files and a store of all the changes that were made to it. To save disk space, hg doesn't save all files, but only saves only a series of changes made to the files.
+Now why exactly is a repo? A repo/repository is a folder with all your files and a store of all the changes that were made to it. To save disk space, hg doesn't save all files, but only saves only a series of changes made to the files.
 
 .. L13
 
@@ -218,7 +214,7 @@ We have added a set of files to the repository, but we haven't told mercurial to
 
 .. L19
 
-$hg commit -u "Primal Papppachan <primal007@gmail.com>" -m "Initial Commit."
+$hg commit -u "username <user@domain.com>" -m "Commit message."
 
 .. R20
 
@@ -245,13 +241,12 @@ hg log gives the log of the changes made in the form of changesets. A changeset 
 
 User information is set in the hgrc file. It can be either globally or locally to the project.
 
+For linux systems
 .. L23
 
-For linux systems
-
-cat ~8.hgrc 
+cat ~/.hgrc 
 [ui]
-username = Primal Pappachan <primal007@gmail.com>
+username = username <user@domain.com>
 editor = vim
 
 
