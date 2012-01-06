@@ -34,6 +34,16 @@
   showstringspaces=false,
   keywordstyle=\color{blue}\bfseries}
 
+\newcommand{\inctime}[1]{\addtocounter{time}{#1}{\tiny \thetime\ m}}
+
+\newcommand{\typ}[1]{\lstinline{#1}}
+
+\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
+
+\setbeamercolor{emphbar}{bg=blue!20, fg=black}
+\newcommand{\emphbar}[1]
+
+
 \begin{document}
 
 \begin{frame}
@@ -50,7 +60,7 @@
 \scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
 \scriptsize Funded by National Mission on Education through ICT\\
 \scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.30]{../images/iitb-logo.png}\\
+\includegraphics[scale=0.15]{../images/iitb-logo.jpg}\\
 \end{center}
 \end{frame}
 
@@ -82,7 +92,7 @@
   \frametitle{Home-brewed}
   \begin{center}
     An example of a \typ{home-brew} Version Control system
-    \includegraphics[height=1.8in,width=4.2in]{images/folder.png}
+    \includegraphics[height=1.8in,width=4.2in]{../images/folder.png}
   \end{center}
   \begin{lstlisting} 
 $ ls
@@ -132,7 +142,7 @@ a.out  id1.txt  id2.txt  identifier.cpp  id.txt  lex  pda1.cpp  pda2.cpp  pda.cp
 \begin{frame}
   \frametitle{Mercurial or \typ{hg}}
   \begin{center}
-    \includegraphics[height=.75in,interpolate=true]{images/mercurial_logo}
+    \includegraphics[height=.75in,interpolate=true]{../images/mercurial_logo}
   \end{center}
   \begin{itemize}
   \item Easy to learn and use
@@ -279,15 +289,21 @@ a.out  id1.txt  id2.txt  identifier.cpp  id.txt  lex  pda1.cpp  pda2.cpp  pda.cp
 \item How to install Hg
 \item Initialize a new repository using hg init,
 \item Get the status of a repository using hg status,
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Summary...}
+\label{sec-8}
+\begin{itemize}
 \item Make sense out of the various status codes in the output of hg status,
 \item Use the hg help to get help about any hg command,
 \item Make commits of changes to files, using hg commit
 \item View the history of the repository using the hg log command,
 \item Set our user information in the global hgrc file.
-
-\item 
 \end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Evaluation}
 \label{sec-9}
