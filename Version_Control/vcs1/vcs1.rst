@@ -5,8 +5,8 @@
 .. None
 
 .. Author : Primal Pappachan
-   Internal Reviewer :
-   Date: Sept 23, 2011
+   Internal Reviewer : Kiran Kishore
+   Date: Jan 6, 2012
 --------
 Script
 --------
@@ -33,7 +33,7 @@ At the end of this tutorial you will be able to
 
 .. R3
 
-First let's understand what Version Control is
+First, let's understand what Version Control is
 
 .. L3
 
@@ -41,9 +41,8 @@ First let's understand what Version Control is
 
 .. R4
 
-Version control is just a way to track your files over time and share them. This allows you to go back to older versions when something goes wrong, see what changed when and why, collaborate on a single piece of work with a bunch of people.
-
-Version control is just a way of backing up your files, before making changes to it. Most people would have cooked up their own version control system, without realizing there are tools built by others which takes the task much more organized and systematic.  
+Version control is a way to track files over time and share them. This allows access to earlier versions of a file(s) if and when required. It therefore enables us to make changes to the content of a file, view it's change log and collaborate on a single piece of work with a bunch of people.
+ 
 
 .. L4
 
@@ -53,7 +52,7 @@ Version control is just a way of backing up your files, before making changes to
 
 Let's look at an example of home-brew Version Control system
 
-Version control is just a way of backing up your files, before making changes to it. Most people would have cooked up their own version control system, without realizing there are tools built by others which takes the task much more organized and systematic.  
+Version control is a way of backing up files, before making changes. Most people would have cooked up their own version control system, without realizing, there were tools built by others, that performs the task in a more organized and systematic way.  
 
 .. L5
 
@@ -63,7 +62,7 @@ Let's look at the various problems associated with this setup.
 
 .. R6
 
-Now let's move onto identifying the needs for a Version Control System.
+Now, let's move onto identifying the needs for a 'Version Control System'.
 
 .. L6
 
