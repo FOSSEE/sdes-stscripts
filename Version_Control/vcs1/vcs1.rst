@@ -5,8 +5,8 @@
 .. None
 
 .. Author : Primal Pappachan
-   Internal Reviewer : Kiran Kishore
-   Date: Jan 6, 2012
+   Internal Reviewer : Kiran Isukapatla
+   Date: Jan 8, 2012
 --------
 Script
 --------
@@ -29,11 +29,11 @@ At the end of this tutorial you will be able to
 
 1. Understand what is Version Control and the need for it.
 
-#. Create and use repository on a daily basis
+#. Create and use a repository on a daily basis.
 
 .. R3
 
-First, let's understand what Version Control is
+First, let's understand what 'Version Control' is.
 
 .. L3
 
@@ -41,7 +41,7 @@ First, let's understand what Version Control is
 
 .. R4
 
-Version control is a way to track files over time and share them. This allows access to earlier versions of a file(s) if and when required. It therefore enables us to make changes to the content of a file, view it's change log and collaborate on a single piece of work with a bunch of people.
+'Version control' is a way to track files over time and share them. This allows access to earlier versions of a file(s) if and when required. It therefore enables us to make changes to the content of a file, view it's change log and collaborate on a single piece of work with a team of people.
  
 
 .. L4
@@ -58,11 +58,11 @@ Version control is a way of backing up files, before making changes. Most people
 
 {{{Show the slide 'Problems'}}}
 
-Let's look at the various problems associated with this setup.
+Let's look at the various problems associated with this set-up.
 
 .. R6
 
-Now, let's move onto identifying the needs for a 'Version Control System'.
+Now, let's move to identifying the needs for a 'Version Control System'.
 
 .. L6
 
@@ -70,13 +70,13 @@ Now, let's move onto identifying the needs for a 'Version Control System'.
 
 .. R7
 
-We have seen that one of the main motivation to use a version system control system is the ability to go back to a working version of the file, when something stops working. Below are a few more advantages of using an automated version control system.
+We have seen that one of the main motivations to use a Version Control system is the ability to go back to a working version of a file, when something goes wrong. Below are a few more advantages of using an automated version control system.
 
-1. By tracking the history of the project, an outsider can see the evolution of a project.
+1. By tracking the history of a project, any person may see the evolution of a project.
 
-#. Allows for effective collaboration on the project as everything is shared.
+#. Allows for effective collaboration on a project, as everything is shared.
 
-#. Helps to identify which additions have broken down the project and thus aids in efficient tracking down of the bugs.
+#. Helps to identify which additions have broken down a project and thus aids in efficient tracking down of the bugs.
 
 #. It is good for a one man show as it is for a big group of people working on a project.
 
@@ -87,7 +87,7 @@ We have seen that one of the main motivation to use a version system control sys
 
 .. R8
 
-It is, in some ways, similar to playing a video game. We generally play games in stages, saving the game, each time we finish a stage or complete a task. We continue playing, but we could, if necessary, choose to go back to one of the saved states and start over. In this manner we could change the state of the game.
+It is, in some ways, similar to playing a video game. We generally play games in stages. While playing, we save the game at some instances as per our choice. We continue playing, but we could, if necessary, choose to go back to one of the saved states and start over. In this manner, we could change the state of the game.
 
 .. L8
 
@@ -95,10 +95,10 @@ It is, in some ways, similar to playing a video game. We generally play games in
 
 .. R9
 
-Some of the Version Control tool available and used widely are:
+Some of the Version Control tools available and used widely are:
 
 1. cvs(Concurrent Version Systems)
-
+	
 #. svn(subversion)
 
 #. hg(mercurial)
@@ -107,7 +107,7 @@ Some of the Version Control tool available and used widely are:
 
 .. R10
 
-Each of these tools have their own merits and demerits. In this tutorial we will be learning to use mercurial or hg.
+Each of these tools have their own merits and demerits. In this tutorial we shall learn how to use mercurial or hg.
 
 Let's now get into Installation
 
@@ -139,7 +139,7 @@ $hg version
 
 .. R13
 
-Now why exactly is a repo? A repo/repository is a folder with all your files and a store of all the changes that were made to it. To save disk space, hg doesn't save all files, but only saves only a series of changes made to the files.
+Now, what exactly is a repo? A repo/repository is a folder with contains all the files and information on all the changes that were made to it. To save disk space, hg doesn't save all files, but only saves only a series of changes made to the files.
 
 .. L13
 
@@ -147,7 +147,7 @@ Now why exactly is a repo? A repo/repository is a folder with all your files and
 
 .. R14
 
-Let's now see how to initialize a repo
+Let's now see how to initialize a repo.
 
 .. L14
 
@@ -185,7 +185,7 @@ hg help status
 
 .. R17
 
-Have a look at what various status codes associated with files means. By looking at the codes, it is clear that our files are not yet being tracked by hg. Now Let's move onto Adding Files.
+Have a look at what various status codes, associated with the files mean. By looking at the codes, it is clear that our files are not being tracked by hg yet. Now let's move onto 'Adding Files'.
 
 .. L16
 
@@ -193,7 +193,7 @@ $hg status
 
 .. R18
 
-This shows that none of the files in the folder have not been added yet.
+This shows that none of the files in the folder have been added yet.
 
 .. L17
 
@@ -201,7 +201,7 @@ $hg add
 
 .. R19
 
-This simply adds all the files in the (working) directory, to the repository, As expected, the status command shows an A has been appeneded to the filenames. We could also specify files individually, for example
+This simply adds all the files in the (working) directory, to the repository. As expected, the status command shows an 'A' has been appended to the filenames. We could also specify files individually, for example
 
 .. L18
 
@@ -225,7 +225,7 @@ $ hg st
 
 .. R21
 
-To see the history of changes made to our repository, we use hg log. We can view the change that we just made to our repoistory.
+To see the history of changes made to our repository, we use hg log. We can view the change that we just made to our repository.
 
 .. L21
 
@@ -238,7 +238,7 @@ hg log gives the log of the changes made in the form of changesets. A changeset 
 
 .. R22
 
-User information is set in the hgrc file. It can be either globally or locally to the project.
+User information is set in the hgrc file. It can be either set globally or locally to the project.
 
 For linux systems
 .. L23
@@ -252,7 +252,7 @@ editor = vim
 .. R23
 
 
-We have now set the username details for mercurial to use.
+We have now set the user-name details for mercurial to use.
 
 .. L24
 
