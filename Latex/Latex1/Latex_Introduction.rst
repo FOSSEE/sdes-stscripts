@@ -3,21 +3,21 @@
 
 .. By the end of this tutorial, you will be able to
 
-.. 1. Become familiar with the  history of, development of LaTeX.
-.. #. Description of a  typical work flow, when using LaTeX to typeset documents.
-.. #. Advantages and disadvantages of typesetting documents using 
-..    the LaTeX approach.
+.. 1. Have an insight on the history and development of LaTeX.
+.. #. Adopt a simple workflow, that uses LaTeX to typeset documents.
+.. #. Know the advantages and disadvantages of typesetting documents using
+..    the LaTeX.
 .. #. Create a very simple LaTeX document
 
 .. Prerequisites
 .. -------------
 
-.. 1. Should have already installed LaTeX and its supported packages on the host machine.
-.. #. Should be comfortable using a text editor of choice. 
+.. 1. LaTeX and its supported packages installed on the host machine.
+.. #. Should be comfortable using a text editor of your choice. 
 
      
 .. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
-   Internal Reviewer   : 
+   Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
    External Reviewer   :
    Langauge Reviewer   : 
    Checklist OK?       : <put date stamp here, if OK> 
@@ -32,7 +32,7 @@ team along with the logo of MHRD }}}
 
 .. R1
 
-Hello Friends and Welcome to the tutorial on introduction to LaTeX. 
+Hello friends and welcome to the tutorial on 'Introduction to LaTeX'. 
 
 .. L2
 
@@ -40,13 +40,12 @@ Hello Friends and Welcome to the tutorial on introduction to LaTeX.
 
 .. R2
 
-At the end of this tutorial, you will be able to,
+.. By the end of this tutorial, you will be able to
 
- 1. Have an insight on the history and development of LaTeX.
- #. Adopt a simple work flow, that uses LaTeX to typset documents.
- #. Know about the Advantages and disadvantages of typesetting documents using
-..  the LaTeX approach.
- #. Will have gone through an example on creating a very simple LaTeX document.
+.. 1. Have an insight on the history and development of LaTeX.
+.. #. Adopt a simple workflow, that uses LaTeX to typeset documents.
+.. #. Know the advantages and disadvantages of typesetting documents using LaTeX.
+.. #. Create a very simple LaTeX document
 
 .. L3
 
@@ -54,9 +53,11 @@ At the end of this tutorial, you will be able to,
 
 .. R3
 
-Before beginning this tutorial,we would suggest having a working installation of
-LaTeX on your computer. You can do this by completing the tutorial titled 
-"Installing LaTeX".
+You would require: 
+.. 1. LaTeX and its supporting packages installed on the host machine.
+.. #. Should be comfortable using a text editor of your choice. 
+
+We recommend you to go thorugh the tutorial titled, "Installing LaTeX" for more information on installation.
 
 .. L4
 
@@ -70,8 +71,7 @@ of text and mathematical formulae. TeX was started to reverse
 the trend of deteriorating typographical quality of the then,
 nascent digital publishing industry.
 
-LaTeX is a document preparation system for high quality type 
-setting. It is based on the TeX typesetting language or certain
+LaTeX is a document preparation system for high quality typesetting. It is based on the TeX typesetting language or certain
 extensions.
 
 .. L5
@@ -96,7 +96,7 @@ processing engine.
 Next comes the question compiling LaTeX input files and viewing the output
 typeset document.
 The process is a little different from other markup languages like HTML.
-We compile ASCII text files into typeset files that are normally DVI,Postscript
+We compile ASCII text files into typeset files that are normally DVI, Postscript
 or PDF files.
 The latex command converts LaTeX input files into dvi files.
 We can view DVI files on Gnu/Linux using xdvi.
@@ -104,7 +104,7 @@ Further  DVI files can be converted either to a post script file, using the
 dvips command or to a PDF file using the dvipdfm command.
 The command pdflatex is used to convert LaTeX input files directly to pdf files.
 The resultant PDF files can be viewed using standard tools on most platforms
-(Eg: evince on Gnu/Linux). PDF file are also widely supported.
+(Eg: evince on Gnu/Linux).
 
 .. L7
 
@@ -116,11 +116,11 @@ Some of the advantages of using LaTeX approach to typesetting are
 (1) Easy availability of professionally crafted layouts.
 (2) Typesetting of mathematical formulae is supported in a convenient
 environment.
-(3) Typesetting for most cases can be done with very little learning curve
+(3) Typesetting for most cases can be done with very little learning curve, 
 using easy to use/understand commands, that only specify the logical structure
 of the document.
 (4) Presence of lots of add-on packages.
-(5) It encourages creation of well structured texts.
+(5) Encourages creation of well structured texts.
 
 .. L8
 
@@ -130,7 +130,7 @@ of the document.
 
 Some of the disadvantages of using LaTeX approach to typesetting are
 (1) Designing a whole new layout is difficult.
-(2) Typesetting even complex documents, is done using mostly text editors.
+(2) Typesetting even complex documents, is mostly done using text editors.
 
 .. L9
 ::
@@ -147,7 +147,7 @@ Hello world!
 .. R9
 
 Now, we try to create a simple LaTeX document. Pause the tutorial and type the
-content shown on the screen in a text editor. Save the file as temp.tex
+content shown on the screen in a text editor. Save the file as 'temp.tex'
 
 .. L10
 
@@ -156,15 +156,13 @@ latex temp.tex
 
 .. R10
 
-Now we compile the commands in the LaTeX input file that is, temp.tex into a 
+Now, we compile the commands in the LaTeX input file 'temp.tex' into a 
 typeset file.
 The first alternative is to compile LaTeX input file into a DVI file. We use 
-the latex command for this purpose.
-For compiling the LaTeX input file temp.tex into a DVI file, we use the
-following command
-latex temp.tex. 
-The output file would be temp.dvi.
-On Gnu/Linux use a program like xdvi to view the output file.
+the following latex command for this purpose.
+'latex temp.tex'
+The output file would be 'temp.dvi'.
+On Gnu/Linux, use a program like 'xdvi' to view the output file.
 
 .. L11
 
@@ -173,12 +171,14 @@ pdflatex temp.tex
 .. R11
 
 The other alternative is to create PDF files from LaTeX input files.
-We use the pdflatex command for this purpose. 
-For compiling the LaTeX input file temp.tex into a PDF file, we use the
+We use the 'pdflatex' command for this purpose. 
+For compiling the LaTeX input file 'temp.tex' into a PDF file, we use the
 following command
-pdflatex temp.tex
-The output file would be temp.pdf
-On Gnu/Linux use a program like evince to view the output file.
+
+'pdflatex temp.tex'
+
+The output file would be 'temp.pdf'.
+On Gnu/Linux use a program like 'evince' to view the output file.
 
 .. L12
 
@@ -202,16 +202,16 @@ This brings us to the end of this tutorial. In this tutorial, we have,
 
 Here are some self assessment questions for you to solve
 
- 1. Convert the temp.dvi created during the course of this tutorial to temp_1.ps
+ 1. Convert the 'temp.dvi' created during the course of this tutorial to 'temp_1.ps'
 using the dvips command. Verify that the two files indeed look the same.
 
- 2. Convert the temp.dvi created during the course of this tutorial to
-temp_1.pdf using the dvipdfm command. Verify that the two files indeed look the
+ 2. Convert the 'temp.dvi' created during the course of this tutorial to
+'temp_1.pdf' using the dvipdfm command. Verify that the two files indeed look the
 same.
 
-3. Remove the line "\maketitle" from temp.tex file. Recompile the file into
+3. Remove the line "\maketitle" from 'temp.tex' file. Recompile the file into
 either a DVI or a PDF file. what is the difference between the original output
-and the output from the newer version of the temp.tex file ??
+and the output from the newer version of the 'temp.tex' file ??
 
 .. L14
 
@@ -221,10 +221,12 @@ and the output from the newer version of the temp.tex file ??
 
 And the answers,
 
-1. We can use the following command to convert temp.dvi to temp_1.ps
+1. We can use the following command to convert 'temp.dvi' to 'temp_1.ps'.
+
 dvips -o temp_1.ps temp.dvi
 
-2. We can use the following command to convert temp.dvi to temp_1.pdf
+2. We can use the following command to convert 'temp.dvi' to 'temp_1.pdf'.
+
 dvipdfm -o temp_1.pdf temp.dvi
 
 3. The output file consists of a file with a single line of text "Hello world!".
