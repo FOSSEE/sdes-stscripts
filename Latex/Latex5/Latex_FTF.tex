@@ -1,0 +1,246 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LateX
+%
+% Author: FOSSEE 
+% Copyright (c) 2009, FOSSEE, IIT Bombay
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[english]{babel} \usepackage{ae,aecompl}
+\usepackage{mathpazo,courier,euler} \usepackage[scaled=.95]{helvet}
+\usepackage{listings}
+\lstset{
+  language=TeX,
+  basicstyle=\ttfamily\bfseries,
+  commentstyle=\ttfamily\color{blue},
+  stringstyle=\ttfamily\color{orange},
+  showstringspaces=false,
+  breaklines=true,
+  postbreak = \space\dots
+}
+
+\newcommand{\typ}[1]{\lstinline{#1}}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+}
+
+
+\setbeamercolor{emphbar}{bg=blue!20, fg=black}
+\newcommand{\emphbar}[1]
+
+
+\begin{document}
+
+\begin{frame}
+
+\begin{center}
+\vspace{12pt}
+\textcolor{blue}{\huge {\LaTeX}:Tables, Figures and Floats}
+\end{center}
+\vspace{18pt}
+\begin{center}
+\vspace{10pt}
+\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
+\vspace{5pt}
+\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
+\scriptsize Funded by National Mission on Education through ICT\\
+\scriptsize  MHRD,Govt. of India\\
+\includegraphics[scale=0.15]{../images/iitb-logo.jpg}\\
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Objectives}
+  At the end of this session, you will be able to:
+  \begin{itemize}
+  \item Learn how to add figures to your document
+  \item Include tabular environments
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Prerequisite}
+  Spoken Tutorial on:
+  \begin{enumerate}
+  \item {\LaTeX} - Getting Started
+  \item {\LaTeX} - Introduction
+  \item {\LaTeX} - Structuring the Content
+  \item {\LaTeX} - Typesetting Text
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Figures}
+  \begin{itemize}
+  \item The \typ{graphicx} package allows us to insert graphics
+  \item \lstinline+\usepackage{graphicx}+
+  \item To add a graphic, use \lstinline{\includegraphics} command
+  \item Use relative path to the image
+  \end{itemize}
+  \tiny See rev17 of \typ{hg}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\lstinline{includgraphics}}
+  It takes following optional arguments
+  \begin{itemize}
+  \item \lstinline+scale+ --- specifies the factor by which to scale
+    the image 
+  \item \lstinline+height+, \lstinline+width+ --- If only one of them
+    is specified, aspect ratio is maintained 
+  \item \lstinline+keepaspectratio+ --- boolean value to keep aspect
+    ratio or not 
+  \item \lstinline+angle+ --- specify by what angle the image should
+    be rotated 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Floats}
+  \begin{itemize}
+  \item Graphics (\& Tables) are special because they cannot be broken
+    across pages 
+  \item They are ``floated'' to the next page, if they don't fit in
+    the current page 
+  \item Enclose graphic within \lstinline+figure+ environment to make
+    it float 
+  \item Figure environment takes additional parameter for location of
+    float 
+  \end{itemize}
+  \begin{table}
+    \caption{Permission Specifiers}
+    
+    \begin{tabular}{|c|c|}
+      Specifier & Permission\\\hline
+      t & Top of page\\
+      b & Bottom of page\\
+      p & Separate page for floats\\
+      h & here (the same place where command appears in source)\\
+      ! & override \LaTeX's internal parameters for good position
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Captions and References}
+  \begin{itemize}
+  \item Figure environment allows us add a caption
+  \item To place the image in the center we enclose it in the
+    \lstinline+center+ environment 
+  \item We can label images too
+  \item label should be added after the caption command
+  \item Figures are auto numbered
+  \end{itemize}
+  \tiny See rev17 of \typ{hg}
+\end{frame}
+
+\begin{frame}[frame]
+  \frametitle{Tables}
+  \begin{itemize}
+  \item \lstinline+tabular+ is used to typeset a table
+  \item It is enclosed in a \lstinline+table+ environment to make it a
+    float 
+  \item \lstinline+table+ environment also gives captions, auto
+    numbering  
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{\lstinline+tabular+}
+  \begin{itemize}
+  \item tabular takes formatting of each column as argument
+  \end{itemize}
+
+  \begin{table}
+    \caption{tabular environment}
+    
+    \begin{tabular}{|l|l|}
+      \lstinline+l+ & left justified column content\\\hline
+      \lstinline+r+ & right justified column content\\\hline
+      \lstinline+c+ & centered column content\\\hline
+      \lstinline+|+ & produces a vertical line\\
+    \end{tabular}
+  \end{table}
+  \begin{itemize}
+  \item also takes an optional parameter for specifying position of
+    table 
+  \item \lstinline+t+ for top, \lstinline+b+ for bottom, \lstinline+c+
+    for center 
+  \item each column of table is separated by \&
+  \item each row is separated by newline \lstinline{\\}
+  \item \lstinline+\hline+ give a horizontal line between two rows
+  \end{itemize}
+  \tiny See rev18 of \typ{hg}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{List of Tables, Figures}
+  \begin{itemize}
+  \item \lstinline+\listoftables+ -- to add a list of tables
+  \item \lstinline+\listoffigures+ -- to add a list of figures
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Summary...}
+	\begin{itemize}
+	\item 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Evaluation}
+\begin{enumerate}
+\item 
+\item 
+\item 
+\end{enumerate}
+\end{frame}
+\begin{frame}
+
+\frametitle{Solutions}
+\begin{enumerate}
+\item 
+\vspace{15pt}
+\item 
+\end{enumerate}
+\end{frame}
+\begin{frame}
+
+\begin{block}{}
+  \begin{center}
+  \textcolor{blue}{\Large THANK YOU!} 
+  \end{center}
+  \end{block}
+\begin{block}{}
+  \begin{center}
+    For more Information, visit our website\\
+    \url{http://fossee.in/}
+  \end{center}  
+  \end{block}
+\end{frame}
+
+\end{document}
+

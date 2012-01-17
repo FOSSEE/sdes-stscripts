@@ -15,7 +15,7 @@ Script
 
 {{{ Show the first slide containing title, name of the production team along with the logo of MHRD}}}
 
-i.. R1
+.. R1
 
 Hello friends and welcome to the tutorial on 'Version Control with Hg' 
 
