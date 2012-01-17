@@ -25,11 +25,11 @@ Hello friends and welcome to the second tutorial on Latex.
 
 .. R2
 
-At the end of this tutorial you will be able to
+At the end of this tutorial you will be able to:
 
-1. Learn how to typeset your document using LaTEX
+1. Learn how to typeset your document using LaTEX.
 
-#. Use lists, listings in your document for formatting text
+#. Use lists, listings in your document for formatting text.
 
 .. L3
 
@@ -37,7 +37,7 @@ At the end of this tutorial you will be able to
 
 .. R3
 
-Please make sure that you have gone through the following tutorials before you continue on this tutorial
+Please make sure that you have gone through the following tutorials before you continue on this tutorial.
 
 .. L4
 
@@ -75,7 +75,7 @@ To emphasize text, the \emph command is used.
 
 Let's try and form a tabular structure by separating the left and right columns using spaces. On compiling we find that LaTeX doesn't add multiple spaces between words. Just like multiple empty lines, multiple spaces are considered as a single space.
 
-Also, you would have noticed that LaTeX starts a new paragraph at the beginning of the table. To avoid this, we use the flushleft environment.
+Also, you would have noticed that LaTeX starts a new paragraph at the beginning of the table. To avoid this, we use the 'flushleft environment'.
 
 .. L8
 
