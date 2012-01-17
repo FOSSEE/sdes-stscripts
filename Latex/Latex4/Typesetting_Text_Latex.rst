@@ -5,7 +5,7 @@
 .. None
 
 .. Author : Primal Pappachan
-   Internal Reviewer : Kiran Isukapatla, Sushma Dubey
+   Internal Reviewer : Kiran Isukapatla
    Date: Jan 8, 2012
 --------
 Script
