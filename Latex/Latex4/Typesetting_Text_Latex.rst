@@ -6,7 +6,7 @@
 
 .. Author : Primal Pappachan
    Internal Reviewer : Kiran Isukapatla
-   Date: Jan 8, 2012
+   Date: Jan 13, 2012
 --------
 Script
 --------
@@ -53,7 +53,7 @@ Look at the quotation marks around the text, Sigh Pie. They are not formatted pr
 
 .. R5
 
-To place quotation marks in LaTeX, you should use ` character for the left quote & ' character for the right quote. For double quotes, they should be used twice.
+To place quotation marks in LaTeX, use ` character for the left quote & ' character for the right quote. For double quotes, use them twice.
 
 .. L6
 
@@ -73,7 +73,7 @@ To emphasize text, the \emph command is used.
 
 .. R8
 
-Let's try and form a tabular structure by separating the left and right columns using spaces. On compiling we find that LaTeX doesn't add multiple spaces between words. Just like multiple empty lines, multiple spaces are considered as a single space.
+Let's try and form a tabular structure by separating the left and right columns using spaces. On compiling, we find that LaTeX doesn't add multiple spaces between words. Just like multiple empty lines, multiple spaces are considered as a single space.
 
 Also, you would have noticed that LaTeX starts a new paragraph at the beginning of the table. To avoid this, we use the 'flushleft environment'.
 
@@ -83,7 +83,7 @@ Also, you would have noticed that LaTeX starts a new paragraph at the beginning 
 
 .. R9
 
-\textbf is used to change text to bold face and \texttt is used to change text to fixed width font.
+'\textbf' is used to change text to bold face and '\texttt' is used to change text to fixed width font.
 
 .. L9
 
@@ -91,7 +91,7 @@ Also, you would have noticed that LaTeX starts a new paragraph at the beginning 
 
 .. R10
 
-We could also change the separating - (hyphen) to an em-dash (or en-dash) -- is em-dash and --- is an em-dash, to improve the appearance of the document.
+We could also change the separating - (hyphen) to -- (n-dash) or --- (em-dash), to improve the appearance of the document.
 
 .. L10
 
