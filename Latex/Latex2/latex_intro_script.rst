@@ -68,7 +68,6 @@ LaTeX on your computer. You can do this by completing the tutorial titled
 
 .. L4
 
-{{{ switch to the photograph of Donald E. Knuth  }}}
 
 .. R4
 
@@ -109,7 +108,6 @@ you focus on content.
 
 .. L6
 
-{{{ switch to stock photograph of/symbolizing advantages and disadvantages  }}}
 
 .. R6
 
@@ -125,7 +123,6 @@ of the document.
 
 .. L7
 
-{{{ switch to stock photograph of/symbolizing advantages and disadvantages  }}}
 
 .. R7
 
@@ -134,7 +131,6 @@ Some of the disadvantages of using LaTeX approach to typesetting is
 
 .. L8
 
-{{{ switch to Image saying/symbolizing work flow }}}
 
 .. R8
 
@@ -187,7 +183,6 @@ content shown on the screen in a text editor. Save the file as temp.tex
 .. L10
 
 {{{continue from paused state}}}
-latex temp.tex 
 
 .. R10
 
@@ -203,7 +198,6 @@ On Gnu/Linux use a program like xdvi to view the output file.
 
 .. L11
 
-pdflatex temp.tex
 
 .. R11
 
