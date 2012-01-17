@@ -99,7 +99,7 @@ We could also change the separating - (hyphen) to -- (n-dash) or --- (em-dash), 
 
 .. R11
 
-The section on Use of Scipy in this course, contains lists. Let's now add lists to our document. 
+The section on 'Use of Scipy' in this course, contains lists. Now, let us add lists to our document. 
 
 .. L11
 
@@ -107,7 +107,7 @@ The section on Use of Scipy in this course, contains lists. Let's now add lists 
 
 .. R12
 
-The enumerate environment adds numbered lists to our document and the itemize environment adds un-numbered lists. \item command adds a new entry to a list. Note, that LaTeX can easily handle nested lists. In fact most environments can be embedded within other environments, without any problems.
+The 'enumerate' environment adds numbered lists to our document and the itemize environment adds un-numbered lists. \item command adds a new entry to a list. Note, that LaTeX can easily handle nested lists. In fact most environments can be embedded within other environments, without any problems.
 
 
 .. L12
@@ -142,7 +142,7 @@ We first add a label to the section that we want to refer in this footnote. Then
 
 .. R16
 
-LaTeX by default provides the verbatim environment to include pre-formatted text. You can try that out during the lab session. We shall look at using the listings package, specifically meant for including code in our document.
+LaTeX by default provides the verbatim environment to include pre-formatted text. You may try this, during the lab session. We shall look at using the listings package, specifically meant for including code in our document.
 
 .. L16
 
@@ -150,9 +150,9 @@ LaTeX by default provides the verbatim environment to include pre-formatted text
 
 .. R17
 
-First of all you need to tell LaTeX, that you want to use the listings package in your document. We add the directive \usepackage{listings} to the preamble of our document.
+First of all, we need to tell LaTeX, that we want to use the listings package in your document. We do this by adding the directive \usepackage{listings} to the preamble of our document.
 
-Then we set the language of the code that we are going to embed into our document. For this we use the lstset command.
+Then, we set the language of the code that we are going to embed into our document. For this, we use the 'lstset' command.
 
 .. L17
 
@@ -183,15 +183,15 @@ For example, let's add the code to the Appendix of our document.
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt to,
 
-1. Put Quotation Marks around text
+1. Put Quotation Marks around text.
 
-#. How to Emphasize and give fixed width to fonts.
+#. Emphasize and give fixed width to fonts.
 
-#. Use numbered and un-numbered lists
+#. Use numbered and un-numbered lists.
 
-#. Add Footnotes, Labels and References
+#. Add Footnotes, Labels and References.
 
-#. Use the listings package to include code
+#. Use the listings package to include code.
 
 .. L21
 
@@ -199,7 +199,7 @@ learnt to,
 
 .. R21
 
-Here are some self assessment questions for you to solve
+Here are some self assessment questions for you to solve.
 
 .. L22
 
@@ -207,7 +207,7 @@ Here are some self assessment questions for you to solve
 
 .. R22
 
-And the answers,
+And the answers are,
 
 
 .. L23
