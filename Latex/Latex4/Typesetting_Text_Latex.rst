@@ -27,7 +27,7 @@ Hello friends and welcome to the second tutorial on Latex.
 
 At the end of this tutorial you will be able to:
 
-1. Learn how to typeset your document using LaTEX.
+1. Learn to typeset your document using LaTEX.
 
 #. Use lists, listings in your document for formatting text.
 
@@ -37,7 +37,7 @@ At the end of this tutorial you will be able to:
 
 .. R3
 
-Please make sure that you have gone through the following tutorials before you continue on this tutorial.
+Please make sure that you have gone through the following tutorials before you continue on this tutorial:
 
 .. L4
 
@@ -45,7 +45,7 @@ Please make sure that you have gone through the following tutorials before you c
 
 .. R4
 
-Look at the quotation marks around the text, Sigh Pie. They are not formatted properly.
+Look at the quotation marks for the text, Sigh Pie. We see that they are not formatted properly.
 
 .. L5
 
@@ -53,7 +53,7 @@ Look at the quotation marks around the text, Sigh Pie. They are not formatted pr
 
 .. R5
 
-To place quotation marks in LaTeX, use ` character for the left quote & ' character for the right quote. For double quotes, use them twice.
+To place quotation marks in LaTeX, we use ` character for the left quote & ' character for the right quote. For double quotes, we use them twice.
 
 .. L6
 
@@ -61,7 +61,7 @@ To place quotation marks in LaTeX, use ` character for the left quote & ' charac
 
 .. R6
 
-The names of the software tools, Scilab, Matlab, etc. appear in italics or emphasized as it is called in LaTeX. 
+The names of the software tools, Scilab, Matlab, etc. appear in italics or 'emphasized' as it is called in LaTeX. 
 
 .. L7
 
@@ -107,7 +107,7 @@ The section on 'Use of Scipy' in this course, contains lists. Now, let us add li
 
 .. R12
 
-The 'enumerate' environment adds numbered lists to our document and the itemize environment adds un-numbered lists. \item command adds a new entry to a list. Note, that LaTeX can easily handle nested lists. In fact most environments can be embedded within other environments, without any problems.
+The 'enumerate' environment adds numbered lists to our document and the itemise environment adds un-numbered lists. \item command adds a new entry to a list. Note, that LaTeX can easily handle nested lists. In fact, most environments can be embedded within other environments, without any problems.
 
 
 .. L12
@@ -125,7 +125,7 @@ Let's now add the footnote to pylab. LaTeX provides a footnote command to add a 
 
 .. R14
 
-In case we wish to add another Appendix before the section on using pylab, the footnote will have to be edited. To avoid this, LaTeX provides a handy system of labels and referencing.
+In case we wish to add another Appendix before the section on using pylab, the footnote has to be edited. To avoid this, LaTeX provides a handy system of labels and referencing.
 
 .. L14
 
@@ -133,7 +133,7 @@ In case we wish to add another Appendix before the section on using pylab, the f
 
 .. R15
 
-We first add a label to the section that we want to refer in this footnote. Then, we change the footnote, and add the reference to this label instead of the character A. If you look at the output after compiling the document once, you will see that the footnote has question marks instead of the section number. You will have to compile once again, for the section number to appear in the footnote.
+First, we add a label to the section that we wish to refer in this footnote. Then, we change the footnote, and add the reference to this label instead of the character A. If you look at the output after compiling the document once, you will see that the footnote has question marks instead of the section number. You will have to compile once again, for the section number to appear in the footnote.
 
 .. L15
 
@@ -142,7 +142,7 @@ We first add a label to the section that we want to refer in this footnote. Then
 
 .. R16
 
-LaTeX by default provides the verbatim environment to include pre-formatted text. You may try this, during the lab session. We shall look at using the listings package, specifically meant for including code in our document.
+LaTeX by default provides the verbatim environment to include pre-formatted text. You may try this during the lab session. We shall look at using the listings package, specifically meant for including code in our document.
 
 .. L16
 
@@ -150,7 +150,7 @@ LaTeX by default provides the verbatim environment to include pre-formatted text
 
 .. R17
 
-First of all, we need to tell LaTeX, that we want to use the listings package in your document. We do this by adding the directive \usepackage{listings} to the preamble of our document.
+First of all, we need to tell LaTeX, that we want to use the listings package in our document. We do this by adding the directive \usepackage{listings} to the preamble of our document.
 
 Then, we set the language of the code that we are going to embed into our document. For this, we use the 'lstset' command.
 
@@ -164,7 +164,7 @@ Then, we set the language of the code that we are going to embed into our docume
 
 .. R18
 
-Now, to put a line of code, inline and not as a separate block, we use the \lstinline command. We change the name pylab in the footnote to use lstinline instead of the texttt. To embed a block of code, we use the lstlisting environment (\begin{lstlisting} and \end{lstlisting}).
+Now, to put a line of code (inline and not as a separate block), we use the \lstinline command. We change the name pylab in the footnote to use lstinline instead of the texttt. To embed a block of code, we use the lstlisting environment (\begin{lstlisting} and \end{lstlisting}).
 
 .. L19
 
@@ -217,5 +217,5 @@ And the answers are,
 .. R23
 
 Hope you have enjoyed this tutorial and found it useful.
-Thank you
+Thank you.
 
