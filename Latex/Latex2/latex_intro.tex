@@ -119,60 +119,67 @@ At the end of this tutorial, you will be able to,
 \begin{frame}[fragile]
   \frametitle{Advantages of using \LaTeX }
   \begin{itemize}
-  \item Easy availablity of professional templates.
-  \item Typesetting complex formulae in a convenient environment.
-  \item Can start typesetting with very little effort.
-  \item Presence of a lot of add-on packages.
-  \item Encourages creation of well structured texts.
+    \item Easy availablity of professional templates.
+    \item Typesetting complex formulae in a convenient environment.
+    \item Can start typesetting with very little effort.
+    \item Presence of a lot of add-on packages.
+    \item Encourages creation of well structured texts.
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Disadvantages of using \LaTeX }
   \begin{itemize}
-  \item Designing whole new layout is difficult.
+    \item Designing whole new layout is difficult.
+    \item LaTeX is not a word processor.
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{\LaTeX \ input file format}
   \begin{itemize}
-  \item \LaTeX takes ASCII text file as input.
-  \item We can compile \LaTeX files into DVI,Postscript or PDF files.
-  \item \alert{Note:} \typ{latex} vs. \typ{pdflatex} 
+    \item \LaTeX takes ASCII text file as input.
+    \item We can compile \LaTeX files into DVI,Postscript or PDF files.
+    \item \alert{Note:} \typ{latex} vs. \typ{pdflatex} 
   \end{itemize}
 \end{frame}
 
-
+\begin{frame}[fragile]
+  \frametitle{Commands,Comments\&Special Characters }
+  \begin{itemize}
+    \item {\LaTeX} is case sensetive.
+    \item Commands begin with a \typ{\\}
+    \item Environments have a \typ{\\begin} and \typ{\\end} 
+    \item Any content after the \typ{\\end\{document\}} is ignored
+  \end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Commands, Comments and Special Characters }
+  \frametitle{Commands,Comments\&Special Characters \ldots}
   \begin{itemize}
-  \item {\LaTeX} is case sensetive.
-  \item Commands begin with a \typ{\\}
-  \item Environments have a \typ{\\begin} and \typ{\\end} 
-  \item Any content after the \typ{\\end\{document\}} is ignored
-  \end{itemize}
-  \begin{itemize}
-  \item Anything that follows a \typ{\%} symbol till end of the line
-    is a comment 
-  \item Special characters (\typ{\~ \# \$ \^ \& \_ \{ \}}) are escaped by a
-    \typ{\\} 
-  \item \typ{\\} symbol is inserted using \typ{\\textbackslash}
-    command
+    \item Anything that follows a \typ{\%} symbol till end of the line
+      is a comment 
+    \item Special characters (\typ{\~ \# \$ \^ \& \_ \{ \}}) are escaped by a
+      \typ{\\} 
+    \item \typ{\\} symbol is inserted using \typ{\\textbackslash}
+      command
+    %\item \textbackslash newline or \textbackslash \textbackslash\ is used to insert newlines.
+    \item \typ{\\newline} or \typ{\\\\} is used to insert newlines.
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Typesetting a minimal document}
   Write the sample code  into the file \typ{temp.tex}
-  \begin{verbatim}
-    \documentclass{article}
-    \title{My First LaTeX Document}
-    \begin{document}
-     Hello world!
-     \end{document}
-  \end{verbatim}
+  \vspace{8pt}
+  {\tiny
+    \begin{verbatim}
+      \documentclass{article}
+        \begin{document}
+          SciPy is open-source software for mathematics, science, and engineering.
+        \end{document}
+    \end{verbatim}
+  }
 \end{frame}  
 
 \begin{frame}[fragile]
@@ -185,7 +192,10 @@ At the end of this tutorial, you will be able to,
 \begin{frame}[fragile]
   \frametitle{Compiling to PDF }
     \begin{center}
-   \alert{pdflatex temp.tex}  
+      \alert{pdflatex temp.tex}  
+    \end{center}
+    \begin{center}
+      \em Note: Throughout this course, we shall use pdflatex to compile our documents. 
     \end{center}
 \end{frame}
 
@@ -195,57 +205,60 @@ At the end of this tutorial, you will be able to,
 
   In this tutorial, we have learnt,
 \begin{itemize}
-\item About LaTeX.
-\item why we prefer LaTeX.
-\item about the advantages and disadvantages of typesetting documents using the LaTeX approach.
-\item A description, of a typical work flow; which uses LaTeX to typeset documents.
-\item The ability to recognize and differentiate between LaTeX commands, LaTeXcomments and special characters, spacing and actual document content.
-\item Created and compiled a very simple LaTeX document.
+  \item About LaTeX.
+  \item why we prefer LaTeX.
+  \item about the advantages and disadvantages of typesetting documents using the LaTeX approach.
+  \item A description, of a typical work flow; which uses LaTeX to typeset documents.
+  \item The ability to recognize and differentiate between LaTeX commands, LaTeXcomments and special characters, spacing and actual document content.
+  \item Created and compiled a very simple LaTeX document.
 \end{itemize}
 \end{frame}
+
+
 \begin{frame}[fragile]
 \frametitle{Evaluation}
 \label{sec-9}
-
-
 \begin{enumerate}
-\item Convert the temp.dvi created during the course of this tutorial to temp\_1.ps using the dvips command. Verify that the two files indeed look the same.
-\vspace{8pt}
-\item Convert the temp.dvi created during the course of this tutorial to temp\_1.pdf using the dvipdfm command. Verify that the two files indeed look the
+  \item Convert the temp.dvi created during the course of this tutorial to temp\_1.ps using the dvips command. Verify that the two files indeed look the same.
+  \vspace{8pt}
+  \item Convert the temp.dvi created during the course of this tutorial to temp\_1.pdf using the dvipdfm command. Verify that the two files indeed look the same.
 \end{enumerate}
 \end{frame}
+
 \begin{frame}
-
-
 \frametitle{Solutions}
 \label{sec-10}
 \begin{enumerate}
-\item We can use the following command to convert temp.dvi to temp\_1.ps\\
-\begin{center}
-dvips -o temp\_1.ps temp.dvi
-\end{center}
-\vspace{15pt}
-\item We can use the following command to convert temp.dvi to temp\_1.pdf\\
-\begin{center}
-dvipdfm \-o temp\_1.pdf temp.dvi
-\end{center}
+  \item We can use the following command to convert temp.dvi to temp\_1.ps\\
+    \begin{block}{}
+      \begin{center}
+        dvips -o temp\_1.ps temp.dvi
+      \end{center}
+    \end{block}
+  \vspace{15pt}
+  \item We can use the following command to convert temp.dvi to temp\_1.pdf\\
+    \begin{block}{}
+      \begin{center}
+         dvipdfm -o temp\_1.pdf temp.dvi
+      \end{center}
+    \end{block}
 \end{enumerate}
 \end{frame}
-\begin{frame}
 
+
+\begin{frame}
   \begin{block}{}
   \begin{center}
-  \textcolor{blue}{\Large THANK YOU!} 
+    \textcolor{blue}{\Large THANK YOU!} 
   \end{center}
   \end{block}
 \begin{block}{}
   \begin{center}
-    For more Information, visit our website\\
-    \url{http://fossee.in/}
+      For more Information, visit our website\\
+      \url{http://fossee.in/}
   \end{center}  
   \end{block}
 \end{frame}
 
+
 \end{document}
-
-

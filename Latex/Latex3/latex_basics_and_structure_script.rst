@@ -71,8 +71,16 @@ single alpha-numeric character, for example. When done so, the resulting
 document could be described as the shortest possible LaTeX input document, that
 creates an output file. It consists of 3 LaTeX commands and one line/character
 of text.
+
+In our minimal example, document is an environment. Only the text enclosed by 
+the begin and end commands is effected by the environment. The part of the file
+before the \begin{document} command is called the preamble, and is used to 
+"configure" the LaTeX typesetter and change various parameters for typesetting.
+
 This is processed by a TeX processor that generates an output file. Now, we 
 begin to look into each line in the example in more detail.
+
+
 The first line reads
 
 .. L5
@@ -126,7 +134,9 @@ We add the LaTeX commands, that specify the title and the author of the
 document. When we compile the document shown to an output file and view it we
 notice that output is, as seen no different from not adding the fields of title
 and author. We need to add another command to actually show the title author 
-and date in the output document. We add the command in the following example.
+and date in the output document. The part of the file before the 
+\begin{document} command is called the preamble, and is used to "configure" the
+LaTeX typesetter and change various parameters for typesetting.
 
 .. L10
 
