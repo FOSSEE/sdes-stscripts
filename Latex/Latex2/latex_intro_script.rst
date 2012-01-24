@@ -4,8 +4,8 @@
 .. By the end of this tutorial, you will 
 
 .. 1. Get acquainted to LaTeX.
-.. #. Know why we prefer LaTeX ??
-.. #. Know about the advantages and disadvantages of typesetting documents  
+.. #. Know why we prefer LaTeX?
+.. #. Know the advantages and disadvantages of typesetting documents  
 ..    using the LaTeX approach.
 .. #. Have a description, of a typical work flow; which uses LaTeX to typeset 
 ..    documents.
@@ -17,11 +17,11 @@
 .. -------------
 
 .. 1. Should have already installed LaTeX and its supported packages on the host machine.
-.. #. Should be comfortable using a text editor of choice. 
+.. #. Should be comfortable using a text editor of your choice. 
 
      
 .. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
-   Internal Reviewer   : 
+   Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
    External Reviewer   :
    Langauge Reviewer   : 
    Checklist OK?       : <put date stamp here, if OK> 
@@ -47,14 +47,14 @@ Hello Friends and welcome to the tutorial on introduction to LaTeX.
 .. By the end of this tutorial, you will 
 
 .. 1. Get acquainted to LaTeX.
-.. #. Know why we prefer LaTeX ??
-.. #. Know about the advantages and disadvantages of typesetting documents  
+.. #. Know why we prefer LaTeX?
+.. #. Know the advantages and disadvantages of typesetting documents  
 ..    using the LaTeX approach.
 .. #. Have a description, of a typical work flow; which uses LaTeX to typeset 
 ..    documents.
 .. #. Recognize and differentiate between LaTeX commands, LaTeX comments and
 ..    special characters, spacing and actual document content.
-.. #. Create and compile a very simple LaTeX document.
+.. #. Be able to create and compile a very simple LaTeX document.
 
 .. L3
 
@@ -62,7 +62,7 @@ Hello Friends and welcome to the tutorial on introduction to LaTeX.
 
 .. R3
 
-Before beginning this tutorial,we would suggest having a working installation of
+Before beginning this tutorial, we would suggest having a working installation of
 LaTeX on your computer. You can do this by completing the tutorial titled 
 "Installing LaTeX".
 

@@ -1,0 +1,182 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LateX
+%
+% Author: FOSSEE 
+% Copyright (c) 2009, FOSSEE, IIT Bombay
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[14pt,compress]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+%\usepackage{times}
+\usepackage[T1]{fontenc}
+
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage{mathpazo,courier,euler}
+\usepackage[scaled=.95]{helvet}
+
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+\lstset{language=bash,
+    basicstyle=\ttfamily\bfseries,
+    commentstyle=\color{red}\itshape,
+  stringstyle=\color{darkgreen},
+  showstringspaces=false,
+  keywordstyle=\color{blue}\bfseries}
+
+\newcommand{\inctime}[1]{\addtocounter{time}{#1}{\tiny \thetime\ m}}
+
+\newcommand{\typ}[1]{\lstinline{#1}}
+
+\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
+
+\setbeamercolor{emphbar}{bg=blue!20, fg=black}
+\newcommand{\emphbar}[1]
+
+
+\begin{document}
+
+\begin{frame}
+
+\begin{center}
+\vspace{12pt}
+\textcolor{blue}{\huge {\LaTeX}: Installation}
+\end{center}
+\vspace{18pt}
+\begin{center}
+\vspace{10pt}
+\includegraphics[scale=0.95]{fossee-logo.png}\\
+\vspace{5pt}
+\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
+\scriptsize Funded by National Mission on Education through ICT\\
+\scriptsize  MHRD,Govt. of India\\
+\includegraphics[scale=0.15]{images/iitb-logo.jpg}\\
+\end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Objectives}
+  At the end of this session, you will
+  \begin{itemize}
+  \item Learn how to install LaTeX
+  \item Learn how to install a TeX editor plug-in
+  \item Know how to configure the TeX editor for LaTeX
+  \item Know some useful information on LaTeX packages.
+  \item Be able to complie a TeX file to pdf.
+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Prerequisites}
+  Prerequisites for Installation of LaTeX
+  \begin{itemize}
+  \item You'll need a TeX distribution.
+  \item A good text editor and a DVI or PDF viewer.
+  \item Updated Linux distribution as Operating System.
+  \item Working Internet connection (recommended, for installation over the network).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{TeX Distribution}
+  TeX Live
+  \begin{itemize}
+  \item Easy way to get up and running with the TeX document production system.
+  \end{itemize}
+  Acquire TeX Live in many ways
+  \begin{itemize}
+  \item Getting TeX Live on DVD (recommended, for installation from media).
+  \item Installing TeX Live over the Internet (recommended, for installation over the network).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Installation}
+  Running the installer
+  \begin{itemize}
+  \item Run the \emph{install-tl} script to install.
+  \end{itemize}
+  Commands
+  \begin{itemize}
+  \item \emph{sudo apt-get install texlive} : Basic subset of TeX Live's functionality.
+  \item \emph{sudo apt-get install texlive-full} : Complete TeX Live distribution.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Installation}
+  Using a Package Manager
+  \begin{itemize}
+  \item Open \emph{Package Manager}
+  \item Search for \emph{texlive-full}
+  \item Mark for installation and apply
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{LaTeX Plug-in}
+  Gedit has a plug-in for LaTeX which converts Gedit into a LaTeX editor
+  \begin{itemize}
+  \item \emph{sudo apt-get install gedit-latex-plugin} : Installs plug-in
+  \item \emph Activate the plug-in : Click (Edit > Preferences > Plugins > Check LaTeX Plugin)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{LaTeX Packages}
+  Recommended LaTeX Packages
+  \begin{itemize}
+  \item \emph{latex-beamer} : Beamer package is used to create presentations.
+  \item \emph{TeXPower} : Is a bundle of style and class files for creating dynamic online presentations with LaTeX.
+  \item \emph{Prosper} : A LaTeX class for writing transparencies.
+  \item \emph{texlive-pictures} : This is a LaTeX package for drawing graphics.
+  \item \emph{texlive-latex-extra} : This is a large collection of add-on packages for LaTeX.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Compilation}
+  LaTeX distribution installed, you may compile a LaTeX document
+  \begin{itemize}
+  \item \emph{pdflatex filename.tex} : Compiles the LaTeX document.
+  \item Output : PDF file.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Summary}
+	\begin{itemize}
+        \item Installing a LaTeX distribution.
+        \item Install/Configure LaTeX Plug-in.
+        \item Recommended LaTeX Packages.
+	\item Compile a LaTeX document.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{}
+  \begin{center}
+  \textcolor{blue}{\Large THANK YOU!} 
+  \end{center}
+  \end{block}
+\begin{block}{}
+  \begin{center}
+    For more Information, visit our website\\
+    \url{http://fossee.in/}
+  \end{center}  
+  \end{block}
+\end{frame}
+
+\end{document}
