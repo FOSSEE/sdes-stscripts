@@ -56,6 +56,14 @@ LaTeX and its documents structure" and "Typesetting LaTeX text".
 
 .. R4
 
+In general, it is advised to use the AMS-LaTeX bundle to typeset mathematics in
+LaTeX. AMS-LaTeX is a collection of packages and classes for mathematical
+typesetting.
+
+We load amsmath by issuing the \usepackage{amsmath} in the preamble.It must be
+noted that amsmath is included in the base distribution of LaTex, in atleast 
+the most recent versions.
+
 Math formulae can be embedded in two ways. One is inline, and the other way is
  to enclose them in a dedicated environment as and when required.
 The first method is also called text style and second method is also called 
@@ -67,8 +75,6 @@ signs or between an backslash opening bracket and backslash closing bracket.
 The most common LaTeX environment used to typeset mathematical formulae is 
 from equation family. Its use is given in more detail, further in the tutorial.
 
-It must be noted that amsmath is included in the base distribution of LaTex, in
-most recent versions.
 
 .. L5
 
@@ -79,10 +85,9 @@ An environment like bmatrix for example, is used to render a matrix. The syntax
 for specifying a matrix is similar to that used in the tabular environment. The
 & symbol is used for demarcating columns and \\ is used to demarcate rows.
 
-Various types of matrix have different/no type of border decorations. A table 
-
-showing the data is being shown on the screen. The matrix and its allied 
-environments are defined by the amsmath package.
+There are 5 other matrix environments and each have different/no type of 
+delimiters. A table showing the data is being shown on the screen. The matrix
+and its allied environments are defined by the amsmath package.
 
 .. L6
 
@@ -91,9 +96,12 @@ environments are defined by the amsmath package.
 
 The screen shows the an example, that renders different types of matrices using
 LaTeX.
+
 It also shows the two ways in which mathmatical formulae can be embedded into
 LaTeX documents. The second method of embedding mathamtical formula will be 
-explained in detail, later in the tutorial. Please pause the tutorial and go through the example shown on the screen. 
+explained in detail, later in the tutorial. 
+
+Please pause the tutorial and go through the example shown on the screen. 
 
 .. L7
 
@@ -101,8 +109,10 @@ explained in detail, later in the tutorial. Please pause the tutorial and go thr
 
 .. R7
 
-Charet is used to render text in superscript, while underscore is used to
-render text in subscript.
+To typeset superscripts in LaTeX, the carat character is used. The carat 
+operator just acts on the next character.
+To typeset subscripts in LaTeX, the underscore character is used. The carat 
+operator just acts on the next character.
 Multiple characters and ambiguity is resolved by grouping them using opening
 and closing curly brackets.
 
@@ -111,9 +121,10 @@ and closing curly brackets.
 
 .. R8
 
-sum and int commands are used to show summation and integration in the rendered
-document respectively. We can specify the upper and lower limits for these
-commands using charet and underscore respectively.
+To typeset the summation symbol, use the sum command. Similarly, the integral 
+symbol is obtained using the int command. The upper and lower limits, for both
+the sum and int command are specified using the carat and underscore characters
+, respectively.
 
 .. L9
 
@@ -126,7 +137,7 @@ to render mathematical formulae, which are numbered. The equation star
 environment is used to render unnumbered equations.
 
 Backslash and opening square bracket and its counterpart the backslash
-closing square bracket is a short hand for \begin equation star environment.
+closing square bracket is a short hand for equation star environment.
 There is no similar shorthand for equation environment (i.e, the numbered
 equation environment).
 
@@ -136,6 +147,7 @@ equation environment).
 .. R10
 
 The equation and its allied  environments allows only one equation at a time.
+We cannot use the newline command in the equation and its allied environment.
 To come around this requirement, we can use eqnarray environment to group 
 multiple equations. 
 
@@ -143,14 +155,17 @@ The eqnarray environment provides additional convenience like auto alignment
 using the ampersand command, auto numbering of equations, etc.
 
 Each distinct equation in the group needs to be separated by a newline command.
+The parts of the equation that need to be aligned are indicated using an 
+ampersand symbol.
 
 .. L11
 
 
 .. R11
 
-We typeset fractions using the frac command. We can also render surds using 
-sqrt command.
+To typeset fractions use the frac command. To typeset surds, we use the sqrt
+command with the optional paramter of [n].
+
 Please note that there is a special command dfrac, that can be used to render
 fractions as if its placed in display mode and is meant to be used even in
 inline mode.
@@ -159,22 +174,34 @@ inline mode.
 
 .. R12
 
-There are appropriately named commands for inserting greek alphabets.
-There are also commands for inserting spaces as required and is intended to be
-used mainly for mathematical formulae. The relevant commands are shown on the
-screen, in the table.
+Inserting Greek letters into LaTeX is simple. we use commands named alpha, beta,
+gamma, etc for lower case Greek letters. Similarly, we use Alpha, with an upper
+case A, Beta, with an upper case B, Gamma, with an upper case G, etc for upper 
+case greek letters.
+
+Also, math environments do not give extra spaces using the space or tab 
+characters. The following commands show in the table on the screen are available
+to specify the spacing required.
 
 .. L13
 
 .. R13
 
-We can easily produce a bibliography with the bibliography environment.
-Each entry is added in the bibliography environment with the bibitem command.
-The marker used in the bibitem command is used to cite the source at the place
-required.
-If you do not use the label parameter to manually specify an index, the entries
-get enumerated automatically. Please pause the tutorial and go through the 
-example shown on the screen.
+Writing bibliographies in LaTeX using the thebibliography environment is pretty
+easy. You simply have to list down all the bibliography items within the 
+bibliography environment.
+
+Each entry of the bibliography begins with the command bibitem. It takes an 
+optional parameter called label and a name for the entry.The label option
+replaces the numbers from the auto enumeration with the labels given.
+
+The to cite the bibliography item within the document, we use the cite command,
+containing name as a parameter. 
+
+We start the bibliography environment with a numerical parameter. This defines
+how much space is to be reserved for all the labels.
+If for example, we have less than 10 items in the Bibliography we would begin
+the bibliography environment with an parameter, whose value is 9.
 
 .. L14
 
@@ -183,11 +210,11 @@ example shown on the screen.
 .. R14
 
 It is highly recommended to use beamer to create presentations, especially when
-you are using LaTeX for your report. This is mainly because, it would be really
-easy to reuse the original content for your presentation.
+you are using LaTeX typesetting your report. This is mainly because, it would be 
+really easy to reuse the LaTeX that you have used for the report/document for
+the presentation as well.
  
-We begin a beamer presentation with the command document with an argument
-with the value beamer. This tells LaTeX to start a beamer presentation.
+We begin a beamer document with the documentclass being set to beamer.
 
 A beamer document is very similar to other LaTeX documents, with the exception
 that content is divided into slides.
@@ -198,11 +225,17 @@ that content is divided into slides.
 
 The usetheme command is used to specify the theme to be used for the current
 presentation. The usecolor theme command is used to specify the color theme to
-be used in the current presentation. The contents of a slide are enclosed 
-within the begin frame and end frame environment.
+be used in the current presentation. 
 
-If we have to use the the verbatim environment inside a slide, then we have to
-pass an additional argument to begin frame, which is fragile.
+The contents of a slide are enclosed within the begin frame and end frame 
+environment. The begin command with frame as the parameter can optionally be 
+passed the Title and Subtitle of the slide it contains.
+
+We must also note that the title page of the presentation can be set like any 
+other LaTeX document. 
+
+If we have to use fragile environemts like verbatim or lstlisting  inside a 
+slide, then we have to pass an additional parameter to begin frame, fragile.
 
 Overlays and simple animation can be achieved using the pause command.
 
