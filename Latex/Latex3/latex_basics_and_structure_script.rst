@@ -66,7 +66,8 @@ LaTeX and suggest you to complete the tutorial titled "Introduction to LaTeX".
 
 .. R4
 
-the text "SAMPLE TEXT" is illustrative and can be replaced replaced by a 
+We begin this tutorial with an example introduced in the previous tutorial.
+The text in the document is illustrative and can be replaced replaced by a 
 single alpha-numeric character, for example. When done so, the resulting 
 document could be described as the shortest possible LaTeX input document, that
 creates an output file. It consists of 3 LaTeX commands and one line/character
@@ -76,10 +77,10 @@ In our minimal example, document is an environment. Only the text enclosed by
 the begin and end commands is effected by the environment. The part of the file
 before the \begin{document} command is called the preamble, and is used to 
 "configure" the LaTeX typesetter and change various parameters for typesetting.
-
+In our current example, the preamble is empty. We will add preamble content
+in the later part of the tutorial.
 This is processed by a TeX processor that generates an output file. Now, we 
 begin to look into each line in the example in more detail.
-
 
 The first line reads
 
@@ -95,17 +96,21 @@ which more generally can be written as
 
 .. R6
 
-Where \documentclass is a LaTeX command.
+Where documentclass is a LaTeX command.
 Parameters specify if you want to use a non default font size, for example.
 More specifically the parameters can be used to alter things like font size of 
-the document, paper size, two sided or single sided printing, etc.
+the document, paper size, two sided or single sided printing, etc, for each
+class, that is supported by LaTeX.
+
+The supported classes have a few differences, in how the content of the document is typeset.
 
 .. L7
 
 
 .. R7
 
-This command instructs LaTeX to 
+We now look at a hypothetical documentclass command.
+The command being shown on the screen, instructs LaTeX to 
 Create a new document of class report. The available classes are article, proc,
 report, book, slides, letter.
 12 pt: sets the font size of main font. Other are relatively adjusted. 10pt is
@@ -130,13 +135,9 @@ command for accessing package documentation.
 
 .. R9
 
-We add the LaTeX commands, that specify the title and the author of the
-document. When we compile the document shown to an output file and view it we
-notice that output is, as seen no different from not adding the fields of title
-and author. We need to add another command to actually show the title author 
-and date in the output document. The part of the file before the 
-\begin{document} command is called the preamble, and is used to "configure" the
-LaTeX typesetter and change various parameters for typesetting.
+We add the title, the author and the date to the document before the 
+\begin{document} directive. We compile the document to see if the details 
+appear in the document, but they donot.
 
 .. L10
 
@@ -170,6 +171,7 @@ behavior is to use numbered sections. We can use un-numbered sections appending
 * to section command. If you want to split your document without influencing the
 section or chapter numbering use the part command.
 
+
 .. L13
 
 .. R13
@@ -182,6 +184,7 @@ file shown in the slide we notice that subsections are not numbered.
 
 
 .. R14
+
 We can change this behavior with the command setcounter , calling it as shown
 in the slide. 
 
@@ -203,10 +206,22 @@ that sections are to be numbered as appendices.
 .. R16
 
 Lets add a Table of content to the document. The LaTeX command to add a TOC to a
-document is using \tableofcontents command. It is used at the point at which the
-table of content is to be placed. You then have to compile the input file twice
-to produce a text. 
-Any numbered section/chapter appear automatically in the table of content.
+document is using \tableofcontents command and is placed at the point at which
+the table of content is to be placed. 
+
+Now, compile the document and look at the output document. It does not have the table of contents!
+
+We compile our LaTeX file as usual. On the first compilation only the "Contents"
+heading appears in the document, but the actual table does not appear. You will
+need to compile your document once more, for the actual table to appear in your
+document. On the first run, LaTeX has gone through your document and generated
+a temporary file (.toc), with the entries that should go into the table of 
+contents. These entries are made, when you compile your document for the second
+time.
+
+Note that any section/block that has been numbered automatically appears in the
+table of contents. It is possible to get un-numbered sections, for instance a
+Preface or a Foreword section to appear in the Table of Contents.
 
 .. L17
 
@@ -216,7 +231,7 @@ Any numbered section/chapter appear automatically in the table of content.
 Un-numbered sections are added to TOC using \addcontentsline command.
 For example we use the command
 \addcontentsline{toc}{section}{Intro}
-where intro is the text that you want to appear in the Table of contents.
+where "Intro" is the text that you want to appear in the Table of contents.
 
 .. L18
 

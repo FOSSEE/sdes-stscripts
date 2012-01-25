@@ -1,5 +1,4 @@
 \documentclass{beamer}
-\usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
 \usepackage{graphicx}
@@ -45,8 +44,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT STARTS
 \begin{document}
-
-
 \begin{frame}
   \begin{center}
     \vspace{12pt}
@@ -79,12 +76,14 @@
 
 \begin{frame}[fragile]
   \frametitle{A Very Basic {\LaTeX} document}
-  \begin{verbatim}
-    \documentclass{article}
-    \begin{document}
-       SAMPLE TEXT
-    \end{document}
-  \end{verbatim}
+  {\tiny
+    \begin{verbatim}
+      \documentclass{article}
+        \begin{document}
+          SciPy is open-source software for mathematics, science, and engineering.
+        \end{document}
+    \end{verbatim}
+  }
 \end{frame}
 
 \begin{frame}[fragile]
@@ -140,30 +139,36 @@
     \item Add title, author and date. 
     \item Compile. 
     \item Nothing changes.
+    \item use \lstinline$\date{}$, to insert todays date.
   \end{itemize}
-  \begin{verbatim}
-    \documentclass{article}
-    \title{My First LaTeX Document}
-    \author{Harish}
-    \begin{document}
-      Hello world!
-    \end{document}
-  \end{verbatim}
+  {\tiny
+    \begin{verbatim}
+      \documentclass{article}
+      \title{A Glimpse at Scipy}
+      \author{FOSSEE}
+      \date{June 2010}
+      \begin{document}
+        SciPy is open-source software for mathematics, science, and engineering.
+      \end{document}
+    \end{verbatim}
+  }
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{\typ{Top Matter}\ \ldots}
   Now we add \alert{maketitle} command, which inserts the top-matter
-  \begin{verbatim}
-    \documentclass{article}
-    \title{My First LaTeX Document}
-    \author{Harish}
-    \date
-    \begin{document}
-       \maketitle
-       Hello world!
-    \end{document}
-  \end{verbatim}
+  {\tiny
+    \begin{verbatim}
+      \documentclass{article}
+      \title{A Glimpse at Scipy}
+      \author{FOSSEE}
+      \date{June 2010}
+      \begin{document}
+        \maketitle
+        SciPy is open-source software for mathematics, science, and engineering.
+      \end{document}
+    \end{verbatim}
+  }
 \end{frame}
 
 \begin{frame}[fragile]
@@ -172,20 +177,20 @@
     \item \typ{abstract} environment inserts abstract.
     \item Place it at the location where you want your abstract. 
   \end{itemize}
-  {\small 
-  \begin{verbatim}
-    \begin{document}
+  {\tiny 
+    \begin{verbatim}
       \documentclass{article}
-      \title{My First LaTeX Document}
-      \author{Harish}
+      \title{A Glimpse at Scipy}
+      \author{FOSSEE}
+      \date{June 2010}
       \begin{document}
         \maketitle
-        Hello world!
-      \begin{abstract}
-        An Example Abstract
-      \end{abstract}
-    \end{document}
-  \end{verbatim}
+        \begin{abstract}
+          This document shows a glimpse of the features of Scipy that will be explored during this course.
+        \end{abstract}
+        SciPy is open-source software for mathematics, science, and engineering.
+      \end{document}
+    \end{verbatim}
   }
 \end{frame}
 
@@ -200,7 +205,7 @@
   {\tiny 
   \begin{verbatim}
      \documentclass{article}
-     \author{Harish}
+     \author{FOSSEE}
      \date{31-February-2012}
      \begin{document}
        \maketitle
@@ -224,11 +229,12 @@
     \item Longer documents, use \lstinline{report} or \lstinline{book}
     class
     \item Chapter can be added using \lstinline{\chapter} command
+    \item Books \alert{do not} have the abstract environment.
   \end{itemize}
   {\tiny 
   \begin{verbatim}
     \documentclass{book}
-      \title{My first Book}
+      \title{My first book}
       \begin{document}
         \chapter{My First Chapter}
           Main
@@ -293,42 +299,37 @@ beginning of the document and the appendix at the end.
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\typ{Excercise 1: Solution}}
-    \begin{center}
-     Note: File needs to be compiled twice
-     TODO: Please uncomment actual example and recompile 
-     \end{center}
+  \frametitle{\typ{Excercise 1: Solution}}
+  \begin{center}
+     Note - This File needs to be compiled twice
+  \end{center}
   {\tiny 
-    \begin{center}
-%      \begin{verbatim}
-%        \documentclass{article}
-%        \title{article with an appendix}
-%        \begin{document}
-%        \tableofcontents
-%        \pagebreak
-%        Main content 
-%        \section{Numbered Section1}
-%          Section 1 Text
-%        \subsection{Numbered  Subsection1}
-%          Numbered-Section 1’s Subsection Text.
-%        \section{Numbered Section2}
-%          Numbered-Section 2 Text
-%        \section*{Un-numbered Section3}
-%          \addcontentsline{toc}{section}{Numbered Subsection1}
-%          First un-numbered Section Text.\\This appears in the table of content
-%        \section*{Un-numbered Section4}
-%          Second un-numbered Section Text
-%        \appendix
-%          \section{Appendix - 1}
-%        \end{document}
-%      \end{verbatim}
-    \end{center}
+   \begin{center}
+    \begin{verbatim}
+      \documentclass{article}
+         \title{article with an appendix}
+         \begin{document}
+         \tableofcontents
+         \pagebreak
+         Main content 
+         \section{Numbered Section1}
+           Section 1 Text
+         \subsection{Numbered  Subsection1}
+           Numbered-Section 1’s Subsection Text.
+         \section{Numbered Section2}
+           Numbered-Section 2 Text
+         \section*{Un-numbered Section3}
+           \addcontentsline{toc}{section}{Numbered Subsection1}
+           First un-numbered Section Text.\\This appears in the table of content
+         \section*{Un-numbered Section4}
+           Second un-numbered Section Text
+         \appendix
+          \section{Appendix - 1}
+      \end{document}
+    \end{verbatim}
+  \end{center}
   }
 \end{frame}
-
-
-
-
 
 
 \begin{frame}[fragile]
@@ -355,8 +356,8 @@ beginning of the document and the appendix at the end.
     \begin{center}
       \begin{verbatim}
         \documentclass{book}
-        \title{My first Book}
-        \author{Harish}
+        \title{My book}
+        \author{FOSSEE}
         \date{31-February-2012}
         \begin{document}
           \maketitle
