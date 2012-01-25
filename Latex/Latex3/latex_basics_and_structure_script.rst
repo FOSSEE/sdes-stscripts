@@ -33,8 +33,8 @@ team along with the logo of MHRD }}}
 
 .. R1
 
-Hello friends and welcome to the tutorial on Basics of LaTeX and its document
-structure.
+Hello friends and welcome to the tutorial titled "Basics of LaTeX and its 
+document structure".
 
 .. L2
 
@@ -63,11 +63,6 @@ LaTeX and suggest you to complete the tutorial titled "Introduction to LaTeX".
 
 .. L4
 
-{{{ Basic Structure of a LaTeX document }}}
-\documentclass{article}
-\begin{document}
-SAMPLE TEXT
-\end{document}
 
 .. R4
 
@@ -76,13 +71,20 @@ single alpha-numeric character, for example. When done so, the resulting
 document could be described as the shortest possible LaTeX input document, that
 creates an output file. It consists of 3 LaTeX commands and one line/character
 of text.
+
+In our minimal example, document is an environment. Only the text enclosed by 
+the begin and end commands is effected by the environment. The part of the file
+before the \begin{document} command is called the preamble, and is used to 
+"configure" the LaTeX typesetter and change various parameters for typesetting.
+
 This is processed by a TeX processor that generates an output file. Now, we 
 begin to look into each line in the example in more detail.
+
+
 The first line reads
 
 .. L5
 
-\documentclass{article}
 
 .. R5
 
@@ -90,7 +92,6 @@ which more generally can be written as
 
 .. L6
 
-\documentclass [parameters] {DocumentClass}
 
 .. R6
 
@@ -101,7 +102,6 @@ the document, paper size, two sided or single sided printing, etc.
 
 .. L7
 
-\documentclass[12pt,a4paper,draft]{report} 
 
 .. R7
 
@@ -116,7 +116,6 @@ with a square in the margin
 
 .. L8
 
-\usepackage[options]{...}
 
 .. R8
 
@@ -128,13 +127,6 @@ command for accessing package documentation.
 .. L9
 ::
 
-\documentclass{article}
-\title{My First LaTeX Document}
-\author{Harish}
-\date
-\begin{document}
-Hello world!
-\end{document}
 
 .. R9
 
@@ -142,17 +134,12 @@ We add the LaTeX commands, that specify the title and the author of the
 document. When we compile the document shown to an output file and view it we
 notice that output is, as seen no different from not adding the fields of title
 and author. We need to add another command to actually show the title author 
-and date in the output document. We add the command in the following example.
+and date in the output document. The part of the file before the 
+\begin{document} command is called the preamble, and is used to "configure" the
+LaTeX typesetter and change various parameters for typesetting.
 
 .. L10
 
-\documentclass{article}
-\title{My First LaTeX Document}
-\author{Harish}
-\begin{document}
-\maketitle
-Hello world!
-\end{document}
 
 .. R10
 
@@ -162,16 +149,6 @@ date is used else today's date is used.
 
 .. L11
 
-\documentclass{article}
-\title{My First LaTeX Document}
-\author{Harish}
-\begin{document}
-\maketitle
-Hello world!
-\begin{abstract}
-An Example Abstract
-\end{abstract}
-\end{document}
 
 .. R11
 
@@ -182,24 +159,6 @@ not book
 
 .. L12
 
-\documentclass{article}
-\title{My First LaTeX Document}
-\author{Harish}
-\begin{document}
-\maketitle
-Hello world!
-\begin{abstract}
-An Example Abstract
-\end{abstract}
-\section{Numbered Section 1}
-Section1 Text
-\section{Numbered Section 2}
-Section2 Text
-\section*{Unnumbered Section 1}
-Section3 Text
-\section*{Unnumbered Section 2}
-Section4 Text
-\end{document}
 
 
 .. R12
@@ -213,28 +172,6 @@ section or chapter numbering use the part command.
 
 .. L13
 
-\documentclass{book}
-\title{My first Book}
-\author{Harish}
-\date{31-February-2012}
-\begin{document}
-\maketitle
-\chapter{My First Chapter}
-Main
-\section{Section1}
-Section 1 Text
-\subsubsection{My First Subsection}
-Numbered-Section 1's Subsection Text
-\section{Section2}
-Numbered-Section 2 Text
-\section*{Section3}
-First un-numbered Section Text
-\section*{Section4}
-Second un-numbered Section Text
-\chapter{So We say goodbye}
-Thank you for reading dear reader
-\end{document}
-
 .. R13
 
 Longer documents can use report or book class. We can add a new chapter using
@@ -243,7 +180,6 @@ file shown in the slide we notice that subsections are not numbered.
 
 .. L14
 
-\setcounter{secnumdepth}{3}
 
 .. R14
 We can change this behavior with the command setcounter , calling it as shown
@@ -251,7 +187,6 @@ in the slide.
 
 .. L15
 
-\appendix
 
 .. R15
 
@@ -285,9 +220,34 @@ where intro is the text that you want to appear in the Table of contents.
 
 .. L18
 
-{{{ Show summary slide }}}
+{{{ Show slide with exercise 1 }}}
 
 .. R18
+
+Write a LaTeX script that creates a document of type article, which contains both
+a table of content and an appendix. The table of content should be at the 
+beginning of the document and the appendix at the end.
+
+The book should contain two chapters, with the first chapter containing two 
+numbered and two un-numbered sections. The first un-numbered section should be
+present in the table of content.
+
+Please pause the tutorial and check back for a possible solution
+
+.. L19
+
+{{{continue from paused state}}}
+{{{ Show slide with solution to exercise 1 }}}
+
+.. R19
+
+This slide on screen shows a possible valid solution to the given exercise.
+
+.. L20
+
+{{{ Show summary slide }}}
+
+.. R20
 
 This brings us to the end of this tutorial. In this tutorial, we have,
 
@@ -300,42 +260,27 @@ This brings us to the end of this tutorial. In this tutorial, we have,
 .. #. Created an appendix in a LaTeX document.
 .. #. Created a table of content in a LaTeX document.
 
-.. L19
+.. L21
 
 {{{Show self assessment questions slide}}}
 
-.. R19
+.. R21
 
 Here are some self assessment questions for you to solve
 
  1. Is the LaTeX code given below a valid input file (File compiles successfully
 and produces the intended result, that is to produce a book with two chapters 
 and an appendix.
-\begin{verbatim}
-\documentclass{book}
-\title{My first Book}
-\author{Harish}
-\date{31-February-2012}
-\begin{document}
-\maketitle
-\chapter{My First Chapter}
-Main
-\chapter{So We say goodbye}
-Thank you for reading dear reader
-\appendix
-\section{First Appendix}
-\end{document}
-\end{verbatim}
 
- 2. Does making the subsections placed at any arbitrary level, get numbered by
-default using the appropriate setcounter command  with secnumdepth parameter
-make the subsections appear automatically in the table of content ??
+ 2. subsection command can be placed at any arbitrary level. If they get numbered 
+by default using the appropriate setcounter command and secnumdepth parameter,
+do they automatically appear in the table of content ??
 
-.. L20
+.. L22
 
 {{{Show self assessment questions slide}}}
 
-.. R20
+.. R22
 
 And the answers,
 
@@ -343,14 +288,14 @@ And the answers,
 we expected. This is mainly because we are trying to use the section command to
 create sections in the appendix, for a document whose type is given as a book.
 
-2. No The \tableofcontents command normally shows only numbered section
+2. No, the \tableofcontents command normally shows only numbered section
 headings, and only down to the level defined by the tocdepth counter.
 
-.. L21
+.. L23
 
 {{{ Show the thankyou slide }}}
 
-.. R21
+.. R23
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!

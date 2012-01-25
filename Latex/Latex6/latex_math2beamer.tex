@@ -1,0 +1,449 @@
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[english]{babel} \usepackage{ae,aecompl}
+\usepackage{mathpazo,courier,euler} \usepackage[scaled=.95]{helvet}
+\usepackage{listings}
+\lstset{
+  language=TeX,
+  basicstyle=\ttfamily\bfseries,
+  commentstyle=\ttfamily\color{blue},
+  stringstyle=\ttfamily\color{orange},
+  showstringspaces=false,
+  breaklines=true,
+  postbreak = \space\dots
+}
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+}
+
+\newcommand{\inctime}[1]{\addtocounter{time}{#1}{\tiny \thetime\ m}}
+
+\newcommand{\typ}[1]{\lstinline{#1}}
+
+\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
+\title [{\LaTeX} for mathematics \& beyond] {{\LaTeX} for mathmatical formulae, bibliography and presentations}
+\author {FOSSEE}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT STARTS
+\begin{document}
+
+
+\begin{frame}
+  \begin{center}
+    \vspace{12pt}
+    \textcolor{blue}{\huge {\LaTeX} for mathmatical formulae, bibliography and presentations}
+  \end{center}
+  \vspace{18pt}
+  \begin{center}
+    \vspace{10pt}
+    \includegraphics[scale=0.95]{../images/fossee-logo.png}\\
+    \vspace{5pt}
+    \scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
+    \scriptsize Funded by National Mission on Education through ICT\\
+    \scriptsize  MHRD,Govt. of India\\
+    \includegraphics[scale=0.30]{../images/iitb-logo.png}\\
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Objectives}
+  \label{sec-2}
+    At the end of this tutorial, you will be able to,
+  \begin{itemize}
+    \item Write and typeset simple mathematical formulae in LaTeX.
+    \item Write bibliography for a LaTeX document.
+    \item Make presentations in LaTeX, using beamer.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\LaTeX\ \&\ Mathematics : An Introduction}
+  \begin{itemize}
+  \item Math is enclosed in a pair of \lstinline{$} signs or %%$
+    \lstinline+\(  \)+ 
+  \item Used for typesetting inline Math. 
+  \item \lstinline+\usepackage{amsmath}+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Matrices}
+  \begin{itemize}
+  \item \lstinline+\bmatrix+ is used to typeset the matrix A
+  \item It works similar to the tabular environment
+  \item \lstinline+&+ for demarcating columns
+  \item \lstinline+\\+ for demarcating rows
+  \item Other matrix environments
+  \begin{table}
+    \center
+    \begin{tabular}{|l|l|}
+      \hline
+        Matrix Type & Border Decoration \\
+      \hline
+      \lstinline+matrix+  &  none\\
+      \hline
+      \lstinline+pmatrix+ &  \lstinline+(+\\
+      \hline
+      \lstinline+Bmatrix+ &  \lstinline+{+\\
+      \hline
+      \lstinline+vmatrix+ &  \lstinline+|+\\  
+      \hline
+      \lstinline+Vmatrix+ &  \lstinline+||+\\
+      \hline
+    \end{tabular}
+  \end{table}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Matrices \ldots}
+  \tiny{
+  \begin{verbatim}
+    \documentclass{article}
+    \usepackage {amsmath}
+    \begin{document}
+      Welcome to the world of matrices\\ 
+      $
+      \begin{bmatrix}
+        a & b \\
+        c & d \\
+      \end{bmatrix}
+      \begin{vmatrix}
+        e & f \\
+        g & h
+      \end{vmatrix}
+     $
+    \begin{equation}
+      \begin{Vmatrix}
+        i & j & k & l
+      \end{Vmatrix}
+    \end{equation}
+    \begin{equation}
+      \begin{pmatrix}
+        m & n & o & p
+      \end{pmatrix}
+    \end{equation}
+    \end{document}
+  \end{verbatim}
+  }
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Superscripts \& Subscripts}
+  \begin{itemize}
+  \item \lstinline+^+ for superscripts
+  \item \lstinline+_+ for subscripts
+  \item Enclose multiple characters in \lstinline+{ }+
+  \end{itemize}
+  \begin{verbatim}
+    \documentclass{article}
+    \begin{document}
+      $ i^j $ $k_l$ \\
+      $ {{{a^b}^c}^d} \\ {z_{y_{x_w}}} $ \\
+    \end{document}
+  \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Summation \& integration}
+  \begin{itemize}
+  \item \lstinline+\sum+ command gives the summation symbol
+  \item The upper and lower limits are specified using the
+    \lstinline+^+ and \lstinline+_+ symbols. 
+  \item Similarly the integral symbol is obtained using
+    \lstinline+\int+ command. 
+  \end{itemize}
+  \tiny{
+  \begin{verbatim}
+    \documentclass{article}
+    \usepackage {amsmath}
+    \begin{document}
+      We note that \\
+      (a) Summations in text style \\
+      $ \sum_{1}^{10} a $ \\
+      (b) Summations in display style \\
+      \begin{equation}
+        \sum_{1}^{10} a
+      \end{equation}
+      look a lot different when rendered.\\
+      A similar analogy holds true for integrals, when using \\
+      $ \int_{1}^{10} a $ \\
+      and \\
+      \begin{equation}
+        \int_{1}^{10} a
+      \end{equation}
+    \end{document}
+  \end{verbatim}
+  }
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\lstinline+displayed+ math}
+  \begin{itemize}
+  \item Display equations are the other type of displaying math
+  \item \LaTeX~ or \lstinline+amsmath+ has a number of environments
+    for ``displaying'' equations, with minor differences. 
+  \item In general, enclose math in \lstinline+\[+ and \lstinline+\]+
+    to get displayed math. 
+  \item \lstinline+\begin{equation*}+ is equivalent to this.
+  \item Use \lstinline+\begin{equation}+ to get numbered
+    equations. %%\end{equation} 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Groups of equations}
+  \begin{itemize}
+  \item The \lstinline+equation+ environment allows typesetting of
+    just 1 equation. 
+  \item \lstinline+eqnarray+ allows typesetting of multiple equations 
+  \item It is similar to the \lstinline+table+ environment
+  \item The parts of the equation that need to be aligned are
+    indicated using \& symbol.
+  \item Each equation is separated by a \lstinline+\newline+ command
+  \end{itemize}
+  \tiny{
+  \begin{verbatim}
+    \documentclass{article}
+    \begin{document}
+      \begin{eqnarray}
+        a & = & b + c +d\\
+        & = & d + e
+      \end{eqnarray}
+    \end{document}
+  \end{verbatim}
+  }
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Fractions \& Surds}
+  \begin{itemize}
+  \item Fractions are typeset using \lstinline+\frac+ command 
+  \item \lstinline+\frac{numerator}{denominator}+ is typeset as
+    $\frac{numerator}{denominator}$
+  \item Surds are typeset using \lstinline+\sqrt[n]+ command
+  \end{itemize}
+  \tiny{
+    \begin{verbatim}
+      \documentclass{article}
+      \begin{document}
+        The glass is $\frac{3}{4}$ full.\\
+        \begin{equation}
+          \frac{3}{4}
+        \end{equation}
+        We now move on to square root and cube root of 2
+        \begin{eqnarray}
+          \sqrt{2}\\
+          \sqrt[3]{2}
+        \end{eqnarray}
+      \end{document}
+    \end{verbatim}
+  }
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Greek characters \& Spacing}
+  \begin{itemize}
+  \item Typesetting Greek characters is simple
+  \item \lstinline+\alpha+, \lstinline+\beta+, \lstinline+\gamma+,
+    \ldots \lstinline+\Alpha+, \lstinline+\Beta+, \lstinline+\Gamma+
+    \ldots 
+  \item To get additional spacing in Math environments ---
+    \begin{center}
+      \begin{tabular}{|l|l|l|}
+        \hline
+        Abbrev. & Spelled out & Example  \\
+        \hline
+        \lstinline+\,+ & \lstinline+\thinspace+ & $A\,B$ \\
+        \hline
+        \lstinline+\:+ & \lstinline+\medspace+ & $A\:B$ \\
+        \hline
+        \lstinline+\;+ & \lstinline+\thickspace+ & $A\;B$ \\
+        \hline
+        & \lstinline+\quad+ & $A \quad B$ \\
+        \hline
+        & \lstinline+\qquad+ & $A \qquad B$ \\
+        \hline
+        \lstinline+\!+ & \lstinline+\negthinspace+ & $A!B$ \\
+        \hline
+        & \lstinline+\negmedspace+ & $A \negmedspace B$ \\
+        \hline
+        & \lstinline+\negthickspace+ & $A \negthickspace B$ \\
+        \hline
+      \end{tabular}
+    \end{center}
+  \end{itemize}
+\end{frame}
+
+\section{Bibliography}
+\begin{frame}[fragile]
+  \frametitle{Bibliography}
+  \begin{itemize}
+  \scriptsize{
+  \item \lstinline+thebibliography+ environment provides a clean and
+    simple way to add a bibliography to \LaTeX documents. 
+  \item \lstinline+\begin{thebibliography}+ takes as argument the
+    maximum width of the label that references will have. 
+  \item Each item of the Bibliography is similar to an item in a
+    list. 
+  \item \lstinline+\bibitem[label]{name}+ followed by the actual
+    reference info. 
+  \item label replaces auto enumeration numbers 
+  \item \lstinline+\cite{name}+ is used to \lstinline+cite+ the
+    \lstinline+bibitem+ 
+  \item You will need to compile twice. 
+  }
+  \end{itemize}
+  \tiny{
+    \begin{verbatim}
+      \documentclass{article}
+      \begin{document}
+        Official Sources~\cite{Official}
+        indicate that \ldots
+        \begin{thebibliography}{99}
+          \bibitem{Official} H.~Partl:
+            \emph{Dept of Defence Notfication},
+             Volume~9, Issue~1 (1988)
+        \end{thebibliography}
+      \end{document}
+  \end{verbatim}
+  }
+\end{frame}
+
+\section{Presentations - Beamer}
+\begin{frame}[fragile]
+  \frametitle{Beamer}
+  \begin{itemize}
+  \item Use beamer since your report's \LaTeX~ would be re-usable.
+  \item It is recommended to start with one of the beamer templates.
+  \item \lstinline+\documentclass{beamer}+ tells \LaTeX~ to start a
+    beamer presentation. 
+  \item A beamer document is very similar to any other \LaTeX~
+    document except that content is divided into slides. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Beamer \ldots}
+  \begin{itemize}
+  \item \lstinline+\usetheme+ command is used to specify the theme of the
+    presentation. 
+  \item \lstinline+\usecolortheme+ command is used to specify the color
+    theme. 
+  \item The content of a slide is enclosed within
+    \lstinline+\begin{frame}{Title}{Subtitle}+ and
+    \lstinline+\end{frame}+ 
+  \item If the slide contains \lstinline+verbatim+
+    \lstinline+lstlisting+ environments, the \lstinline+\begin{frame}+
+    should be passed an additional argument \lstinline+[fragile]+
+  \item Overlays can be achieved using the \lstinline+\pause+
+    command. 
+  \item To achieve more with beamer, it is highly recommended that you
+    look at the \texttt{beameruserguide} 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Beamer \ldots}
+  \tiny{
+    \begin{verbatim}
+      \documentclass{beamer}
+      \usetheme{Warsaw}
+      \useoutertheme{infolines}
+      \title{Make a LaTeX presentation using Beamer}
+      \author{FOSSEE}
+      \institute{IIT Bombay}
+      \date{}
+      \begin{document}
+        \begin{frame}
+          \titlepage
+        \end{frame}
+        \begin{frame}{Introduction}
+          This is a short introduction to Beamer class.
+        \end{frame}
+        \begin{frame}[fragile]
+          \frametitle{Introduction to \LaTeX}
+            Most non trivial \LaTeX documents begins with the following or similar lines
+          \begin{itemize}
+            \pause \item \backslash documentclass{foo}
+             \pause \item \backslash \usepackage{bar}
+          \end{itemize}
+        \end{frame}
+      \end{document}
+    \end{verbatim}
+  }
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\typ{Summary}}
+  \label{sec-8}
+  In this tutorial, we have,
+  \begin{itemize}
+    \item Written and typeset simple math formulae in LaTeX.
+    \item Written bibliography for a LaTeX document.
+    \item Made a sample presentations in LaTeX, using beamer.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\typ{Evaluation}}
+  \label{sec-9}
+  {\small 
+  \begin{enumerate}
+    \item What is the function of useoutertheme command used in the beamer 
+presentation example shown before ?? what happens when you comment out or
+remove the line. 
+    \item Are commands like $ \backslash alpha, \backslash beta, etc $ commands provided by amsmath package ? 
+  \end{enumerate}
+  }
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\typ{Solutions}}
+\label{sec-10}
+\begin{enumerate}
+  \item The outertheme command in beamer is used to customize the amount of 
+header/footer information shown in each slide. In the example shown below the
+useoutertheme command with infolines argument automatically adds more 
+information to the footer like page number, author and institute,etc.
+  \item No, commands like alpha, beta, etc are not commands provided by the amsmath
+package.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
+  \begin{center}
+    \textcolor{blue}{\Large THANK YOU!} 
+  \end{center}
+  \end{block}
+  \begin{block}{}
+    \begin{center}
+      For more Information, visit our website\\
+      \url{http://fossee.in/}
+    \end{center}  
+  \end{block}
+\end{frame}
+
+\end{document}
+
+

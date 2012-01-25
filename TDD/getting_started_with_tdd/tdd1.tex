@@ -22,68 +22,58 @@ commentstyle=\color{red}\itshape, stringstyle=\color{green},
 showstringspaces=false, keywordstyle=\color{blue}\bfseries}
 \providecommand{\alert}[1]{\textbf{#1}}
 
-\title{Getting started with TDD}
+\title{SEES: Test Driven Development}
 \author{FOSSEE}
-\institute{IIT Bombay}
 
 \usetheme{Warsaw}\usecolortheme{default}\useoutertheme{infolines}\setbeamercovered{transparent}
 
-\AtBeginSection[]
-{
-  \begin{frame}<beamer>
-    \frametitle{Outline}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{document}
 
 \begin{frame}
-
 \begin{center}
 \vspace{12pt}
-\textcolor{blue}{\huge Getting started with Test Driven Development}
+\textcolor{blue}{\huge Test Driven Development \\Part I}
 \end{center}
 \vspace{18pt}
 \begin{center}
 \vspace{10pt}
-\includegraphics[scale=0.95]{../../images/fossee-logo.png}\\
+\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
 \vspace{5pt}
 \scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
 \scriptsize Funded by National Mission on Education through ICT\\
 \scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.30]{../../images/iitb-logo.png}\\
+\includegraphics[scale=0.30]{../images/iitb-logo.png}\\
 \end{center}
 \end{frame}
-
-\begin{frame}
-\frametitle{Outline}
-\setcounter{tocdepth}{3}
-\tableofcontents
-\end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 \begin{frame}
   \frametitle{Objectives}
-  At the end of this section, you will be able to:
+  At the end of this tutorial, you will be able to,
   \begin{itemize}
-  \item Understand the concept of Test Driven Development.
-  \item Write your code using the TDD paradigm.
+  \item Know what is TDD.
+  \item Understand the use of test cases.
+  \item Write simple tests for a function.
+ 
   \end{itemize}
 \end{frame}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Pre-requisite}
 \label{sec-3}
 
-Spoken tutorial on Basic Python
+Spoken tutorial on -
 \begin{itemize}
-\item Topic of tutorial here
+\item Getting started with functions.
 \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
   \frametitle{What is TDD?}
@@ -99,106 +89,107 @@ Spoken tutorial on Basic Python
   \item Refactor the code you've just written -- optimize the algorithm,
     remove duplication, add documentation, etc.
   \item Run the tests again, to see that all the tests still pass.
-  \item Go back to 1.
+  
   \end{enumerate}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{First Test}
 
 \begin{frame}[fragile]
-  \frametitle{First Test -- GCD}
+  \frametitle{First Test -- fibonacci}
   \begin{itemize}
-  \item simple program -- GCD of two numbers
+  \item simple program -- Returns nth fibonacci number
   \item What are our code units?
     \begin{itemize}
-    \item Only one function \texttt{gcd}
-    \item Takes two numbers as arguments
-    \item Returns one number, which is their GCD
+    \item Only one function \texttt{fibonacci}
+    \item Takes one number as argument
+    \item Returns one number, which is the nth number of fibonacci series.
     \end{itemize}
 \begin{lstlisting}
-c = gcd(44, 23)
+c = fibonacci(3)
 \end{lstlisting}
-  \item c will contain the GCD of the two numbers.
+  \item c will contain 3rd number of fibonacci series,counting from 0.
   \end{itemize}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
   \frametitle{Test Cases}
   \begin{itemize}
   \item Important to have test cases and expected outputs even before
     writing the first test!
-  \item $a=48$, $b=48$, $GCD=48$
-  \item $a=44$, $b=19$, $GCD=1$
+  \item $n=3$, $fibonacci=2$
+  \item $n=4$, $fibonacci=3$
   \item Tests are just a series of assertions
   \item True or False, depending on expected and actual behavior
   \end{itemize}
-
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
   \frametitle{Test Cases -- Code}
 \begin{lstlisting}
-tc1 = gcd(48, 64)
-if tc1 != 16:
-    print "Failed for a=48, b=64. Expected 16. \
+tc1 = fibonacci(3)
+if tc1 != 2:
+    print "Failed for n=3. Expected 2. \
     Obtained %d instead." % tc1
     exit(1)
 
-tc2 = gcd(44, 19)
-if tc2 != 1:
-    print "Failed for a=44, b=19. Expected 1. \
+tc2 = fibonacci(4)
+if tc2 != 3:
+    print "Failed for n=4. Expected 3. \
     Obtained %d instead." % tc2
     exit(1)
 
 print "All tests passed!"
 \end{lstlisting}
 \begin{itemize}
-\item The function \texttt{gcd} doesn't even exist!
+\item The function \texttt{fibonacci} doesn't even exist!
 \end{itemize}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
   \frametitle{Stubs}
   \begin{itemize}
-  \item First write a very minimal definition of \texttt{gcd}
+  \item First write a very minimal definition of \texttt{fibonacci}
     \begin{lstlisting}
-def gcd(a, b):
+def fibonacci(a):
     pass
     \end{lstlisting}
   \item Written just, so that the tests can run
   \item Obviously, the tests are going to fail
   \end{itemize}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{gcd.py}}
+  \frametitle{\texttt{fibonacci.py}}
 \begin{lstlisting}
-def gcd(a, b):
+def fibonacci(n):
     pass
 
 if __name__ == '__main__':
-    tc1 = gcd(48, 64)
-    if tc1 != 16:
-        print "Failed for a=48 and b=64. \
-        Expected 16. Obtained %d instead." % tc1
+    tc1 = fibonacci(3)
+    if tc1 != 2:
+        print "Failed for n=3. \
+        Expected 2. Obtained %d instead." % tc1
         exit(1)
-    tc2 = gcd(44, 19)
-    if tc2 != 1:
-        print "Failed for a=44 and b=19. \
-        Expected 1. Obtained %d instead." % tc2
+    tc2 = fibonacci(4)
+    if tc2 != 3:
+        print "Failed for n=4. \
+        Expected 3. Obtained %d instead." % tc2
         exit(1)
     print "All tests passed!"
 \end{lstlisting}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{First run}
 \begin{lstlisting}
-$ python gcd.py
+$ python fibonacci.py
 Traceback (most recent call last):
-  File "gcd.py", line 7, in <module> 
-  print "Failed for a=48 and b=64. Expected 16. 
+  File "fibonacci.py", line 8, in <module> 
+  print "Failed for n=3. Expected 2. 
   Obtained %d instead." % tc1
 TypeError: %d format: 
 a number is required, not NoneType
@@ -209,130 +200,90 @@ a number is required, not NoneType
   \item The next step is to write code, so that the test just passes.
   \end{itemize}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{Euclidean Algorithm}
   \begin{itemize}
-  \item Modify the \texttt{gcd} stub function
+  \item Modify the \texttt{fibonacci} stub function
   \item Then, run the script to see if the tests pass.
   \end{itemize}
 \begin{lstlisting}
-def gcd(a, b):
-    if a == 0:
-        return b
-    while b != 0:
-        if a > b:
-            a = a - b
-        else:
-            b = b - a
+def fibonacci(n):
+    a, b = 0, 1
+    for i in range(n):
+        a, b = b, a + b
     return a
+
 \end{lstlisting}
 \begin{lstlisting}
-$ python gcd.py
+$ python fibonacci.py
 All tests passed!
 \end{lstlisting} %$
   \begin{itemize}
   \item \alert{Success!}
   \end{itemize}
 \end{frame}
-
-
-\begin{frame}[fragile]
-  \frametitle{Euclidean Algorithm -- Modulo}
-  \begin{itemize}
-  \item Repeated subtraction can be replaced by a modulo
-  \item modulo of \texttt{a\%b} is always less than b
-  \item when \texttt{a < b}, \texttt{a\%b} equals \texttt{a}
-  \item Combine these two observations, and modify the code
-\begin{lstlisting}
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return a
-\end{lstlisting}
-  \item Check that the tests pass again
-  \end{itemize}
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
   \frametitle{Euclidean Algorithm -- Recursive}
   \begin{itemize}
-  \item Final improvement -- make \texttt{gcd} recursive
+  \item Final improvement -- make \texttt{fibonacci} recursive
   \item More readable and easier to understand
 \begin{lstlisting}
-def gcd(a, b):
-    if b == 0:
-        return a
-    return gcd(b, a%b)
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+        
 \end{lstlisting}
   \item Check that the tests pass again
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Document \texttt{gcd}}
-  \begin{itemize}
-  \item Undocumented function is as good as unusable
-  \item Let's add a docstring \& We have our first test!
-  \end{itemize}
-\begin{lstlisting}
-def gcd(a, b):
-    """Returns the Greatest Common Divisor of the 
-    two integers passed as arguments.
 
-    Args:
-      a: an integer
-      b: another integer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Summary}
+\label{sec-8}
 
-    Returns: Greatest Common Divisor of a and b
-    """
-    if b == 0:
-        return a
-    return gcd(b, a%b)
-\end{lstlisting}
+  In this tutorial, we have learnt to,
+
+
+\begin{itemize}
+\item Undestand the basic steps involved in Test driven development.
+\item Design a TDD approach for a given \texttt{fibonacci} function.
+
+\end{itemize}
 \end{frame}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Persistent Test Cases}
-  \begin{itemize}
-  \item Tests should be pre-determined and written, before the code
-  \item Test Data is repeatedly used; Hence, saved in persistent
-    format
-  \item Let's save data for GCD tests in a text file. 
-  \item The file shall have multiple lines of test data
-  \item Each line corresponds to a single test case
-  \item Each line consists of three comma separated values --
-    \begin{itemize}
-    \item First two coloumns are the integers for which the GCD has to be
-      computed
-    \item Third coloumn is the expected GCD to the preceding two
-      numbers.
-    \end{itemize}
-  \item Let us call our data file \texttt{gcd\_testcases.dat}
-  \end{itemize}
+\frametitle{Evaluation}
+\label{sec-9}
+
+
+\begin{enumerate}
+\item ?
+\vspace{8pt}
+\item ? 
+\end{enumerate}
 \end{frame}
+\begin{frame}
+\frametitle{Solutions}
+\label{sec-10}
 
-\begin{frame}[fragile]
-  \frametitle{Modify \texttt{gcd.py}}
-\begin{lstlisting}
-if __name__ == '__main__':
-    for line in open('gcd_testcases.dat'):
-        values = line.split(', ')
-        a = int(values[0])
-        b = int(values[1])
-        g = int(values[2])
 
-        tc = gcd(a, b)
-        if tc != g:
-            print "Failed for a=%d and b=%d.\
-            Expected %d. Obtained %d instead."\
-            % (a, b, g, tc)
-            exit(1)
-
-    print "All tests passed!"
-\end{lstlisting}
+\begin{enumerate}
+\item 
+\vspace{15pt}
+\item 
+\end{enumerate}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 
@@ -348,5 +299,6 @@ if __name__ == '__main__':
   \end{center}  
   \end{block}
 \end{frame}
+
 
 \end{document}

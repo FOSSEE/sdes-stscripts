@@ -22,61 +22,98 @@ commentstyle=\color{red}\itshape, stringstyle=\color{green},
 showstringspaces=false, keywordstyle=\color{blue}\bfseries}
 \providecommand{\alert}[1]{\textbf{#1}}
 
-\title{Getting started with TDD}
+\title{SEES: Test Driven Development}
 \author{FOSSEE}
-\institute{IIT Bombay}
 
 \usetheme{Warsaw}\usecolortheme{default}\useoutertheme{infolines}\setbeamercovered{transparent}
 
-\AtBeginSection[]
-{
-  \begin{frame}<beamer>
-    \frametitle{Outline}
-    \tableofcontents[currentsection]
-  \end{frame}
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{document}
-\begin{frame}
 
+\begin{frame}
 \begin{center}
 \vspace{12pt}
-\textcolor{blue}{\huge Using Python Testing Frameworks}
+\textcolor{blue}{\huge Test Driven Development \\Part II}
 \end{center}
 \vspace{18pt}
 \begin{center}
 \vspace{10pt}
-\includegraphics[scale=0.95]{../../images/fossee-logo.png}\\
+\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
 \vspace{5pt}
 \scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
 \scriptsize Funded by National Mission on Education through ICT\\
 \scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.30]{../../images/iitb-logo.png}\\
+\includegraphics[scale=0.30]{../images/iitb-logo.png}\\
 \end{center}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
 
 \begin{frame}
   \frametitle{Objectives}
-  At the end of this section, you will be able to:
+  At the end of this tutorial, you will be able to,
   \begin{itemize}
-  \item Use doctests to test your Python code.
-  \item Use unittests to test your Python code.
-  \item Use the nose module to test your code.
+  \item Know what are persistent test cases.
+  \item Write doctest \& unittest for any given function.
+  \item Understand the use of nosetest.
+ 
   \end{itemize}
-\end{frame}
+  \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Pre-requisite}
 \label{sec-3}
 
-Spoken tutorial on Basic Python
+Spoken tutorial on -
 \begin{itemize}
-\item Topic of tutorial here
+\item Test Driven Development -- Part I
 \end{itemize}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}[fragile]
+  \frametitle{Persistent Test Cases}
+  \begin{itemize}
+  \item Tests should be pre-determined and written, before the code
+  \item Test Data is repeatedly used; Hence, saved in persistent
+    format
+  \item Let's save data for fibonacci tests in a text file. 
+  \item The file shall have multiple lines of test data
+  \item Each line corresponds to a single test case
+  \item Each line consists of two comma separated values --
+    \begin{itemize}
+    \item First coloumn is the integer which has to be
+      passed to the function.
+    \item Second coloumn is the return value from the function.
+    \end{itemize}
+  \item Let us call our data file \texttt{fibonacci\_testcases.dat}
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Modify \texttt{fibonacci.py}}
+\begin{lstlisting}
+if __name__ == '__main__':
+    for line in open('fibonacci_testcases.dat'):
+        values = line.split(', ')
+        n = int(values[0])
+        a = int(values[1])
 
+        tc = fibonacci(n)
+        if tc != a:
+            print "Failed for n=%d.\
+            Expected %d. Obtained %d instead."\
+            % (n, a, tc)
+            exit(1)
+
+    print "All tests passed!"
+\end{lstlisting}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Python Testing Frameworks}
 
 \begin{frame}[fragile]
@@ -90,7 +127,7 @@ Spoken tutorial on Basic Python
     \end{itemize}
   \end{itemize}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{\texttt{doctest} module}
 
 \begin{frame}[fragile]
@@ -104,32 +141,33 @@ Spoken tutorial on Basic Python
   \item \texttt{doctest} module picks up all such interactive examples
   \item Executes them and determines if the code runs, as documented
   \end{itemize}
-  Let's use the \texttt{doctest} module for our \texttt{gcd} function
+  Let's use the \texttt{doctest} module for our \texttt{fibonacci} function
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-  \frametitle{doctest for \texttt{gcd.py}}
+  \frametitle{doctest for \texttt{fibonacci.py}}
 \begin{tiny}
 \begin{lstlisting}
-def gcd(a, b):
-    """Returns the Greatest Common Divisor of the two integers
-    passed as arguments.
+def fibonacci(n):
+    """Returns the nth fibonacci number.
 
     Args:
-      a: an integer
-      b: another integer
-
-    Returns: Greatest Common Divisor of a and b
-
-    >>> gcd(48, 64)
-    16
-    >>> gcd(44, 19)
-    1
+      n: an integer
+    
+    
+    >>> fibonacci(3)
+    2
+    >>> fibonacci(4)
+    3
     """
-    if b == 0:
-        return a
-    return gcd(b, a%b) 
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2) 
 \end{lstlisting}
 \end{tiny}
 \begin{itemize}
@@ -137,9 +175,9 @@ def gcd(a, b):
 \item Now we need to tell the \texttt{doctest} module to execute
 \end{itemize}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{doctest for \texttt{gcd.py} \ldots}
+  \frametitle{doctest for \texttt{fibonacci.py} \ldots}
 \begin{lstlisting}
 if __name__ == "__main__":
     import doctest
@@ -152,18 +190,18 @@ if __name__ == "__main__":
 \item Complains only when one or more tests fail. 
 \end{itemize}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{\texttt{doctest} -- Execution}
   \begin{itemize}
-  \item Run the doctests by running \texttt{gcd.py}
+  \item Run the doctests by running \texttt{fibonacci.py}
 \begin{lstlisting}
-$ python gcd.py
+$ python fibonacci.py
 \end{lstlisting} %$
   \item All the tests pass, and doctest gives no output
   \item For a more detailed report we can run with -v argument
 \begin{lstlisting}
-$ python gcd.py -v
+$ python fibonacci.py -v
 \end{lstlisting} %$
   \item If the output contains a blank line, use \texttt{<BLANKLINE>}
   \item To see a failing test case, replace \texttt{return a} with \texttt{b}
@@ -171,7 +209,7 @@ $ python gcd.py -v
 \end{frame}
 
 \subsection{\texttt{unittest} framework}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{\texttt{unittest}}
   \begin{itemize}
@@ -184,57 +222,43 @@ $ python gcd.py -v
   \item Easily aggregate tests into collections and improved reporting
   \end{itemize}
 \end{frame}
-
-
-\begin{frame}[fragile]
-  \frametitle{\texttt{unittest}}
-  \begin{itemize}
-  \item It won't be long, before we complain about the power of
-    \texttt{doctest} 
-  \item \texttt{unittest} framework can efficiently automate tests
-  \item Easily initialize code and data for executing the specific
-    tests
-  \item Cleanly shut them down once the tests are executed
-  \item Easily aggregate tests into collections and improved reporting
-  \end{itemize}
-\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{unittest}ing \texttt{gcd.py}}
+  \frametitle{\texttt{unittest}ing \texttt{fibonacci.py}}
   \begin{itemize}
   \item Subclass the \texttt{TestCase} class in \texttt{unittest}
   \item Place all the test code as methods of this class
-  \item Use the test cases present in \texttt{gcd\_testcases.dat}
-  \item Place the code in \texttt{test\_gcd.py} 
+  \item Use the test cases present in \texttt{fibonacci\_testcases.dat}
+  \item Place the code in \texttt{test\_fibonacci.py} 
   \end{itemize}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile,allowframebreaks]
-  \frametitle{\texttt{test\_gcd.py}}
+  \frametitle{\texttt{test\_fibonacci.py}}
 \small
 \begin{lstlisting}
-import gcd
+import fibonacci
 import unittest
 
-class TestGcdFunction(unittest.TestCase):
+class TestFibonacciFunction(unittest.TestCase):
 
     def setUp(self):
-        self.test_file = open('gcd_testcases.dat')
+        self.test_file = \
+        open('fibonacci_testcases.dat')
         self.test_cases = []
         for line in self.test_file:
             values = line.split(', ')
-            a = int(values[0])
-            b = int(values[1])
-            g = int(values[2])
+            n = int(values[0])
+            a = int(values[1])
+            
+            self.test_cases.append([n, a])
 
-            self.test_cases.append([a, b, g])
-
-    def test_gcd(self):
+    def test_fibonacci(self):
         for case in self.test_cases:
-            a = case[0]
-            b = case[1]
-            g = case[2]
-            self.assertEqual(gcd.gcd(a, b), g)
+            n = case[0]
+            a = case[1]
+            self.assertEqual(fibonacci.fibonacci(n),a)
 
     def tearDown(self):
         self.test_file.close()
@@ -244,22 +268,22 @@ if __name__ == '__main__':
     unittest.main()
 \end{lstlisting}
 \end{frame}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{\texttt{test\_gcd.py}}
+  \frametitle{\texttt{test\_fibonacci.py}}
   \begin{itemize}
   \item \texttt{setUp} -- we read all the test data and store it in a
     list
   \item \texttt{tearDown} -- delete the data to free up memory and
     close open file
-  \item \texttt{test\_gcd} -- actual test code
+  \item \texttt{test\_fibonacci} -- actual test code
   \item \texttt{assertEqual} -- compare actual result with expected one
   \item Write documentation for above code. 
   \end{itemize}
 \end{frame}
 
 \section{\texttt{nose}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{\texttt{nose} tests}
   \begin{itemize}
@@ -281,6 +305,47 @@ $ nosetests
   \end{itemize}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Summary}
+\label{sec-8}
+
+  In this tutorial, we have learnt to,
+
+
+\begin{itemize}
+\item Use of persistent test cases for better control.
+\item Undestand the use of doctest \& unittest.
+\item Understand the use of nosetest .
+
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+\frametitle{Evaluation}
+\label{sec-9}
+
+
+\begin{enumerate}
+\item ?
+\vspace{8pt}
+\item ? 
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Solutions}
+\label{sec-10}
+
+
+\begin{enumerate}
+\item 
+\vspace{15pt}
+\item 
+\end{enumerate}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
 
   \begin{block}{}
@@ -295,5 +360,6 @@ $ nosetests
   \end{center}  
   \end{block}
 \end{frame}
+
 
 \end{document}

@@ -75,15 +75,16 @@ LaTeX began as TeX, a computer program originally created by
 Donald E. Knuth. Its was designed mainly to aid typesetting
 of text and mathematical formulae. 
 
-LaTeX is a document preparation system for high quality type 
-setting. It is based on the TeX typesetting language or certain
-extensions.
+LaTeX is a typesetting program that produces excellently typeset documents. 
+Typesetting is placing text onto a page with all the style formatting defined,
+so that content looks as intended. It is extensively used for producing high 
+quality scientific and mathematical documents. It may also be used for 
+producing other kinds of documents, ranging from simple one page articles to 
+complete books.
 
 LaTeX is pronounced Lah-tech or Lay-tec.
 TeX is pronounced Tech. TeX is also the first syllable in the Greek word for
 technology.
-LaTeX allows authors to typeset and print their content at the highest
-typographical quality, using predefined, professional layouts.
 
 .. L5
 
@@ -128,6 +129,8 @@ of the document.
 
 Some of the disadvantages of using LaTeX approach to typesetting is 
 (1) Designing a whole new layout is difficult.
+(2) LaTeX is not a word processor, that is the document author is not expected
+to worry about presentation details like the size of font, for example.
 
 .. L8
 
@@ -154,66 +157,95 @@ The resultant PDF files can be viewed using standard tools on most platforms
 
 .. R9
 
-LaTeX, like most utilities in Linux is case sensitive. Commands begin with a
-backslash.LaTeX environments have a begin and end marker. Any content after
-\end{document} is ignored.
+LaTeX, like most utilities in Linux, LaTeX is case sensitive. Commands begin 
+with a backslash.LaTeX environments have a begin and end marker. The begin and
+end document commands, mark the beginning and the end of the content of the 
+LaTeX document. The text in between the begin and end commands is typeset in 
+the output document.Any content after \end{document} is ignored. The type of 
+document that is being currently typeset in LaTex, is identified with the 
+documentclass command. LaTeX then, typesets the document accordingly. 
 
-Anything that follows a percentage sign (%) till the end of that line is a
-comment. Special characters like tilde or hash,etc have to be escaped by a
-backslash. If you have to insert a backslash into a LaTeX output file, you have
-to use the LaTeX command \textbackslash.
+All the commands in LaTeX begin with a \. An environment begins with a begin
+command and ends with an end command. 
 
-Normally LaTeX automatically spaces the given input optimally. But, sometimes we
-have to insert manual line breaks. This is achieved using the \\ command.
-
-We can also start a new paragraph using an empty line.
-
-It must be noted that multiple spaces/empty lines are automatically compressed 
-to a single space/line.
+So, as expected LaTeX ignores anything that is written after the \end{document}
+command. Essentially, anything written after the \end{document} command turns 
+out to be a comment. But, how do we write comments with in the document. % is
+the character to indicate comments. Anything written after a % symbol in a 
+line, is ignored.
 
 .. L10
 
-{{{ Show slide with exercise 1 }}}
 
 .. R10
+
+But what if we wanted to insert the % symbol in the document? We can do so by
+escaping it with a \ (backslash). % is one of the many special characters in
+LaTeX. The others are, ~ # $ ^ & _ { } \. All of them, except the \ itself, can
+be inserted by escaping it with a \. To insert a \ in our document, we use the
+command \textbackslash.
+
+What would happen if we escape a \ with a \? 
+A double backslash is actually another command. It inserts a new line in the
+typeset document. Normally LaTeX automatically spaces the given input optimally.
+But, sometimes we have to insert manual line breaks. The \\ command or \newline
+command is used to insert a newline in the output document. Line breaks in the
+input document, do not translate into line breaks in the output document. A 
+single line break in the input document, doesn't cause any change in the output. 
+
+A single empty line causes a change in paragraphs in the output. (Multiple 
+empty lines are equivalent to a single empty line.) Similarly, multiple spaces
+are treated as a single space.
+
+.. L11
+
+{{{ Show slide with exercise 1 }}}
+
+.. R11
 
 Now, we try to create a simple LaTeX document. Pause the tutorial and type the
 content shown on the screen in a text editor. Save the file as temp.tex
 
-.. L10
+.. L12
 
 {{{continue from paused state}}}
 
-.. R10
+.. R12
 
 Now we compile the commands in the LaTeX input file that is, temp.tex into a 
-typeset file.
-The first alternative is to compile LaTeX input file into a DVI file. We use 
-the latex command for this purpose.
-For compiling the LaTeX input file temp.tex into a DVI file, we use the
-following command
+typeset file. 
+
+The first alternative is to compile LaTeX input file into a DVI 
+file. We use the latex command for this purpose. For compiling the LaTeX input 
+file temp.tex into a DVI file, we use the following command
+
 latex temp.tex. 
-The output file would be temp.dvi.
-On Gnu/Linux use a program like xdvi to view the output file.
 
-.. L11
+The output file would be temp.dvi.On Gnu/Linux use a program like xdvi to view
+the output file.
+
+.. L13
 
 
-.. R11
+.. R13
 
 The other alternative is to create PDF files from LaTeX input files.
-We use the pdflatex command for this purpose. 
-For compiling the LaTeX input file temp.tex into a PDF file, we use the
-following command
-pdflatex temp.tex
-The output file would be temp.pdf
-On Gnu/Linux use a program like evince to view the output file.
+We use the pdflatex command for this purpose. For compiling the LaTeX input
+file temp.tex into a PDF file, we use the following command
 
-.. L12
+pdflatex temp.tex
+
+The output file would be temp.pdf.On Gnu/Linux use a program like evince to 
+view the output file.
+
+Please note that, throughout this course we shall be using pdflatex to compile 
+our documents.
+
+.. L14
 
 {{{ Show summary slide }}}
 
-.. R12
+.. R14
 
 This brings us to the end of this tutorial. In this tutorial, we have learnt
 
@@ -227,11 +259,11 @@ This brings us to the end of this tutorial. In this tutorial, we have learnt
 ..    comments and special characters, spacing and actual document content.
 .. #. Created and compiled a very simple LaTeX document.
 
-.. L13
+.. L15
 
 {{{Show self assessment questions slide}}}
 
-.. R13
+.. R15
 
 Here are some self assessment questions for you to solve
 
@@ -242,11 +274,11 @@ using the dvips command. Verify that the two files indeed look the same.
 temp_1.pdf using the dvipdfm command. Verify that the two files indeed look the
 same.
 
-.. L14
+.. L16
 
 {{{Show self assessment questions slide}}}
 
-.. R14
+.. R16
 
 And the answers,
 
@@ -256,11 +288,11 @@ dvips -o temp_1.ps temp.dvi
 2. We can use the following command to convert temp.dvi to temp_1.pdf
 dvipdfm -o temp_1.pdf temp.dvi
 
-.. L15
+.. L17
 
 {{{ Show the thank you slide }}}
 
-.. R15
+.. R17
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
