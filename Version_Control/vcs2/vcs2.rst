@@ -1,17 +1,19 @@
+---------------------------------
+Version Control using Hg - Part II
+---------------------------------
 
 .. Prerequisites
 .. -------------
 
-.. Version Control with hg - Part 1
+.. None
 
 .. Author : Primal Pappachan
-   Internal Reviewer :
-   Date: Sept 23, 2011
-   
-   
---------
-Script
---------
+   Internal Reviewer : Kiran Isukapatla
+   Date: Jan 27, 2012
+
+---------------------
+Spoken Tutorial Script
+----------------------
 
 .. L1
 
@@ -19,471 +21,257 @@ Script
 
 .. R1
 
-Hello friends and welcome to the tutorial on 'Version Control with Hg' 
+Hello friends and welcome to the second part of tutorial on 'Version Control using Hg' 
 
 .. L2
 
-{{{Show the slide containing the objectives}}}
+{{{Show the slide 'Prerequisite'}}}
 
 .. R2
 
-At the end of this tutorial you will be able to
-
-1. Learn how to view and revert changes made to files in a repository.
-
-#. Learn how to share repositories and deal with simultaneous conflicting changes.
+Please make sure that you have gone through the following tutorials before you continue on this tutorial:
 
 .. L3
 
-{{{Show the slide 'Operational overhead?'}}} 
+{{{Show the slide 'Objectives'}}}
 
-.. R3 
+.. R3
 
-Let's first try to find out why we should commit inspite of the additional operational costs and loss of time?
+At the end of this tutorial you will be able to
+ 1. initialize a new repository,
+ #. obtain the status of a repository,
+ #. add new files to a repository,
+ #. take snapshots of a repository,
+ #. view the history of a repository,
+ #. and set your user information for hg 
 
 .. L4
 
-{{{Show the slide 'Revert Changes'}}}
+{{{Show the slide for 'We need a repo!'}}}
 
 .. R4
 
-The undo in your editor may allow undoing some changes(if you haven't closed it after making the changes) but there's no way of getting back deleted files using your editor. That's where mercurial comes to the rescue.
+To start using Mercurial (or hg) and get the benefits of using a version control system, we should first have a repository. 
 
-We shall use the revert command of hg to undo all the changes after the last commit. If we want to undo all the changes, we use the revert command with the --all argument, else use revert command with specific filename as argument.
+Now, what exactly is a repo? A repo/repository is a folder with contains all the files and information on all the changes that were made to it. To save disk space, hg doesn't save all files, but only saves only a series of changes made to the files.
 
 .. L5
 
-$ hg revert --all
-reverting chapter1.txt
-reverting chapter3.txt
-$ hg st
-? chapter1.txt.orig
-$ ls
-chapter1.txt  chapter1.txt.orig  chapter2.txt  chapter3.txt
+{{{Show the slide 'Initializing a Repo'}}}
 
 .. R5
 
-After running this command, you can see that all deleted files have been restored. But hg has generated new files with .orig extension.  Mercurial actually doesn't like to delete any of the changes that you have made. So, it makes a back-up of the already existing files in the present state and gives you back the old file.
+A repository can either be started using an init command or an existing repository could be cloned. Let us look at creating our own repository, now. We can look at obtaining already existing repositories, at a later stage.
 
-If we now decide, that we want to redo the changes that we had done to the existing file, we can just overwrite it with the backed up file. 
+Let's say we have a folder called book, which has all the chapters of a book as text files. Let us convert that folder, into a hg repository.
 
 .. L6
 
-$ mv chapter1.txt.orig chapter1.txt
-$ hg st
-M chapter1.txt
-
-.. L7
-
-{{{Show the slide 'Viewing Changes'}}}
+$ cd book/
+$ ls -a
+. .. chapter1.txt chapter2.txt chapter3.txt
 
 .. R6
 
-Let's say we now want to commit these changes, but we are not sure of all the changes that we have made to the file, since it's been a while after we made the changes. We could use the diff command to see all the changes that have been made in the file.
+We have three chapters in the folder. We convert this folder into a mercurial repository using the hg init command
 
-.. L8
+.. L7
 
-$ hg diff
+$ hg init
+$ ls -a
+. .. .hg chapter1.txt chapter2.txt chapter3.txt
 
 .. R7
 
-You see some cryptic output, but it's essentially giving you the list of changes made to the file. All the lines that were deleted are preceded by a - and all the new-lines are preceded by a +. You can see that the & occurrences have been replaces with and. 
+The .hg directory indicates that our book directory is now a hg repository. Mercurial keeps all the history of the changes made, and a few other config files, etc. in this directory. The directory, book is called our working directory.
 
-We should note here that, the diff wouldn't make much sense, if we had some binary files like .jpg or .pdf files. We would see some gibberish in the output.
+.. L8
 
-.. L9
-
-{{{Show the slide 'Revision Numbering'}}}
+{{{Show the slides 'Status Report'}}}
 
 .. R8
 
-Often, the level of detail provided by the commit messages is also not enough. We would want to see what exactly changed with a commit, probably as a diff. We could do that using revision numbers. 
+We now have a fresh repository, but all our files are not being tracked or watched by mercurial, yet. We need to explicitly ask it to watch the files, that we want it to.
 
-Use the log command to get a brief description of all the changes made, by showing us the summary line of all the commits. Look at the changeset line in the output of the command. It shows a number followed by a semi-colon and some long hexa-decimal string. The number is called the revision number. It is an identifier for the commit, and can be along with various commands to specify the revision number, if required.
+.. L9
 
-.. L10
-
-{{{Show the slide  'Using revision numbers'}}}
-
+$hg status
 
 .. R9
 
-The revision number can also be passed as an argument to many commands. Let's say we wish to see the changes between revision 1 and revision 2. We shall use the diff command to do this.
+Gives the status of our repo. As a beginner, use it often.
 
-.. L11
+.. L10
 
-$ hg diff -r1 -r2
+$hg help 'status'
 
 .. R10
 
-The diff command takes two revision numbers as arguments and gives the changes made from revision in the first argument to revision in the second argument.
+You can use 'hg help commandname' which gives the details about the command. For example.
 
-.. R11
+.. L11
 
-It can be passed to other commands as well. For instance, we can check the logs of the very first commit, by saying
+$hg help status
 
 .. L12
 
-$ hg log -r0
+{{{Show the slides for 'Status Codes'}}}
 
-.. R12
+.. R11
 
-You could also specify a range of commits whose logs you would like to see. Say, we would like to see the last two commits,
+Let's now to try to discern what each of the status code associated with the files mean. By looking at the codes, it is clear that our files are not being tracked by hg yet. Now let's move onto 'Adding Files'.
 
 .. L13
 
-$ hg log -r0:2
+$hg add
 
-.. R13 
+.. R12
 
-When motivating the use of version control systems, we spoke a lot about collaboration and sharing our changes with our peers. Let us now see how we can share our project with our peers and collaborate with them.
+This simply adds all the files in the (working) directory, to the repository. As expected, the status command shows an A before he file names. We could also specify files individually, for example
 
 .. L14
 
-{{{Show the slide 'Cloning Repositories'}}}
+$ hg add chapter1.txt
 
-.. R14
+.. R13
 
-For this purpose let us create a central repository, a copy of our repository, which is different from the one in which we are working. The clone command is used to clone or replicate an existing repository.
+If you have deleted files, hg status will show you the status code !. You can, then, tell hg to stop tracking these files, using the hg remove command. Look at hg help remove for more details.
 
 .. L15
 
-$hg clone SOURCE [DEST]
-$ hg clone book book-repo
+{{{Show the slides 'Taking Snapshots'}}}
 
-.. R15
+.. R14
 
-The syntax of the clone command is -- hg clone SOURCE [DEST], where the optional argument DEST is being represented in brackets. The clone command can be used to replicate already existing repositories, either on your own machine or on some remote machine somewhere on the network. Since, hg maintains a copy of the full repository with every copy of the repository, the two copies that we have are exactly equivalent.
+We have added a set of new files to the repository, but we haven't told mercurial to remember these changes, i.e., to take a snapshot at this point in time. We do this by using the commit command.
 
 .. L16
 
-{{{Show the slide 'Sharing Repositories'}}}
+$ hg commit -u "Primal Pappachan <primal@fossee.in>" -m "Initial Commit."
 
-.. R16
+.. R15
 
-A mercurial repository can be shared in multiple ways. We shall use the http protocol to share the repository. Mercurial comes inbuilt with a tiny server that can be used to share your repository over the network. To start sharing the repository, we say
+The -u parameter allows us to specify the user details. It is a general good practice to use full name followed by the email id. The -m parameter allows us to give the commit message --- a message describing the changes that are being committed.
+
+Mercurial has now taken a snapshot of our repository and has attached our description along with it. To see the status of the files in the repository, use the hg status command.
 
 .. L17
 
-$hg serve
+$ hg st
 
-.. R17
+.. R16
 
-This will start serving the repository on the network on the port 8000. Anybody in your network can access the repository in their browsers. Let us see how it looks, in our own browser.
+The command does not return anything, when there are no uncommitted changes. Also, notice that I have started getting lazy and used only a short name st for the status command.
 
 .. L18
 
-Open the url http://localhost:8000 in browser.
+{{{Show the slide 'Thumbnail views'}}}
 
-.. R18
+.. R17
 
-To clone the repository, use
+To see the history of the changes to our repository, we use hg log. We can view the change that we just made to our repository.
 
 .. L19
 
-$ hg clone http://my-ip-address:8000
+$ hg log
 
-.. R19
+.. R18
 
-By this process, we share a central repository; work on our local copies. It doesn't make much sense to allow anybody to make changes to a public repository, by default. We will need to make changes to the settings of the repository to allow this. To set the write permissions, add the following lines in .hg/hgrc
+hg log gives the log of the changes made in the form of changesets. A changeset is a set of changes made to the repository between two consecutive commits. It also shows the date at which the commit was made. Please have a look of the various aspects of the changeset.
 
 .. L20
 
-[web]
-push_ssl=False
-allow_push=*
+{{{Show the slide 'User Information'}}}
 
-.. R20 
+.. R19
 
-This will allow anybody to push to the repository, now.
+There are two aspects which can be improved upon. Firstly, it is unnecessary to keep typing the user information each and every time we make a commit. Secondly, it is not very convenient to enter a multi-line commit message from the terminal. To solve these problems, we set our user details and editor preferences in the .hgrc file in our home folder. ($HOME/.hgrc on Unix like systems and %USERPROFILE%\.hgrc on Windows systems) This is a global setting for all the projects that we are working on. 
+
+.. R20
+
+For linux systems, we open the configuration file in our favorite editor and add the username details and our editor preferences... L23
 
 .. L21
 
-{{{Show the slide 'Sharing Changes'}}}
+vim ~/.hgrc 
+[ui]
+username = Primal Pappachan <primal@fossee.in>
+editor = vim
 
 .. R21
 
-Use hg push to push your commits (changesets) to the central repository
+We have now set the user-name details for mercurial to use.
 
 .. L22
 
-$ hg push
+{{{Show the slide 'Advice: commits, messages'}}} 
 
 .. R22
 
-Let us now pull these changes into our original repository that we have been working with.
+Some Recommended Practices for commit messages
+
+1. Atomic changes; one change with one commit
+
+#. Single line summary — 60 to 65 characters long
+
+#. Followed by paragraphs of detailed description
+ -  Why the change?
+ - What does it effect?
+ - Known bugs/issues?
+ - etc.
 
 .. L23
 
-{{{Show the slide 'Pulling Changes'}}}
+{{{Show the 'summary' slide'}}}
 
 .. R23
 
-Before pulling the changes, we can use the command hg incoming to see the changes that have been made to the repository after our last pull and the changesets that will be coming into our repository after we do a pull.
+This brings us to the end of the tutorial. In this tutorial, we have
+seen,
+ 1. how to initialize a new repository using hg init,
+ #. get the status of a repository using hg status and meaning of it's status codes
+ #. make commits of changes to files, using hg commit 
+ #. view the history of the repository using the hg log command,
+ #. set our user information in the global hgrc file.
 
 .. L24
 
-$ hg incoming
+{{{Show self assessment questions slide}}}
 
-.. R24
-
-To now pull these changes, we use the pull command.
-
-.. L25
-
-$ hg pull
-
-.. R25
-
-These changes do not affect our working directory. To see this, we could use the hg parent command.
-
-.. L26
-
-$ hg parent
-
-.. R26
-
-As you can see, the parent is still our last commit, and the changes are still not in your working directory.
-
-.. L27
-
-{{{Show the slide 'Pulling Changes'}}}
-
-.. R27
-
-To get these changes we do the update as suggested by hg.
-
-.. L28
-
-$ hg update
-
-.. R28
-
-As expected the update command updates the parent to the latest changes that we just pulled from the remote repository.
-
-1. Updates to the tip if no revision is specified
-
-#. tip is the most recently added changeset
-
-#. Can specify revision number to update to
-
-.. R29
-
-hg tip shows the tip of the repository
-
-.. L29
-
-$ hg tip
-
-.. R30
-
-What happens when two users have made simultaneous changes to the same file, by editing different parts at the same time.
-
-.. L30
-
-{{{Show the slide 'Simultaneous Changes'}}}
-
-.. R31
-
-With simultaneous changes, following things happen
-
-1. The logs of both repositories will be different
-
-#. The repositories have diverged
-
-#. hg push fails, in such a scenario
-
-.. L31
-
-$ hg push
-pushing to http://192.168.1.101:8000
-searching for changes
-abort: push creates new remote heads!
-(did you forget to merge? use push -f to force)
-
-.. R32 
-
-Don't take the advice given by mercurial. Using the -f would be disastrous. We will leave out a discussion of that, for this course.
-
-.. L32
-
-{{{Show the slide 'Merging'}}}
-
-.. R33
-
-We will now need to pull the new changes that have been pushed to the repository after the last pull and merge them with the changes.
-
-.. L33
-
-$ hg pull
-
-$ hg merge
-
-.. R34
-
-We have now pull the changes from the central repository and merged them with the changes in our repository. But, hg is warning us not to forget to commit. 
-
-.. L34
-
-$ hg commit 
-
-.. R35
-
-We can now push this changes to the central repository. We could also check the changes that will be pushed, before pushing them, using the hg outgoing command.
-
-.. L35
-
-{{{Show the slide 'Outgoing Changes'}}}
-
-.. L36
-
-$ hg outgoing 
-
-$ hg push
-
-.. R36
-
-The changes have now been successfully pushed! Let us look at the web interface of the repo, to see that the changes have actually taken place.
-
-.. L37
-
-Show the Change graph in browser.
-
-.. R37
-
-What will happen if we edited the same portion of the file, at the same time? How would merges work? This will be the last thing that we are going to see in this part of the spoken tutorial. 
-
-.. L38
-
-{{{Show the slide 'Simultaneous Conflicting Changes'}}}
-
-.. R38
-
-Let's say both of us edit the same part of the same file.
-
-1. hg push fails
-
-#. So we first do hg pull
-
-#. followed by hg merge
-
-
-.. L39
-
-$ hg push
-
-$ hg pull
-
-$ hg merge
-
-.. R39
-
-What happens now actually depends on how Mercurial is configured and the programs available in your machine. You will either get a diff view with 3 panes or merge will insert markers in your file at the points where the conflicts occur.
-
-If you get a 3 pane view, the first pane is the actual file, where you make changes, to resolve the conflicts. The second pane shows the changes that you made, to the file. The last pane shows the changes that you pulled from the original repo. Once you are satisfied with the changes, save and quit.
-
-Once you are done, you need to tell mercurial that you have resolved the conflicts manually.
-
-.. L40
-
-$ hg resolve -m filename
-
-.. R40
-
-You will now need to commit your changes, just like the simple merge that we performed.
-
-.. L41
-
-$ hg commit -m "Merge heads."
-$ hg push
-
-.. R41
-
-We could look at the graph of the changes, in our web interface, which makes clear how the merging has occurred. 
-
-.. L42
-
-Show the change graph in browser.
-
-.. R42 
-
-Here's an advice on the Work-flow to be followed.
-
-.. L43
-
-{{{Show the slide 'Advice: Work-flow}}}
-
-
-.. R43
-
-That brings us to the end of this tutorial on Mercurial. What we have covered is nothing close to all the features of Mercurial. We've only scratched the surface, but let's hope that this will get you started and you will be able to organize your work and projects, better.
-
-.. L44 
-
-{{{Show the slide 'Summary'}}}
-
-.. R44
-
-In this tutorial, we have learnt to, 
-
-1. Undo changes to the repository using hg revert,
-
-#. View changes done to the repository using hg diff
-
-#. Use revision numbers as arguments to different hg commands
-
-#. Clone repositories, using hg clone,
-
-#. Serve our repositories via http using hg serve,
-
-#. push changes to a repository using hg push,
-
-#. check the changesets in a repository after last pull, using hg incoming,
-
-#. pull changes from a repository using hg pull ,
-
-#. update the working directory, using hg update,
-
-#. merge two heads, using hg merge,
- 
-#. and resolve conflicts using hg resolve.
-
-
-.. L45
-
-{{{ Show self assessment questions slide }}}
-
-.. R45
+.. R24 
 
 Here are some self assessment questions for you to solve
 
+ 1. How can you tell hg to stop tracking deleted files?
+ #. Here's a part of the output that is printed in 'hg log'.
+	changeset:   1:2278160e78d4
+	tag:         tip
+	user:        Primal Pappachan <primal@fossee.in>
+	date:        Sat Jan 26 22:16:53 2012 +0530
+	summary:     Added Readme
+ Try to identify each component of this changeset and it's meaning. In the changeset, what is the significance of the number as well as hexadecimal string?
 
-.. L46
+ #. What happens when 'hg commit' command is run first time without specifying username as parameter or creating the hg configuration file? 
+ 
+.. L25
 
-{{{ Solution of self assessment questions on slide }}}
+{{{Show the solutions slide to self assessment questions }}}
 
-.. R46
+.. R25
 
 And the answers,
 
+ 1. If you have deleted files, hg status will show you the status code !. You can, then, tell hg to stop tracking these files, using the hg remove command.
+ #. The revision number is a handy notation that is only valid in that repository. The hexadecimal string is the permanent, unchanging identifier that will always identify that exact changeset in every copy of the repository	
+ #. If you have set the EMAIL environment variable, this will be used. Next, Mercurial will query your system to find out your local user name and host name, and construct a username from these components. Since this often results in a username that is not very useful, it will print a warning if it has to do this. If all of these mechanisms fail, Mercurial will fail, printing an error message. In this case, it will not let you commit until you set up a username.
 
+.. L26
 
-.. L47
+{{{Show the thank you slide}}}
 
-{{{ Show the Thank you slide }}}
+.. R26
 
-.. R47
+Hope you have enjoyed this tutorial and found it useful. Feel free to play around with Mercurial and read the documentation given by hg help command. When you are ready to move on, please proceed to the third tutorial on 'Version Control using Hg'
 
-Hope you have enjoyed this tutorial and found it useful.
-Thank you!
-
-
-
-
-
-
-
-
-
-
+Thank you
 
