@@ -1,5 +1,5 @@
 ---------------------------------
-Version Control using Hg - Part II
+Version Control using Hg  Part II
 ---------------------------------
 
 .. Prerequisites
