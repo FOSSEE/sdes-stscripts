@@ -235,8 +235,10 @@ In this tutorial, we have learnt to,
 .. R19
 
 Here are some self assessment questions for you to solve
-
-
+ 1. How to accomplish not saving backup files using hg revert command?
+ #. Get the history of revisions 2 to 4 without having to list each
+ revision? 
+ #. Print the description and content of a change. Hint: Use --patch option
 .. L20
 
 {{{ Solution of self assessment questions on slide }}}
@@ -244,8 +246,9 @@ Here are some self assessment questions for you to solve
 .. R20
 
 And the answers,
-
-
+ 1.hg revert -C --no-backup
+ #. hg log -r 2:4
+ #. hg log -v -p -r 2
 
 .. L21
 
@@ -253,16 +256,8 @@ And the answers,
 
 .. R21
 
-Hope you have enjoyed this tutorial and found it useful.
+Hope you have enjoyed this tutorial and found it useful. Feel free to play around with Mercurial and
+read the documentation given by hg help command. When you are ready to move on,
+please proceed to the third tutorial on 'Version Control using Hg'
+
 Thank you!
-
-
-
-
-
-
-
-
-
-
-
