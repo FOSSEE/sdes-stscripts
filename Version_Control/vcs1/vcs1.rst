@@ -1,3 +1,6 @@
+---------------------------------
+Version Control using Hg - Part I 
+---------------------------------
 
 .. Prerequisites
 .. -------------
@@ -17,7 +20,7 @@ Script
 
 .. R1
 
-Hello friends and welcome to the tutorial on 'Version Control with Hg' 
+Hello friends and welcome to the first part of tutorial on 'Version Control using Hg' 
 
 .. L2
 
@@ -27,9 +30,9 @@ Hello friends and welcome to the tutorial on 'Version Control with Hg'
 
 At the end of this tutorial you will be able to
 
-1. Understand what is Version Control and the need for it.
-
-#. Create and use a repository on a daily basis.
+ 1. Understand what is Version Control
+ #. Identify the need for using Version Control
+ #. Install Mercurial and intialize a repository
 
 .. R3
 
@@ -43,6 +46,10 @@ First, let's understand what 'Version Control' is.
 
 'Version control' is a way to track files over time and share them. This allows access to earlier versions of a file(s) if and when required. It therefore enables us to make changes to the content of a file, view it's change log and collaborate on a single piece of work with a team of people.
  
+As the quote from the famous blog post 'Version Control for masses' says
+
+"Version control is one of those weird, geeky things that never really gained
+much ground in non-geek fields, despite the fact that it’s blindingly useful." 
 
 .. L4
 
