@@ -49,107 +49,126 @@ tutorial on "Test driven development-part 1".
 
 .. R4
 
+To test ``fibonacci`` function we have used two test cases.
+It is inconvenient to repeatedly change the test conditions in
+the fibonacci.py file.Each time a new test case is added it
+introduces a 'if' statement too.
+So it is good practice to write the test cases in a separate file.
+The file will contain multiple lines,each line for separate test case,
+each line consist of two comma separated values,
+first column is the integer value which has to be passed to the function
+ and the second column is the return value from the function.
+
 
 
 .. L4
 
-{{{ Switch to slide4 ,Persistent test cases}}}
+{{{ Switch to slide4 ,Persistent test cases,(after 3 seconds) show the 
+     fibonacci_testcases.dat file}}}
 
 
 .. R5
 
-To illustrate TDD, lets take a simple program. Consider a 
-function ``fibonacci``, that takes one argument and returns 
-the nth number of ``fibonacci`` series.
+Lets open the same fibonacci.py file which we have used in our 
+previous tutorial.Change the code to use fibonacci_testcases.dat 
+file for test cases.
+
 
 .. L5
 
-{{{ Switch to slide5, First test- fibonacci }}}
+{{{ Switch to slide5, Modify fibonacci.py , show the modified
+    fibonacci.py file}}}
 
 .. R6 
 
-To test ``fibonacci`` function, we need test
-cases.
-As shown in this slide,
-test cases are expected outputs for a given set of inputs.
+Save the fibonacci.py file. Go to terminal and run 
+``python fibonacci.py``. It should pass all the tests.
 
 
 .. L6
 
-{{{ Switch to slide6, Test cases }}}
+{{{ Switch to terminal and run}}}
+::
+
+    python fibonacci.py
 
 .. R7
 
-The sample code for test cases is shown here. Observe that if 
-any ``if`` statement is executed, test aborts after printing the
-error message.
+So far we have used simple repetitive tests.
+Now we will see how ``Python testing frameworks`` can do the
+same job efficiently.
+Python provides two frameworks for testing code, unittest and
+doctest.
 
 .. L7
  
-{{{ Switch to slide7, Test cases-Code }}}
+{{{ Switch to slide6, Python testing framework }}}
 
 .. R8
 
-The ``fibonacci`` function is written just enough so that 
-test can run.
-
+Let us first see how doctest works. 
+A docstring is used to document function. Along with the 
+description, interactive interpretor session's input and 
+output are also added.
+When executed doctest module pick up all such interactive 
+examples, executes them and determines if the code runs
+as documented.
 
 .. L8
 
-{{{ switch to slide8, Stubs }}}
+{{{switch to slide7 for 3 seconds and move to to slide8,
+ Doctest for fibonacci.py}}}
 
 .. R9
 
-Combine the function and test cases and put them together in 
-``fibonacci.py`` file.Add the test cases after name=main idiom.
+To initiate doctest we need to import doctest module.
+Testmod automatically picks all sample sessions, executes
+them and compares with the documented output.
+Doctest doesn't give any output when all test pass,
+it complains only when any test fails.
 
 .. L9
 
-{{{ Switch to slide9, fibonacci.py }}}
+{{{ Switch to slide9, doctest for fibonacci.py }}}
 
 .. R10
 
-Lets run fibonacci.py by typing ``python fibonacci.py``.
-As we haven't written any meaningful code in our ``fibonacci``
-function, it fails immediately.
-Our next step is to write just minimum code to pass our tests.
+Let us run doctests by typing ``python fibonacci.py``.
+As all tests pass, doctest doesn't give any output.
+For more detailed information we can run with -v argument.
+Run as ``python -v fibonacci.py``.
 
 .. L10
 
-{{{ Run the fibonacci.py in terminal and show the error output.}}}
+{{{ Run the fibonacci.py in terminal .}}}
 ::
      
     python fibonacci.py
+    python fibonacci.py -v
 
 .. R11
 
-Modify the fibonacci stub function with given code. 
-Save and run it again as `` python fibonacci.py``. 
-{{{ pause }}}
-Observe that, there will be no errors, as 
-the test passes successfully.
+So far we have seen doctest, which is simple to use. But when
+it comes to automate the process, unittest is better.
+Unittest initializes code and data, it aggregate 
+tests into collections and improves reporting.
 
 .. L11
 
-{{{ switch to slide-11, Euclidean Algorithm }}}
-Switch to terminal and modify fibonacci function in ``nano``
-editor and run.
-::
+{{{ switch to slide-11, Unittest }}}
 
-    python fibonacci.py
    
 .. R12
 
-The same ``fibonacci`` function is modified to make it more readable
-and easy to understand using recursion.
-Pause this video here.Replace the ``fibonacci`` function with recursive one.
-Run the modified ``fibonacci.py`` file. The test should pass again 
-without any errors.
-After successfully achieving this result, you can resume the video.
+To run unittest on our fibonacci function let us create a
+new file ``test_fibonacci.py``. This new file will host the
+test code. To begin unittesting let us subclass
+ the TestCase class in unittest. We need fibonacci.py
+ and fibonacci_testcases.py files too.
 
 .. L12
 
-{{{ Show slide12, Euclidean Algorithm- Recursive}}}
+{{{ Show slide13, unittesting fibonacci.py }}}
 
 
 .. R13
