@@ -2,7 +2,7 @@
 % Version Control Systems
 %
 % Author: FOSSEE 
-% Copyright (c) 2009, FOSSEE, IIT Bombay
+% Copyright (c) 2012, FOSSEE, IIT Bombay
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[14pt,compress]{beamer}
@@ -43,14 +43,12 @@
 \setbeamercolor{emphbar}{bg=blue!20, fg=black}
 \newcommand{\emphbar}[1]
 
-
 \begin{document}
 
 \begin{frame}
-
 \begin{center}
 \vspace{12pt}
-\textcolor{blue}{\huge Using Linux Tools}
+\textcolor{blue}{\huge Version Control with Hg}
 \end{center}
 \vspace{18pt}
 \begin{center}
@@ -66,10 +64,11 @@
 
 \begin{frame}
   \frametitle{Objectives}
-  At the end of this session, you will be able to:
+  At the end of this tutorial, you will be able to:
   \begin{itemize}
-  \item Understand what is Version Control and the need for it.
-  \item Create and use repository on a daily basis.
+  \item Understand what is Version Control
+  \item Identify the need for using Version Control
+  \item Install Mercurial and intialize a repository
   \end{itemize}
 \end{frame}
 
@@ -162,168 +161,30 @@ a.out  id1.txt  id2.txt  identifier.cpp  id.txt  lex  pda1.cpp  pda2.cpp  pda.cp
   \end{itemize}
 \end{frame}
 
-\section{Let there be a Repo!}
-% init, status, commit, log, [ui]
-\begin{frame}
-  \frametitle{We need a repo!}
-  \begin{itemize}
-  \item A Repository (repo) is where all the action is!
-  \item Project files along with a special directory that stores all the
-    changes
-  \item We take snapshots of the whole repository; not individual
-    files. 
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Initializing a repo}
-  \begin{itemize}
-  \item \typ{\$ hg init}
-  \item Creates a fresh repository
-  \item Adds a \typ{.hg} directory to our \emph{working directory}
-  \end{itemize}
-  \emphbar{\typ{.hg} directory keeps log of changes made henceforth}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Status report}
-  \begin{itemize}
-  \item \typ{hg status} gives the status of our repo
-  \item Use it often; at least as a beginner
-  \item \typ{hg help command} gives us help about \typ{command}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Status codes}
-  \begin{lstlisting}
-    M = modified                                               
-    A = added                                                  
-    R = removed                                                
-    C = clean                                                  
-    ! = missing 
-    ? = not tracked                                            
-    I = ignored                                                
-  \end{lstlisting}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Adding files}
-  \begin{itemize}
-  \item From \typ{hg status} we know, none of the files are being
-    tracked, yet. 
-  \item \typ{hg add} --- asking \typ{hg} to track these files
-  \item As expected \typ{hg status} prepends an \typ{A} to the file
-  names.
-  \item \typ{? --> A} 
-  \item \typ{! --> R} (\typ{hg remove})
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Taking Snapshots}
-  \begin{itemize}
-  \item \typ{hg commit}
-  \item Asking Mercurial to take a snapshot; remember the changes made
-    to the repository. 
-  \item \typ{-u FirstName LastName <email>}
-  \item \typ{-m ``Commit message''} -- a description of changes committed. 
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Thumbnail views}
-  \begin{itemize}
-  \item \typ{hg log}~ gives the log of the changes made
-  \item A \typ{changeset} is an atomic collection of changes to the
-    files (between successive commits)
-  \end{itemize}
-  \begin{block}{Log information}
-    \begin{itemize}
-    \item \alert{changeset}: Identifier for the changeset
-    \item \alert{user}: Details of user who created the changeset
-    \item \alert{date}: Date and time of creation
-    \item \alert{summary}: One line description
-    \end{itemize}    
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{User information}
-  \begin{itemize}
-  \item User information is set in the \typ{hgrc} file
-  \item It can be set globally or local to the project
-  \item Global \typ{hgrc}
-    \begin{itemize}
-    \item \typ{\$HOME/.hgrc} -- Unix like systems
-    \item \typ{\%HOME\%\\.hgrc} -- Windows
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{\alert{Advice}: \typ{commits}, messages}
-  \begin{itemize}
-  \item Atomic changes; one change with one \typ{commit}
-  \item Single line summary --- 60 to 65 characters long
-  \item Followed by paragraphs of detailed description
-    \begin{itemize}
-    \item Why the change?
-    \item What does it effect?
-    \item Known bugs/issues?
-    \item etc. 
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Summary}
-\label{sec-8}
-
-  In this tutorial, we have learnt to,
-
-
-\begin{itemize}
-\item Understand what is Version Control
-\item Why Use Version Control
-\item How to install Hg
-\item Initialize a new repository using hg init,
-\item Get the status of a repository using hg status,
-\end{itemize}
-\end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Summary...}
-\label{sec-8}
 \begin{itemize}
-\item Make sense out of the various status codes in the output of hg status,
-\item Use the hg help to get help about any hg command,
-\item Make commits of changes to files, using hg commit
-\item View the history of the repository using the hg log command,
-\item Set our user information in the global hgrc file.
+\item The motivation to use version control
+\item An analogy of version control with playing a video game
+\item How to check if mercurial is installed, and it's version using hg version
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Evaluation}
-\label{sec-9}
-
-
 \begin{enumerate}
-\item 
-\item 
-\item 
+\item Is Mercurial a Centralized VCS or Distributed VCS? Justify your reasoning.
+\item How can you verify whether Mercurial has been installed properly?
+\item What is the command for accessing built-in help system of Mercurial?
 \end{enumerate}
 \end{frame}
+
 \begin{frame}
 \frametitle{Solutions}
-\label{sec-10}
-
-
 \begin{enumerate}
-\item 
-\vspace{15pt}
-\item 
+\item Mercurial is a Distributed Version Control system.
+\item hg version  	
+\item hg help command	
 \end{enumerate}
 \end{frame}
 \begin{frame}
