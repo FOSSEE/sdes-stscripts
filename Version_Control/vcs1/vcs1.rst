@@ -1,5 +1,5 @@
 ---------------------------------
-Version Control using Hg - Part I 
+Version Control using Hg Part I 
 ---------------------------------
 
 .. Prerequisites
@@ -11,7 +11,7 @@ Version Control using Hg - Part I
    Internal Reviewer : Kiran Isukapatla
    Date: Jan 27, 2012
 
----------------------
+----------------------
 Spoken Tutorial Script
 ----------------------
 
