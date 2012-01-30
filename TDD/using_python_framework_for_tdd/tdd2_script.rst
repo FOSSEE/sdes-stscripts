@@ -44,7 +44,7 @@ At the end of this tutorial, you will be able to,
 
 .. R3
 
-Before beginning this tutorial,we would suggest you to complete the 
+Before beginning this tutorial,we suggest you to complete the 
 tutorial on "Test driven development-part 1".
 
 .. R4
@@ -133,7 +133,7 @@ it complains only when any test fails.
 
 .. R10
 
-Let us run doctests by typing ``python fibonacci.py``.
+Let us run doctest by typing ``python fibonacci.py``.
 As all tests pass, doctest doesn't give any output.
 For detailed information, we may run the file with -v argument.
 Run as ``python -v fibonacci.py``.
