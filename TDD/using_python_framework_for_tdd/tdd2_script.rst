@@ -3,9 +3,9 @@
    
    .. At the end of this tutorial, you will be able to:
    
-   ..   1. Know what is TDD.
-   ..   2. Understand the use of test cases.
-   ..   3. Write simple tests for a function.
+ .. Understand the use of persistent test cases.
+ .. Write doctest and unittest for any given function.
+ .. Understand the use of nosetest.
 
 .. Prerequisites
 .. -------------
@@ -18,7 +18,7 @@ Script
 
 .. L1
 
-{{{ Show the  first slide containing title, name of the production
+{{{ Show the  first slide containing the title, name of the production
 team along with the logo of MHRD }}}
 
 .. R1
@@ -34,9 +34,9 @@ Hello friends and Welcome to the tutorial on
 
 At the end of this tutorial, you will be able to,
 
- 1. understand use of persistent test cases.
- #. write doctest and unittest for any given function.
- #. and understand the use of nosetest.
+ 1. Understand the use of persistent test cases.
+ #. Write doctest and unittest for any given function.
+ #. Understand the use of nosetest.
 
 .. L3
 
