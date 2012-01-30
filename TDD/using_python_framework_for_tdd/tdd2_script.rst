@@ -54,7 +54,7 @@ It is inconvenient to repeatedly change the test conditions in
 the fibonacci.py file. Each time a new test case is added, it
 introduces an 'if' statement too.
 So, it is a good practice to write the test cases in a separate file.
-This file containa multiple lines, each line representing a test case.
+This file contains multiple lines, each line representing a test case.
 Each line consists of two comma separated values in which the 
 first column is the integer value that has to be passed to the function.
  The second column is the return value from the function.
@@ -106,25 +106,25 @@ doctest.
 
 .. R8
 
-Let us first see how doctest works. 
+First, let us see how doctest works. 
 A docstring is used to document function. Along with the 
 description, interactive interpretor session's input and 
 output are also added.
-When executed doctest module pick up all such interactive 
+When executed, the doctest module picks up all such interactive 
 examples, executes them and determines if the code runs
 as documented.
 
 .. L8
 
-{{{switch to slide7 for 3 seconds and move to to slide8,
+{{{switch to slide7 for 3 seconds and move to slide8,
  Doctest for fibonacci.py}}}
 
 .. R9
 
-To initiate doctest we need to import doctest module.
+To initiate doctest, we need to import the doctest module.
 Testmod automatically picks all sample sessions, executes
 them and compares with the documented output.
-Doctest doesn't give any output when all test pass,
+Doctest doesn't give any output when all the tests pass,
 it complains only when any test fails.
 
 .. L9
@@ -135,7 +135,7 @@ it complains only when any test fails.
 
 Let us run doctests by typing ``python fibonacci.py``.
 As all tests pass, doctest doesn't give any output.
-For more detailed information we can run with -v argument.
+For detailed information, we may run the file with -v argument.
 Run as ``python -v fibonacci.py``.
 
 .. L10
@@ -150,19 +150,19 @@ Run as ``python -v fibonacci.py``.
 
 So far we have seen doctest, which is simple to use. But when
 it comes to automate the process, unittest is better.
-Unittest initializes code and data, it aggregate 
+Unittest initializes code and data, it aggregates 
 tests into collections and improves reporting.
 
 .. L11
 
-{{{ switch to slide-11, Unittest }}}
+{{{ Switch to slide-11, Unittest }}}
 
    
 .. R12
 
-To run unittest on our fibonacci function let us create a
-new file ``test_fibonacci.py``. This new file will host the
-test code. To begin unittesting let us subclass
+To run unittest on our fibonacci function, let us create a
+new file ``test_fibonacci.py``. This new file hosts the
+test code. To begin unittesting, let us subclass
  the TestCase class in unittest. We need fibonacci.py
  and fibonacci_testcases.py files too.
 
@@ -173,10 +173,10 @@ test code. To begin unittesting let us subclass
 
 .. R13
 
-This brings us to the end of the tutorial.In this tutorial,
+This brings us to the end of the tutorial. In this tutorial,
  we have learnt to,
  
- 1. Undestand the basic steps involved in Test driven development.
+ 1. Understand the basic steps involved in Test driven development.
  #. Design a Test driven approach for a given ``fibonacci`` function.
 
 
@@ -213,5 +213,5 @@ Thank you!
 
 .. L16
 
-{{{ Switch to slide-16, Thankyou}}}
+{{{ Switch to slide-16, Thank you}}}
 
