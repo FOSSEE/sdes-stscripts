@@ -44,20 +44,20 @@ At the end of this tutorial, you will be able to,
 
 .. R3
 
-Before beginning this tutorial,we would suggest you to complete the 
+Before beginning this tutorial,we suggest you to complete the 
 tutorial on "Test driven development-part 1".
 
 .. R4
 
-To test ``fibonacci`` function we have used two test cases.
+To test ``fibonacci`` function, we have used two test cases.
 It is inconvenient to repeatedly change the test conditions in
-the fibonacci.py file.Each time a new test case is added it
-introduces a 'if' statement too.
-So it is good practice to write the test cases in a separate file.
-The file will contain multiple lines,each line for separate test case,
-each line consist of two comma separated values,
-first column is the integer value which has to be passed to the function
- and the second column is the return value from the function.
+the fibonacci.py file. Each time a new test case is added, it
+introduces an 'if' statement too.
+So, it is a good practice to write the test cases in a separate file.
+This file contains multiple lines, each line representing a test case.
+Each line consists of two comma separated values in which the 
+first column is the integer value that has to be passed to the function.
+ The second column is the return value from the function.
 
 
 
@@ -69,8 +69,8 @@ first column is the integer value which has to be passed to the function
 
 .. R5
 
-Lets open the same fibonacci.py file which we have used in our 
-previous tutorial.Change the code to use fibonacci_testcases.dat 
+Let us open the fibonacci.py file which we have used in our 
+previous tutorial. Now, change the code to use 'fibonacci_testcases.dat'
 file for test cases.
 
 
@@ -81,7 +81,7 @@ file for test cases.
 
 .. R6 
 
-Save the fibonacci.py file. Go to terminal and run 
+Save the fibonacci.py file. Switch to terminal and run 
 ``python fibonacci.py``. It should pass all the tests.
 
 
@@ -95,9 +95,9 @@ Save the fibonacci.py file. Go to terminal and run
 .. R7
 
 So far we have used simple repetitive tests.
-Now we will see how ``Python testing frameworks`` can do the
+Now, let us see how ``Python testing frameworks`` does the
 same job efficiently.
-Python provides two frameworks for testing code, unittest and
+Python provides two frameworks for testing code: unittest and
 doctest.
 
 .. L7
@@ -106,25 +106,25 @@ doctest.
 
 .. R8
 
-Let us first see how doctest works. 
+First, let us see how doctest works. 
 A docstring is used to document function. Along with the 
 description, interactive interpretor session's input and 
 output are also added.
-When executed doctest module pick up all such interactive 
+When executed, the doctest module picks up all such interactive 
 examples, executes them and determines if the code runs
 as documented.
 
 .. L8
 
-{{{switch to slide7 for 3 seconds and move to to slide8,
+{{{switch to slide7 for 3 seconds and move to slide8,
  Doctest for fibonacci.py}}}
 
 .. R9
 
-To initiate doctest we need to import doctest module.
+To initiate doctest, we need to import the doctest module.
 Testmod automatically picks all sample sessions, executes
 them and compares with the documented output.
-Doctest doesn't give any output when all test pass,
+Doctest doesn't give any output when all the tests pass,
 it complains only when any test fails.
 
 .. L9
@@ -133,9 +133,9 @@ it complains only when any test fails.
 
 .. R10
 
-Let us run doctests by typing ``python fibonacci.py``.
+Let us run doctest by typing ``python fibonacci.py``.
 As all tests pass, doctest doesn't give any output.
-For more detailed information we can run with -v argument.
+For detailed information, we may run the file with -v argument.
 Run as ``python -v fibonacci.py``.
 
 .. L10
@@ -150,22 +150,30 @@ Run as ``python -v fibonacci.py``.
 
 So far we have seen doctest, which is simple to use. But when
 it comes to automate the process, unittest is better.
-Unittest initializes code and data, it aggregate 
+Unittest initializes code and data, it aggregates 
 tests into collections and improves reporting.
 
 .. L11
 
-{{{ switch to slide-11, Unittest }}}
+{{{ Switch to slide-11, Unittest }}}
 
    
 .. R12
 
+<<<<<<< HEAD
 To run unittest on our fibonacci function let us create a
 new file ``test_fibonacci.py``. This new file will host the
 test code.
 To begin unittesting let us subclass the TestCase class 
 in unittest. We need fibonacci.py and fibonacci_testcases.py
 files too.
+=======
+To run unittest on our fibonacci function, let us create a
+new file ``test_fibonacci.py``. This new file hosts the
+test code. To begin unittesting, let us subclass
+ the TestCase class in unittest. We need fibonacci.py
+ and fibonacci_testcases.py files too.
+>>>>>>> 9c943d7375af3ed25c2c1d32f42bdf359f13d115
 
 .. L12
 
@@ -174,6 +182,7 @@ files too.
 
 .. R13
 
+<<<<<<< HEAD
 The function ``setUp`` will read all the test data and store
 it in a list.The next function ``test_fibonacci`` contains
 test code. The last function deletes the data from test_cases
@@ -188,8 +197,12 @@ list and closes ``fibonacci_testcases.dat`` file.
 
 This brings us to the end of the tutorial.In this tutorial,
 we have learnt to,
+=======
+This brings us to the end of the tutorial. In this tutorial,
+ we have learnt to,
+>>>>>>> 9c943d7375af3ed25c2c1d32f42bdf359f13d115
  
- 1. Undestand the basic steps involved in Test driven development.
+ 1. Understand the basic steps involved in Test driven development.
  #. Design a Test driven approach for a given ``fibonacci`` function.
 
 
@@ -226,5 +239,5 @@ Thank you!
 
 .. L16
 
-{{{ Switch to slide-16, Thankyou}}}
+{{{ Switch to slide-16, Thank you}}}
 

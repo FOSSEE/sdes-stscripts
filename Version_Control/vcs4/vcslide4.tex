@@ -221,9 +221,12 @@ In this tutorial, we have learnt to,
 \begin{frame}[fragile]
 \frametitle{Evaluation}
 \begin{enumerate}
-\item 
-\item 
-\item 
+\item Mention the easiest way to get started on sharing your repository by
+providing a web interface 
+\item Suppose Joey and Melissa have made simultaneous changes to the same file
+in their own systems. Would the output of hg parents before and after if one of
+them pulls in the changes and merges with it?
+\item  What are the commands involved in the process of merging changes? 
 \end{enumerate}
 \end{frame}
 
@@ -231,12 +234,23 @@ In this tutorial, we have learnt to,
 \begin{frame}
 \frametitle{Solutions}
 \begin{enumerate}
-\item 
-\item 
+\item hg serve
+\item No, whenever we've done a merge, hg parents will display two parents
+until we hg commit the results of the merge.
+\item hg pull, hg merge, hg commit -m "Merged Remote changes"
 \end{enumerate}
 \end{frame}
-\begin{frame}
 
+
+\begin{frame}
+\frametitle{Additional Reading}
+\begin{enumerate}
+\item .hgignore
+\item hg rollback
+\item hg bisect
+\item hg backout
+\end{enumerate}
+\end{frame}
 
 \begin{block}{}
   \begin{center}

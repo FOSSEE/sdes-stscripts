@@ -17,11 +17,13 @@ Spoken Tutorial Script
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along with the logo of MHRD}}}
+{{{ Show the first slide containing title, name of the production team along
+with the logo of MHRD}}}
 
 .. R1
 
-Hello friends and welcome to the first part of tutorial on 'Version Control using Hg' 
+Hello friends and welcome to the first part of tutorial on 'Version Control
+using Hg' 
 
 .. L2
 
@@ -45,14 +47,19 @@ First, let's understand what 'Version Control' is.
 
 .. R4
 
-'Version control' is a way to track files over time and share them. This allows access to earlier versions of a file(s) if and when required. It therefore enables us to make changes to the content of a file, view it's change log and collaborate on a single piece of work with a team of people.
+'Version control' is a way to track files over time and share them. This allows
+access to earlier versions of a file(s) if and when required. It therefore
+enables us to make changes to the content of a file, view it's change log and
+collaborate on a single piece of work with a team of people.
  
 As the quote from the famous blog post 'Version Control for masses' says
 
 "Version control is one of those weird, geeky things that never really gained
 much ground in non-geek fields, despite the fact that it’s blindingly useful." 
 
-Over the course of these 3 spoken tutorials, we are going to see a handful of such things, which are widely used in the programmer world, but not so much in the scientific computing world, even when if they would be very useful.
+Over the course of these 3 spoken tutorials, we are going to see a handful of
+such things, which are widely used in the programmer world, but not so much in
+the scientific computing world, even when if they would be very useful.
 
 .. L4
 
@@ -62,7 +69,10 @@ Over the course of these 3 spoken tutorials, we are going to see a handful of su
 
 Let's look at an example of home-brewed Version Control system
 
-Version control is a way of backing up files, before making changes. Most people would have cooked up their own version control system, without realizing, there were tools built by others, that performs the task in a more organized and systematic way.  
+Version control is a way of backing up files, before making changes. Most
+people would have cooked up their own version control system, without
+realizing, there were tools built by others, that performs the task in a more
+organized and systematic way.  
 
 .. L5
 
@@ -73,7 +83,7 @@ Version control is a way of backing up files, before making changes. Most people
 Let's look at the various problems associated with this set-up.
 
  1. Name and changes made are not related or linked.
- #. Can't track sequence of changes made to a fike
+ #. Can't track sequence of changes made to a file
  #. Does not scale
 
 .. L6
@@ -82,7 +92,8 @@ Let's look at the various problems associated with this set-up.
 
 .. R7
 
-Having seen the problems of a home brewed setup, let's now move onto identifying the needs for a 'Version Control System'.
+Having seen the problems of a home brewed setup, let's now move onto
+identifying the needs for a 'Version Control System'.
 
  1. To err is Human . . .
  #. Tracking the history and evolution of a project
@@ -96,18 +107,23 @@ Having seen the problems of a home brewed setup, let's now move onto identifying
 
 .. R8
 
-We have seen that one of the main motivations to use a Version Control system is the ability to go back to a working version of a file, when something goes wrong. Below are a few more advantages of using an automated version control system.
+We have seen that one of the main motivations to use a Version Control system
+is the ability to go back to a working version of a file, when something goes
+wrong. Below are a few more advantages of using an automated version control
+system.
 
  1. By tracking the history of a project, any person may see the evolution of a
 project. This helps to track what changes were made at what point of time, when
 and by whom.
  #. Allows for effective collaboration on a project, as everything is shared.
- #. Helps to identify which additions have broken down a project and thus aids in efficient tracking down of the bugs.
- #. It is good for a one man show as it is for a big group of people working on a project.
+ #. Helps to identify which additions have broken down a project and thus aids
+ in efficient tracking down of the bugs.
+ #. It is good for a one man show as it is for a big group of people working on
+ a project.
 
 Keeping your stuff version controlled will help avoid accidental deletion of
 individual files etc. Hosting it on a remote server will protect your sanity
-from a local hard disk crash.
+from a hard disk crash.
 
 .. L8
 
@@ -118,7 +134,8 @@ from a local hard disk crash.
 It is, in some ways, similar to playing a video game. We generally play games
 in stages. While playing, we save the game at some instances as per our choice.
 We continue playing, but we could, if necessary, choose to go back to one of
-the saved states and start over. In this manner, we could change the course of the game.
+the saved states and start over. In this manner, we could change the course of
+the game.
 
 .. L9
 
@@ -140,7 +157,8 @@ shall learn how to use mercurial or hg which is easy to learn and use and
 comparatively light weight. Once you learn how to use hg, you can easily try
 other tools and switch to one that you feel most comfortable with.
 
-Let's now get into Installation. For Linux distributions, Ubuntu and Debian type the following in command line terminal
+Let's now get into Installation. For Linux distributions, Ubuntu and Debian
+type the following in command line terminal
 
 .. L10
 
@@ -158,7 +176,8 @@ http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
 
 .. R 13
 
-For any other Operating system, please refer the hg book for installation instruction - 
+For any other Operating system, please refer the hg book for installation
+instruction - 
 
 Type 'hg' which lists out all the commands 
 
@@ -206,7 +225,8 @@ Here are some self assessment questions for you to solve
 
 And the answers,
 
- 1. Mercurial is a Centralized Version Control system. To read more go here, http://en.wikipedia.org/wiki/Distributed_revision_control
+ 1. Mercurial is a Centralized Version Control system. To read more go here,
+ http://en.wikipedia.org/wiki/Distributed_revision_control
  #. $hg version - 	
  #. $hg help command	
 
@@ -217,7 +237,10 @@ And the answers,
 
 .. R18
 
-Hope you have enjoyed this tutorial and found it useful. Feel free to play around with Mercurial and read the documentation given by hg help command. When you are ready to move on, please proceed to the second tutorial on 'Version Control using Hg'
+Hope you have enjoyed this tutorial and found it useful. Feel free to play
+around with Mercurial and read the documentation given by hg help command. When
+you are ready to move on, please proceed to the second tutorial on 'Version
+Control using Hg'
 
 Thank you
 
