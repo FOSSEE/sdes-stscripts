@@ -63,8 +63,8 @@ first column is the integer value that has to be passed to the function.
 
 .. L4
 
-{{{ Switch to slide4 ,Persistent test cases,(after 3 seconds) show the 
-     fibonacci_testcases.dat file}}}
+{{{ Switch to slide4 ,Persistent test cases, (after 3 seconds) show the
+fibonacci_testcases.dat file}}}
 
 
 .. R5
@@ -77,7 +77,7 @@ file for test cases.
 .. L5
 
 {{{ Switch to slide5, Modify fibonacci.py , show the modified
-    fibonacci.py file}}}
+fibonacci.py file}}}
 
 .. R6 
 
@@ -175,14 +175,15 @@ files too.
 
 .. R13
 
-The function ``setUp`` will read all the test data and store
-it in a list.The next function ``test_fibonacci`` contains
-test code. The last function deletes the data from test_cases
-list and closes ``fibonacci_testcases.dat`` file.
+The ``setUp`` function will read all the test data and store
+it in a list test_cases. The ``test_fibonacci`` function 
+consists the actual test code. And the third  function ``tearDown``
+deletes the data from test_cases 
+and closes ``fibonacci_testcases.dat`` file.
 
 .. L13
 
-{{{ Show slide13(stay for 3 seconds and switch to slide14 }}}
+{{{ Show slide13(stay for 3 seconds) and switch to slide14 }}}
 
 
 .. R23
