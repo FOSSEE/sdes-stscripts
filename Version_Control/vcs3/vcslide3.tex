@@ -70,20 +70,19 @@
 \label{sec-2}
   At the end of this session, you will be able to:
   \begin{itemize}
-  \item Learn how to view and revert changes made to files in a repository.
-  \item Learn how to share repositories and deal with simultaneous conflicting changes.
+  \item Undo changes to your repository,
+  \item View the differences between any two states of a repository,
+  \item Understand how revisions are numbered and use it as arguments to commands,
   \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Pre-requisite}
-\label{sec-3}
-
-
-Spoken tutorial on -
-\begin{itemize}
-\item 
-\end{itemize}
+\textbf{Version Control Using Hg}
+	\begin{itemize}
+	\item Part 1
+	\item Part 2
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -143,168 +142,38 @@ Spoken tutorial on -
   \end{itemize}
 \end{frame}
 
-\section{Collaborating with Mercurial}
-\begin{frame}[fragile]
-  \frametitle{Cloning Repositories}
-  \begin{itemize}
-  \item \typ{hg clone SOURCE [DEST]}
-  \item All \typ{hg} repositories are self-contained
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Sharing Repositories}
-  \begin{itemize}
-  \item \typ{hg serve}
-  \item Can be cloned with \typ{hg clone http://my-ip-address:8000}
-  \item We share a central repository; work on our local copies. 
-  \item Set write permissions in \typ{.hg/hgrc}
-  \end{itemize}
-  \begin{lstlisting}
-    [web]
-    push_ssl=False
-    allow_push=*
-  \end{lstlisting}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Sharing Changes}
-  \begin{itemize}
-  \item Use \typ{hg push} to push your \typ{commits}
-    (\typ{changesets}) to the central repository
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Pulling Changes}
-  \begin{itemize}
-  \item \typ{hg incoming} shows new \typ{changesets} in the server 
-  \item To get these \typ{changesets}, we use \typ{hg pull}
-  \item These changes do not affect our working directory
-  \item \typ{hg parent} shows the parents of the working directory
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Pulling Changes \ldots}
-  \begin{itemize}
-  \item \typ{hg update} will update the working directory 
-    \begin{itemize}
-    \item Updates to the \typ{tip} if no revision is specified
-    \item \typ{tip} is the most recently added changeset 
-    \item Can specify revision number to update to
-    \end{itemize}
-  \item \typ{hg tip} shows the \typ{tip} of the repository
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Simultaneous Changes}
-  \begin{itemize}
-  \item The logs of both repositories will be different
-  \item The repositories have diverged
-  \item \typ{hg push} fails, in such a scenario
-  \item \alert{Never, Never, Never, Ever} use \typ{hg push -f}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Merging}
-  \begin{itemize}
-  \item Pull and merge, when \typ{abort: push creates new remote
-    heads!}
-  \item \typ{hg merge} will merge the two diverged heads
-  \item \typ{commit} after you have \typ{merged}!
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Simultaneous Changes \ldots}
-  \begin{itemize}
-  \item \typ{outgoing} shows the \typ{changesets} that will be pushed
-  \item \typ{hg push} works!
-  \item Look at the `Change graph'!
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Simultaneous Conflicting Changes}
-  \begin{itemize}
-  \item What if the changes conflict? -- overlapping edits
-  \item \typ{hg push} fails; \typ{hg pull}; \typ{hg merge}
-  \item You now get a diff view with 3 panes 
-    \begin{itemize}
-    \item First --- current file
-    \item Second --- \typ{changesets} that you pulled
-    \item Third --- file before you made your changes
-    \end{itemize}
-  \item Resolve conflict and save
-  \item \typ{hg commit}; \typ{hg push}
-  \item Look at the `Change graph'!
-  \end{itemize}
-\end{frame}
-
-\section{Conclusion}
-
-\begin{frame}
-  \frametitle{\alert{Advice}: Work-flow}
-  General work-flow
-  \begin{itemize}
-  \item \typ{pull}; \typ{update}
-  \item Make changes
-  \item \typ{commit}
-  \item If changes on repo, \typ{pull} and \typ{merge}
-  \item \typ{push}
-  \end{itemize}
-  \emphbar{Commit Early, Commit Often}
-\end{frame}
 
 \begin{frame}
 \frametitle{Summary}
-\label{sec-18}
-
 In this tutorial, we have learnt to,
 
 \begin{itemize}
 \item Undo changes to the repository using hg revert,
 \item View changes done to the repository using hg diff
 \item Use revision numbers as arguments to different hg commands
-\item Clone repositories, using hg clone,
-\item Serve our repositories via http using hg serve,
-\item push changes to a repository using hg push,
-\item check the changesets in a repository after last pull, using hg incoming,
-\item pull changes from a repository using hg pull ,
-\item update the working directory, using hg update,
-\item merge two heads, using hg merge,
-\item and resolve conflicts using hg resolve.
 \end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Evaluation}
-\label{sec-19}
-
 
 \begin{enumerate}
-\item 
-\item 
-\item 
+\item How to accomplish not saving backup files using hg revert command?
+\item Get the history of revisions 2 to 4 without having to list each revision? 
+\item Print the description and content of a change. Hint: Use --patch option
 \end{enumerate}
 \end{frame}
+
 \begin{frame}
 \frametitle{Solutions}
-\label{sec-20}
-
-
 \begin{enumerate}
-\item 
-\vspace{15pt}
-\item 
+\item hg revert -C --no-backup
+\item hg log -r 2:4
+\item hg log -v -p -r 2
 \end{enumerate}
 \end{frame}
+
 \begin{frame}
-
-
 \begin{block}{}
   \begin{center}
   \textcolor{blue}{\Large THANK YOU!} 
