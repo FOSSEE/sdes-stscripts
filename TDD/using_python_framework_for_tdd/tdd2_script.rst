@@ -171,7 +171,20 @@ files too.
 
 {{{ Show slide13, unittesting fibonacci.py }}}
 
+
 .. R13
+
+The function ``setUp`` will read all the test data and store
+it in a list.The next function ``test_fibonacci`` contains
+test code. The last function deletes the data from test_cases
+list and closes ``fibonacci_testcases.dat`` file.
+
+.. L13
+
+{{{ Show slide13(stay for 3 seconds and switch to slide14 }}}
+
+
+.. R23
 
 This brings us to the end of the tutorial.In this tutorial,
 we have learnt to,
@@ -180,7 +193,7 @@ we have learnt to,
  #. Design a Test driven approach for a given ``fibonacci`` function.
 
 
-.. L13
+.. L23
 
 {{{ switch to slide-13,Summary }}}
 
