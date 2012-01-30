@@ -1,11 +1,11 @@
 ---------------------------------
-Version Control using Hg  Part II
+Version Control using Hg  Part 2
 ---------------------------------
 
 .. Prerequisites
 .. -------------
 
-.. None
+.. Version Control using Hg Part 1
 
 .. Author : Primal Pappachan
    Internal Reviewer : Kiran Isukapatla
