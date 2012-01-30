@@ -162,19 +162,19 @@ tests into collections and improves reporting.
 
 To run unittest on our fibonacci function let us create a
 new file ``test_fibonacci.py``. This new file will host the
-test code. To begin unittesting let us subclass
- the TestCase class in unittest. We need fibonacci.py
- and fibonacci_testcases.py files too.
+test code.
+To begin unittesting let us subclass the TestCase class 
+in unittest. We need fibonacci.py and fibonacci_testcases.py
+files too.
 
 .. L12
 
 {{{ Show slide13, unittesting fibonacci.py }}}
 
-
 .. R13
 
 This brings us to the end of the tutorial.In this tutorial,
- we have learnt to,
+we have learnt to,
  
  1. Undestand the basic steps involved in Test driven development.
  #. Design a Test driven approach for a given ``fibonacci`` function.
