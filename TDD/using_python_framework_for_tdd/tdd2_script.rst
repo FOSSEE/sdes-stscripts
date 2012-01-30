@@ -49,15 +49,15 @@ tutorial on "Test driven development-part 1".
 
 .. R4
 
-To test ``fibonacci`` function we have used two test cases.
+To test ``fibonacci`` function, we have used two test cases.
 It is inconvenient to repeatedly change the test conditions in
-the fibonacci.py file.Each time a new test case is added it
-introduces a 'if' statement too.
-So it is good practice to write the test cases in a separate file.
-The file will contain multiple lines,each line for separate test case,
-each line consist of two comma separated values,
-first column is the integer value which has to be passed to the function
- and the second column is the return value from the function.
+the fibonacci.py file. Each time a new test case is added, it
+introduces an 'if' statement too.
+So, it is a good practice to write the test cases in a separate file.
+This file containa multiple lines, each line representing a test case.
+Each line consists of two comma separated values in which the 
+first column is the integer value that has to be passed to the function.
+ The second column is the return value from the function.
 
 
 
@@ -69,8 +69,8 @@ first column is the integer value which has to be passed to the function
 
 .. R5
 
-Lets open the same fibonacci.py file which we have used in our 
-previous tutorial.Change the code to use fibonacci_testcases.dat 
+Let us open the fibonacci.py file which we have used in our 
+previous tutorial. Now, change the code to use 'fibonacci_testcases.dat'
 file for test cases.
 
 
@@ -81,7 +81,7 @@ file for test cases.
 
 .. R6 
 
-Save the fibonacci.py file. Go to terminal and run 
+Save the fibonacci.py file. Switch to terminal and run 
 ``python fibonacci.py``. It should pass all the tests.
 
 
@@ -95,9 +95,9 @@ Save the fibonacci.py file. Go to terminal and run
 .. R7
 
 So far we have used simple repetitive tests.
-Now we will see how ``Python testing frameworks`` can do the
+Now, let us see how ``Python testing frameworks`` does the
 same job efficiently.
-Python provides two frameworks for testing code, unittest and
+Python provides two frameworks for testing code: unittest and
 doctest.
 
 .. L7
