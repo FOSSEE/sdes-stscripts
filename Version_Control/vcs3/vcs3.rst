@@ -42,7 +42,6 @@ continue on this tutorial
 .. R3
 
 At the end of this tutorial you will be able to
-
  #. Learn how to view and revert changes made to files in a repository.
  #. Learn how to share repositories and deal with simultaneous conflicting
  changes.
