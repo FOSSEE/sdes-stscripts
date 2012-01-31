@@ -1,7 +1,7 @@
 
----------------------------------
+================================
 Version Control using Hg  Part 4
----------------------------------
+================================
 
 .. Prerequisites
 .. -------------
@@ -13,13 +13,14 @@ Version Control using Hg  Part 4
    Internal Reviewer :
    Date: Jan 27, 2012
 
---------
+======
 Script
---------
+======
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along with the logo of MHRD}}}
+*{{{ Show the first slide containing title, name of the production team along
+with the logo of MHRD}}}*
 
 .. R1
 
@@ -27,7 +28,7 @@ Hello friends and welcome to the fourth part of tutorial on 'Version Control wit
 
 .. L2
 
-{{{Show the slide 'Prerequisite'}}}
+*{{{Show the slide 'Prerequisite'}}}*
 
 .. R2
 
@@ -36,7 +37,7 @@ continue on this tutorial
 
 .. L3
 
-{{{Show the slide containing the objectives}}}
+*{{{Show the slide containing the objectives}}}*
 
 .. R3
 
