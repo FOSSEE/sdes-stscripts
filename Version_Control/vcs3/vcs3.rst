@@ -278,6 +278,7 @@ Here are some self assessment questions for you to solve
 .. R20
 
 And the answers,
+
 1. hg revert -C --no-backup
 
 2. hg log -r 2:4
