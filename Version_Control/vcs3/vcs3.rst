@@ -42,8 +42,8 @@ continue on this tutorial
 .. R3
 
 At the end of this tutorial you will be able to
- #. Learn how to view and revert changes made to files in a repository.
- #. Learn how to share repositories and deal with simultaneous conflicting
+ 1. Learn how to view and revert changes made to files in a repository.
+ 2. Learn how to share repositories and deal with simultaneous conflicting
  changes.
 
 .. L4
@@ -68,8 +68,11 @@ and. 2. You delete the chapter3.txt file.
 .. L5 
 
 ``$ rm chapter3.txt``
+
 ``$ hg st``
+
 ``M chapter1.txt``
+
 ``! chapter3.txt``
 
 .. R6
@@ -89,11 +92,17 @@ commit. If we want to undo all the changes, we use the revert command with the
 .. L5
 
 ``$ hg revert --all``
+
 ``reverting chapter1.txt``
+
 ``reverting chapter3.txt``
+
 ``$ hg st``
+
 ``? chapter1.txt.orig``
+
 ``$ ls``
+
 ``chapter1.txt  chapter1.txt.orig  chapter2.txt  chapter3.txt``
 
 .. R5
@@ -110,7 +119,9 @@ existing file, we can just overwrite it with the backed up file.
 .. L6
 
 ``$ mv chapter1.txt.orig chapter1.txt``
+
 ``$ hg st``
+
 ``M chapter1.txt``
 
 .. L7
@@ -142,6 +153,7 @@ output. Let's now commit this change.
 .. L9
 
 ``$hg commit``
+
 ``$hg log``
 
 .. R8
