@@ -63,6 +63,7 @@ used to clone or replicate an existing repository.
 .. L15
 
 ``$hg clone SOURCE [DEST]``
+
 ``$ hg clone book book-repo``
 
 .. R15
@@ -91,6 +92,7 @@ the repository, we say
 .. L17
 
 ``$cd ../book-repo``
+
 ``$hg serve``
 
 .. R17
@@ -123,7 +125,9 @@ in .hg/hgrc
 .. L20
 
 ``[web]``
+
 ``push_ssl=False``
+
 ``allow_push=*``
 
 .. R20 
@@ -222,8 +226,8 @@ hg tip shows the tip of the repository
 
 .. R31
 
-What happens when two users have made simultaneous changes to the same file, by
-editing different parts at the same time.
+What happens when two users have made simultaneous changes to the same file,
+by editing different parts at the same time.
 
 .. L31
 
@@ -239,9 +243,13 @@ With simultaneous changes, following things happen
 .. L32
 
 ``$ hg push``
+
 ``pushing to http://192.168.1.101:8000``
+
 ``searching for changes``
+
 ``abort: push creates new remote heads!``
+
 ``(did you forget to merge? use push -f to force)``
 
 .. R32 
@@ -261,6 +269,7 @@ repository after the last pull and merge them with the changes.
 .. L34
 
 ``$ hg pull``
+
 ``$ hg merge``
 
 .. R34
@@ -318,8 +327,11 @@ Let's say both of us edit the same part of the same file.
 .. L39
 
 ``$ hg commit``
+
 ``$ hg push``
+
 ``$ hg pull``
+
 ``$ hg merge``
 
 .. R39
@@ -348,6 +360,7 @@ You will now need to commit your changes, just like the simple merge that we per
 .. L41
 
 ``$ hg commit -m "Merge heads."``
+
 ``$ hg push``
 
 .. R41
@@ -400,7 +413,7 @@ In this tutorial, we have learnt to,
 
 Here are some self assessment questions for you to solve
  #. Mention the easiest way to get started on sharing your repository by providing a web interface
- #.. Suppose Joey and Melissa have made simultaneous changes to the same file in their own systems. Would the output of hg parents before and after if one of them pulls in the changes and merges with it?
+ #. Suppose Joey and Melissa have made simultaneous changes to the same file in their own systems. Would the output of hg parents before and after if one of them pulls in the changes and merges with it?
  #. What are the commands involved in the process of merging changes? 
    
 .. L47
