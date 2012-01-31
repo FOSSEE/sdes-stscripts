@@ -42,8 +42,8 @@ continue on this tutorial
 .. R3
 
 At the end of this tutorial you will be able to
- #. Learn how to view and revert changes made to files in a repository.
- #. Learn how to share repositories and deal with simultaneous conflicting
+#. Learn how to view and revert changes made to files in a repository.
+#. Learn how to share repositories and deal with simultaneous conflicting
  changes.
 
 .. L4
@@ -276,9 +276,9 @@ Here are some self assessment questions for you to solve
 .. R20
 
 And the answers,
-#. ``hg revert -C --no-backup``
-#. ``hg log -r 2:4``
-#. ``hg log -v -p -r 2``
+#. hg revert -C --no-backup
+#. hg log -r 2:4
+#. hg log -v -p -r 2
 
 .. L21
 
