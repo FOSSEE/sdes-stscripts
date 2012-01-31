@@ -62,8 +62,8 @@ used to clone or replicate an existing repository.
 
 .. L15
 
-``$hg clone SOURCE [DEST]
-$ hg clone book book-repo``
+``$hg clone SOURCE [DEST]``
+``$ hg clone book book-repo``
 
 .. R15
 
@@ -90,8 +90,8 @@ the repository, we say
 
 .. L17
 
-``$cd ../book-repo
-$hg serve``
+``$cd ../book-repo``
+``$hg serve``
 
 .. R17
 
@@ -122,9 +122,9 @@ in .hg/hgrc
 
 .. L20
 
-``[web]
-push_ssl=False
-allow_push=*``
+``[web]``
+``push_ssl=False``
+``allow_push=*``
 
 .. R20 
 
@@ -238,11 +238,11 @@ With simultaneous changes, following things happen
 
 .. L32
 
-``$ hg push
-pushing to http://192.168.1.101:8000
-searching for changes
-abort: push creates new remote heads!
-(did you forget to merge? use push -f to force)``
+``$ hg push``
+``pushing to http://192.168.1.101:8000``
+``searching for changes``
+``abort: push creates new remote heads!``
+``(did you forget to merge? use push -f to force)``
 
 .. R32 
 
@@ -260,9 +260,8 @@ repository after the last pull and merge them with the changes.
 
 .. L34
 
-``$ hg pull
-
-$ hg merge``
+``$ hg pull``
+``$ hg merge``
 
 .. R34
 
@@ -318,10 +317,10 @@ Let's say both of us edit the same part of the same file.
 
 .. L39
 
-``$ hg commit
-$ hg push
-$ hg pull
-$ hg merge``
+``$ hg commit``
+``$ hg push``
+``$ hg pull``
+``$ hg merge``
 
 .. R39
 
@@ -348,8 +347,8 @@ You will now need to commit your changes, just like the simple merge that we per
 
 .. L41
 
-``$ hg commit -m "Merge heads."
-$ hg push``
+``$ hg commit -m "Merge heads."``
+``$ hg push``
 
 .. R41
 
