@@ -42,7 +42,9 @@ continue on this tutorial
 .. R3
 
 At the end of this tutorial you will be able to
-#. Learn how to view and revert changes made to files in a repository.
+
+1. Learn how to view and revert changes made to files in a repository.
+
 #. Learn how to share repositories and deal with simultaneous conflicting
  changes.
 
@@ -278,7 +280,9 @@ Here are some self assessment questions for you to solve
 
 And the answers,
 1. hg revert -C --no-backup
+
 2. hg log -r 2:4
+
 3. hg log -v -p -r 2
 
 .. L21
