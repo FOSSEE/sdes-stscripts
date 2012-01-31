@@ -269,6 +269,7 @@ Here are some self assessment questions for you to solve
 #. How to accomplish not saving backup files using hg revert command?
 #. Get the history of revisions 2 to 4 without having to list each revision? 
 #. Print the description and content of a change. Hint: Use --patch option
+
 .. L20
 
 *{{{ Solution of self assessment questions on slide }}}*
@@ -276,9 +277,9 @@ Here are some self assessment questions for you to solve
 .. R20
 
 And the answers,
-#. hg revert -C --no-backup
-#. hg log -r 2:4
-#. hg log -v -p -r 2
+1. hg revert -C --no-backup
+2. hg log -r 2:4
+3. hg log -v -p -r 2
 
 .. L21
 
