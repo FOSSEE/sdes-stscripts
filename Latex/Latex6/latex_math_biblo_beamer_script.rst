@@ -1,14 +1,19 @@
 .. Objectives
 .. ----------
 
-.. By the end of this tutorial, you will be able to
+.. At the end of this tutorial, you will be able to
 
-.. 1. Write and typeset simple mathematical formulae in LaTeX.
+.. 1. Write simple mathematical formulae in LaTeX.
+.. #. Typeset simple mathematical formulae in LaTeX.
 .. #. Write bibliography for a LaTeX document.
 .. #. Make presentations in LaTeX, using beamer.
 
 .. Prerequisites
 .. -------------
+
+.. 1. Introduction to LaTeX.
+.. #. Basics of LaTeX and its document structure.
+.. #. Typesetting LaTeX text.
 
 .. 1. latex_intro 
 .. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
@@ -36,9 +41,10 @@ formulae, bibliography and presentations, using LaTeX.
 
 .. R2
 
-.. By the end of this tutorial, you will be able to
+.. At the end of this tutorial, you will be able to
 
-.. 1. Write and typeset simple mathematical formulae in LaTeX.
+.. 1. Write simple mathematical formulae in LaTeX.
+.. #. Typeset simple mathematical formulae in LaTeX.
 .. #. Write bibliography for a LaTeX document.
 .. #. Make presentations in LaTeX, using beamer.
 
@@ -48,32 +54,30 @@ formulae, bibliography and presentations, using LaTeX.
 
 .. R3
 
-Before beginning this tutorial,we would suggest you complete the tutorials titled 
-"Introduction to LaTeX","Basics of LaTeX and its document structure","Basics of
-LaTeX and its documents structure" and "Typesetting LaTeX text".
+Before beginning this tutorial, it is recommended to complete the tutorials 
+given in the prerequisite.
 
 .. L4
 
 .. R4
 
-In general, it is advised to use the AMS-LaTeX bundle to typeset mathematics in
-LaTeX. AMS-LaTeX is a collection of packages and classes for mathematical
+In general, it is advisable to use the AMS-LaTeX bundle to typeset mathematics 
+in LaTeX. AMS-LaTeX is a collection of packages and classes for mathematical
 typesetting.
 
-We load amsmath by issuing the \usepackage{amsmath} in the preamble.It must be
-noted that amsmath is included in the base distribution of LaTex, in atleast 
+We can load amsmath by issuing the \usepackage{amsmath} in the preamble.It must 
+be noted that amsmath is included in the base distribution of LaTex, in atleast 
 the most recent versions.
 
-Math formulae can be embedded in two ways. One is inline, and the other way is
- to enclose them in a dedicated environment as and when required.
-The first method is also called text style and second method is also called 
-displayed style.
+Math formulae can be embedded in two ways,
+  “inline” or “text style ” method,  which is  done by enclosing the 
+  required command and text within two dollar signs or between an backslash
+  opening bracket and backslash closing bracket.
 
-In-lining is done by enclosing the required command and text withing two dollar
-signs or between an backslash opening bracket and backslash closing bracket.
+  By enclosing them in a dedicated environment respectively/displayed style.
 
 The most common LaTeX environment used to typeset mathematical formulae is 
-from equation family. Its use is given in more detail, further in the tutorial.
+from equation family.
 
 
 .. L5
@@ -98,8 +102,7 @@ The screen shows the an example, that renders different types of matrices using
 LaTeX.
 
 It also shows the two ways in which mathmatical formulae can be embedded into
-LaTeX documents. The second method of embedding mathamtical formula will be 
-explained in detail, later in the tutorial. 
+LaTeX documents. 
 
 Please pause the tutorial and go through the example shown on the screen. 
 
@@ -131,10 +134,9 @@ the sum and int command are specified using the carat and underscore characters
 
 .. R9
 
-As mention earlier, we can display mathematical formulas in either one of two
-ways. The first was mentioned earlier, now we use the equation environment
-to render mathematical formulae, which are numbered. The equation star
-environment is used to render unnumbered equations.
+We now move onto using the equation environment to render mathematical formulae,
+which are numbered. Another environment called equation star environment renders
+unnumbered equations.
 
 Backslash and opening square bracket and its counterpart the backslash
 closing square bracket is a short hand for equation star environment.
@@ -261,7 +263,8 @@ example shown on the screen.
 
 This brings us to the end of this tutorial. In this tutorial, we have,
 
-.. 1. Written and typeset simple math formulae in LaTeX.
+.. 1. Written simple mathematical formulae in LaTeX.
+.. #. Typeset simple mathematical formulae in LaTeX.
 .. #. Written bibliography for a LaTeX document.
 .. #. Made a sample presentations in LaTeX, using beamer.
 
