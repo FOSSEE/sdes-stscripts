@@ -42,8 +42,8 @@ continue on this tutorial
 .. R3
 
 At the end of this tutorial you will be able to
- 1. Learn how to view and revert changes made to files in a repository.
- 2. Learn how to share repositories and deal with simultaneous conflicting
+ #. Learn how to view and revert changes made to files in a repository.
+ #. Learn how to share repositories and deal with simultaneous conflicting
  changes.
 
 .. L4
@@ -266,10 +266,9 @@ In this tutorial, we have learnt to,
 .. R19
 
 Here are some self assessment questions for you to solve
- #. How to accomplish not saving backup files using hg revert command?
- #. Get the history of revisions 2 to 4 without having to list each
- revision? 
- #. Print the description and content of a change. Hint: Use --patch option
+#. How to accomplish not saving backup files using hg revert command?
+#. Get the history of revisions 2 to 4 without having to list each revision? 
+#. Print the description and content of a change. Hint: Use --patch option
 .. L20
 
 *{{{ Solution of self assessment questions on slide }}}*
@@ -277,11 +276,9 @@ Here are some self assessment questions for you to solve
 .. R20
 
 And the answers,
- ``#. hg revert -C --no-backup``
-
- ``#. hg log -r 2:4``
-
- ``#. hg log -v -p -r 2``
+#. ``hg revert -C --no-backup``
+#. ``hg log -r 2:4``
+#. ``hg log -v -p -r 2``
 
 .. L21
 
