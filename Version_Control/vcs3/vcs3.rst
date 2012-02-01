@@ -19,8 +19,8 @@ Script
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along
-with the logo of MHRD}}}
+*{{{ Show the first slide containing title, name of the production team along
+with the logo of MHRD}}}*
 
 .. R1
 
@@ -28,7 +28,7 @@ Hello friends and welcome to the tutorial on 'Version Control with Hg'
 
 .. L2
 
-{{{Show the slide 'Prerequisite'}}}
+*{{{Show the slide 'Prerequisite'}}}*
 
 .. R2
 
@@ -37,19 +37,19 @@ continue on this tutorial
 
 .. L3
 
-{{{Show the slide containing the objectives}}}
+*{{{Show the slide containing the objectives}}}*
 
 .. R3
 
 At the end of this tutorial you will be able to
 
- 1. Learn how to view and revert changes made to files in a repository.
- #. Learn how to share repositories and deal with simultaneous conflicting
- changes.
+1. Learn how to view and revert changes made to files in a repository.
+
+#. Learn how to share repositories and deal with simultaneous conflicting changes.
 
 .. L4
 
-{{{Show the slide 'Operational overhead?'}}} 
+*{{{Show the slide 'Operational overhead?'}}}*
 
 .. R4 
 
@@ -58,7 +58,7 @@ operational costs and loss of time?
 
 .. L4
 
-{{{Show the slide 'Revert Changes'}}}
+*{{{Show the slide 'Revert Changes'}}}*
 
 .. R4
 
@@ -68,10 +68,13 @@ and. 2. You delete the chapter3.txt file.
 
 .. L5 
 
-$ rm chapter3.txt
-$ hg st
-M chapter1.txt
-! chapter3.txt
+``$ rm chapter3.txt``
+
+``$ hg st``
+
+``M chapter1.txt``
+
+``! chapter3.txt``
 
 .. R6
 
@@ -89,13 +92,19 @@ commit. If we want to undo all the changes, we use the revert command with the
 
 .. L5
 
-$ hg revert --all
-reverting chapter1.txt
-reverting chapter3.txt
-$ hg st
-? chapter1.txt.orig
-$ ls
-chapter1.txt  chapter1.txt.orig  chapter2.txt  chapter3.txt
+``$ hg revert --all``
+
+``reverting chapter1.txt``
+
+``reverting chapter3.txt``
+
+``$ hg st``
+
+``? chapter1.txt.orig``
+
+``$ ls``
+
+``chapter1.txt  chapter1.txt.orig  chapter2.txt  chapter3.txt``
 
 .. R5
 
@@ -110,13 +119,15 @@ existing file, we can just overwrite it with the backed up file.
 
 .. L6
 
-$ mv chapter1.txt.orig chapter1.txt
-$ hg st
-M chapter1.txt
+``$ mv chapter1.txt.orig chapter1.txt``
+
+``$ hg st``
+
+``M chapter1.txt``
 
 .. L7
 
-{{{Show the slide 'Viewing Changes'}}}
+``{{{Show the slide 'Viewing Changes'}}}``
 
 .. R6
 
@@ -127,7 +138,7 @@ been made in the file.
 
 .. L8
 
-$ hg diff
+``$ hg diff``
 
 .. R7
 
@@ -142,8 +153,9 @@ output. Let's now commit this change.
 
 .. L9
 
-$hg commit
-$hg log
+``$hg commit``
+
+``$hg log``
 
 .. R8
 
@@ -152,7 +164,7 @@ commit message, instead of just the summary.
 
 .. L10
 
-$hg log -v
+``$hg log -v``
 
 .. R9
 
@@ -161,7 +173,7 @@ would often suffice to see the last few commits.
 
 .. L11
 
-$ hg log -v -l3
+``$ hg log -v -l3``
 
 .. R10
 
@@ -170,7 +182,7 @@ will print only last three commits.
 
 .. L12
 
-{{{Show the slide 'Revision Numbering'}}}
+*{{{Show the slide 'Revision Numbering'}}}*
 
 .. R11
 
@@ -187,7 +199,7 @@ the revision number, if required.
 
 .. L13
 
-{{{Show the slide  'Using revision numbers'}}}
+*{{{Show the slide  'Using revision numbers'}}}*
 
 
 .. R12
@@ -198,7 +210,7 @@ the diff command to do this.
 
 .. L14
 
-$ hg diff -r1 -r2
+``$ hg diff -r1 -r2``
 
 .. R13
 
@@ -212,7 +224,7 @@ of the very first commit, by saying
 
 .. L15
 
-$ hg log -r0
+``$ hg log -r0``
 
 .. R15
 
@@ -221,7 +233,7 @@ Say, we would like to see the last two commits,
 
 .. L16
 
-$ hg log -r0:2
+``$ hg log -r0:2``
 
 .. R16 
 
@@ -229,7 +241,7 @@ To see changes made to a particular file, in the speciifed range of commits,
 
 .. L17
 
-$ hg log -r0:2 chapter2.txt
+``$ hg log -r0:2 chapter2.txt``
 
 
 .. R17
@@ -239,40 +251,43 @@ seen,
 
 .. L18
 
-{{{Show the 'summary' slide'}}}
+*{{{Show the 'summary' slide'}}}*
 
 .. R18
 
 In this tutorial, we have learnt to, 
- 1. Undo changes to the repository using hg revert,
+ #. Undo changes to the repository using hg revert,
  #. View changes done to the repository using hg diff
  #. Use revision numbers as arguments to different hg commands
 
 .. L19
 
-{{{ Show self assessment questions slide }}}
+*{{{ Show self assessment questions slide }}}*
 
 .. R19
 
 Here are some self assessment questions for you to solve
- 1. How to accomplish not saving backup files using hg revert command?
- #. Get the history of revisions 2 to 4 without having to list each
- revision? 
- #. Print the description and content of a change. Hint: Use --patch option
+#. How to accomplish not saving backup files using hg revert command?
+#. Get the history of revisions 2 to 4 without having to list each revision? 
+#. Print the description and content of a change. Hint: Use --patch option
+
 .. L20
 
-{{{ Solution of self assessment questions on slide }}}
+*{{{ Solution of self assessment questions on slide }}}*
 
 .. R20
 
 And the answers,
- 1. hg revert -C --no-backup
- #. hg log -r 2:4
- #. hg log -v -p -r 2
+
+1. hg revert -C --no-backup
+
+2. hg log -r 2:4
+
+3. hg log -v -p -r 2
 
 .. L21
 
-{{{ Show the Thank you slide }}}
+*{{{ Show the Thank you slide }}}*
 
 .. R21
 
