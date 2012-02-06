@@ -54,7 +54,7 @@ tutorial on "Using Linux tools from Part 1 to Part 5".
 Let us start with creating a simple shell script.
 A shell script is simply a sequence of commands, that are put into a file,
 instead of entering them one by one onto the shell. The script can then be
-run, to run the sequence of commands in a single shot instead of manually
+run, in a single shot instead of manually
 running, each of the individual commands. 
 For instance, let's say we wish to create a directory called ``marks`` in the
 home folder and save the results of the students into a file
@@ -62,7 +62,8 @@ home folder and save the results of the students into a file
 
 .. R4
 
-We open our editor and save the following text to ``results.sh``
+Open an editor and save the following text to a file and name it as, 
+``results.sh``
 
 .. L4
 
@@ -71,7 +72,8 @@ We open our editor and save the following text to ``results.sh``
 
     #!/bin/bash
     mkdir ~/marks
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | sort > ~/marks/results.txt
+    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | sort > ~/marks
+    /results.txt
 
 .. R5
 
@@ -88,7 +90,7 @@ We can now run the script as,
 
 We get an error saying, Permission denied! Why? Can you think of the
 reason? Yes, the file doesn't have execute permissions.
-We make the file executable and then run it. 
+So, let us make the file executable and then run it. 
 
 .. L6
 ::
@@ -99,27 +101,35 @@ We make the file executable and then run it.
 .. R7
 
 We get back the prompt. We can check the contents of the file
-``results.txt`` to see if the script has run. 
+``results.txt`` to see if the script has run. Yes, the script has run and we 
+have got our desirable output.
+
+.. L7
+
+{{{ Navigate to ~/marks/results.txt and show the file }}}
+
+.. R8
 
 So, here, we have our first shell script. The first line of the script is used 
 to specify the interpreter or shell which should be used to execute the script. 
 In this case, we are asking it to use the bash shell.
-Once, the script has run, we get back the prompt. Here, we had to manually check,
-if the contents of the file are correct. It would be useful to have our script 
-print out messages. For this, we can use the ``echo`` command. We can edit our 
-``results.sh`` script, as follows.
+Once, the script has run, we get back the prompt. Here, we had to manually 
+check, if the contents of the file are correct. It would be useful to have 
+our script print out messages. For this, we can use the ``echo`` command. 
+We can edit our ``results.sh`` script, as follows.
 
-.. L7
+.. L8
 
 {{{ Open an editor and type the following }}}
 ::
 
     #!/bin/bash
     mkdir ~/marks
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | sort > ~/marks/results.txt
+    cut -d " " -f 2- marks1.txt|paste -d " " students.txt -|sort > ~/marks
+    /results.txt
     echo "Results generated."
 
-.. R8
+.. R9
 
 Now, on running the script, we get a message on the screen informing us,
 when the script has run. 
@@ -128,7 +138,7 @@ Let's now say, that we wish to let the user decide the file to which the
 results should be written to. The results file, should be specifiable by an
 argument in the command line. We can do so, by editing the file, as below. 
 
-.. L8
+.. L9
 
 {{{ Make the necessary changes in the previous script }}}
 
@@ -136,96 +146,96 @@ argument in the command line. We can do so, by editing the file, as below.
 
     #!/bin/bash
     mkdir ~/marks
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | sort > ~/marks/$1
+    cut -d " " -f 2- marks1.txt|paste -d " " students.txt -|sort > ~/marks/$1
     echo "Results generated."
 
 
 {{{ Highlight the text ``$1`` }}}
 
-.. R9
+.. R10
 
 The ``$1`` above, corresponds to the first command line argument to the
 script. So, we can run the script as shown below, to save the results to
 ``grades.txt``. 
 
-.. L9
+.. L10
 ::
 
     ./results.sh grades.txt    
 
-.. R10
+.. R11
 
 When we run the ``results.sh`` file, we are specifying the location of the
 script by using ``./``. But for any of the other commands, 
-we didn't have to specify their locations. Why? The
+we didn't specify their locations. Why? The
 shell has a set of locations where it searches, for the command that we are
 trying to run. 
 
-.. L10
-
 .. L11
+
+.. L12
 
 {{{ Show slide, PATH }}}
 
-.. R11
+.. R12
 
 These set of locations are saved in an "environment"
-variable called PATH.let us look at what the value of the PATH variable is. To view the
-values of variables, we can use the echo command.
+variable called PATH.let us look at what the value of the PATH variable is. To 
+view the values of variables, we can use the echo command.
 
-.. L12
+.. L13
 
 {{{ Switch to the terminal }}}
 ::
 
     echo $PATH
 
-.. R12
+.. R13
 
 So, these are all the paths that are searched, when looking to execute a
 command. If we put the results.sh script in one of these locations, we
 could simply run it, without using the ``./`` at the beginning. 
 
-.. L13
+.. L14
 
 {{{ Show slide, variables & comments }}}
 
-.. R13
+.. R14
 
 As expected, it is possible to define our own variables inside our shell
 scripts. For example,
 
-.. L14
+.. L15
 
 {{{ Switch to the terminal }}}
 ::
 
     name="FOSSEE"
 
-.. R14
+.. R15
 
 It creates a new variable ``name`` whose value is ``FOSSEE``. To refer to this
 variable, inside our shell script, we would refer to it, as ``$name``.
 Note that, there is no space around the ``=`` sign. 
 
-.. L15
+.. L16
 ::
 
     ls $name*
 
-.. R15
-
 .. R16
+
+.. R17
 
 It is possible to store the output of a command in a variable, by enclosing
 the command in back-quotes. 
 
-.. L16
+.. L17
 ::
 
     count=`wc -l wonderland.txt`
 
-.. R17
+.. R18
 
 It saves the number of lines in the file ``wonderland.txt`` in the variable
 count. 
