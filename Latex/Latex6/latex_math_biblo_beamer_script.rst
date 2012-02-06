@@ -11,8 +11,7 @@
 .. Prerequisites
 .. -------------
 
-.. 1. Introduction to LaTeX.
-.. #. Basics of LaTeX and its document structure.
+.. 1. Basics of LaTeX and its document structure.
 .. #. Typesetting LaTeX text.
 
 .. 1. latex_intro 
@@ -55,9 +54,12 @@ formulae, bibliography and presentations, using LaTeX.
 .. R3
 
 Before beginning this tutorial, it is recommended to complete the tutorials 
-given in the prerequisite.
+titled "Basics of LaTeX and its document structure" and "Typesetting LaTeX 
+text".
 
 .. L4
+
+{{{ Show the "LaTeX & Mathematics : An Introduction" slide }}}
 
 .. R4
 
@@ -82,6 +84,7 @@ from equation family.
 
 .. L5
 
+{{{ Show the "Matrices" slide }}}
 
 .. R5
 
@@ -95,6 +98,7 @@ and its allied environments are defined by the amsmath package.
 
 .. L6
 
+{{{ Show the "Matrices ..." slide }}}
 
 .. R6
 
@@ -109,6 +113,7 @@ Please pause the tutorial and go through the example shown on the screen.
 .. L7
 
 {{{continue from paused state}}}
+{{{ Show the "Superscripts & Subscripts" slide }}}
 
 .. R7
 
@@ -121,6 +126,7 @@ and closing curly brackets.
 
 .. L8
 
+{{{ Show the "Summation & integration" slide }}}
 
 .. R8
 
@@ -131,6 +137,7 @@ the sum and int command are specified using the carat and underscore characters
 
 .. L9
 
+{{{ Show the "displayed math" slide }}}
 
 .. R9
 
@@ -145,6 +152,7 @@ equation environment).
 
 .. L10
 
+{{{ Show the "Groups of equations" slide }}}
 
 .. R10
 
@@ -162,6 +170,7 @@ ampersand symbol.
 
 .. L11
 
+{{{ Show the "Fractions & Surds" slide }}}
 
 .. R11
 
@@ -173,6 +182,8 @@ fractions as if its placed in display mode and is meant to be used even in
 inline mode.
 
 .. L12
+
+{{{ Show the "Greek characters & Spacing in math environments" slide }}}
 
 .. R12
 
@@ -186,6 +197,8 @@ characters. The following commands show in the table on the screen are available
 to specify the spacing required.
 
 .. L13
+
+{{{ Show the "Bibliography" slide }}}
 
 .. R13
 
@@ -208,6 +221,7 @@ the bibliography environment with an parameter, whose value is 9.
 .. L14
 
 {{{continue from paused state}}}
+{{{ Show the "Beamer" slide }}}
 
 .. R14
 
@@ -222,6 +236,8 @@ A beamer document is very similar to other LaTeX documents, with the exception
 that content is divided into slides.
 
 .. L15
+
+{{{ Show the "Beamer ..." slide }}}
 
 .. R15
 
@@ -246,6 +262,8 @@ this marvelous utility.
 
 .. L16
 
+{{{ Show the "Beamer: An Example presentation" slide }}}
+
 .. R16
 
 This screen shows a very basic LaTeX presentation done using beamer. We use the
@@ -257,7 +275,7 @@ example shown on the screen.
 .. L17
 
 {{{continue from paused state}}}
-{{{ Show summary slide }}}
+{{{ Show the "Summary" slide }}}
 
 .. R17
 
@@ -270,7 +288,7 @@ This brings us to the end of this tutorial. In this tutorial, we have,
 
 .. L18
 
-{{{Show self assessment questions slide}}}
+{{{ Show the "Self assessment questions" slide }}}
 
 .. R18
 
@@ -284,7 +302,7 @@ remove the line.
 
 .. L19
 
-{{{Show self assessment questions slide}}}
+{{{ Show the "Self assessment questions: Solutions" slide }}}
 
 .. R19
 
@@ -300,7 +318,7 @@ package.
 
 .. L20
 
-{{{ Show the thankyou slide }}}
+{{{ Show the "Thank you" slide }}}
 
 .. R20
 

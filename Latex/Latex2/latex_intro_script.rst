@@ -1,7 +1,7 @@
 .. Objectives
 .. ----------
 
-.. By the end of this tutorial, you will 
+.. At the end of this tutorial, you will 
 
 .. 1. Get acquainted to LaTeX.
 .. #. Know why we prefer LaTeX?
@@ -16,8 +16,7 @@
 .. Prerequisites
 .. -------------
 
-.. 1. Should have already installed LaTeX and its supported packages on the host machine.
-.. #. Should be comfortable using a text editor of your choice. 
+.. 1. Installing LaTeX 
 
      
 .. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
@@ -40,11 +39,11 @@ Hello Friends and welcome to the tutorial on introduction to LaTeX.
 
 .. L2
 
-{{{ Show the objectives slide }}}
+{{{ Show the "Objectives" slide }}}
 
 .. R2
 
-.. By the end of this tutorial, you will 
+.. At the end of this tutorial, you will 
 
 .. 1. Get acquainted to LaTeX.
 .. #. Know why we prefer LaTeX?
@@ -58,7 +57,7 @@ Hello Friends and welcome to the tutorial on introduction to LaTeX.
 
 .. L3
 
-{{{ Switch to the pre-requisite slide }}}
+{{{ Show the "Pre-requisite" slide }}}
 
 .. R3
 
@@ -68,6 +67,7 @@ LaTeX on your computer. You can do this by completing the tutorial titled
 
 .. L4
 
+{{{ Show the "Introduction" slide }}}
 
 .. R4
 
@@ -88,6 +88,7 @@ technology.
 
 .. L5
 
+{{{ Show the "Why LaTeX?" slide }}}
 
 .. R5
 
@@ -96,6 +97,12 @@ Below are some of the reasons we prefer LaTeX
 (b) It handles typesetting and lets you focus on content.
 (c) Its makes writing complex math equation extremely simple.
 (d) It is also a standard used widely, especially by the scientific community. 
+
+.. L6
+
+{{{ Show the "Why LaTeX? ..." slide }}}
+
+.. R6
 
 We can define LaTex as a document based markup language. This sentence is
 deceptively simple, as it reveals a lot about LaTex. We now break this sentence
@@ -107,10 +114,11 @@ element individually.
 This is essentially a fancy way of saying,LaTeX handles typesetting and lets 
 you focus on content.
 
-.. L6
+.. L7
 
+{{{ Show the "Advantages of using  LaTeX" slide }}}
 
-.. R6
+.. R7
 
 Some of the advantages of using LaTeX approach to typesetting are
 (1) Easy availability of professionally crafted layouts.
@@ -122,20 +130,22 @@ of the document.
 (4) Presence of lots of add-on packages.
 (5) It encourages creation of well structured texts.
 
-.. L7
+.. L8
 
+{{{ Show the "Disadvantages of using  LaTeX" slide }}}
 
-.. R7
+.. R8
 
 Some of the disadvantages of using LaTeX approach to typesetting is 
 (1) Designing a whole new layout is difficult.
 (2) LaTeX is not a word processor, that is the document author is not expected
 to worry about presentation details like the size of font, for example.
 
-.. L8
+.. L9
 
+{{{ Show the "LaTeX input file format" slide }}}
 
-.. R8
+.. R9
 
 LaTeX input files are simple ASCII text files that are processed by a TeX
 processing engine. 
@@ -152,10 +162,11 @@ The command pdflatex is used to convert LaTeX input files directly to pdf files.
 The resultant PDF files can be viewed using standard tools on most platforms
 (Eg: evince on Gnu/Linux). PDF file are also widely supported.
 
-.. L9
+.. L10
 
+{{{ Show the "Commands,Comments&Special Characters" slide }}}
 
-.. R9
+.. R10
 
 LaTeX, like most utilities in Linux, LaTeX is case sensitive. Commands begin 
 with a backslash.LaTeX environments have a begin and end marker. The begin and
@@ -174,10 +185,11 @@ out to be a comment. But, how do we write comments with in the document. % is
 the character to indicate comments. Anything written after a % symbol in a 
 line, is ignored.
 
-.. L10
+.. L11
 
+{{{ Show the "Commands,Comments&Special Characters ..." slide }}}
 
-.. R10
+.. R11
 
 But what if we wanted to insert the % symbol in the document? We can do so by
 escaping it with a \ (backslash). % is one of the many special characters in
@@ -197,20 +209,21 @@ A single empty line causes a change in paragraphs in the output. (Multiple
 empty lines are equivalent to a single empty line.) Similarly, multiple spaces
 are treated as a single space.
 
-.. L11
+.. L12
 
-{{{ Show slide with exercise 1 }}}
+{{{ Show the "Typesetting a minimal document" slide }}}
 
-.. R11
+.. R12
 
 Now, we try to create a simple LaTeX document. Pause the tutorial and type the
 content shown on the screen in a text editor. Save the file as temp.tex
 
-.. L12
+.. L13
 
 {{{continue from paused state}}}
+{{{ Show the "Compiling to DVI" slide }}}
 
-.. R12
+.. R13
 
 Now we compile the commands in the LaTeX input file that is, temp.tex into a 
 typeset file. 
@@ -224,10 +237,11 @@ latex temp.tex.
 The output file would be temp.dvi.On Gnu/Linux use a program like xdvi to view
 the output file.
 
-.. L13
+.. L14
 
+{{{ Show the "Compiling to PDF" slide }}}
 
-.. R13
+.. R14
 
 The other alternative is to create PDF files from LaTeX input files.
 We use the pdflatex command for this purpose. For compiling the LaTeX input
@@ -241,11 +255,11 @@ view the output file.
 Please note that, throughout this course we shall be using pdflatex to compile 
 our documents.
 
-.. L14
+.. L15
 
-{{{ Show summary slide }}}
+{{{ Show the "Summary" slide }}}
 
-.. R14
+.. R15
 
 This brings us to the end of this tutorial. In this tutorial, we have learnt
 
@@ -259,11 +273,11 @@ This brings us to the end of this tutorial. In this tutorial, we have learnt
 ..    comments and special characters, spacing and actual document content.
 .. #. Created and compiled a very simple LaTeX document.
 
-.. L15
+.. L16
 
-{{{Show self assessment questions slide}}}
+{{{ Show the "Self assessment questions" slide }}}
 
-.. R15
+.. R16
 
 Here are some self assessment questions for you to solve
 
@@ -274,11 +288,11 @@ using the dvips command. Verify that the two files indeed look the same.
 temp_1.pdf using the dvipdfm command. Verify that the two files indeed look the
 same.
 
-.. L16
+.. L17
 
-{{{Show self assessment questions slide}}}
+{{{ Show the "Self assessment questions: Solutions" slide }}}
 
-.. R16
+.. R17
 
 And the answers,
 
@@ -288,11 +302,11 @@ dvips -o temp_1.ps temp.dvi
 2. We can use the following command to convert temp.dvi to temp_1.pdf
 dvipdfm -o temp_1.pdf temp.dvi
 
-.. L17
+.. L18
 
-{{{ Show the thank you slide }}}
+{{{ Show the "Thank you" slide }}}
 
-.. R17
+.. R18
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!

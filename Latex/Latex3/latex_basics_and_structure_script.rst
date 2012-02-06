@@ -1,7 +1,7 @@
 .. Objectives
 .. ----------
 
-.. By the end of this tutorial, you will be able to
+.. At the end of this tutorial, you will be able to
 
 .. 1. Understand basic structure of a LaTeX document, its various document
 ..    classes and loading packages that add new features to the LaTeX system.
@@ -14,7 +14,7 @@
 .. Prerequisites
 .. -------------
 
-.. 1. latex_intro 
+.. 1. Introduction to LaTeX 
 
      
 .. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
@@ -38,11 +38,11 @@ document structure".
 
 .. L2
 
-{{{ Show the objectives slide }}}
+{{{ Show the "Objectives" slide }}}
 
 .. R2
 
-.. By the end of this tutorial, you will be able to
+.. At the end of this tutorial, you will be able to
 
 .. 1. Understand basic structure of a LaTeX document, its various document
 ..    classes and loading packages that add new features to the LaTeX system.
@@ -54,7 +54,7 @@ document structure".
 
 .. L3
 
-{{{ Switch to the pre-requisite slide }}}
+{{{ Show the "Pre-requisite" slide }}}
 
 .. R3
 
@@ -63,6 +63,7 @@ LaTeX and suggest you to complete the tutorial titled "Introduction to LaTeX".
 
 .. L4
 
+{{{ Show the "A Very Basic LaTeX document" slide }}}
 
 .. R4
 
@@ -86,6 +87,7 @@ The first line reads
 
 .. L5
 
+{{{ Show the "documentclass command" slide }}}
 
 .. R5
 
@@ -93,6 +95,7 @@ which more generally can be written as
 
 .. L6
 
+{{{ Show the "documentclass command ..." slide }}}
 
 .. R6
 
@@ -106,6 +109,7 @@ The supported classes have a few differences, in how the content of the document
 
 .. L7
 
+{{{ Show the "documentclass command: A Closer look" slide }}}
 
 .. R7
 
@@ -121,6 +125,7 @@ with a square in the margin
 
 .. L8
 
+{{{ Show the "usepackage command" slide }}}
 
 .. R8
 
@@ -130,8 +135,8 @@ included by default with LaTeX2 base distribution. You can use the texdoc
 command for accessing package documentation.
 
 .. L9
-::
 
+{{{ Show the "Top Matter" slide }}}
 
 .. R9
 
@@ -141,6 +146,7 @@ appear in the document, but they donot.
 
 .. L10
 
+{{{ Show the "Top Matter ..." slide }}}
 
 .. R10
 
@@ -150,6 +156,7 @@ date is used else today's date is used.
 
 .. L11
 
+{{{ Show the "abstract command" slide }}}
 
 .. R11
 
@@ -160,7 +167,7 @@ not book
 
 .. L12
 
-
+{{{ Show the "Sectioning" slide }}}
 
 .. R12
 
@@ -171,8 +178,9 @@ behavior is to use numbered sections. We can use un-numbered sections appending
 * to section command. If you want to split your document without influencing the
 section or chapter numbering use the part command.
 
-
 .. L13
+
+{{{ Show the "Creating Chapters" slide }}}
 
 .. R13
 
@@ -182,6 +190,7 @@ file shown in the slide we notice that subsections are not numbered.
 
 .. L14
 
+{{{ Show the "Sectioning and numbering" slide }}}
 
 .. R14
 
@@ -190,6 +199,7 @@ in the slide.
 
 .. L15
 
+{{{ Show the "Appendix" slide }}}
 
 .. R15
 
@@ -202,6 +212,7 @@ that sections are to be numbered as appendices.
 
 .. L16
 
+{{{ Show the "Table of Contents [TOC]" slide }}}
 
 .. R16
 
@@ -225,6 +236,7 @@ Preface or a Foreword section to appear in the Table of Contents.
 
 .. L17
 
+{{{ Show the "TOC ..." slide }}}
 
 .. R17
 
@@ -235,7 +247,7 @@ where "Intro" is the text that you want to appear in the Table of contents.
 
 .. L18
 
-{{{ Show slide with exercise 1 }}}
+{{{ Show the "Exercise 1" slide }}}
 
 .. R18
 
@@ -252,7 +264,7 @@ Please pause the tutorial and check back for a possible solution
 .. L19
 
 {{{continue from paused state}}}
-{{{ Show slide with solution to exercise 1 }}}
+{{{ Show the "Excercise 1: Solution" slide }}}
 
 .. R19
 
@@ -260,7 +272,7 @@ This slide on screen shows a possible valid solution to the given exercise.
 
 .. L20
 
-{{{ Show summary slide }}}
+{{{ Show the "Summary" slide }}}
 
 .. R20
 
@@ -277,7 +289,7 @@ This brings us to the end of this tutorial. In this tutorial, we have,
 
 .. L21
 
-{{{Show self assessment questions slide}}}
+{{{ Show the "Self assessment questions" slide }}}
 
 .. R21
 
@@ -293,7 +305,7 @@ do they automatically appear in the table of content ??
 
 .. L22
 
-{{{Show self assessment questions slide}}}
+{{{ Show the "Self assessment questions: Solutions" slide }}}
 
 .. R22
 
@@ -308,7 +320,7 @@ headings, and only down to the level defined by the tocdepth counter.
 
 .. L23
 
-{{{ Show the thankyou slide }}}
+{{{ Show the "Thank you" slide }}}
 
 .. R23
 
