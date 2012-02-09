@@ -43,17 +43,17 @@ Hello Friends and welcome to the tutorial on introduction to LaTeX.
 
 .. R2
 
-.. At the end of this tutorial, you will 
+At the end of this tutorial, you will 
 
-.. 1. Get acquainted to LaTeX.
-.. #. Know why we prefer LaTeX?
-.. #. Know the advantages and disadvantages of typesetting documents  
-..    using the LaTeX approach.
-.. #. Have a description, of a typical work flow; which uses LaTeX to typeset 
-..    documents.
-.. #. Recognize and differentiate between LaTeX commands, LaTeX comments and
-..    special characters, spacing and actual document content.
-.. #. Be able to create and compile a very simple LaTeX document.
+1. Get acquainted to LaTeX.
+#. Know why we prefer LaTeX?
+#. Know the advantages and disadvantages of typesetting documents  
+   using the LaTeX approach.
+#. Have a description, of a typical work flow; which uses LaTeX to typeset 
+   documents.
+#. Recognize and differentiate between LaTeX commands, LaTeX comments and
+   special characters, spacing and actual document content.
+#. Be able to create and compile a very simple LaTeX document.
 
 .. L3
 
@@ -263,15 +263,15 @@ our documents.
 
 This brings us to the end of this tutorial. In this tutorial, we have learnt
 
-.. 1. About LaTeX.
-.. #. why we prefer LaTeX.
-.. #. About the advantages and disadvantages of typesetting documents  
-..    using the LaTeX approach.
-.. #. A description, of a typical work flow; which uses LaTeX to typeset 
-..    documents.
-.. #. The ability to recognize and differentiate between LaTeX commands, LaTeX
-..    comments and special characters, spacing and actual document content.
-.. #. Created and compiled a very simple LaTeX document.
+1. About LaTeX.
+#. why we prefer LaTeX.
+#. About the advantages and disadvantages of typesetting documents  
+   using the LaTeX approach.
+#. A description, of a typical work flow; which uses LaTeX to typeset 
+   documents.
+#. The ability to recognize and differentiate between LaTeX commands, LaTeX
+   comments and special characters, spacing and actual document content.
+#. Created and compiled a very simple LaTeX document.
 
 .. L16
 
@@ -290,7 +290,7 @@ same.
 
 .. L17
 
-{{{ Show the "Self assessment questions: Solutions" slide }}}
+{{{ Show the "Solutions" slide }}}
 
 .. R17
 

@@ -40,12 +40,12 @@ formulae, bibliography and presentations, using LaTeX.
 
 .. R2
 
-.. At the end of this tutorial, you will be able to
+At the end of this tutorial, you will be able to
 
-.. 1. Write simple mathematical formulae in LaTeX.
-.. #. Typeset simple mathematical formulae in LaTeX.
-.. #. Write bibliography for a LaTeX document.
-.. #. Make presentations in LaTeX, using beamer.
+1. Write simple mathematical formulae in LaTeX.
+#. Typeset simple mathematical formulae in LaTeX.
+#. Write bibliography for a LaTeX document.
+#. Make presentations in LaTeX, using beamer.
 
 .. L3
 
@@ -281,10 +281,10 @@ example shown on the screen.
 
 This brings us to the end of this tutorial. In this tutorial, we have,
 
-.. 1. Written simple mathematical formulae in LaTeX.
-.. #. Typeset simple mathematical formulae in LaTeX.
-.. #. Written bibliography for a LaTeX document.
-.. #. Made a sample presentations in LaTeX, using beamer.
+1. Written simple mathematical formulae in LaTeX.
+#. Typeset simple mathematical formulae in LaTeX.
+#. Written bibliography for a LaTeX document.
+#. Made a sample presentations in LaTeX, using beamer.
 
 .. L18
 
@@ -302,7 +302,7 @@ remove the line.
 
 .. L19
 
-{{{ Show the "Self assessment questions: Solutions" slide }}}
+{{{ Show the "Solutions" slide }}}
 
 .. R19
 

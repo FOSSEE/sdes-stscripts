@@ -42,15 +42,15 @@ document structure".
 
 .. R2
 
-.. At the end of this tutorial, you will be able to
+At the end of this tutorial, you will be able to
 
-.. 1. Understand basic structure of a LaTeX document, its various document
-..    classes and loading packages that add new features to the LaTeX system.
-.. #. Create a LaTeX document with a title and an abstract.
-.. #. Create numbered and non-numbered sections and subsections in a LaTeX
-..    document.
-.. #. Create an appendix in a LaTeX document.
-.. #. Create a table of content in a LaTeX document.
+1. Understand basic structure of a LaTeX document, its various document
+   classes and loading packages that add new features to the LaTeX system.
+#. Create a LaTeX document with a title and an abstract.
+#. Create numbered and non-numbered sections and subsections in a LaTeX
+   document.
+#. Create an appendix in a LaTeX document.
+#. Create a table of content in a LaTeX document.
 
 .. L3
 
@@ -278,14 +278,14 @@ This slide on screen shows a possible valid solution to the given exercise.
 
 This brings us to the end of this tutorial. In this tutorial, we have,
 
-.. 1. Gained an understanding of the basic structure of a LaTeX document, its 
-..    various document classes and loading packages that add new features to 
-..    the LaTeX system.
-.. #. Created a LaTeX document with a title and an abstract.
-.. #. Created both numbered and non-numbered sections and subsections in a 
-..    LaTeX document.
-.. #. Created an appendix in a LaTeX document.
-.. #. Created a table of content in a LaTeX document.
+1. Gained an understanding of the basic structure of a LaTeX document, its 
+   various document classes and loading packages that add new features to 
+   the LaTeX system.
+#. Created a LaTeX document with a title and an abstract.
+#. Created both numbered and non-numbered sections and subsections in a 
+   LaTeX document.
+#. Created an appendix in a LaTeX document.
+#. Created a table of content in a LaTeX document.
 
 .. L21
 
@@ -305,7 +305,7 @@ do they automatically appear in the table of content ??
 
 .. L22
 
-{{{ Show the "Self assessment questions: Solutions" slide }}}
+{{{ Show the "Solutions" slide }}}
 
 .. R22
 
