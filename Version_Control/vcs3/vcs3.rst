@@ -267,6 +267,7 @@ In this tutorial, we have learnt to,
 .. R19
 
 Here are some self assessment questions for you to solve
+
 #. How to accomplish not saving backup files using hg revert command?
 #. Get the history of revisions 2 to 4 without having to list each revision? 
 #. Print the description and content of a change. Hint: Use --patch option
