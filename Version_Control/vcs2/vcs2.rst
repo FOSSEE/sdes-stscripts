@@ -17,8 +17,8 @@ Spoken Tutorial Script
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along
-with the logo of MHRD}}}
+*{{{ Show the first slide containing title, name of the production team along
+with the logo of MHRD}}}*
 
 .. R1
 
@@ -27,7 +27,7 @@ using Hg'
 
 .. L2
 
-{{{Show the slide 'Prerequisite'}}}
+*{{{Show the slide 'Prerequisite'}}}*
 
 .. R2
 
@@ -36,11 +36,12 @@ continue on this tutorial:
 
 .. L3
 
-{{{Show the slide 'Objectives'}}}
+*{{{Show the slide 'Objectives'}}}*
 
 .. R3
 
 At the end of this tutorial you will be able to
+ 
  1. initialize a new repository,
  #. obtain the status of a repository,
  #. add new files to a repository,
@@ -50,7 +51,7 @@ At the end of this tutorial you will be able to
 
 .. L4
 
-{{{Show the slide for 'We need a repo!'}}}
+*{{{Show the slide for 'We need a repo!'}}}*
 
 .. R4
 
@@ -64,7 +65,7 @@ to the files.
 
 .. L5
 
-{{{Show the slide 'Initializing a Repo'}}}
+*{{{Show the slide 'Initializing a Repo'}}}*
 
 .. R5
 
@@ -77,9 +78,11 @@ text files. Let us convert that folder, into a hg repository.
 
 .. L6
 
-$ cd book/
-$ ls -a
-. .. chapter1.txt chapter2.txt chapter3.txt
+``$ cd book/``
+
+``$ ls -a``
+
+``. .. chapter1.txt chapter2.txt chapter3.txt``
 
 .. R6
 
@@ -88,9 +91,11 @@ repository using the hg init command
 
 .. L7
 
-$ hg init
-$ ls -a
-. .. .hg chapter1.txt chapter2.txt chapter3.txt
+``$ hg init``
+
+``$ ls -a``
+
+``. .. .hg chapter1.txt chapter2.txt chapter3.txt``
 
 .. R7
 
@@ -101,7 +106,7 @@ directory.
 
 .. L8
 
-{{{Show the slides 'Status Report'}}}
+*{{{Show the slides 'Status Report'}}}*
 
 .. R8
 
@@ -111,7 +116,7 @@ that we want it to.
 
 .. L9
 
-$hg status
+``$hg status``
 
 .. R9
 
@@ -119,7 +124,7 @@ Gives the status of our repo. As a beginner, use it often.
 
 .. L10
 
-$hg help 'status'
+``$hg help 'status'``
 
 .. R10
 
@@ -128,11 +133,11 @@ For example.
 
 .. L11
 
-$hg help status
+``$hg help status``
 
 .. L12
 
-{{{Show the slides for 'Status Codes'}}}
+*{{{Show the slides for 'Status Codes'}}}*
 
 .. R11
 
@@ -142,7 +147,7 @@ tracked by hg yet. Now let's move onto 'Adding Files'.
 
 .. L13
 
-$hg add
+``$hg add``
 
 .. R12
 
@@ -152,7 +157,7 @@ specify files individually, for example
 
 .. L14
 
-$ hg add chapter1.txt
+``$ hg add chapter1.txt``
 
 .. R13
 
@@ -162,7 +167,7 @@ at hg help remove for more details.
 
 .. L15
 
-{{{Show the slides 'Taking Snapshots'}}}
+*{{{Show the slides 'Taking Snapshots'}}}*
 
 .. R14
 
@@ -172,7 +177,7 @@ time. We do this by using the commit command.
 
 .. L16
 
-$ hg commit -u "Primal Pappachan <primal@fossee.in>" -m "Initial Commit."
+``$ hg commit -u "Primal Pappachan <primal@fossee.in>" -m "Initial Commit."``
 
 .. R15
 
@@ -187,7 +192,7 @@ use the hg status command.
 
 .. L17
 
-$ hg st
+``$ hg st``
 
 .. R16
 
@@ -197,7 +202,7 @@ the status command.
 
 .. L18
 
-{{{Show the slide 'Thumbnail views'}}}
+``{{{Show the slide 'Thumbnail views'}}}``
 
 .. R17
 
@@ -206,7 +211,7 @@ the change that we just made to our repository.
 
 .. L19
 
-$ hg log
+``$ hg log``
 
 .. R18
 
@@ -217,7 +222,7 @@ various aspects of the changeset.
 
 .. L20
 
-{{{Show the slide 'User Information'}}}
+*{{{Show the slide 'User Information'}}}*
 
 .. R19
 
@@ -236,10 +241,13 @@ add the username details and our editor preferences.
 .. L21
 
 
-vim ~/.hgrc 
-[ui]
-username = Primal Pappachan <primal@fossee.in>
-editor = vim
+``vim ~/.hgrc``
+
+``[ui]``
+
+``username = Primal Pappachan <primal@fossee.in>``
+
+``editor = vim``
 
 .. R21
 
@@ -247,33 +255,32 @@ We have now set the user-name details for mercurial to use.
 
 .. L22
 
-{{{Show the slide 'Advice: commits, messages'}}} 
+*{{{Show the slide 'Advice: commits, messages'}}}*
 
 .. R22
 
 Some Recommended Practices for commit messages
 
 1. Atomic changes; one change with one commit
-
 #. Single line summary — 60 to 65 characters long
-
 #. Followed by paragraphs of detailed description
- -  Why the change?
- - What does it effect?
- - Known bugs/issues?
- - etc.
+
+ *  Why the change?
+ * What does it effect?
+ * Known bugs/issues?
+ * etc.
 
 .. L23
 
-{{{Show the 'summary' slide'}}}
+*{{{Show the 'summary' slide'}}}*
 
 .. R23
 
 This brings us to the end of the tutorial. In this tutorial, we have
 seen,
+
  1. how to initialize a new repository using hg init,
- #. get the status of a repository using hg status and meaning of it's status
- codes
+ #. get the status of a repository using hg status and meaning of it's status codes
  #. make commits of changes to files, using hg commit 
  #. view the history of the repository using the hg log command,
  #. set our user information in the global hgrc file.
@@ -287,44 +294,29 @@ seen,
 Here are some self assessment questions for you to solve
 
  1. How can you tell hg to stop tracking deleted files?
- #. Here's a part of the output that is printed in 'hg log'.
+ 2. Here's a part of the output that is printed in 'hg log'.Try to identify each component of this changeset and it's meaning. In the changeset, what is the significance of the number as well as hexadecimal string? ::
 	changeset:   1:2278160e78d4
 	tag:         tip
 	user:        Primal Pappachan <primal@fossee.in>
 	date:        Sat Jan 26 22:16:53 2012 +0530
-	summary:     Added Readme
- Try to identify each component of this changeset and it's meaning. In the
- changeset, what is the significance of the number as well as hexadecimal
- string?
-
- #. What happens when 'hg commit' command is run first time without specifying
- username as parameter or creating the hg configuration file? 
+	summary:     Added Readme 
+ 3. What happens when 'hg commit' command is run first time without specifying username as parameter or creating the hg configuration file? 
  
 .. L25
 
-{{{Show the solutions slide to self assessment questions }}}
+*{{{Show the solutions slide to self assessment questions }}}*
 
 .. R25
 
 And the answers,
 
- 1. If you have deleted files, hg status will show you the status code !. You
- can, then, tell hg to stop tracking these files, using the hg remove command.
- #. The revision number is a handy notation that is only valid in that
- repository. The hexadecimal string is the permanent, unchanging identifier
- that will always identify that exact changeset in every copy of the repository
- 
- #. If you have set the EMAIL environment variable, this will be used. Next,
- Mercurial will query your system to find out your local user name and host
- name, and construct a username from these components. Since this often results
- in a username that is not very useful, it will print a warning if it has to do
- this. If all of these mechanisms fail, Mercurial will fail, printing an error
- message. In this case, it will not let you commit until you set up a
- username.
+ 1. If you have deleted files, hg status will show you the status code !. You can, then, tell hg to stop tracking these files, using the hg remove command.
+ 2. The revision number is a handy notation that is only valid in that repository. The hexadecimal string is the permanent, unchanging identifier that will always identify that exact changeset in every copy of the repository.
+ 3. If you have set the EMAIL environment variable, this will be used. Next, Mercurial will query your system to find out your local user name and host name, and construct a username from these components. Since this often results in a username that is not very useful, it will print a warning if it has to do this. If all of these mechanisms fail, Mercurial will fail, printing an error message. In this case, it will not let you commit until you set up a username.
 
 .. L26
 
-{{{Show the thank you slide}}}
+*{{{Show the thank you slide}}}*
 
 .. R26
 
