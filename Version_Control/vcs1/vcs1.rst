@@ -17,8 +17,8 @@ Spoken Tutorial Script
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along
-with the logo of MHRD}}}
+*{{{ Show the first slide containing title, name of the production team along
+with the logo of MHRD}}}*
 
 .. R1
 
@@ -27,7 +27,7 @@ using Hg'
 
 .. L2
 
-{{{Show the slide containing the objectives}}}
+*{{{Show the slide containing the objectives}}}*
 
 .. R2
 
@@ -43,7 +43,7 @@ First, let's understand what 'Version Control' is.
 
 .. L3
 
-{{{Show the slide 'what is version control'}}}
+*{{{Show the slide 'what is version control'}}*}
 
 .. R4
 
@@ -63,7 +63,7 @@ the scientific computing world, even when if they would be very useful.
 
 .. L4
 
-{{{Show the slide 'Home-brewed'}}}
+*{{{Show the slide 'Home-brewed'}}}*
 
 .. R5
 
@@ -76,7 +76,7 @@ organized and systematic way.
 
 .. L5
 
-{{{Show the slide 'Problems'}}}
+*{{{Show the slide 'Problems'}}}*
 
 .. R6
 
@@ -88,7 +88,7 @@ Let's look at the various problems associated with this set-up.
 
 .. L6
 
-{{{Show the slide 'The need for Version Control'}}}
+*{{{Show the slide 'The need for Version Control'}}}*
 
 .. R7
 
@@ -103,7 +103,7 @@ identifying the needs for a 'Version Control System'.
 
 .. L7
 
-{{{Show the slide 'The need for Version Control'}}}
+*{{{Show the slide 'The need for Version Control'}}}*
 
 .. R8
 
@@ -112,14 +112,10 @@ is the ability to go back to a working version of a file, when something goes
 wrong. Below are a few more advantages of using an automated version control
 system.
 
- 1. By tracking the history of a project, any person may see the evolution of a
-project. This helps to track what changes were made at what point of time, when
-and by whom.
- #. Allows for effective collaboration on a project, as everything is shared.
- #. Helps to identify which additions have broken down a project and thus aids
- in efficient tracking down of the bugs.
- #. It is good for a one man show as it is for a big group of people working on
- a project.
+1. By tracking the history of a project, any person may see the evolution of a project which helps to track what changes were made at what point of time, when and by whom.
+2. Allows for effective collaboration on a project, as everything is shared.
+3. Helps to identify which additions have broken down a project and thus aids in efficient tracking down of the bugs.
+4. It is good for a one man show as it is for a big group of people working on a project.
 
 Keeping your stuff version controlled will help avoid accidental deletion of
 individual files etc. Hosting it on a remote server will protect your sanity
@@ -127,7 +123,7 @@ from a hard disk crash.
 
 .. L8
 
-{{{Show the slide 'How does it work? - Analogy}}}
+*{{{Show the slide 'How does it work? - Analogy}}}*
 
 .. R9
 
@@ -139,7 +135,7 @@ the game.
 
 .. L9
 
-{{{Show the slide 'Mercurial or hg'}}}
+*{{{Show the slide 'Mercurial or hg'}}}*
 
 .. R10
 
@@ -162,7 +158,7 @@ type the following in command line terminal
 
 .. L10
 
-sudo apt-get install mercurial
+``sudo apt-get install mercurial``
 
 .. R12
 
@@ -170,9 +166,9 @@ For Windows,
 
 .. L11
 
-http://mercurial.selenic.com/downloads/
+``http://mercurial.selenic.com/downloads/``
 
-http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html
+``http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html``
 
 .. R 13
 
@@ -183,7 +179,7 @@ Type 'hg' which lists out all the commands
 
 .. L12
 
-$hg
+``$hg``
 
 .. R14
 
@@ -191,23 +187,24 @@ and 'hg version' which gives the version number.
 
 .. L13
 
-$hg version
+``$hg version``
 
 .. L14
 
-{{{Show the 'summary' slide'}}}
+*{{{Show the 'summary' slide'}}}*
 
 .. R15
 
 This brings us to the end of the tutorial. In this tutorial, we have
 seen,
- 1. the motivation to use version control
- #. an analogy of version control with playing a video game
- #. how to check if mercurial is installed, and it's version using hg version
+
+1. the motivation to use version control
+#. an analogy of version control with playing a video game
+#. how to check if mercurial is installed, and it's version using hg version
 
 .. L15
 
-{{{Show self assessment questions slide}}}
+*{{{Show self assessment questions slide}}}*
 
 .. R16 
 
@@ -219,21 +216,20 @@ Here are some self assessment questions for you to solve
 
 .. L16
 
-{{{Show the solutions slide to self assessment questions }}}
+*{{{Show the solutions slide to self assessment questions }}}*
 
 .. R17
 
 And the answers,
 
- 1. Mercurial is a Centralized Version Control system. To read more go here,
- http://en.wikipedia.org/wiki/Distributed_revision_control
- #. $hg version - 	
+ 1. Mercurial is a Centralized Version Control system. To read more go here, http://en.wikipedia.org/wiki/Distributed_revision_control
+ #. $hg version
  #. $hg help command	
 
 
 .. L17
 
-{{{Show the thank you slide}}}
+*{{{Show the thank you slide}}}*
 
 .. R18
 
