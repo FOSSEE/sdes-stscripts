@@ -135,7 +135,6 @@ For example.
 
 ``$hg help status``
 
-.. L12
 
 *{{{Show the slides for 'Status Codes'}}}*
 
@@ -145,7 +144,7 @@ Let's now to try to discern what each of the status code associated with the
 files mean. By looking at the codes, it is clear that our files are not being
 tracked by hg yet. Now let's move onto 'Adding Files'.
 
-.. L13
+.. L12
 
 ``$hg add``
 
@@ -155,7 +154,7 @@ This simply adds all the files in the (working) directory, to the repository.
 As expected, the status command shows an A before he file names. We could also
 specify files individually, for example
 
-.. L14
+.. L13
 
 ``$ hg add chapter1.txt``
 
@@ -165,7 +164,7 @@ If you have deleted files, hg status will show you the status code !. You can,
 then, tell hg to stop tracking these files, using the hg remove command. Look
 at hg help remove for more details.
 
-.. L15
+.. L14
 
 *{{{Show the slides 'Taking Snapshots'}}}*
 
@@ -175,7 +174,7 @@ We have added a set of new files to the repository, but we haven't told
 mercurial to remember these changes, i.e., to take a snapshot at this point in
 time. We do this by using the commit command.
 
-.. L16
+.. L15
 
 ``$ hg commit -u "Primal Pappachan <primal@fossee.in>" -m "Initial Commit."``
 
@@ -190,7 +189,7 @@ Mercurial has now taken a snapshot of our repository and has attached our
 description along with it. To see the status of the files in the repository,
 use the hg status command.
 
-.. L17
+.. L16
 
 ``$ hg st``
 
@@ -200,7 +199,7 @@ The command does not return anything, when there are no uncommitted changes.
 Also, notice that I have started getting lazy and used only a short name st for
 the status command.
 
-.. L18
+.. L17
 
 ``{{{Show the slide 'Thumbnail views'}}}``
 
@@ -209,7 +208,7 @@ the status command.
 To see the history of the changes to our repository, we use hg log. We can view
 the change that we just made to our repository.
 
-.. L19
+.. L18
 
 ``$ hg log``
 
@@ -220,7 +219,7 @@ is a set of changes made to the repository between two consecutive commits. It
 also shows the date at which the commit was made. Please have a look of the
 various aspects of the changeset.
 
-.. L20
+.. L19
 
 *{{{Show the slide 'User Information'}}}*
 
@@ -238,7 +237,7 @@ for all the projects that we are working on.
 For linux systems, we open the configuration file in our favorite editor and
 add the username details and our editor preferences.
 
-.. L21
+.. L20
 
 
 ``vim ~/.hgrc``
@@ -249,20 +248,20 @@ add the username details and our editor preferences.
 
 ``editor = vim``
 
-.. R21
+.. R20
 
 We have now set the user-name details for mercurial to use.
 
-.. L22
+.. L21
 
 *{{{Show the slide 'Advice: commits, messages'}}}*
 
-.. R22
+.. R21
 
 Some Recommended Practices for commit messages
 
 1. Atomic changes; one change with one commit
-#. Single line summary — 60 to 65 characters long
+#. Single line summary, 60 to 65 characters long
 #. Followed by paragraphs of detailed description
 
  *  Why the change?
@@ -270,55 +269,55 @@ Some Recommended Practices for commit messages
  * Known bugs/issues?
  * etc.
 
-.. L23
+.. L22
 
 *{{{Show the 'summary' slide'}}}*
 
-.. R23
+.. R22
 
 This brings us to the end of the tutorial. In this tutorial, we have
 seen,
 
  1. how to initialize a new repository using hg init,
- #. get the status of a repository using hg status and meaning of it's status codes
+ #. get the status of a repository using hg status and meaning of it's status co
  #. make commits of changes to files, using hg commit 
  #. view the history of the repository using the hg log command,
  #. set our user information in the global hgrc file.
 
-.. L24
+.. L23
 
 {{{Show self assessment questions slide}}}
 
-.. R24 
+.. R23 
 
 Here are some self assessment questions for you to solve
 
  1. How can you tell hg to stop tracking deleted files?
- 2. Here's a part of the output that is printed in 'hg log'.Try to identify each component of this changeset and it's meaning. In the changeset, what is the significance of the number as well as hexadecimal string? ::
-	changeset:   1:2278160e78d4
-	tag:         tip
-	user:        Primal Pappachan <primal@fossee.in>
-	date:        Sat Jan 26 22:16:53 2012 +0530
-	summary:     Added Readme 
- 3. What happens when 'hg commit' command is run first time without specifying username as parameter or creating the hg configuration file? 
+ 2. Here's a part of the output that is printed in 'hg log'.Try to identify each
+     changeset:   1:2278160e78d4
+     tag:         tip
+     user:        Primal Pappachan <primal@fossee.in>
+     date:        Sat Jan 26 22:16:53 2012 +0530
+     summary:     Added Readme 
+ 3. What happens when 'hg commit' command is run first time without specifying u
  
-.. L25
+.. L24
 
 *{{{Show the solutions slide to self assessment questions }}}*
 
-.. R25
+.. R24
 
 And the answers,
 
- 1. If you have deleted files, hg status will show you the status code !. You can, then, tell hg to stop tracking these files, using the hg remove command.
- 2. The revision number is a handy notation that is only valid in that repository. The hexadecimal string is the permanent, unchanging identifier that will always identify that exact changeset in every copy of the repository.
- 3. If you have set the EMAIL environment variable, this will be used. Next, Mercurial will query your system to find out your local user name and host name, and construct a username from these components. Since this often results in a username that is not very useful, it will print a warning if it has to do this. If all of these mechanisms fail, Mercurial will fail, printing an error message. In this case, it will not let you commit until you set up a username.
+ 1. If you have deleted files, hg status will show you the status code !. You ca
+ 2. The revision number is a handy notation that is only valid in that repositor
+ 3. If you have set the EMAIL environment variable, this will be used. Next, Mer
 
-.. L26
+.. L25
 
 *{{{Show the thank you slide}}}*
 
-.. R26
+.. R25
 
 Hope you have enjoyed this tutorial and found it useful. Feel free to play
 around with Mercurial and read the documentation given by hg help command. When
