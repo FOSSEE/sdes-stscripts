@@ -37,7 +37,6 @@ At the end of this tutorial you will be able to
  #. Identify the need for using Version Control
  #. Install Mercurial and intialize a repository
 
-.. R3
 
 First, let's understand what 'Version Control' is.
 
@@ -45,7 +44,7 @@ First, let's understand what 'Version Control' is.
 
 *{{{Show the slide 'what is version control'}}*}
 
-.. R4
+.. R3
 
 'Version control' is a way to track files over time and share them. This allows
 access to earlier versions of a file(s) if and when required. It therefore
@@ -65,7 +64,7 @@ the scientific computing world, even when if they would be very useful.
 
 *{{{Show the slide 'Home-brewed'}}}*
 
-.. R5
+.. R4
 
 Let's look at an example of home-brewed Version Control system
 
@@ -78,7 +77,7 @@ organized and systematic way.
 
 *{{{Show the slide 'Problems'}}}*
 
-.. R6
+.. R5
 
 Let's look at the various problems associated with this set-up.
 
@@ -90,7 +89,7 @@ Let's look at the various problems associated with this set-up.
 
 *{{{Show the slide 'The need for Version Control'}}}*
 
-.. R7
+.. R6
 
 Having seen the problems of a home brewed setup, let's now move onto
 identifying the needs for a 'Version Control System'.
@@ -105,7 +104,7 @@ identifying the needs for a 'Version Control System'.
 
 *{{{Show the slide 'The need for Version Control'}}}*
 
-.. R8
+.. R7
 
 We have seen that one of the main motivations to use a Version Control system
 is the ability to go back to a working version of a file, when something goes
@@ -125,7 +124,7 @@ from a hard disk crash.
 
 *{{{Show the slide 'How does it work? - Analogy}}}*
 
-.. R9
+.. R8
 
 It is, in some ways, similar to playing a video game. We generally play games
 in stages. While playing, we save the game at some instances as per our choice.
@@ -137,7 +136,7 @@ the game.
 
 *{{{Show the slide 'Mercurial or hg'}}}* 
 
-.. R10
+.. R9
 
 Some of the Version Control tools available and used widely are:
 
@@ -146,7 +145,6 @@ Some of the Version Control tools available and used widely are:
  #. hg(mercurial)
  #. git
 
-.. R11
 
 Each of these tools have their own merits and demerits. In this tutorial we
 shall learn how to use mercurial or hg which is easy to learn and use and
@@ -160,7 +158,7 @@ type the following in command line terminal
 
 ``sudo apt-get install mercurial``
 
-.. R12
+.. R10
 
 For Windows,
 
@@ -170,7 +168,7 @@ For Windows,
 
 ``http://hgbook.red-bean.com/read/a-tour-of-mercurial-the-basics.html``
 
-.. R 13
+.. R 11
 
 For any other Operating system, please refer the hg book for installation
 instruction - 
@@ -181,7 +179,7 @@ Type 'hg' which lists out all the commands
 
 ``$hg``
 
-.. R14
+.. R12
 
 and 'hg version' which gives the version number.
 
@@ -189,11 +187,10 @@ and 'hg version' which gives the version number.
 
 ``$hg version``
 
-.. L14
 
 *{{{Show the 'summary' slide'}}}*
 
-.. R15
+.. R13
 
 This brings us to the end of the tutorial. In this tutorial, we have
 seen,
@@ -202,11 +199,11 @@ seen,
 #. an analogy of version control with playing a video game
 #. how to check if mercurial is installed, and it's version using hg version
 
-.. L15
+.. L14
 
 *{{{Show self assessment questions slide}}}*
 
-.. R16 
+.. R14 
 
 Here are some self assessment questions for you to solve
 
@@ -214,11 +211,11 @@ Here are some self assessment questions for you to solve
  #. How can you verify whether Mercurial has been installed properly?
  #. What is the command for accessing built-in help system of Mercurial?	
 
-.. L16
+.. L15
 
 *{{{Show the solutions slide to self assessment questions }}}*
 
-.. R17
+.. R15
 
 And the answers,
 
@@ -227,11 +224,11 @@ And the answers,
  #. $hg help command	
 
 
-.. L17
+.. L16
 
 *{{{Show the thank you slide}}}*
 
-.. R18
+.. R16
 
 Hope you have enjoyed this tutorial and found it useful. Feel free to play
 around with Mercurial and read the documentation given by hg help command. When
