@@ -45,7 +45,7 @@ At the end of this tutorial you will be able to
 
 1. Learn how to view and revert changes made to files in a repository.
 
-#. Learn how to share repositories and deal with simultaneous conflicting changes.
+#. Learn how to share repositories and deal with simultaneous conflicting change
 
 .. L4
 
