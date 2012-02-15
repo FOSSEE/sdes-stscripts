@@ -55,7 +55,7 @@ collaborate on a single piece of work with a team of people.
 As the quote from the famous blog post 'Version Control for masses' says
 
 "Version control is one of those weird, geeky things that never really gained
-much ground in non-geek fields, despite the fact that it’s blindingly useful." 
+  much ground in non-geek fields, despite the fact that it’s blindingly useful."
 
 Over the course of these 3 spoken tutorials, we are going to see a handful of
 such things, which are widely used in the programmer world, but not so much in
@@ -112,10 +112,10 @@ is the ability to go back to a working version of a file, when something goes
 wrong. Below are a few more advantages of using an automated version control
 system.
 
-1. By tracking the history of a project, any person may see the evolution of a project which helps to track what changes were made at what point of time, when and by whom.
+1. By tracking the history of a project, any person may see the evolution of a p
 2. Allows for effective collaboration on a project, as everything is shared.
-3. Helps to identify which additions have broken down a project and thus aids in efficient tracking down of the bugs.
-4. It is good for a one man show as it is for a big group of people working on a project.
+3. Helps to identify which additions have broken down a project and thus aids in
+4. It is good for a one man show as it is for a big group of people working on a
 
 Keeping your stuff version controlled will help avoid accidental deletion of
 individual files etc. Hosting it on a remote server will protect your sanity
@@ -135,13 +135,13 @@ the game.
 
 .. L9
 
-*{{{Show the slide 'Mercurial or hg'}}}*
+*{{{Show the slide 'Mercurial or hg'}}}* 
 
 .. R10
 
 Some of the Version Control tools available and used widely are:
 
- 1. cvs(Concurrent Version Systems)	
+ 1. cvs(Concurrent Version Systems)
  #. svn(subversion)
  #. hg(mercurial)
  #. git
@@ -222,7 +222,7 @@ Here are some self assessment questions for you to solve
 
 And the answers,
 
- 1. Mercurial is a Centralized Version Control system. To read more go here, http://en.wikipedia.org/wiki/Distributed_revision_control
+ 1. Mercurial is a Centralized Version Control system. To read more go here, htt
  #. $hg version
  #. $hg help command	
 
