@@ -24,7 +24,7 @@ with the logo of MHRD}}}*
 
 .. R1
 
-Hello friends and welcome to the fourth part of tutorial on 'Version Control with Hg' 
+Hello friends and welcome to the fourth part of tutorial on 'Version Control wit
 
 .. L2
 
@@ -60,13 +60,13 @@ For this purpose let us create a central repository, a copy of our repository,
 which is different from the one in which we are working. The clone command is
 used to clone or replicate an existing repository.
 
-.. L15
+.. L5
 
 ``$hg clone SOURCE [DEST]``
 
 ``$ hg clone book book-repo``
 
-.. R15
+.. R5
 
 The syntax of the clone command is -- hg clone SOURCE [DEST], where the
 optional argument DEST is being represented in brackets. The clone command can
@@ -78,40 +78,40 @@ we have are exactly equivalent.
 In this example book-repo shall be our central repository we are sharing with
 peers.
 
-.. L16
+.. L6
 
 *{{{Show the slide 'Sharing Repositories'}}}*
 
-.. R16
+.. R6
 
 A mercurial repository can be shared in multiple ways. We shall use the http
 protocol to share the repository. Mercurial comes inbuilt with a tiny server
 that can be used to share your repository over the network. To start sharing
 the repository, we say
 
-.. L17
+.. L7
 
 ``$cd ../book-repo``
 
 ``$hg serve``
 
-.. R17
+.. R7
 
-This will start serving the repository on the network on the port 8000. Anybody in your network can access the repository in their browsers. Let us see how it looks, in our own browser.
+This will start serving the repository on the network on the port 8000. Anybody 
 
-.. L18
+.. L8
 
 Open the url http://localhost:8000 in browser.
 
-.. R18
+.. R8
 
 Now if your friend Primal wishes to clone the repository, use
 
-.. L19
+.. L9
 
 ``$ hg clone http://my-ip-address:8000 book-primal``
 
-.. R19
+.. R9
 
 Now if Primal makes some changes to the repository and tries to commit it fails
 obviously as access rights haven't been taken care of.
@@ -122,7 +122,7 @@ repository, by default. We will need to make changes to the settings of the
 repository to allow this. To set the write permissions, add the following lines
 in .hg/hgrc
 
-.. L20
+.. L10
 
 ``[web]``
 
@@ -130,117 +130,118 @@ in .hg/hgrc
 
 ``allow_push=*``
 
-.. R20 
+.. R10 
 
 This will allow anybody to push to the repository, now. Primal can now push and
 his changes will appear in the central repository.
 
-.. L21
+.. L11
 
 
 *{{{Show the slide 'Sharing Changes'}}}*
 
-.. R21
+.. R11
 
 Use hg push to push your commits (changesets) to the central repository. The
 changes made by Primal will appear in the central repository.
 
-.. L22
+.. L12
 
 ``$ hg push``
 
-.. R22
+.. R12
 
 Let us now pull these changes into our original repository that we have been
 working with.
 
-.. L23
+.. L13
 
 *{{{Show the slide 'Pulling Changes'}}}*
 
-.. R23
+.. R13
 
 Before pulling the changes, we can use the command hg incoming to see the
 changes that have been made to the repository after our last pull and the
 changesets that will be coming into our repository after we do a pull.
 
-.. L24
+.. L14
 
 ``$ hg incoming``
 
-.. R24
+.. R14
 
 To now pull these changes, we use the pull command.
 
-.. L25
+.. L15
 
 ``$ hg pull``
 
-.. R25
+.. R15
 
 These changes do not affect our working directory. To see this, we could use
 the hg parent command.
 
-.. L26
+.. L16
 
 ``$ hg parent``
 
-.. R26
+.. R16
 
 As you can see, the parent is still our last commit, and the changes are still
 not in your working directory.
 
-.. L27
+.. L17
 
 *{{{Show the slide 'Pulling Changes'}}}*
 
-.. R27
+.. R17
 
 To get these changes we do the update as suggested by hg.
 
-.. L28
+.. L18
 
 ``$ hg update``
 
-.. R28
+.. R18
 
 As expected the update command updates the parent to the latest changes that we
 just pulled from the remote repository.
+ 
  #. Updates to the tip if no revision is specified
  #. tip is the most recently added changeset
  #. Can specify revision number to update to
 
 For example 
 
-.. L29
+.. L19
 
 ``$ hg up -r1``
 
-.. R29
+.. R19
 
 hg tip shows the tip of the repository
 
-.. L30
+.. L20
 
 ``$ hg tip``
 
-.. R31
+.. R20
 
 What happens when two users have made simultaneous changes to the same file,
 by editing different parts at the same time.
 
-.. L31
+.. L21
 
 *{{{Show the slide 'Simultaneous Changes'}}}*
 
-.. R31
+.. R21
 
 With simultaneous changes, following things happen
  #. The logs of both repositories will be different
  #. The repositories have diverged
  #. hg push fails, in such a scenario
 
-.. L32
+.. L22
 
 ``$ hg push``
 
@@ -252,71 +253,71 @@ With simultaneous changes, following things happen
 
 ``(did you forget to merge? use push -f to force)``
 
-.. R32 
+.. R22 
 
 Don't take the advice given by mercurial. Using the -f would be disastrous. We
 will leave out a discussion of that, for this course.
 
-.. L33
+.. L23
 
 *{{{Show the slide 'Merging'}}}*
 
-.. R33
+.. R23
 
 We will now need to pull the new changes that have been pushed to the
 repository after the last pull and merge them with the changes.
 
-.. L34
+.. L24
 
 ``$ hg pull``
 
 ``$ hg merge``
 
-.. R34
+.. R24
 
 We have now pull the changes from the central repository and merged them with
 the changes in our repository. But, hg is warning us not to forget to commit. 
 
-.. L35
+.. L25
 
 ``$ hg commit``
 
-.. R35
+.. R25
 
 We can now push this changes to the central repository. We could also check the
 changes that will be pushed, before pushing them, using the hg outgoing
 command.
 
-.. L36
+.. L26
 
 *{{{Show the slide 'Outgoing Changes'}}}*
 
-.. L36
+.. L26
 
 ``$ hg outgoing``
 
 ``$ hg push``
 
-.. R36
+.. R26
 
 The changes have now been successfully pushed! Let us look at the web interface
 of the repo, to see that the changes have actually taken place.
 
-.. L37
+.. L27
 
 Show the Change graph in browser.
 
-.. R37
+.. R27
 
 What will happen if we edited the same portion of the file, at the same time?
 How would merges work? This will be the last thing that we are going to see in
 this part of the spoken tutorial. 
 
-.. L38
+.. L28
 
 *{{{Show the slide 'Simultaneous Conflicting Changes'}}}*
 
-.. R38
+.. R28
 
 Let's say both of us edit the same part of the same file.
  #. hg push fails
@@ -324,7 +325,7 @@ Let's say both of us edit the same part of the same file.
  #. followed by hg merge
 
 
-.. L39
+.. L29
 
 ``$ hg commit``
 
@@ -334,7 +335,7 @@ Let's say both of us edit the same part of the same file.
 
 ``$ hg merge``
 
-.. R39
+.. R29
 
 What happens now actually depends on how Mercurial is configured and the
 programs available in your machine. You will either get a diff view with 3
@@ -349,50 +350,50 @@ original repo. Once you are satisfied with the changes, save and quit.
 Once you are done, you need to tell mercurial that you have resolved the
 conflicts manually.
 
-.. L40
+.. L30
 
 ``$ hg resolve -m filename``
 
-.. R40
+.. R30
 
-You will now need to commit your changes, just like the simple merge that we performed.
+You will now need to commit your changes, just like the simple merge that we per
 
-.. L41
+.. L31
 
 ``$ hg commit -m "Merge heads."``
 
 ``$ hg push``
 
-.. R41
+.. R31
 
 We could look at the graph of the changes, in our web interface, which makes
 clear how the merging has occurred. 
 
-.. L42
+.. L32
 
 Show the change graph in browser.
 
-.. R42 
+.. R32 
 
 Here's an advice on the Work-flow to be followed.
 
-.. L43
+.. L33
 
 *{{{Show the slide 'Advice: Work-flow}}}*
 
 
-.. R43
+.. R33
 
 That brings us to the end of this tutorial on Mercurial. What we have covered
 is nothing close to all the features of Mercurial. We've only scratched the
 surface, but let's hope that this will get you started and you will be able to
 organize your work and projects, better.
 
-.. L44
+.. L34
 
 *{{{Show the 'summary' slide'}}}*
 
-.. R45
+.. R35
 
 In this tutorial, we have learnt to, 
 
@@ -405,46 +406,49 @@ In this tutorial, we have learnt to,
 #. merge two heads, using hg merge,
 #. and resolve conflicts using hg resolve.
 
-.. L46
+.. L36
 
 *{{{Show the slide 'Evaluation'}}}*
 
-.. R46
+.. R36
 
 Here are some self assessment questions for you to solve
- #. Mention the easiest way to get started on sharing your repository by providing a web interface
- #. Suppose Joey and Melissa have made simultaneous changes to the same file in their own systems. Would the output of hg parents before and after if one of them pulls in the changes and merges with it?
+ #. Mention the easiest way to get started on sharing your repository by providi
+ #. Suppose Joey and Melissa have made simultaneous changes to the same file in 
  #. What are the commands involved in the process of merging changes? 
    
-.. L47
+.. L37
 
 *{{{ Show Solution of self assessment questions on slide }}}*
 
-.. R47
-And the answers,
- #. hg serve
- #. No, whenever we've done a merge, hg parents will display two parents until we hg commit the results of the merge.
- #. hg pull, hg merge, 	hg commit -m "Merged Remote changes"
+.. R37
 
-.. L48
+And the answers,
+
+ #. hg serve
+ #. No, whenever we've done a merge, hg parents will display two parents until w
+ #. hg pull, hg merge, hg commit -m "Merged Remote changes"
+
+.. L38
 
 *{{{Show the slide 'Additional Reading'}}}*
 
-.. R48
+.. R38
 
 It is strongly recommended that you to go through the following topics, once
 you are comfortable with using Mercurial on a day-to-day basis.
+
  #. .hgignore
  #. hg rollback
  #. hg bisect
  #. hg backout
 
 
-.. L49
+.. L39
 
 {{{ Show the Thank you slide }}}
 
-.. R49
+.. R39
 
 Hope you have enjoyed this tutorial and found it useful. Feel free to play
 around with Mercurial and read the documentation given by hg help command. When
