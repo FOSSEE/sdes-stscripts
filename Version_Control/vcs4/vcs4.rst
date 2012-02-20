@@ -105,16 +105,14 @@ Open the url http://localhost:8000 in browser.
 
 .. R8
 
-Now if your friend Primal wishes to clone the repository, use
+Now if your friend John wishes to clone the repository, use
 
 .. L9
 
-``$ hg clone http://my-ip-address:8000 book-primal``
+``$ hg clone http://my-ip-address:8000 book-john``
 
 .. R9
 
-Now if Primal makes some changes to the repository and tries to commit it fails
-obviously as access rights haven't been taken care of.
 
 By this process, we share a central repository; work on our local copies. It
 doesn't make much sense to allow anybody to make changes to a public
@@ -132,7 +130,7 @@ in .hg/hgrc
 
 .. R10 
 
-This will allow anybody to push to the repository, now. Primal can now push and
+This will allow anybody to push to the repository, now. John can now push and
 his changes will appear in the central repository.
 
 .. L11
@@ -151,8 +149,7 @@ changes made by Primal will appear in the central repository.
 
 .. R12
 
-Let us now pull these changes into our original repository that we have been
-working with.
+Let's now see how to get the changes from central repository.
 
 .. L13
 
@@ -170,7 +167,7 @@ changesets that will be coming into our repository after we do a pull.
 
 .. R14
 
-To now pull these changes, we use the pull command.
+If you wish  pull those changes shown by hg incoming, we use the pull command.
 
 .. L15
 
@@ -187,12 +184,12 @@ the hg parent command.
 
 .. R16
 
-As you can see, the parent is still our last commit, and the changes are still
-not in your working directory.
+As pulling in the changes, the parent will still be the last commit, and the
+changes are still not in your working directory.
 
 .. L17
 
-*{{{Show the slide 'Pulling Changes'}}}*
+*{{{Show the slide 'Pulling Changes 2'}}}*
 
 .. R17
 
@@ -204,14 +201,14 @@ To get these changes we do the update as suggested by hg.
 
 .. R18
 
-As expected the update command updates the parent to the latest changes that we
+The update command updates the parent to the latest changes that we
 just pulled from the remote repository.
  
  #. Updates to the tip if no revision is specified
  #. tip is the most recently added changeset
  #. Can specify revision number to update to
 
-For example 
+You can try
 
 .. L19
 
@@ -241,31 +238,20 @@ With simultaneous changes, following things happen
  #. The repositories have diverged
  #. hg push fails, in such a scenario
 
-.. L22
 
-``$ hg push``
-
-``pushing to http://192.168.1.101:8000``
-
-``searching for changes``
-
-``abort: push creates new remote heads!``
-
-``(did you forget to merge? use push -f to force)``
-
-.. R22 
 
 Don't take the advice given by mercurial. Using the -f would be disastrous. We
 will leave out a discussion of that, for this course.
 
-.. L23
+.. L22
 
 *{{{Show the slide 'Merging'}}}*
 
-.. R23
+.. R22
 
-We will now need to pull the new changes that have been pushed to the
-repository after the last pull and merge them with the changes.
+The new changes that have been pushed to the 
+repository after the last pull, has to be pulled and merged. So
+use following commands in order
 
 .. L24
 
@@ -275,8 +261,8 @@ repository after the last pull and merge them with the changes.
 
 .. R24
 
-We have now pull the changes from the central repository and merged them with
-the changes in our repository. But, hg is warning us not to forget to commit. 
+We have now pulled the changes from the central repository and merged them with
+the changes in our repository. As hg warns u, do not forget to commit. 
 
 .. L25
 
@@ -284,8 +270,8 @@ the changes in our repository. But, hg is warning us not to forget to commit.
 
 .. R25
 
-We can now push this changes to the central repository. We could also check the
-changes that will be pushed, before pushing them, using the hg outgoing
+The changes can be pushed to the central repository now. We could also check
+the changes that will be pushed, before pushing them, using the hg outgoing 
 command.
 
 .. L26
