@@ -9,7 +9,6 @@
 .. #. Useful information on some LaTeX packages.
 .. #. Compile a TeX file to pdf.
 
-
 .. Prerequisites
 .. -------------
 
@@ -18,13 +17,13 @@
 ...#. Updated Linux distribution as Operating System.
 ...#. Working internet connection (for installation over the network).
 
+
 .. Author              : Kiran Isukapatla < kiran [at] fossee [dot] in >
    Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
    External Reviewer   :
    Langauge Reviewer   : 
    Checklist OK?       : 25-Feb-2012
 
---------
 Script
 --------
 
