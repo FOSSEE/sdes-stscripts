@@ -43,11 +43,11 @@ Hello friends, welcome to the tutorial on 'LaTeX Installation'.
 
 At the end of this tutorial you will be able to:
 
-.. 1. Install LaTeX on your computer.
-.. #. Learn how to install a plug-in for a TeX editor.
-.. #. Configure the TeX editor with the LaTeX plug-in.
-.. #. Useful information on some LaTeX packages.
-.. #. Compile a TeX file to pdf.
+.. Install LaTeX on your computer.
+.. Learn how to install a plug-in for a TeX editor.
+.. Configure the TeX editor with the LaTeX plug-in.
+.. Useful information on some LaTeX packages.
+.. Compile a TeX file to pdf.
 
 .. L3
 
@@ -124,11 +124,11 @@ This produces an output file, in the pdf format.
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt to,
 
-1. Install LaTeX on your computer.
-#. How to install a plug-in for a TeX editor.
-#. Configure the TeX editor with the LaTeX plug-in.
-#. Choose a LaTeX packages as per requirement.
-#. Compile a TeX file to pdf.
+.. Install LaTeX on your computer.
+.. How to install a plug-in for a TeX editor.
+.. Configure the TeX editor with the LaTeX plug-in.
+.. Choose a LaTeX packages as per requirement.
+.. Compile a TeX file to pdf.
 
 
 .. L11
