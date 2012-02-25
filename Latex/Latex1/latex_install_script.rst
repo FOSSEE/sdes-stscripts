@@ -3,19 +3,19 @@
 
 .. At the end of this tutorial, you will 
 
-.. 1. Install LaTeX on your computer.
-.. #. Learn how to install a plug-in for a TeX editor.
-.. #. Configure the TeX editor with the LaTeX plug-in.
-.. #. Useful information on some LaTeX packages.
-.. #. Compile a TeX file to pdf.
+.. Install LaTeX on your computer.
+.. Learn how to install a plug-in for a TeX editor.
+.. Configure the TeX editor with the LaTeX plug-in.
+.. Useful information on some LaTeX packages.
+.. Compile a TeX file to pdf.
 
 .. Prerequisites
 .. -------------
 
-.. 1. You'll need a TeX distribution.
-...#. A good text editor and a DVI or PDF viewer.
-...#. Updated Linux distribution as Operating System.
-...#. Working internet connection (for installation over the network).
+.. You'll need a TeX distribution.
+.. A good text editor and a DVI or PDF viewer.
+.. Updated Linux distribution as Operating System.
+.. Working internet connection (for installation over the network).
 
 
 .. Author              : Kiran Isukapatla < kiran [at] fossee [dot] in >
