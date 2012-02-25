@@ -1,14 +1,28 @@
+.. Objectives
+.. ----------
+
+.. At the end of this tutorial, you will 
+
+.. 1. Install LaTeX on your computer.
+.. #. Learn how to install a plug-in for a TeX editor.
+.. #. Configure the TeX editor with the LaTeX plug-in.
+.. #. Useful information on some LaTeX packages.
+.. #. Compile a TeX file to pdf.
+
+
 .. Prerequisites
 .. -------------
 
 .. 1. You'll need a TeX distribution.
-...   A good text editor and a DVI or PDF viewer.
-...   Updated Linux distribution as Operating System.
-...   Working internet connection (for installation over the network).
+...#. A good text editor and a DVI or PDF viewer.
+...#. Updated Linux distribution as Operating System.
+...#. Working internet connection (for installation over the network).
 
-.. Author:		Kiran Isukapatla < kiran [at] fossee [dot] in >
-.. Internal Reviewer:	 
-.. Check-list OK?:	<put date stamp here, if OK> 
+.. Author              : Kiran Isukapatla < kiran [at] fossee [dot] in >
+   Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
+   External Reviewer   :
+   Langauge Reviewer   : 
+   Checklist OK?       : 25-Feb-2012
 
 --------
 Script
@@ -111,11 +125,11 @@ This produces an output file, in the pdf format.
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt to,
 
-.. 1. Install LaTeX on your computer.
-.. #. How to install a plug-in for a TeX editor.
-.. #. Configure the TeX editor with the LaTeX plug-in.
-.. #. Choose a LaTeX packages as per requirement.
-.. #. Compile a TeX file to pdf.
+1. Install LaTeX on your computer.
+#. How to install a plug-in for a TeX editor.
+#. Configure the TeX editor with the LaTeX plug-in.
+#. Choose a LaTeX packages as per requirement.
+#. Compile a TeX file to pdf.
 
 
 .. L11
