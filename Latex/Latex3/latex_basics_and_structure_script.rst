@@ -6,10 +6,10 @@
 .. 1. Understand basic structure of a LaTeX document, its various document
 ..    classes and loading packages that add new features to the LaTeX system.
 .. #. Create a LaTeX document with a title and an abstract.
-.. #. Create numbered and non-numbered sections and subsections in a LaTeX
+.. #. Create numbered and non-numbered sections and sub-sections in a LaTeX
 ..    document.
 .. #. Create an appendix in a LaTeX document.
-.. #. Create a table of content in a LaTeX document.
+.. #. Create a 'table of contents' in a LaTeX document.
 
 .. Prerequisites
 .. -------------
@@ -18,22 +18,22 @@
 
      
 .. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
-   Internal Reviewer   : 
+   Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
    External Reviewer   :
    Langauge Reviewer   : 
-   Checklist OK?       : <put date stamp here, if OK> 
+   Checklist OK?       : 26-Feb-2012
 
 Script
 ------
 
 .. L1
 
-{{{ Show the  first slide containing title, name of the production
+{{{ Show the  first slide containing the title, name of the production
 team along with the logo of MHRD }}}
 
 .. R1
 
-Hello friends and welcome to the tutorial titled "Basics of LaTeX and its 
+Hello friends and welcome to the tutorial on "Basics of LaTeX and its 
 document structure".
 
 .. L2
@@ -49,7 +49,7 @@ At the end of this tutorial, you will be able to
 #. Create a LaTeX document with a title and an abstract.
 #. Create numbered and non-numbered sections and subsections in a LaTeX
    document.
-#. Create an appendix in a LaTeX document.
+#. Create an 'appendix' in a LaTeX document.
 #. Create a table of content in a LaTeX document.
 
 .. L3
@@ -58,8 +58,8 @@ At the end of this tutorial, you will be able to
 
 .. R3
 
-Before beginning this tutorial,we would suggest having a working installation of
-LaTeX and suggest you to complete the tutorial titled "Introduction to LaTeX".
+Before beginning this tutorial, we would suggest having a working installation of
+LaTeX and also complete the tutorial "Introduction to LaTeX".
 
 .. L4
 
@@ -68,7 +68,7 @@ LaTeX and suggest you to complete the tutorial titled "Introduction to LaTeX".
 .. R4
 
 We begin this tutorial with an example introduced in the previous tutorial.
-The text in the document is illustrative and can be replaced replaced by a 
+The text in the document is illustrative and can be replaced by a 
 single alpha-numeric character, for example. When done so, the resulting 
 document could be described as the shortest possible LaTeX input document, that
 creates an output file. It consists of 3 LaTeX commands and one line/character
