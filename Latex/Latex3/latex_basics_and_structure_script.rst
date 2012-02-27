@@ -91,7 +91,7 @@ The first line reads
 
 .. R5
 
-which more generally can be written as
+documentclass article, which more generally can be written as
 
 .. L6
 
@@ -99,6 +99,7 @@ which more generally can be written as
 
 .. R6
 
+documentclass parameters DocumentClass.
 Where documentclass is a LaTeX command.
 Parameters specify if you want to use a non default font size, for example.
 More specifically the parameters can be used to alter things like font size of 
@@ -129,10 +130,11 @@ with a square in the margin
 
 .. R8
 
-This statement can be used optionally and is used to include packages, which are
-used to extend the LaTeX's capabilities. There are a number of packages that are
-included by default with LaTeX2 base distribution. You can use the texdoc
-command for accessing package documentation.
+The usepackage command is called with package name argument, prepended with
+optional parameters. It is included optionally in a LaTeX document, to include
+packages, which further extend the LaTeX's capabilities. There are a number of
+packages that are included by default with LaTeX2 base distribution. You can use
+the texdoc command for accessing package documentation.
 
 .. L9
 
