@@ -58,8 +58,8 @@ At the end of this tutorial, you will be able to
 
 .. R3
 
-Before beginning this tutorial, we would suggest having a working installation of
-LaTeX and also complete the tutorial "Introduction to LaTeX".
+Before beginning this tutorial, we would suggest having a working installation 
+of LaTeX and also complete the tutorial "Introduction to LaTeX".
 
 .. L4
 
@@ -106,7 +106,8 @@ More specifically the parameters can be used to alter things like font size of
 the document, paper size, two sided or single sided printing, etc, for each
 class, that is supported by LaTeX.
 
-The supported classes have a few differences, in how the content of the document is typeset.
+The supported classes have a few differences, in how the content of the document
+is typeset.
 
 .. L7
 
@@ -252,8 +253,8 @@ contents.
 
 .. R18
 
-Write a LaTeX script that creates a document of type article, which contains both
-a table of content and an appendix. The table of content should be at the 
+Write a LaTeX script that creates a document of type article, which contains
+an appendix and a table of contents. The table of content should be at the 
 beginning of the document and the appendix at the end.
 
 The book should contain two chapters, with the first chapter containing two 
@@ -300,9 +301,9 @@ Here are some self assessment questions for you to solve
 and produces the intended result, that is to produce a book with two chapters 
 and an appendix.
 
- 2. subsection command can be placed at any arbitrary level. If they get numbered 
-by default using the appropriate setcounter command and secnumdepth parameter,
-do they automatically appear in the table of content ??
+ 2. subsection command can be placed at any arbitrary level. If they get 
+numbered by default using the appropriate setcounter command and secnumdepth 
+parameter, do they automatically appear in the table of content ??
 
 .. L22
 
@@ -312,9 +313,10 @@ do they automatically appear in the table of content ??
 
 And the answers,
 
-1. Although the given file looks syntactically valid, the output file is not what
-we expected. This is mainly because we are trying to use the section command to
-create sections in the appendix, for a document whose type is given as a book.
+1. Although the given file looks syntactically valid, the output file is not 
+what we expected. This is mainly because we are trying to use the section 
+command to create sections in the appendix, for a document whose type is given
+as a book.
 
 2. No, the \tableofcontents command normally shows only numbered section
 headings, and only down to the level defined by the tocdepth counter.
