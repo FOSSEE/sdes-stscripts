@@ -136,7 +136,7 @@ of the document.
 
 .. R8
 
-Some of the disadvantages of using LaTeX approach to typesetting is 
+Some of the disadvantages of using LaTeX approach to typesetting are 
 (1) Designing a whole new layout is difficult.
 (2) LaTeX is not a word processor, that is the document author is not expected
 to worry about presentation details like the size of font, for example.
@@ -181,9 +181,7 @@ command and ends with an end command.
 
 So, as expected LaTeX ignores anything that is written after the \end{document}
 command. Essentially, anything written after the \end{document} command turns 
-out to be a comment. But, how do we write comments with in the document. % is
-the character to indicate comments. Anything written after a % symbol in a 
-line, is ignored.
+out to be a comment.
 
 .. L11
 
@@ -191,11 +189,14 @@ line, is ignored.
 
 .. R11
 
+But, how do we write comments with in the document. % is
+the character to indicate comments. Anything written after a % symbol in a
+line, is ignored.
 But what if we wanted to insert the % symbol in the document? We can do so by
 escaping it with a \ (backslash). % is one of the many special characters in
-LaTeX. The others are, ~ # $ ^ & _ { } \. All of them, except the \ itself, can
-be inserted by escaping it with a \. To insert a \ in our document, we use the
-command \textbackslash.
+LaTeX. The others are shown on the screen. All of them, except the \ itself, 
+can be inserted by escaping it with a \. To insert a \ in our document, we use
+the command \textbackslash.
 
 What would happen if we escape a \ with a \? 
 A double backslash is actually another command. It inserts a new line in the
@@ -234,8 +235,7 @@ file temp.tex into a DVI file, we use the following command
 
 latex temp.tex. 
 
-The output file would be temp.dvi.On Gnu/Linux use a program like xdvi to view
-the output file.
+The output file would be temp.dvi.
 
 .. L14
 
@@ -248,9 +248,6 @@ We use the pdflatex command for this purpose. For compiling the LaTeX input
 file temp.tex into a PDF file, we use the following command
 
 pdflatex temp.tex
-
-The output file would be temp.pdf.On Gnu/Linux use a program like evince to 
-view the output file.
 
 Please note that, throughout this course we shall be using pdflatex to compile 
 our documents.

@@ -117,7 +117,7 @@ The supported classes have a few differences, in how the content of the document
 We now look at a hypothetical documentclass command.
 The command being shown on the screen, instructs LaTeX to 
 Create a new document of class report. The available classes are article, proc,
-report, book, slides, letter.
+report, book, slides and letter.
 12 pt: sets the font size of main font. Other are relatively adjusted. 10pt is
 the default. 
 a4paper: specifies the paper size
@@ -144,7 +144,7 @@ the texdoc command for accessing package documentation.
 
 We add the title, the author and the date to the document before the 
 \begin{document} directive. We compile the document to see if the details 
-appear in the document, but they donot.
+appear in the document, but they do not.
 
 .. L10
 
@@ -153,8 +153,10 @@ appear in the document, but they donot.
 .. R10
 
 The command \maketitle adds title, authors name and date to the output file.
-Of these only the date is optional. If date command is specified, then the given
-date is used else today's date is used. 
+Of these only the date is optional. The date command can be called with an 
+optional parameter. If the optional parameter is not provided, the date of 
+compilation of the LaTeX document is used. The parameter, if specified is used 
+to override this value.
 
 .. L11
 
@@ -162,10 +164,10 @@ date is used else today's date is used.
 
 .. R11
 
-The abstract command is used to insert abstract of a document, into the output
-file.Place it in the location, where you want your abstract to present in
-the document. It is available for the document classes article and report, but
-not book
+The abstract command is used to insert the abstract of a document, into the 
+output file.Place it in the location, where you want your abstract to present 
+in the document. It is available for the document classes article and report, 
+but not for the book class.
 
 .. L12
 
@@ -176,9 +178,9 @@ not book
 Titles chapters and sections are used to help the user find his or her way
 through your work. The following commands are available in the article class:
 section, subsection, subsubsection,  paragraph and sub paragraph. The default
-behavior is to use numbered sections. We can use un-numbered sections appending
-* to section command. If you want to split your document without influencing the
-section or chapter numbering use the part command.
+behavior is to use numbered sections. We can use un-numbered sections by 
+appending * to section command. If you want to split your document without 
+influencing the section or chapter numbering, use the part command.
 
 .. L13
 
@@ -196,8 +198,8 @@ file shown in the slide we notice that subsections are not numbered.
 
 .. R14
 
-We can change this behavior with the command setcounter , calling it as shown
-in the slide. 
+We can change this behavior with the setcounter command, calling it with 
+parameters shown on the slide.
 
 .. L15
 
@@ -205,12 +207,13 @@ in the slide.
 
 .. R15
 
-Appendix can be added to the document using \appendix command. any content after
-\appendix will be added to the appendix. In the report or book class, we have to
-use \chapter to indicate that the chapters are to be numbered as appendices.
+Appendix can be added to the document using \appendix command. Any content 
+after the \appendix command will be added to the appendix. In the report or 
+book class, we have to use \chapter command to indicate that the chapters are 
+to be numbered as appendices.
 
-similarly for the article class we have to use the section command to indicate
-that sections are to be numbered as appendices.
+Similarly for the article class, we have to use the \section command to indicate
+the sections that are to be numbered as appendices.
 
 .. L16
 
@@ -218,19 +221,15 @@ that sections are to be numbered as appendices.
 
 .. R16
 
-Lets add a Table of content to the document. The LaTeX command to add a TOC to a
-document is using \tableofcontents command and is placed at the point at which
-the table of content is to be placed. 
-
-Now, compile the document and look at the output document. It does not have the table of contents!
-
-We compile our LaTeX file as usual. On the first compilation only the "Contents"
-heading appears in the document, but the actual table does not appear. You will
-need to compile your document once more, for the actual table to appear in your
-document. On the first run, LaTeX has gone through your document and generated
-a temporary file (.toc), with the entries that should go into the table of 
-contents. These entries are made, when you compile your document for the second
-time.
+We use the \tableofcontents command to add a TOC to a document is and is placed
+at the point at which the table of content is to be placed. It must be noted 
+that \tableofcontents command requires the LaTeX input file to be compiled 
+twice. On the first compilation only the "Contents" heading appears in the 
+document, but the actual table does not appear. LaTeX has now gone through 
+the input document and generated a temporary file (.toc), with the entries that
+should go into the table of contents. When the input document is compiled for 
+the second time, these entries are made and the actual table will appear in 
+your output document. 
 
 Note that any section/block that has been numbered automatically appears in the
 table of contents. It is possible to get un-numbered sections, for instance a
@@ -243,9 +242,9 @@ Preface or a Foreword section to appear in the Table of Contents.
 .. R17
 
 Un-numbered sections are added to TOC using \addcontentsline command.
-For example we use the command
-\addcontentsline{toc}{section}{Intro}
-where "Intro" is the text that you want to appear in the Table of contents.
+For example we use the addcontentsline command called with the parameters
+"{toc}{section}{Intro}", for the text "Intro" to appear in the Table of 
+contents.
 
 .. L18
 

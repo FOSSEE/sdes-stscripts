@@ -67,19 +67,20 @@ In general, it is advisable to use the AMS-LaTeX bundle to typeset mathematics
 in LaTeX. AMS-LaTeX is a collection of packages and classes for mathematical
 typesetting.
 
-We can load amsmath by issuing the \usepackage{amsmath} in the preamble.It must 
+We can load amsmath by issuing the \usepackage{amsmath} in the preamble.It must
 be noted that amsmath is included in the base distribution of LaTex, in atleast 
 the most recent versions.
 
-Math formulae can be embedded in two ways,
-  “inline” or “text style ” method,  which is  done by enclosing the 
-  required command and text within two dollar signs or between an backslash
-  opening bracket and backslash closing bracket.
+Math formulae can be embedded in one of two ways. The first is, “inline” or
+“text style ” method,  which is  done by enclosing the required commands and 
+text within two dollar signs or between an backslash opening bracket and 
+backslash closing bracket.
 
-  By enclosing them in a dedicated environment respectively/displayed style.
+The second method is by enclosing them in a dedicated environment respectively,
+this is also called displayed style.
 
 The most common LaTeX environment used to typeset mathematical formulae is 
-from equation family.
+from the equation family.
 
 
 .. L5
@@ -89,8 +90,8 @@ from equation family.
 .. R5
 
 An environment like bmatrix for example, is used to render a matrix. The syntax
-for specifying a matrix is similar to that used in the tabular environment. The
-& symbol is used for demarcating columns and \\ is used to demarcate rows.
+for specifying a matrix is similar to that used for the tabular environment. 
+The & symbol is used for demarcating columns and \\ is used to demarcate rows.
 
 There are 5 other matrix environments and each have different/no type of 
 delimiters. A table showing the data is being shown on the screen. The matrix
@@ -102,7 +103,7 @@ and its allied environments are defined by the amsmath package.
 
 .. R6
 
-The screen shows the an example, that renders different types of matrices using
+The screen shows the example, that renders different types of matrices using
 LaTeX.
 
 It also shows the two ways in which mathmatical formulae can be embedded into
@@ -118,11 +119,11 @@ Please pause the tutorial and go through the example shown on the screen.
 .. R7
 
 To typeset superscripts in LaTeX, the carat character is used. The carat 
-operator just acts on the next character.
+operator just acts on the immediate next character.
 To typeset subscripts in LaTeX, the underscore character is used. The carat 
-operator just acts on the next character.
-Multiple characters and ambiguity is resolved by grouping them using opening
-and closing curly brackets.
+operator just acts on the immediate next character.
+Multi character grouping and ambiguity is resolved by grouping them using 
+opening and closing curly brackets.
 
 .. L8
 
@@ -130,10 +131,10 @@ and closing curly brackets.
 
 .. R8
 
-To typeset the summation symbol, use the sum command. Similarly, the integral 
-symbol is obtained using the int command. The upper and lower limits, for both
-the sum and int command are specified using the carat and underscore characters
-, respectively.
+To typeset the summation symbol, we use the sum command. Similarly, the 
+integral symbol is obtained using the int command. 
+The upper and lower limits, for both the sum and int command are specified 
+using the carat and underscore characters, respectively.
 
 .. L9
 
@@ -141,12 +142,12 @@ the sum and int command are specified using the carat and underscore characters
 
 .. R9
 
-We now move onto using the equation environment to render mathematical formulae,
-which are numbered. Another environment called equation star environment renders
+We now move onto using the equation environment to render mathematical formulae
+which are numbered. Another allied environment called equation star renders 
 unnumbered equations.
 
-Backslash and opening square bracket and its counterpart the backslash
-closing square bracket is a short hand for equation star environment.
+Backslash opening square bracket and its counterpart the backslash closing 
+square bracket is a short hand for equation star environment.
 There is no similar shorthand for equation environment (i.e, the numbered
 equation environment).
 
@@ -174,11 +175,12 @@ ampersand symbol.
 
 .. R11
 
-To typeset fractions use the frac command. To typeset surds, we use the sqrt
-command with the optional paramter of [n].
+To typeset fractions we use the frac command and to typeset surds, we use the
+sqrt command with the optional paramter of [n]. The optional parameter for the 
+sqrt command is used to render roots not equal to 2.
 
-Please note that there is a special command dfrac, that can be used to render
-fractions as if its placed in display mode and is meant to be used even in
+Please note that there is a special command dfrac that can be used to render
+fractions, as if its placed in display mode and is meant to be used even in
 inline mode.
 
 .. L12
@@ -210,13 +212,13 @@ Each entry of the bibliography begins with the command bibitem. It takes an
 optional parameter called label and a name for the entry.The label option
 replaces the numbers from the auto enumeration with the labels given.
 
-The to cite the bibliography item within the document, we use the cite command,
+Then to cite the bibliography item within the document we use the cite command,
 containing name as a parameter. 
 
 We start the bibliography environment with a numerical parameter. This defines
 how much space is to be reserved for all the labels.
 If for example, we have less than 10 items in the Bibliography we would begin
-the bibliography environment with an parameter, whose value is 9.
+the bibliography environment with a parameter, whose value is 9.
 
 .. L14
 
@@ -226,9 +228,9 @@ the bibliography environment with an parameter, whose value is 9.
 .. R14
 
 It is highly recommended to use beamer to create presentations, especially when
-you are using LaTeX typesetting your report. This is mainly because, it would be 
-really easy to reuse the LaTeX that you have used for the report/document for
-the presentation as well.
+you are using LaTeX typesetting your report. This is mainly because it would be 
+really easy to reuse the LaTeX content that you have already used for the 
+report/document for, the presentation as well.
  
 We begin a beamer document with the documentclass being set to beamer.
 
@@ -253,7 +255,8 @@ We must also note that the title page of the presentation can be set like any
 other LaTeX document. 
 
 If we have to use fragile environemts like verbatim or lstlisting  inside a 
-slide, then we have to pass an additional parameter to begin frame, fragile.
+slide, then we have to pass an additional parameter to begin frame, namely 
+fragile.
 
 Overlays and simple animation can be achieved using the pause command.
 
