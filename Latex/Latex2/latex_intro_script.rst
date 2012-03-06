@@ -61,8 +61,8 @@ At the end of this tutorial, you will
 
 .. R3
 
-Before beginning this tutorial, we would suggest having a working installation of
-LaTeX on your computer. You can do this by completing the tutorial on 
+Before beginning this tutorial, we would suggest having a working installation
+of LaTeX on your computer. You can do this by completing the tutorial on 
 "Installing LaTeX".
 
 .. L4
@@ -77,8 +77,8 @@ of text and mathematical formulae.
 
 It is a typesetting program that produces excellently typeset documents. 
 Typesetting is placing text onto a page with all the style formatting defined,
-so that the content looks as intended. It is extensively used for producing high 
-quality scientific and mathematical documents. It may also be used for 
+so that the content looks as intended. It is extensively used for producing 
+high quality scientific and mathematical documents. It may also be used for
 producing other kinds of documents, ranging from simple one page articles to 
 complete books.
 
@@ -107,10 +107,10 @@ Why we prefer LaTeX?
 We can define LaTex as a document based markup language. This sentence is
 deceptively simple, as it reveals a lot about LaTex. We now break this sentence
 up as follows
-Mark-up — a system of annotating text, adding extra information to
-specify structure and presentation of text
-Document based markup - you don’t have to worry about each
-element individually.
+Mark-up: a system of annotating text, adding extra information to specify 
+structure and presentation of text.
+Document based markup: you don’t have to worry about each element individually. 
+
 This is essentially a fancy way of saying,LaTeX handles typesetting and lets 
 you focus on content.
 
@@ -204,7 +204,8 @@ typeset document. Normally LaTeX automatically spaces the given input optimally.
 But, sometimes we have to insert manual line breaks. The \\ command or \newline
 command is used to insert a newline in the output document. Line breaks in the
 input document, do not translate into line breaks in the output document. A 
-single line break in the input document, doesn't cause any change in the output. 
+single line break in the input document, doesn't cause any change in the 
+output document.
 
 A single empty line causes a change in paragraphs in the output. (Multiple 
 empty lines are equivalent to a single empty line.) Similarly, multiple spaces
