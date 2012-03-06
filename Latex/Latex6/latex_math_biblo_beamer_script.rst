@@ -71,8 +71,8 @@ We can load amsmath by issuing the \usepackage{amsmath} in the preamble.It must
 be noted that amsmath is included in the base distribution of LaTex, in atleast 
 the most recent versions.
 
-Math formulae can be embedded in one of two ways. The first is, “inline” or
-“text style ” method,  which is  done by enclosing the required commands and 
+Math formulae can be embedded in one of two ways. The first is, “inline” or     
+“text style ” method,  which is  done by enclosing the required commands and    
 text within two dollar signs or between an backslash opening bracket and 
 backslash closing bracket.
 
