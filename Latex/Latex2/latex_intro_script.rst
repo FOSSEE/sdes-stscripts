@@ -23,7 +23,7 @@
    Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
    External Reviewer   :
    Langauge Reviewer   : 
-   Checklist OK?       : <put date stamp here, if OK> 
+   Checklist OK?       : 25-Feb-2012
 
 Script
 ------
@@ -35,7 +35,7 @@ team along with the logo of MHRD }}}
 
 .. R1
 
-Hello Friends and welcome to the tutorial on introduction to LaTeX. 
+Hello Friends and welcome to the tutorial on 'Introduction to LaTeX'. 
 
 .. L2
 
@@ -49,7 +49,7 @@ At the end of this tutorial, you will
 #. Know why we prefer LaTeX?
 #. Know the advantages and disadvantages of typesetting documents  
    using the LaTeX approach.
-#. Have a description, of a typical work flow; which uses LaTeX to typeset 
+#. Have a description of a typical work flow; which uses LaTeX to typeset 
    documents.
 #. Recognize and differentiate between LaTeX commands, LaTeX comments and
    special characters, spacing and actual document content.
@@ -61,8 +61,8 @@ At the end of this tutorial, you will
 
 .. R3
 
-Before beginning this tutorial, we would suggest having a working installation of
-LaTeX on your computer. You can do this by completing the tutorial titled 
+Before beginning this tutorial, we would suggest having a working installation
+of LaTeX on your computer. You can do this by completing the tutorial on 
 "Installing LaTeX".
 
 .. L4
@@ -75,10 +75,10 @@ LaTeX began as TeX, a computer program originally created by
 Donald E. Knuth. Its was designed mainly to aid typesetting
 of text and mathematical formulae. 
 
-LaTeX is a typesetting program that produces excellently typeset documents. 
+It is a typesetting program that produces excellently typeset documents. 
 Typesetting is placing text onto a page with all the style formatting defined,
-so that content looks as intended. It is extensively used for producing high 
-quality scientific and mathematical documents. It may also be used for 
+so that the content looks as intended. It is extensively used for producing 
+high quality scientific and mathematical documents. It may also be used for
 producing other kinds of documents, ranging from simple one page articles to 
 complete books.
 
@@ -92,10 +92,10 @@ technology.
 
 .. R5
 
-Below are some of the reasons we prefer LaTeX
+Why we prefer LaTeX?
 (a) LaTeX offers excellent visual quality.
-(b) It handles typesetting and lets you focus on content.
-(c) Its makes writing complex math equation extremely simple.
+(b) Handles typesetting and lets you focus on content.
+(c) Makes writing complex math equation extremely simple.
 (d) It is also a standard used widely, especially by the scientific community. 
 
 .. L6
@@ -107,10 +107,10 @@ Below are some of the reasons we prefer LaTeX
 We can define LaTex as a document based markup language. This sentence is
 deceptively simple, as it reveals a lot about LaTex. We now break this sentence
 up as follows
-Mark-up — a system of annotating text, adding extra information to
-specify structure and presentation of text
-Document based markup - you don’t have to worry about each
-element individually.
+Mark-up: a system of annotating text, adding extra information to specify 
+structure and presentation of text.
+Document based markup: you don’t have to worry about each element individually. 
+
 This is essentially a fancy way of saying,LaTeX handles typesetting and lets 
 you focus on content.
 
@@ -136,7 +136,7 @@ of the document.
 
 .. R8
 
-Some of the disadvantages of using LaTeX approach to typesetting is 
+Some of the disadvantages of using LaTeX approach to typesetting are 
 (1) Designing a whole new layout is difficult.
 (2) LaTeX is not a word processor, that is the document author is not expected
 to worry about presentation details like the size of font, for example.
@@ -169,7 +169,7 @@ The resultant PDF files can be viewed using standard tools on most platforms
 .. R10
 
 LaTeX, like most utilities in Linux, LaTeX is case sensitive. Commands begin 
-with a backslash.LaTeX environments have a begin and end marker. The begin and
+with a backslash. LaTeX environments have a begin and end marker. The begin and
 end document commands, mark the beginning and the end of the content of the 
 LaTeX document. The text in between the begin and end commands is typeset in 
 the output document.Any content after \end{document} is ignored. The type of 
@@ -181,9 +181,7 @@ command and ends with an end command.
 
 So, as expected LaTeX ignores anything that is written after the \end{document}
 command. Essentially, anything written after the \end{document} command turns 
-out to be a comment. But, how do we write comments with in the document. % is
-the character to indicate comments. Anything written after a % symbol in a 
-line, is ignored.
+out to be a comment.
 
 .. L11
 
@@ -191,11 +189,14 @@ line, is ignored.
 
 .. R11
 
+But, how do we write comments with in the document. % is
+the character to indicate comments. Anything written after a % symbol in a
+line, is ignored.
 But what if we wanted to insert the % symbol in the document? We can do so by
 escaping it with a \ (backslash). % is one of the many special characters in
-LaTeX. The others are, ~ # $ ^ & _ { } \. All of them, except the \ itself, can
-be inserted by escaping it with a \. To insert a \ in our document, we use the
-command \textbackslash.
+LaTeX. The others are shown on the screen. All of them, except the \ itself, 
+can be inserted by escaping it with a \. To insert a \ in our document, we use
+the command \textbackslash.
 
 What would happen if we escape a \ with a \? 
 A double backslash is actually another command. It inserts a new line in the
@@ -203,7 +204,8 @@ typeset document. Normally LaTeX automatically spaces the given input optimally.
 But, sometimes we have to insert manual line breaks. The \\ command or \newline
 command is used to insert a newline in the output document. Line breaks in the
 input document, do not translate into line breaks in the output document. A 
-single line break in the input document, doesn't cause any change in the output. 
+single line break in the input document, doesn't cause any change in the 
+output document.
 
 A single empty line causes a change in paragraphs in the output. (Multiple 
 empty lines are equivalent to a single empty line.) Similarly, multiple spaces
@@ -215,7 +217,7 @@ are treated as a single space.
 
 .. R12
 
-Now, we try to create a simple LaTeX document. Pause the tutorial and type the
+Now, try to create a simple LaTeX document. Pause the tutorial and type the
 content shown on the screen in a text editor. Save the file as temp.tex
 
 .. L13
@@ -234,8 +236,7 @@ file temp.tex into a DVI file, we use the following command
 
 latex temp.tex. 
 
-The output file would be temp.dvi.On Gnu/Linux use a program like xdvi to view
-the output file.
+The output file would be temp.dvi.
 
 .. L14
 
@@ -248,9 +249,6 @@ We use the pdflatex command for this purpose. For compiling the LaTeX input
 file temp.tex into a PDF file, we use the following command
 
 pdflatex temp.tex
-
-The output file would be temp.pdf.On Gnu/Linux use a program like evince to 
-view the output file.
 
 Please note that, throughout this course we shall be using pdflatex to compile 
 our documents.
@@ -296,11 +294,9 @@ same.
 
 And the answers,
 
-1. We can use the following command to convert temp.dvi to temp_1.ps
-dvips -o temp_1.ps temp.dvi
+1. dvips -o temp_1.ps temp.dvi
 
-2. We can use the following command to convert temp.dvi to temp_1.pdf
-dvipdfm -o temp_1.pdf temp.dvi
+2. dvipdfm -o temp_1.pdf temp.dvi
 
 .. L18
 
