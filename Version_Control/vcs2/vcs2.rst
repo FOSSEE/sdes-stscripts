@@ -135,7 +135,6 @@ For example.
 
 ``$hg help status``
 
-
 *{{{Show the slides for 'Status Codes'}}}*
 
 .. R11
@@ -145,6 +144,8 @@ files mean. By looking at the codes, it is clear that our files are not being
 tracked by hg yet. Now let's move onto 'Adding Files'.
 
 .. L12
+
+*{{{Show the slides for 'Adding files'}}}*
 
 ``$hg add``
 
@@ -271,7 +272,7 @@ Some Recommended Practices for commit messages
 
 .. L22
 
-*{{{Show the 'summary' slide'}}}*
+*{{{Show the 'Summary' slide}}}*
 
 .. R22
 
@@ -279,7 +280,7 @@ This brings us to the end of the tutorial. In this tutorial, we have
 seen,
 
  1. how to initialize a new repository using hg init,
- #. get the status of a repository using hg status and meaning of it's status co
+ #. get the status of a repository using hg status and meaning of it's status codes
  #. make commits of changes to files, using hg commit 
  #. view the history of the repository using the hg log command,
  #. set our user information in the global hgrc file.
@@ -293,14 +294,17 @@ seen,
 Here are some self assessment questions for you to solve
 
  1. How can you tell hg to stop tracking deleted files?
- 2. Here's a part of the output that is printed in 'hg log'.Try to identify each
+ 2. What happens when 'hg commit' command is run first time without specifying u
+ 3. Here's a part of the output that is printed in 'hg log':
      changeset:   1:2278160e78d4
      tag:         tip
      user:        Primal Pappachan <primal@fossee.in>
      date:        Sat Jan 26 22:16:53 2012 +0530
      summary:     Added Readme 
- 3. What happens when 'hg commit' command is run first time without specifying u
- 
+   Try to identify each component of this changeset and it’s
+   meaning. In the changeset, what is the significance of the
+   number as well as hexadecimal string? 
+
 .. L24
 
 *{{{Show the solutions slide to self assessment questions }}}*
