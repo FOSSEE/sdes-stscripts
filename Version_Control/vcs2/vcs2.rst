@@ -313,9 +313,18 @@ Here are some self assessment questions for you to solve
 
 And the answers,
 
- 1. If you have deleted files, hg status will show you the status code !. You ca
- 2. The revision number is a handy notation that is only valid in that repositor
- 3. If you have set the EMAIL environment variable, this will be used. Next, Mer
+ 1. If you have deleted files, hg status will show you the status code !
+ 2. The revision number is a handy notation that is only valid in that repository.
+The hexadecimal string is the permanent, unchanging identifier that will always identify that exact
+changeset in every copy of the repository.
+ 3. If you have set the EMAIL environment variable, this will be
+used. Next, Mercurial will query your system to find out your
+local user name and host name, and construct a username
+from these components. Since this often results in a
+username that is not very useful, it will print a warning if it
+has to do this. If all of these mechanisms fail, Mercurial will
+fail, printing an error message. In this case, it will not let you
+commit until you set up a username.
 
 .. L25
 
