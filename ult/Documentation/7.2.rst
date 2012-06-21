@@ -1,0 +1,29 @@
+
+7.2 Manipulating strings
+========================
+
+1. Slice strings and get sub-strings out of them
+   * Check whether a particular string is valid for the given list(0.45 - 3.00)
+   * Exercise 1: Obtain a sub-string excluding the first and last characters
+                 from the string s(3.08 - 4.10)
+   
+#. Reverse strings.
+   * Finding out, if a given string is palindromic or not(4.11 - 5.24)
+ 
+#.Convert strings to upper or lower case.
+   * Converting a string to lower/upper case(5.25 - 6.49)
+   * Exercise 2: Combined exercise of sub-string and converting strings to upper/lower case(6.56 - 8.01)
+
+#. Replace characters in strings. 
+   * Example of replacing special characters in strings(8.02 - 9.18)
+   * Exercise 3: Replace the ``[dot]`` with ``.``(9.27 - 10.06)
+    
+#. Join a list of strings
+   * Example showing how to obtain one long string of e-mail addresses separated 
+     by commas or semi-colons from a list of e-mail addresses(10.07 - 11.32)
+   * Exercise 4: Change the seperator from a given string(11.39 - 12.29)
+
+#. Summary(12.33 - 12.54)
+
+#. Evaluation Questions(12.56 - 14.10) 
+

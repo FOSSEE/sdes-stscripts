@@ -1,0 +1,43 @@
+
+5.1 Getting started with Sage notebook
+======================================
+
+1. Know about Sage
+   * What is Sage(0.30 - 0.52)
+   * Installing Sage(0.53 - 1.11)
+
+#. Start Sage shell (1.18 - 1.35)
+
+#. What is sage notebook and how to start the same (1.35 - 2.44)
+   
+#. Create accounts and start using the notebook(2.45 - 4.13)
+
+#. Access the menus available on the notebook(4.15 - 5.07)
+
+#. Create new worksheets(5.08 - 5.30)
+
+#. Evaluate cells in the worksheet(5.31 - 6.20)
+  
+#. Create new cells, delete the cells and navigate around the cells
+   * Creating new cells(6.21 - 6.45)
+   * Evaluating cells(6.45 - 7.21)
+   * Navigating around cells(7.22 - 7.35)
+   * Deleting cells(7.36 - 7.40)
+
+#. Make annotations in the worksheet(7.41 - 7.58)
+
+#. Embed code of other scripting languages in the cells
+   * HTML(7.59 - 9.27)
+   * Latex(9.28 - 9.59)
+
+#. Obtaining help and using tab completions
+   * help(10.01 - 10.46)
+   * tab completion(10.47 - 11.44)
+   * The three states(11.47 - 14.33)
+
+#. Summary(14.37 - 15.02)
+
+#. Evaluation Questions(15.04 - 15.34)
+
+
+

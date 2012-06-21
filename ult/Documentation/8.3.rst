@@ -1,0 +1,20 @@
+
+8.3 Using Python Modules
+========================
+
+1. Execute python scripts from command line
+   * An example to show how a script can be executed from the command line (0.31 - 2.17)
+   * Syntax to perform the execution (2.18 - 2.25)
+   
+#. Import modules
+   * Example to import scipy and pylab module (2.26 - 5.28)
+   * Better way of importing (5.29 - 7.54)
+   * Exercise 1: plot a sine wave from minus two pi to two pi(7.59 - 9.02)
+   
+#. Use python standard modules and 3rd party modules
+   * what is a module (9.04 - 9.22)
+   * Python standard library(9.23 - 10.30)
+
+#. Summary(10.34 - 10.51)
+
+#. Evaluation Questions(10.53 - 12.15)

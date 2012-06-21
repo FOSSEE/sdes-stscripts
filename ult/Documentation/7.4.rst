@@ -1,0 +1,24 @@
+
+7.4 Dictionaries
+================
+
+1. Create dictionaries
+   * What are dictionaries(0.26 - 0.56)
+   * Creating an empty dictionary(1.06 - 1.31)
+   * Creating a non-empty dictionary(1.32 - 2.51)
+   * Accessing elements in a dictionary(2.52 - 3.55)
+
+#. Add and delete data from dictionaries
+   * Adding new items into dictionaries(4.05 - 4.35)
+   * Deleting items from dictionary(4.36 - 5.28)
+
+#. Check for container-ship of keys(5.29 - 6.05)
+       
+#. Retrieve data from dictionaries(6.06 - 6.44)
+   
+#. Iterate over elements
+   * Exercise 1: Print the keys and values in the dictionary one by one(6.48 - 7.34)
+
+#. Summary(7.38 - 8.09)	
+
+#. Evaluation Questions(8.11 - 9.29)

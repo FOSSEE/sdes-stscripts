@@ -1,0 +1,51 @@
+
+6.1 Basic Data types and operators
+==================================
+
+1. Understand the number Datatypes(0.28-231)
+   * int(0.50 - 2.15)
+   * float(2.16 - 3.04)
+   * complex(3.05 - 4.05)
+   * Exercise 1: Find the absolute value of the given complex number(4.10 - 4.35)
+   * Exercise 2: Find the datatype of the given number(4.44 - 5.11)
+   
+
+#. Know the boolean datatype and operators -- +, *, /, **, % .
+   * Boolean(5.12 - 7.02)
+   * Operators(7.03 - 9.20)
+   * Exercise 3: Find square root of the given number(9.25 - 9.37)
+   * Exercise 4: Compare two expressions(9.38 - 10.23)
+
+
+#. Use the sequence data types -- List,String and Tuple
+   * What are Sequence data types(10.24 - 10.41)
+   * List(10.42 - 11.44)
+   * Strings(11.45 - 12.53)
+   * Tuples(12.54 - 3.12)
+
+#. Some imporant functions & methods
+   * Accessing(3.17 - 14.25)
+   * Addition(14.26 - 15.17)
+   * ``len'' function(15.18 - 15.45)
+   * Containership(15.45 - 16.18)
+   * max and min functions(16.18 - 16.38)
+   * get a sorted list(16.39 - 16.49)
+
+#. Slice sequences by using the row and column numbers.
+   * Slicing(16.50 - 18.31)
+   * Striding(18.32 - 19.24)
+
+#. Convert one data type to other
+   * Convert string to tuple and vice-versa(19.25 - 20.33)
+   * Convert one number type data structure to another(20.34 - 22.08)
+  
+#. Split and join a list using ``split()`` and ``join()`` function respectively
+   * ``split()'' and ``join()'' functions(22.09 - 25.31)
+   * Exercise 5: Check if the given number is an element of a list(25.38 - 26.21)
+   * Exercise 6: Converting a string(26.31 - 27.09)
+
+#. Summary(27.13 - 27.52)
+
+#. Evaluation Questions(27.53 - 28.28)
+
+

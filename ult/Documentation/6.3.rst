@@ -1,0 +1,18 @@
+
+6.3 Conditionals
+================
+
+1. Use if/else blocks(0.34 - 2.24)
+
+#. Use if/elif/else blocks(2.25 - 5.51)
+   * Exercise 1: Write an if else block for the given condition(5.56 - 6.28)
+
+#. Use the Ternary conditional statement - C if X else Y(6.29 - 7.52)
+   * Exercise 2: Write a ternary operator for the given problem(7.53 - 8.20)
+
+#. Use of ``pass'' statement(8.21 - 9.55)
+
+#. Summary(9.58 - 10.15)
+
+#. Evaluation Questions(10.18 - 11.16)
+

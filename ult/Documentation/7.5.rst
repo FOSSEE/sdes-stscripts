@@ -1,0 +1,24 @@
+
+7.5 Sets
+========
+
+1. Create sets from lists
+   * Definition of sets(0.35 - 0.51)
+   * Create a set(0.54 - 1.32)
+   
+#. Perform union, intersection and symmetric difference operations
+   * Perform union on sets(1.33 - 2.49)
+   * Perform intersection on sets(2.50 - 3.03)
+   * Perform difference on sets(3.03 - 3.20)
+   * Obtain symmetric difference(3.21 - 3.44)
+
+#. Check if a set is a subset of other(3.46 - 4.36)
+   
+#. Understand various similarities with lists like length and containership
+   * Iteration on sets(4.37 - 5.02)
+   * Length and containership(5.03 - 5.43)
+   * Exercise 1: List all the duplicates from a given list(5.49 - 7.29)
+
+#. Summary(7.33 - 8.03)
+
+#. Evaluation Questions(8.05 - 9.49)

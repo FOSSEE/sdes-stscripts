@@ -1,0 +1,28 @@
+8.1 getting started with functions
+==================================
+
+1. Define a function(0.40 - 1.08)
+   * Definition of a function(0.23 - 0.42)
+   * Defining and calling a mathematical function(0.48 - 2.18)
+   * Exercise 1: to write a function which calculates the cube of a number(2.19 - 3.04)
+   * Example of a function without arguments(3.05 - 3.56)
+       
+#. Define functions with arguments
+   * Exercise 2: to write a function which calculates the average of 2 numbers(3.57 - 5.05)
+
+#. Docstrings
+   * Know what are docstrings(5.06 - 7.01)
+   * examples of docstrings like avg and f(7.02 - 7.47)
+   * Exercise 3:To add docstring to a function(7.48 - 8.31)
+
+#. Exercise 3:Combined exercise of a function with docstring(8.32 - 10.02)
+
+#. Function return value
+   * How can function return any number of values(10.03 - 10.38)
+
+#. Read Codes
+   * Few code reading exercises(10.39 - 14.12)
+
+#. Summary(14.13 - 14.38)
+
+#. Evaluation Questions(14.39 - 15.48)

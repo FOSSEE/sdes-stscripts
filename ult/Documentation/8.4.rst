@@ -1,0 +1,15 @@
+
+8.4 Writing Python scripts
+==========================
+
+1. What is importing
+   * Definition (0.25 - 0.36)
+   * Example of a gcd function (0.37 - 3.28)
+   * Importing the the gcd function to another location (3.29 - 5.22)
+
+#. Understand the ``__name__=="__main__"`` idiom
+   * How ``__name__=="__main__"`` works (5.23 - 8.06)
+
+#. Summary(8.10 - 8.20)
+
+#. Evaluation Questions(8.21 - 9.31)
