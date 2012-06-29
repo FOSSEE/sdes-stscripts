@@ -5,16 +5,18 @@
 
 .. Author : Primal Pappachan
    Internal Reviewer : Kiran Isukapatla
-   Date: May 10 , 2012
+   Date: May 10 2012
+
 --------
 Script
 --------
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along with the logo of MHRD}}}
+{{{ Show the first slide containing title, name of the production team along 
+with the logo of MHRD}}}
 
-i.. R1
+.. R1
 
 Hello friends and welcome to the tutorial on 'Version Control with Hg'
 
@@ -39,18 +41,23 @@ At the end of this tutorial you will be able to
 
 .. R3
 
-First, let's understand what 'Version Control' is. 'Version control' is a way to track files over time and share them. This allows access to earlier versions of a file(s) if and when required. It therefore enables us to make changes to the content of a file, view it's change log and collaborate on a single piece of work with a team of people.
- 
+First, let's understand what 'Version Control' is. 
 
+'Version control' is a way to track files over time and share them. 
+This allows access to earlier versions of a file(s) if and when required. 
+It therefore enables us to make changes to the content of a file, view it's 
+change log and collaborate on a single piece of work with a team of people.
+ 
 .. L4
 
 {{{Show the slide 'Home-brewed'}}}
 
 .. R4
 
-Let's look at an example of home-brewed Version Control system.
-
-Version control is a way of backing up files, before making changes. Most people would have cooked up their own version control system, without realizing, there were tools built by others, that performs the task in a more organized and systematic way.  
+Lets look at an example of home-brewed Version Control system.Version control 
+is a way of backing up files, before making changes. Most people would have 
+cooked up their own version control system. But there are more general purpose 
+tools which can do this task in an organized way.
 
 .. L5
 
@@ -62,7 +69,7 @@ Let's look at the various problems associated with this set-up.
 
 1. Name and changes made are not related or linked.
 
-#. Can’t track sequence of changes made to a file.
+#. Cant track sequence of changes made to a file.
 
 #. Does not scale.
 
@@ -75,15 +82,21 @@ Let's look at the various problems associated with this set-up.
 
 Now, let's move to identifying the needs for a 'Version Control System'.
 
-We have seen that one of the main motivations to use a Version Control system is the ability to go back to a working version of a file, when something goes wrong. Below are a few more advantages of using an automated version control system.
+We have seen that one of the main motivations to use a Version Control system 
+is the ability to go back to a working version of a file, when something 
+goes wrong. Below are a few more advantages of using an automated version 
+control system.
 
-1. By tracking the history of a project, any person may see the evolution of a project.
+1. By tracking the history of a project, any person may see the evolution 
+ of a project.
 
-#. Allows for effective collaboration on a project, as everything is shared.
+2. Allows for effective collaboration on a project, as everything is shared.
 
-#. Helps to identify which additions have broken down a project and thus aids in efficient tracking down of the bugs.
+3. Helps to identify which additions have broken down a project and thus 
+ aids in efficient tracking down of the bugs.
 
-#. It is good for a one man show as it is for a big group of people working on a project.
+4. It is good for a one man show as it is for a big group of people working 
+ on a project.
 
 
 .. L7
@@ -92,7 +105,11 @@ We have seen that one of the main motivations to use a Version Control system is
 
 .. R7
 
-It is, in some ways, similar to playing a video game. We generally play games in stages. While playing, we save the game at some instances as per our choice. We continue playing, but we could, if necessary, choose to go back to one of the saved states and start over. In this manner, we could change the state of the game.
+It is, in some ways, similar to playing a video game. We generally play games 
+in stages. While playing, we save the game at some instances as per our choice. 
+We continue playing, but we could, if necessary, choose to go back to one of the
+saved states and start over. In this manner, we could change the state of 
+the game.
 
 .. L8
 
@@ -110,11 +127,12 @@ mercurial or hg is:
 
 #. Written in Python
 
-Some of the Version Control tools available and used widely are:
 
-cvs, svn, git and so on.
+Some of the Version Control tools available and used widely are: cvs, svn, 
+git and so on.
 
-Each of these tools have their own merits and demerits. In this tutorial we shall learn how to use mercurial or hg.
+Each of these tools have their own merits and demerits. In this tutorial we 
+shall learn how to use mercurial or hg.
 
 .. L9
 
@@ -124,20 +142,37 @@ Each of these tools have their own merits and demerits. In this tutorial we shal
 
 Let's now get into Installation
 
+.. L10
+
 sudo apt-get install mercurial
+
+.. R10
+
+Type sudo apt-get install mercurial
+
+Type hg  
+
+.. L11
 
 $hg
 
-and 'hg version' which gives the version number.
+.. R11
+
+It will give you the list of basic commands.
+
+.. L12
 
 $hg version
 
+.. R12
 
-.. L10
+and 'hg version' gives the version number of mercurial you are presently using.
+
+.. L13
 
 {{{Show the 'summary' slide'}}}
 
-.. R10
+.. R13
 
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt:
@@ -148,28 +183,25 @@ learnt:
 
 #. Install Mercurial.
 
-.. L11
+.. L14
 
 {{{Show self assessment questions slide}}}
 
-.. R11
+.. R14
 
 Here are some self assessment questions for you to solve
 
-1. Is Mercurial a Centralized VCS or Distributed
-VCS? Justify your reasoning.
+1. Is Mercurial a Centralized VCS or Distributed Version Control System? 
 
-#. How can you verify whether Mercurial has been
-installed properly?
+#. How can you verify whether Mercurial has been installed properly?
 
-#. What is the command for accessing built-in help
-system of Mercurial?
+#. What is the command for accessing built-in help system of Mercurial?
 
-.. L12
+.. L15
 
 {{{Show the solutions slide to self assessment questions }}}
 
-.. R12
+.. R15
 
 And the answers,
 
@@ -180,11 +212,11 @@ And the answers,
 #. hg help command
 
 
-.. L13
+.. L16
 
 {{{Show the thank you slide}}}
 
-.. R13
+.. R16
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you
