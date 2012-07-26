@@ -56,29 +56,40 @@ change log and collaborate on a single piece of work with a team of people.
 
 Lets look at an example of home-brewed Version Control system.Version control 
 is a way of backing up files, before making changes. Most people would have 
-cooked up their own version control system. But there are more general purpose 
-tools which can do this task in an organized way.
+cooked up their own version control system. 
 
 .. L5
 
-{{{Show the slide 'Problems'}}}
+{{{Show the next slide 'Home-brewed'}}}
 
 .. R5
+
+Listing the files in the folder we observe that after a point of time it 
+becomes difficult to maintain proper names for different versions of a file.
+
+.. L6
+
+{{{Show the slide 'Problems'}}}
+
+.. R6
 
 Let's look at the various problems associated with this set-up.
 
 1. Name and changes made are not related or linked.
 
-#. Cant track sequence of changes made to a file.
+#. Can't track sequence of changes made to a file.
 
 #. Does not scale.
 
+To overcome this problems there are more general purpose tools which can
+do this task in an organized way.
 
-.. L6
+
+.. L7
 
 {{{Show the slide 'The need for Version Control'}}}
 
-.. R6
+.. R7
 
 Now, let's move to identifying the needs for a 'Version Control System'.
 
@@ -87,23 +98,23 @@ is the ability to go back to a working version of a file, when something
 goes wrong. Below are a few more advantages of using an automated version 
 control system.
 
-1. By tracking the history of a project, any person may see the evolution 
- of a project.
+1. By tracking the history of a project, any person may see the evolution
+of a project.
 
 2. Allows for effective collaboration on a project, as everything is shared.
 
 3. Helps to identify which additions have broken down a project and thus 
- aids in efficient tracking down of the bugs.
+aids in efficient tracking down of the bugs.
 
-4. It is good for a one man show as it is for a big group of people working 
- on a project.
+4. It is good for a one man show as it is for a big group of people working
+on a project. 
 
 
-.. L7
+.. L8
 
 {{{Show the slide 'How does it work? - Analogy}}}
 
-.. R7
+.. R8
 
 It is, in some ways, similar to playing a video game. We generally play games 
 in stages. While playing, we save the game at some instances as per our choice. 
@@ -111,13 +122,19 @@ We continue playing, but we could, if necessary, choose to go back to one of the
 saved states and start over. In this manner, we could change the state of 
 the game.
 
-.. L8
+.. L9
 
 {{{Show the slide 'Mercurial or hg'}}}
 
-.. R8
+.. R9
 
-mercurial or hg is:
+Some of the Version Control tools available and used widely are: cvs, svn, 
+git and so on.
+
+Each of these tools have their own merits and demerits. In this tutorial we 
+shall learn how to use mercurial or hg.
+
+Mercurial or hg is:
 
 1. Easy to learn and use
     
@@ -127,24 +144,20 @@ mercurial or hg is:
 
 #. Written in Python
 
-
-Some of the Version Control tools available and used widely are: cvs, svn, 
-git and so on.
-
-Each of these tools have their own merits and demerits. In this tutorial we 
-shall learn how to use mercurial or hg.
-
-.. L9
+.. L10
 
 {{{Show the slide 'Installation'}}}
 
-.. R9
+.. R10
 
 Let's now get into Installation
 
 .. L10
 
-sudo apt-get install mercurial
+{{{Switch to terminal}}}
+::
+    
+    $sudo apt-get install mercurial
 
 .. R10
 
@@ -152,27 +165,29 @@ Type sudo apt-get install mercurial
 
 Type hg  
 
-.. L11
-
-$hg
-
-.. R11
-
-It will give you the list of basic commands.
-
 .. L12
+::
 
-$hg version
+    $hg
 
 .. R12
 
-and 'hg version' gives the version number of mercurial you are presently using.
+It will give you the list of basic commands.
 
 .. L13
+::
+
+    $hg version
+
+.. R13
+
+and 'hg version' gives the version number of mercurial you are presently using.
+
+.. L14
 
 {{{Show the 'summary' slide'}}}
 
-.. R13
+.. R14
 
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt:
@@ -183,25 +198,24 @@ learnt:
 
 #. Install Mercurial.
 
-.. L14
+.. L15
 
 {{{Show self assessment questions slide}}}
 
-.. R14
+.. R15
 
 Here are some self assessment questions for you to solve
 
 1. Is Mercurial a Centralized VCS or Distributed Version Control System? 
 
-#. How can you verify whether Mercurial has been installed properly?
+#. How can you retrive the version of Mercurial installed?
 
-#. What is the command for accessing built-in help system of Mercurial?
 
-.. L15
+.. L16
 
 {{{Show the solutions slide to self assessment questions }}}
 
-.. R15
+.. R16
 
 And the answers,
 
@@ -209,14 +223,56 @@ And the answers,
 
 #. hg version
 
-#. hg help command
+.. L17
 
+{{{ Show the SDES & FOSSEE slide }}}
 
-.. L16
+.. R17
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L18
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R18
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L19
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R19
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L20
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R20
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L21
 
 {{{Show the thank you slide}}}
 
-.. R16
+.. R21
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you

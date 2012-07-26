@@ -327,10 +327,10 @@ Here are some self assessment questions for you to solve
      tag:         tip
      user:        Primal Pappachan <primal@fossee.in>
      date:        Sat Jan 26 22:16:53 2012 +0530
-     summary:     Added Readme 
-   Try to identify each component of this changeset and it’s meaning. In the    
-   changeset, what is the significance of the number as well as hexadecimal 
-   string in the first line? 
+     summary:     Added Readme
+     Try to identify each component of this changeset and it’s meaning. In the 
+     changeset, what is the significance of the number as well as hexadecimal 
+     string in the first line? 
 
 .. L24
 
