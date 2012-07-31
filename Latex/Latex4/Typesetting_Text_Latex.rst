@@ -13,11 +13,11 @@ Script
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along with the logo of MHRD}}}
+{{{ Show the first title slide }}
 
 .. R1
 
-Hello friends and welcome to the second tutorial on Latex. 
+Hello friends and welcome to the second tutorial on Typsetting Text in Latex. 
 
 .. L2
 
@@ -27,7 +27,7 @@ Hello friends and welcome to the second tutorial on Latex.
 
 At the end of this tutorial you will be able to:
 
-1. Learn to typeset your document using LaTEX.
+1. Learn how to typeset your document using LaTEX.
 
 #. Use lists, listings in your document for formatting text.
 
@@ -37,148 +37,129 @@ At the end of this tutorial you will be able to:
 
 .. R3
 
-Please make sure that you have gone through the following tutorials before you continue on this tutorial:
+Please make sure that you have gone through the following tutorials before you
+continue on this tutorial:
+
+1. LaTeX Part 1 - Getting Started 
+2. LaTeX Part 2 - Introduction
+3. LaTeX Part 3 - Structuring the Content
+
 
 .. L4
 
 {{{Show the slide 'Quotation Marks'}}}
 
 .. R4
-
-Look at the quotation marks for the text, Sigh Pie. We see that they are not formatted properly.
+How can we add Quotation Marks to our document ?
+For this, we use ` (accent) character for the left quote &
+' (apostrophe) character for the right quote. 
+For double quotes, we use them twice.
 
 .. L5
 
-{{{Show rev11 of hg}}}
+{{{Show the slide Fonts-emphasizes, fixed width}}}
 
 .. R5
 
-To place quotation marks in LaTeX, we use ` character for the left quote & ' character for the right quote. For double quotes, we use them twice.
+The \emph command is used to give the text an emphasized & italic effect.
+In tabular structures LaTeX doesn't add multiple spaces between words. 
+Just like multiple empty lines, multiple spaces are considered 
+as a single space.
+Also, LaTeX starts a new paragraph at the beginning of the table. 
+To avoid this, we use the 'flushleft environment' to have left aligned text.
+Similarly 'flushright' & 'center' to have right & center aligned text
+respectively.
 
 .. L6
 
-{{{Show the slide 'Fonts'}}}
+{{{Show the slide Fonts-emphasizes, fixed width..}}}
 
 .. R6
 
-The names of the software tools, Scilab, Matlab, etc. appear in italics or 'emphasized' as it is called in LaTeX. 
+'\texttt' is used to change text to fixed width font & 
+'\textbf' is used to change text to bold face
+We could also change the separating - (hyphen) to -- (n-dash) or --- (em-dash)
+to improve the appearance of the document.
 
 .. L7
 
-{{{Show rev12 of hg}}}
+{{{Show the slide Lists }}}
 
 .. R7
 
-To emphasize text, the \emph command is used.
+The 'enumerate' environment adds numbered lists to our document and
+the itemise environment adds un-numbered lists. \item command adds 
+a new entry to a list. Note, that LaTeX can easily handle nested lists. 
+In fact, most environments can be embedded within other environments, 
+without any problems.
 
-.. R8
-
-Let's try and form a tabular structure by separating the left and right columns using spaces. On compiling, we find that LaTeX doesn't add multiple spaces between words. Just like multiple empty lines, multiple spaces are considered as a single space.
-
-Also, you would have noticed that LaTeX starts a new paragraph at the beginning of the table. To avoid this, we use the 'flushleft environment'.
 
 .. L8
 
-{{{Show slides second part of 'Fonts'}}}
+{{{Show slide 'Footnotes'}}}
 
-.. R9
+.. R8
 
-'\textbf' is used to change text to bold face and '\texttt' is used to change text to fixed width font.
+LaTeX provides a footnote command to add a footnote.
+In case we wish to add another Appendix before the section the footnote has 
+to be edited. To avoid this, LaTeX provides a handy system 
+of labels and referencing.
 
 .. L9
 
-{{{Show rev13 of hg}}}
+{{{Show the slide 'Labels and References'}}}
 
-.. R10
+.. R9
 
-We could also change the separating - (hyphen) to -- (n-dash) or --- (em-dash), to improve the appearance of the document.
+We can create labels for any elements in the document and then refer them
+anywhere in the document.
+\\label{labelname} command is used to create a lable for a particular element.
+Then, to refer to that element with a lable \\ref{labelname} command is used.
+
+But, remember that when you compile the document first time you will see
+question marks instead of the element you have refered using lables.
+Do not worry, you just have to compile the document once again to make the
+elements refered by labels to appear.
+
+So, whenever you use the labels & references remember to compile the document
+twice.
 
 .. L10
 
-{{{Show the slides Lists }}}
+{{{Show the slide 'Include Code'}}}
 
-.. R11
+.. R10
 
-The section on 'Use of Scipy' in this course, contains lists. Now, let us add lists to our document. 
+Now let us see how we can include code in our Latex document.
+LaTeX by default provides the verbatim environment to include
+pre-formatted text. 
+But, we shall look at using the listings package, specifically meant for 
+including code in our document.
+
+First of all, we need to tell LaTeX, that we want to use the 
+listings package in our document. We do this by adding the directive 
+\usepackage{listings} to the preamble of our document.
+Then, we specify the language of the code that we are going to embed 
+into our document. This can be done in two ways,
+directly specifying it while declaration \lstinputlisting[language=Python] or 
+we can use the 'lstset' command.
+
 
 .. L11
 
-{{{Show rev14 of hg}}}
+{{{Show slide 'Including code..'}}}
 
-.. R12
+.. R11
 
-The 'enumerate' environment adds numbered lists to our document and the itemise environment adds un-numbered lists. \item command adds a new entry to a list. Note, that LaTeX can easily handle nested lists. In fact, most environments can be embedded within other environments, without any problems.
-
+Now, to put a line of code (inline and not as a separate block), 
+we use the \lstinline command. To embed a block of code, we use 
+the lstlisting environment (\begin{lstlisting} and \end{lstlisting}).
 
 .. L12
 
-{{{Show slides 'Footnotes'}}}
-
-.. R13
-
-Let's now add the footnote to pylab. LaTeX provides a footnote command to add a footnote.
-
-
-.. L13
-
-{{{Show rev15 of hg}}}
-
-.. R14
-
-In case we wish to add another Appendix before the section on using pylab, the footnote has to be edited. To avoid this, LaTeX provides a handy system of labels and referencing.
-
-.. L14
-
-{{{Show the slide 'Labels and References'}}}
-
-.. R15
-
-First, we add a label to the section that we wish to refer in this footnote. Then, we change the footnote, and add the reference to this label instead of the character A. If you look at the output after compiling the document once, you will see that the footnote has question marks instead of the section number. You will have to compile once again, for the section number to appear in the footnote.
-
-.. L15
-
-{{{Show rev15 of hg}}}
-
-
-.. R16
-
-LaTeX by default provides the verbatim environment to include pre-formatted text. You may try this during the lab session. We shall look at using the listings package, specifically meant for including code in our document.
-
-.. L16
-
-{{{Show the slide 'Include Code'}}}
-
-.. R17
-
-First of all, we need to tell LaTeX, that we want to use the listings package in our document. We do this by adding the directive \usepackage{listings} to the preamble of our document.
-
-Then, we set the language of the code that we are going to embed into our document. For this, we use the 'lstset' command.
-
-.. L17
-
-{{{Show rev16 of hg}}}
-
-.. L18
-
-{{{Show slide 'Including code'}}}
-
-.. R18
-
-Now, to put a line of code (inline and not as a separate block), we use the \lstinline command. We change the name pylab in the footnote to use lstinline instead of the texttt. To embed a block of code, we use the lstlisting environment (\begin{lstlisting} and \end{lstlisting}).
-
-.. L19
-
-{{{Show rev16 of hg}}}
-
-.. R19
-
-For example, let's add the code to the Appendix of our document.
-
-.. L20
-
 {{{Show the 'summary' slide'}}}
 
-.. R20
+.. R12
 
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt to,
@@ -191,31 +172,88 @@ learnt to,
 
 #. Add Footnotes, Labels and References.
 
-#. Use the listings package to include code.
+#. To include code.
 
-.. L21
+.. L13
 
 {{{Show self assessment questions slide}}}
 
-.. R21
+.. R13
 
 Here are some self assessment questions for you to solve.
 
-.. L22
+1. Which environment is used to include a block of code?
+
+#. Joe has numerous used labels inside his Latex document. 
+But all the references to label names come up as question marks. 
+What might be the problem?
+
+
+.. L14
 
 {{{Show the solutions slide to self assessment questions }}}
 
-.. R22
+.. R14
 
 And the answers are,
 
+1. Use the lstlistings package to include code.
 
-.. L23
+#. While using labels, the latex document should be compiled twice 
+for the references to show up.
 
-{{{Show the thank you slide}}}
 
-.. R23
+
+.. L15
+
+{{{ Show the SDES & FOSSEE slide }}}
+
+.. R15
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L16
+
+{{{ Show the About the Spoken Tutorial Project slide }}}
+
+.. R16
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L17
+
+{{{ Show the Spoken Tutorial Workshops slide }}}
+
+.. R17
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L18
+
+{{{ Show the Acknowledgements slide }}}
+
+.. R18
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L19
+
+{{{ Show the Thankyou slide }}}
+
+.. R19
 
 Hope you have enjoyed this tutorial and found it useful.
-Thank you.
-
+Thank you!

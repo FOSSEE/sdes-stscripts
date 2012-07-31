@@ -1,4 +1,13 @@
-\documentclass{beamer}
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
+}
+
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
 \usepackage{graphicx}
@@ -26,21 +35,51 @@
   postbreak = \space\dots
 }
 
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
 
-\mode<presentation>
-{
-  \usetheme{Warsaw}
-  \useoutertheme{infolines}
-  \setbeamercovered{transparent}
-}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
 
-\newcommand{\inctime}[1]{\addtocounter{time}{#1}{\tiny \thetime\ m}}
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
 
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
+\usepackage{mathpazo,courier,euler}
+\usepackage{listings}
+\lstset{language=sh,
+    basicstyle=\ttfamily\bfseries,
+  showstringspaces=false,
+  keywordstyle=\color{black}\bfseries}
+
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
 \newcommand{\typ}[1]{\lstinline{#1}}
 
-\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
-\title {{\LaTeX} basics and structure}
-\author {FOSSEE}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT STARTS
 \begin{document}
@@ -66,9 +105,11 @@
   \label{sec-2}
     At the end of this tutorial, you will be able to,
   \begin{itemize}
-    \item Understand basic structure of a LaTeX document, its various document classes and loading packages that add new features to the LaTeX system.
+    \item Understand basic structure of a LaTeX document, its various document
+    classes and loading packages that add new features to the LaTeX system.
     \item Create a LaTeX document with a title and an abstract.
-    \item Create numbered and non-numbered sections and subsections in a LaTeX document.
+    \item Create numbered and non-numbered sections and subsections
+     in a LaTeX document.
     \item Create an appendix in a LaTeX document.
     \item Create a table of content in a LaTeX document.
   \end{itemize}
@@ -92,7 +133,8 @@
     \begin{verbatim}
       \documentclass{article}
         \begin{document}
-          SciPy is open-source software for mathematics, science, and engineering.
+          SciPy is open-source software for mathematics, science, and 
+            engineering.
         \end{document}
     \end{verbatim}
   }
@@ -160,7 +202,8 @@
       \author{FOSSEE}
       \date{June 2010}
       \begin{document}
-        SciPy is open-source software for mathematics, science, and engineering.
+        SciPy is open-source software for mathematics, science, 
+        and engineering.
       \end{document}
     \end{verbatim}
   }
@@ -177,7 +220,8 @@
       \date{June 2010}
       \begin{document}
         \maketitle
-        SciPy is open-source software for mathematics, science, and engineering.
+        SciPy is open-source software for mathematics, science, 
+        and engineering.
       \end{document}
     \end{verbatim}
   }
@@ -198,9 +242,11 @@
       \begin{document}
         \maketitle
         \begin{abstract}
-          This document shows a glimpse of the features of Scipy that will be explored during this course.
+          This document shows a glimpse of the features of Scipy that will 
+    be explored during this course.
         \end{abstract}
-        SciPy is open-source software for mathematics, science, and engineering.
+        SciPy is open-source software for mathematics, science,
+     and engineering.
       \end{document}
     \end{verbatim}
   }
@@ -282,7 +328,8 @@
   \frametitle{Appendices}
   \begin{itemize}
     \item \lstinline{\appendix} command indicates the beginning of appendices.
-    \item Any content after \lstinline{\appendix}, will be added to the appendix.
+    \item Any content after \lstinline{\appendix}, will be added 
+    to the appendix.
     \item Use sectioning commands to add sections.
   \end{itemize}
 \end{frame}
@@ -314,8 +361,13 @@
 \begin{frame}[fragile]
   \frametitle{\typ{Exercise 1}}
   \begin{center}
-    Write a LaTeX script that creates a document of type article, which contains both a table of content and an appendix. The table of content should be at the beginning of the document and the appendix at the end.
-    The book should contain two chapters, with the first chapter containing two numbered and two un-numbered sections. The first un-numbered section should be present in the table of content.
+    Write a LaTeX script that creates a document of type article, which
+     contains both a table of content and an appendix. 
+    The table of content should be at the beginning of the document 
+    and the appendix at the end.
+    The book should contain two chapters, with the first chapter containing
+     two numbered and two un-numbered sections. The first un-numbered 
+    section should be present in the table of content.
   \end{center}
 \end{frame}
 
@@ -341,7 +393,8 @@
            Numbered-Section 2 Text
          \section*{Un-numbered Section3}
            \addcontentsline{toc}{section}{Numbered Subsection1}
-           First un-numbered Section Text.\\This appears in the table of content
+           First un-numbered Section Text.\\This appears in the 
+        table of content
          \section*{Un-numbered Section4}
            Second un-numbered Section Text
          \appendix
@@ -358,10 +411,12 @@
   \label{sec-8}
   In this tutorial, we have,
   \begin{itemize}
-    \item Gained an understanding of the basic structure of a LaTeX document, its various document classes and loading packages that add new features to 
+    \item Gained an understanding of the basic structure of a LaTeX document,
+     its various document classes and loading packages that add new features to
     \item   the LaTeX system.
     \item Created a LaTeX document with a title and an abstract.
-    \item Created both numbered and non-numbered sections and subsections in a LaTeX document.
+    \item Created both numbered and non-numbered sections and subsections
+    in a LaTeX document.
     \item Created an appendix in a LaTeX document.
     \item Created a table of content in a LaTeX document.
   \end{itemize}
@@ -372,7 +427,9 @@
   \label{sec-9}
   {\footnotesize 
   \begin{enumerate}
-    \item  Is the LaTeX code given below a valid input file (File compiles successfully and produces the intended result, that is to produce a book with two chapters and an appendix.
+    \item  Is the LaTeX code given below a valid input file (File compiles 
+successfully and produces the intended result, that is to produce a book 
+    with two chapters and an appendix.
   {\tiny 
     \begin{center}
       \begin{verbatim}
@@ -392,7 +449,10 @@
       \end{verbatim}
     \end{center}
     }
-    \item subsection command can be placed at any arbitrary level. If they get numbered by default using the appropriate setcounter command and secnumdepth parameter, do they automatically appear in the table of content ?? 
+    \item subsection command can be placed at any arbitrary level. 
+    If they get numbered by default using the appropriate setcounter 
+command and secnumdepth parameter, do they automatically appear in the 
+table of content ?? 
   \end{enumerate}
   }
 \end{frame}
@@ -401,9 +461,14 @@
 \frametitle{\typ{Solutions}}
 \label{sec-10}
 \begin{enumerate}
-\item Although the given file looks syntactically valid, the output file is not what we expected. This is mainly because we are trying to use the section command to create sections in the appendix, for a document whose type is given as a book.
+\item Although the given file looks syntactically valid, the output file is 
+    not what we expected. This is mainly because we are trying to use the 
+    section command to create sections in the appendix, for a document whose 
+    type is given as a book.
 \vspace{15pt}
-\item No, the \textbackslash tableofcontents  command normally shows only numbered section headings, and only down to the level defined by the tocdepth counter.
+\item No, the \textbackslash tableofcontents  command normally shows only 
+    numbered section headings, and only down to the level defined by the 
+    tocdepth counter.
 \end{enumerate}
 \end{frame}
 

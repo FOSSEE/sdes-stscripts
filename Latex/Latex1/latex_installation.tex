@@ -5,74 +5,86 @@
 % Copyright (c) 2009, FOSSEE, IIT Bombay
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[14pt,compress]{beamer}
-
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
 \mode<presentation>
 {
   \usetheme{Warsaw}
   \useoutertheme{infolines}
   \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
 }
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
 
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
-%\usepackage{times}
 \usepackage[T1]{fontenc}
 
-% Taken from Fernando's slides.
-\usepackage{ae,aecompl}
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
 \usepackage{mathpazo,courier,euler}
-\usepackage[scaled=.95]{helvet}
-
-\definecolor{darkgreen}{rgb}{0,0.5,0}
-
 \usepackage{listings}
-\lstset{language=bash,
+\lstset{language=sh,
     basicstyle=\ttfamily\bfseries,
-    commentstyle=\color{red}\itshape,
-  stringstyle=\color{darkgreen},
   showstringspaces=false,
-  keywordstyle=\color{blue}\bfseries}
+  keywordstyle=\color{black}\bfseries}
 
-\newcommand{\inctime}[1]{\addtocounter{time}{#1}{\tiny \thetime\ m}}
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
 
-\newcommand{\typ}[1]{\lstinline{#1}}
-
-\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
-
-\setbeamercolor{emphbar}{bg=blue!20, fg=black}
-\newcommand{\emphbar}[1]
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
 
 
 \begin{document}
 
-\begin{frame}
+\sffamily \bfseries
+\title
+[\LaTeX \: Installation]
+{\LaTeX \:Installation}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
 
-\begin{center}
-\vspace{12pt}
-\textcolor{blue}{\huge {\LaTeX}: Installation}
-\end{center}
-\vspace{18pt}
-\begin{center}
-\vspace{10pt}
-\includegraphics[scale=0.95]{fossee-logo.png}\\
-\vspace{5pt}
-\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
-\scriptsize Funded by National Mission on Education through ICT\\
-\scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.15]{images/iitb-logo.jpg}\\
-\end{center}
+% slide 1
+\begin{frame}
+   \titlepage
 \end{frame}
 
 \begin{frame}
   \frametitle{Objectives}
-  At the end of this session, you will
+  At the end of this tutorial you will,
   \begin{itemize}
-  \item Learn how to install LaTeX
-  \item Learn how to install a TeX editor plug-in
-  \item Know how to configure the TeX editor for LaTeX
-  \item Know some useful information on LaTeX packages.
-  \item Be able to complie a TeX file to pdf.
+  \item Learn to install LaTeX
+  \item Learn to install a TeX editor plug-in
+  \item Learn to configure the TeX editor for LaTeX
+  \item Know few LaTeX packages.
+  \item Be able to compile a TeX file to pdf.
 
   \end{itemize}
 \end{frame}
@@ -82,9 +94,9 @@
   Prerequisites for Installation of LaTeX
   \begin{itemize}
   \item You'll need a TeX distribution.
-  \item A good text editor and a DVI or PDF viewer.
-  \item Updated Linux distribution as Operating System.
-  \item Working Internet connection (recommended, for installation over the network).
+  \item Good text editor, DVI or PDF viewer.
+  \item Updated Linux distribution as OS.
+  \item Working Internet connection (for installation over the network).
   \end{itemize}
 \end{frame}
 
@@ -96,8 +108,8 @@
   \end{itemize}
   Acquire TeX Live in many ways
   \begin{itemize}
-  \item Getting TeX Live on DVD (recommended, for installation from media).
-  \item Installing TeX Live over the Internet (recommended, for installation over the network).
+  \item Getting TeX Live on DVD (for installation from media).
+  \item Installing TeX Live over the network.
   \end{itemize}
 \end{frame}
 
@@ -115,7 +127,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Installation}
+  \frametitle{Installation..}
   Using a Package Manager
   \begin{itemize}
   \item Open \emph{Package Manager}
@@ -137,17 +149,23 @@
   \frametitle{LaTeX Packages}
   Recommended LaTeX Packages
   \begin{itemize}
-  \item \emph{latex-beamer} : Beamer package is used to create presentations.
-  \item \emph{TeXPower} : Is a bundle of style and class files for creating dynamic online presentations with LaTeX.
-  \item \emph{Prosper} : A LaTeX class for writing transparencies.
-  \item \emph{texlive-pictures} : This is a LaTeX package for drawing graphics.
-  \item \emph{texlive-latex-extra} : This is a large collection of add-on packages for LaTeX.
+  \item \emph{latex-beamer} : to create presentations.
+  \item \emph{TeXPower} : for dynamic online presentations.
+  \item \emph{Prosper} : class for writing transparencies.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{LaTeX Packages..}
+  \begin{itemize}
+  \item \emph{texlive-pictures} : for drawing graphics.
+  \item \emph{texlive-latex-extra} : add-on packages
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Compilation}
-  LaTeX distribution installed, you may compile a LaTeX document
+  LaTeX distribution installed, you may compile a LaTeX document to pdf file
   \begin{itemize}
   \item \emph{pdflatex filename.tex} : Compiles the LaTeX document.
   \item Output : PDF file.
@@ -158,23 +176,86 @@
 \begin{frame}[fragile]
 	\frametitle{Summary}
 	\begin{itemize}
-        \item Installing a LaTeX distribution.
-        \item Install/Configure LaTeX Plug-in.
-        \item Recommended LaTeX Packages.
-	\item Compile a LaTeX document.
+        \item Install LaTeX on your computer.
+        \item Install/Configure TeX editor with LaTeX plug-in.
+        \item Choose a LaTeX package as per requirement.
+	\item Compile a TeX file to PDF.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Exercise}
+	\begin{itemize}
+        \item How can we check the version of the LaTeX package installed ?
+        \item How can we check if the plug-in is properly configured with TeX 
+              editor ?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Solutions}
+	\begin{itemize}
+        \item Use the command \textit {latex -v} to check the version installed
+        \item Edit > Preferences > Plugins > Check LaTeX Plug-in
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
-\begin{block}{}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{12pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT (NME-ICT). \\
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, Government of India 
+\item More information on this Mission is available at: \\{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
   \begin{center}
-  \textcolor{blue}{\Large THANK YOU!} 
+  {\Large THANK YOU!} 
   \end{center}
   \end{block}
 \begin{block}{}
   \begin{center}
     For more Information, visit our website\\
-    \url{http://fossee.in/}
+    {\color{blue}\url{http://fossee.in/}}
   \end{center}  
   \end{block}
 \end{frame}
