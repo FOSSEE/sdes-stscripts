@@ -25,7 +25,7 @@ team along with the logo of MHRD }}}
 .. R1
 
 Hello friends and Welcome to the tutorial on 
-'Using linux tools - Part 1'.
+'Getting started with Linux'.
 
 .. L2
 
@@ -55,7 +55,7 @@ principles established in Unix. It consists of an important and central
 piece called the Linux kernel, which, manages system resources like process
 control, networking, peripherals and file system access. This is
 complemented by the application software, written on top of the kernel that
-give the higher level functionality that facilitate the user to carry out
+gives the higher level functionality that facilitates the user to carry out
 various tasks.
 
 .. L4
@@ -71,7 +71,7 @@ The security model used in Linux is based on the UNIX idea of security,
 which is known to be robust and of proven quality. Also, there are no
 viruses in the GNU/Linux world.
 
-Python is used a lot for scientific computing. Why? Beause,
+Linux is used a lot for scientific computing. Why? Beause,
 we can share our operating system and the libraries that we are using
 with our co-workers, without any headaches of licensing.
 There are a host of tools and libraries, that are useful in day-to-day 
@@ -92,52 +92,72 @@ You can log-in once you provide your authentication details.
 It is a popular misconception that GNU/Linux doesn't have a GUI (Graphical
 user interface). It does have a fully functional GUI, but for the purpose
 of this course we shall start with using the CLI (Command line interface).
-Once your system has booted up, hit ``Ctrl + Alt + F1`` to switch to the
-command line interface.
-
-You can log out using the ``logout`` command. 
 
 .. R6
 
-Now hit ``Ctrl + Alt + F7`` and come back to the GUI. For the purpose
-of the spoken tutorials, we shall use the terminal on the GUI.
+Once your system has booted up, hit ``Ctrl + Alt + F1`` to switch to the
+command line interface.
 
 .. L6
 
-{{{ Open the terminal }}}
+{{{ Hit ``Ctrl + Alt + F1'' and login as ``fossee'' with it's password }}}
 
 .. R7
+
+To logout from the CLI, you can use the ``logout`` command. 
+
+.. L7
+
+    logout
+
+.. R8
+
+Now hit ``Ctrl + Alt + F7`` and come back to the GUI. 
+
+.. L8
+
+{{{ Hit ``Ctrl + Alt + F7`` }}}
+
+.. R9
+
+For the purpose of spoken tutorials, we shall use the terminal on the GUI.
+
+.. L9
+
+{{{ Open the terminal }}}
+
+.. R10
 
 Now that we have logged in, where are we? 
 To find out the present working directory, we use the ``pwd`` command. 
 
-.. L7
+.. L10
 ::
 
     pwd
 
-.. R8
+.. R11
 
 Now, to see what is in the current directory, we use the ``ls`` command.
 
-.. L8
+.. L11
 ::
 
     ls
 
-.. R9
+.. R12
 
 It gives us a list of all the files in our present working directory.
 ``ls`` command takes the directory, in which we want to see the list of
 files present, as an argument. To see all the files present in the
 ``Music`` directory, we say
 
-.. L9
+.. L12
 ::
 
     ls Music
 
-.. R10
+.. R13
 
 Note that everything in GNU/Linux and the Unix world is case sensitive.
 
@@ -146,106 +166,110 @@ What if we wanted the files to be more organized? Say,
 we would like to put all our work during this course in a separate
 directory. Let us now create a directory ``sdes`` by saying
 
-.. L10
+.. L13
 ::
 
     mkdir sees
 
-.. R11
+.. R14
 
 Type ``ls`` to see that a new directory has been
 created. 
 
-.. L11
+.. L14
 ::
 
     ls
 
-.. L12
+.. L15
 
 {{{ Switch to slide, New folders }}}
 
-.. R12
+.. R15
 
 Also, note that special characters need to be escaped. For example if we
 wanted to create a directory with the name ``software engineering``, we do
 it either as
 
-     mkdir software\ engineering
+     mkdir software \\ engineering
 
 or as
 
-     mkdir "software engineering"
+     mkdir "software engg"
 
 But it is generally a practice to use hyphens or underscores instead of
 spaces in filenames and directory names.
 Also in modern GNU/Linux filesystems all characters except the forward 
 slash are allowed.
 
-.. R13
+.. R16
 
 Now that we have seen how to create a new empty directory and navigate into
 it, let us create a new blank file. We use the ``touch`` command for this.
 
-.. L13
+.. L16
 
-{{{ Switch to the termninal }}}
+{{{ Switch to the terminal }}}
 ::
 
     pwd
     cd sees
     touch first
 
-.. R14
+.. R17
 
 This creates a file named first in our present working directory. Use the
 ``ls`` command to see that the file has been created.
 
-.. L14
+.. L17
 ::
 
     ls 
 
-.. R15
+.. R18
 
 To get a quick description of the command, we could use the ``whatis``
 command. It gives a short one-line description of the command that is
 passed as an argument to it. For example, 
 
-.. L15
+.. L18
 ::
 
     whatis touch
 
-.. R16
+.. R19
 
 To get a more detailed description of the command,
 we use the ``man`` command.
 
-.. L16
+.. L19
 ::
 
     man touch
 
-.. R17
+.. R20
 
 This page gives a detailed description of the command. We can see that the
 ``touch`` command has a whole host of options that can be passed to it.
 Every command in Linux has such a list of options that can be passed to the
 command to do specific tasks. Hit the ``q`` key to quit the ``man`` page.
 
+.. L20
+
+    q
+
 To see the manual on man itself do,
 
-.. L17
+.. L21
 ::
 
     man man
 
-.. L18
+.. L21
 
 {{{ Switch to slide, Using additional options }}}
 
-.. R18
+.. R22
 
 As you may have observed, often the ``man`` page is a bit too much for
 quickly cross checking what option to use for a specific task. For this
@@ -255,21 +279,23 @@ command.
 
 Pause the video here, try out the following exercise and resume the video.
 
-.. L19
+.. L22
+
+.. L23
 
 {{{ Show slide with exercise 1 }}}
 
-.. R19
+.. R23
 
 Which option should be used with ``ls`` command to list all the directories,
 sub-directories and files contained in it? 
 Hint: Use ``man`` or ``--help`` 
 
-.. R20
+.. R24
 
 Switch to terminal for solution. 
 
-.. L20
+.. L24
  
 {{{continue from paused state}}}
 {{{ Switch to the terminal }}}
@@ -277,78 +303,87 @@ Switch to terminal for solution.
 
     ls -R
 
-.. R21
+.. R25
 
 This lists out all the files in the sub-tree of the current directory,
 recursively.
 
-.. L21
+.. L25
 
-.. R22
+.. R26
 
 When you wish to create a new directory deep inside a directory structure,
 using a ``-p`` option with the ``mkdir`` command would be useful. For
 example,if we wish to create a folder ``scripts`` inside the directory
 ``linux-tools`` inside the directory ``sees``, we could simply say,
 
-.. L22
+.. L26
 ::
 
     pwd
     mkdir -p sees/linux-tools/scripts
 
-.. R23
+.. R27
 
 Let's now say, we wish to remove a directory or a file. How do we find out
 what command to use? We use the ``apropos`` command to search for commands
 based on their descriptions. To search for the command to remove a
 file/directory say,
 
-.. L23
+.. L27
 ::
 
     apropos remove
 
-.. R24
+.. R28
 
 This gives us a whole list of commands that have the word ``remove``, in
 their description. Looking through the list tells us that ``rm`` or
 ``rmdir`` is the command to use.
 
-.. L24
+.. L28
 
-.. L25
+.. L29
 
 {{{ Show summary slide }}}
 
-.. R25
+.. R29
 
 This brings us to the end of the tutorial.In this tutorial, we have learnt to,
 
  1. Understand the basic structure of linux and it's need.
- #. Move around in directories and files.
+ #. Use ``pwd'' command, to check the current working directory.
+ #. List a directory's contents by using the command ``ls''.
+
+.. L30
+
+{{{ Show the Summary... slide }}}                     
+
+.. R30 
+
  #. Use commands like ``mkdir`` and ``rmdir`` to make and remove directories 
     respectively.
  #. Use commands such as ``man`` and ``whatis`` to get a description of 
     what a particular command does.
+ #. Search the manual page names and descriptions, using the “ apropos” command.
 
-.. L26
+.. L31
  
 {{{ Show self assessment questions slide }}}
 
-.. R26
+.. R31
 
 Here are some self assessment questions for you to solve
 
-1. Which is the default directory after logging into the terminal?
+1. What is the default directory after logging into the terminal?
 
 2. How to view file attributes with ls command?
 
-.. L27
+.. L32
 
 {{{ Solution of self assessment questions on slide }}}
 
-.. R27
+.. R32
 
 And the answers,
 
@@ -361,11 +396,56 @@ And the answers,
 
     ls -l <filename>  
 
-.. L28
+.. L33
+
+{{{ Show the SDES & FOSSEE slide }}}
+
+.. R33
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L34
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R34
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L35
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R35
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L36
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R36
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L37
 
 {{{ Show the Thankyou slide }}}
 
-.. R28
+.. R37
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
