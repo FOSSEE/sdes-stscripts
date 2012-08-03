@@ -254,7 +254,7 @@ def fibonacci(n):
 
 
 \begin{itemize}
-\item Undestand the basic steps involved in Test driven development.
+\item Understand the basic steps involved in Test driven development.
 \item Design a TDD approach for a given \texttt{fibonacci} function.
 
 \end{itemize}
@@ -267,20 +267,75 @@ def fibonacci(n):
 
 
 \begin{enumerate}
-\item ?
+\item Design a TDD approach for a \texttt{factorial} function.
 \vspace{8pt}
-\item ? 
+\item Design a TDD approach for an \texttt{armstrong} function.
 \end{enumerate}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
 \frametitle{Solutions}
 \label{sec-10}
-
-
 \begin{enumerate}
-\item 
 \vspace{15pt}
-\item 
+\item
+{\tiny
+\begin{lstlisting}
+def factorial(n):
+    if n < 0 :
+        return None;
+    if n == 1:
+        return 1
+    else:
+        return n * factorial (n - 1)
+if __name__ == '__main__':
+    f = factorial(3)
+    if f != 6 :
+        print 'Test Failed...'
+        exit (1)    
+    f = factorial(-5)
+    if f != None :
+        print 'Test Failed...'
+        exit (1)    
+    print 'All tests passed...'
+\end{lstlisting}
+}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Solutions}
+\label{sec-10}
+\begin{enumerate}
+\vspace{15pt}
+\item
+{\tiny
+\begin{lstlisting}
+def armstrong(n):
+   sum = 0
+   temp = 0 
+   remainder = 0
+   temp = n 
+   while  temp > 0 :
+      remainder = temp % 10
+      sum = sum + remainder * remainder * remainder
+      temp = temp / 10 
+   if  n == sum:
+      return True
+   else:
+      return False
+if __name__ == '__main__':
+    is_armstrong = armstrong(0)
+    if is_armstrong != True:
+        print "this is not armstrong"
+        exit(1)
+    is_armstrong = armstrong(371)
+    if is_armstrong == True:
+        print "this is armstrong"
+        exit(1)
+    print 'All tests passed...'
+\end{lstlisting}
+}
 \end{enumerate}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

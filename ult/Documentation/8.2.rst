@@ -1,0 +1,23 @@
+8.2 Advanced features of functions
+==================================
+
+1. Assign default values to arguments
+   * use of function as an example to understand what a
+     default value of an argument means(0.42 - 2.40)
+   
+#. Calling function with their default arguments
+   * An example to explain how a function is called by it's arguments(2.41 - 4.01)
+   * Exercise 1: Redifine a function by interchaning it's default arguments(4.06 - 4.51)
+   * Exercise 2: make a note of all the arguments with default values for 'linspace'(4.57 - 5.28)
+   * Exercise 3: Call a function without any arguments(5.34 - 6.18)
+
+#. Define and call functions with keyword arguments
+   * Explanation with examples of keyword arguments(6.19 - 8.28)
+   
+#. Built-in functions available in Python standard library and the scientific computing libraries
+   * What are built-in functions(8.36 - 9.07) 
+   * Classes of functions in pylab, scipy(9.08 - 9.44)
+
+#. Summary(9.45 - 10.02)
+
+#. Evaluation Questions(10.03 - 11.34)

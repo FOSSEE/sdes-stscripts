@@ -1,6 +1,6 @@
 
 ---------------------------------
-Version Control using Hg  Part 3
+Version Control using Hg - Part 3
 ---------------------------------
 
 .. Prerequisites
@@ -9,8 +9,8 @@ Version Control using Hg  Part 3
 .. Version Control with hg - Part 1,2
 
 .. Author : Primal Pappachan
-   Internal Reviewer :
-   Date: Jan 27, 2012
+   Internal Reviewer : Kiran Isukapatla
+   Date: Feb 21, 2012
    
    
 --------
@@ -19,12 +19,12 @@ Script
 
 .. L1
 
-*{{{ Show the first slide containing title, name of the production team along
+*{{{ Show the first slide containing the title, name of the production team along
 with the logo of MHRD}}}*
 
 .. R1
 
-Hello friends and welcome to the tutorial on 'Version Control with Hg' 
+Hello friends and welcome to the third part of the tutorial on 'Version Control with Hg' 
 
 .. L2
 
@@ -33,7 +33,7 @@ Hello friends and welcome to the tutorial on 'Version Control with Hg'
 .. R2
 
 Please make sure that you have gone through the following tutorials before you
-continue on this tutorial
+continue on this tutorial.
 
 .. L3
 
@@ -43,9 +43,9 @@ continue on this tutorial
 
 At the end of this tutorial you will be able to
 
-1. Learn how to view and revert changes made to files in a repository.
+1. Learn how to 'view' and 'revert' changes made to files in a repository.
 
-#. Learn how to share repositories and deal with simultaneous conflicting changes.
+#. Learn how to 'share' repositories and deal with 'simultaneous conflicting change'.
 
 .. L4
 
@@ -53,7 +53,7 @@ At the end of this tutorial you will be able to
 
 .. R4 
 
-Let's first try to find out why we should commit inspite of the additional
+Let's first try to find out why we should commit, inspite of the additional
 operational costs and loss of time?
 
 .. L4
@@ -62,9 +62,9 @@ operational costs and loss of time?
 
 .. R4
 
-While you were wondering, let's say your friend walks in and together you make
-a lot of changes. 1. You replace all the occurrences of & in chapter1.txt with
-and. 2. You delete the chapter3.txt file.
+While you were wondering, let's say your friend walks in, and together you make
+a lot of changes. 1. You replace all the occurrences of '&' in 'chapter1.txt' with
+'and'. 2. You delete the 'chapter3.txt' file.
 
 .. L5 
 
@@ -78,17 +78,17 @@ and. 2. You delete the chapter3.txt file.
 
 .. R6
 
-But after a while, you realize that these changes are unwarranted. You want to
-go back to the previous state, undoing all the changes that you made, after
-your friend arrived.
+But after a while, you realize that these changes are 'unwarranted'. You want to
+go back to the previous state, undoing all the changes that were made after
+your friend's arrival.
 
-The undo in your editor may allow undoing some changes(if you haven't closed it
-after making the changes) but there's no way of getting back deleted files
-using your editor. That's where mercurial comes to the rescue.
+The 'undo' in your editor may allow undoing some changes. However 
+there is no way of getting back deleted files using this feature. 
+This is where 'Mercurial' comes to the rescue.
 
-We shall use the revert command of hg to undo all the changes after the last
-commit. If we want to undo all the changes, we use the revert command with the
---all argument, else use revert command with specific filename as argument.
+We shall use the 'revert' command of hg to undo all the changes after the last
+commit. We use the revert command with the '--all' argument for undoing 
+all changes, else use revert command with 'specific filename' as argument.
 
 .. L5
 
@@ -108,14 +108,14 @@ commit. If we want to undo all the changes, we use the revert command with the
 
 .. R5
 
-After running this command, you can see that all deleted files have been
-restored. But hg has generated new files with .orig extension.  Mercurial
-actually doesn't like  to delete any of the changes that you have made. So, it
-makes a back-up of the already existing files in the present state and gives
-you back the old file.
+After running this command, you can see that all the deleted files have been
+restored. However, hg has generated new files with '.orig' extension. Mercurial
+actually doesn't like  to delete any of the changes that you've made. So, it
+makes a backup of the already existing files in the present state and gives
+you the old file.
 
-If we now decide, that we want to redo the changes that we had done to the
-existing file, we can just overwrite it with the backed up file. 
+If we now decide that we want to redo the changes that we had done to the
+existing file, we can overwrite it with the backed up file. 
 
 .. L6
 
@@ -131,9 +131,9 @@ existing file, we can just overwrite it with the backed up file.
 
 .. R6
 
-Let's say we now want to commit these changes, but we are not sure of all the
-changes that we have made to the file, since it's been a while after we made
-the changes. We could use the diff command to see all the changes that have
+Now, let's say we want to commit all the changes. We are not sure of all the
+changes done, since it's been a while after we made the changes. 
+We could use the 'diff' command to see all the changes that have
 been made in the file.
 
 .. L8
@@ -142,13 +142,13 @@ been made in the file.
 
 .. R7
 
-You see some cryptic output, but it's essentially giving you the list of
-changes made to the file. All the lines that were deleted are preceded by a -
-and all the new-lines are preceded by a +. You can see that the & occurrences
-have been replaces with and. 
+You see some 'cryptic' output, but it's essentially giving you the list of
+changes made to the file. All the lines that were deleted are preceded by 'a -'
+and all the new lines are preceded by 'a +'. You can see that the '&' occurrences
+have been replaced with 'and'. 
 
-We should note here that, the diff wouldn't make much sense, if we had some
-binary files like .jpg or .pdf files. We would see some gibberish in the
+We should note that, the 'diff' wouldn't make much sense, if we had some
+binary files like '.jpg' or '.pdf' files. We would see some gibberish in the
 output. Let's now commit this change.
 
 .. L9
@@ -159,7 +159,7 @@ output. Let's now commit this change.
 
 .. R8
 
-We can pass an additional argument, -v or --verbose, to hg log to get the whole
+We can pass an additional argument, '-v' or 'verbose', to 'hg log' to get the whole
 commit message, instead of just the summary.
 
 .. L10
@@ -168,7 +168,7 @@ commit message, instead of just the summary.
 
 .. R9
 
-Also, we are not always, interested to see the whole history of the project. It
+Also, we may not always want to see the whole history of the project. It
 would often suffice to see the last few commits.
 
 .. L11
@@ -177,8 +177,8 @@ would often suffice to see the last few commits.
 
 .. R10
 
-To limit the output of hg log, we could use the -l or --limit argument. Now it
-will print only last three commits.
+To limit the output of hg log, we could use the '-l' or 'limit argument'. Now '-l3' 
+will print only the last three commits.
 
 .. L12
 
@@ -187,10 +187,10 @@ will print only last three commits.
 .. R11
 
 Often, the level of detail provided by the commit messages is also not enough.
-We would want to see what exactly changed with a commit, probably as a diff. We
-could do that using revision numbers. 
+We may want to see what exactly changed with a commit, probably as a 'diff'. We
+could do that using 'revision numbers'. 
 
-Use the log command to get a brief description of all the changes made, by
+Use the 'log' command to get a brief description of all the changes made, by
 showing us the summary line of all the commits. Look at the changeset line in
 the output of the command. It shows a number followed by a semi-colon and some
 long hexa-decimal string. The number is called the revision number. It is an
@@ -204,9 +204,9 @@ the revision number, if required.
 
 .. R12
 
-The revision number can also be passed as an argument to many commands. Let's
-say we wish to see the changes between revision 1 and revision 2. We shall use
-the diff command to do this.
+The 'revision number' can also be passed as an argument to many commands. Let's
+say we wish to see the changes between 'revision 1' and 'revision 2'. We shall use
+the 'diff' command to do this.
 
 .. L14
 
@@ -214,7 +214,7 @@ the diff command to do this.
 
 .. R13
 
-The diff command takes two revision numbers as arguments and gives the changes
+The 'diff' command takes two revision numbers as arguments and gives the changes
 made from revision in the first argument to revision in the second argument.
 
 .. R14
@@ -246,8 +246,7 @@ To see changes made to a particular file, in the speciifed range of commits,
 
 .. R17
 
-This brings us to the end of the tutorial. In this tutorial, we have
-seen,
+This brings us to the end of the tutorial. 
 
 .. L18
 
@@ -256,9 +255,9 @@ seen,
 .. R18
 
 In this tutorial, we have learnt to, 
- #. Undo changes to the repository using hg revert,
- #. View changes done to the repository using hg diff
- #. Use revision numbers as arguments to different hg commands
+ #. Undo changes to the repository using 'hg revert',
+ #. View changes done to the repository using 'hg diff',
+ #. Use 'revision numbers' as arguments to different 'hg commands'.
 
 .. L19
 
@@ -266,9 +265,10 @@ In this tutorial, we have learnt to,
 
 .. R19
 
-Here are some self assessment questions for you to solve
-#. How to accomplish not saving backup files using hg revert command?
-#. Get the history of revisions 2 to 4 without having to list each revision? 
+Here are some self assessment questions for you to solve:
+
+#. How to you avoid saving 'backup files' while using 'hg revert' command?
+#. How do we get the history of revisions 2 to 4 without having to list each revision? 
 #. Print the description and content of a change. Hint: Use --patch option
 
 .. L20
@@ -292,8 +292,8 @@ And the answers,
 .. R21
 
 Hope you have enjoyed this tutorial and found it useful. Feel free to play
-around with Mercurial and read the documentation given by hg help command. When
-you are ready to move on, please proceed to the third tutorial on 'Version
+around with Mercurial and read the documentation given by 'hg help' command. When
+you are ready to move on, please proceed to the fourth tutorial on 'Version
 Control using Hg'
 
 Thank you!

@@ -17,17 +17,17 @@ Spoken Tutorial Script
 
 .. L1
 
-{{{ Show the first slide containing title, name of the production team along
-with the logo of MHRD}}}
+*{{{ Show the first slide containing title, name of the production team along
+with the logo of MHRD}}}*
 
 .. R1
 
-Hello friends and welcome to the second part of tutorial on 'Version Control
-using Hg' 
+Hello friends and welcome to the tutorial on 'Version Control
+using Mercurial: Let there a Repo!' 
 
 .. L2
 
-{{{Show the slide 'Prerequisite'}}}
+*{{{Show the slide 'Prerequisite'}}}*
 
 .. R2
 
@@ -36,21 +36,22 @@ continue on this tutorial:
 
 .. L3
 
-{{{Show the slide 'Objectives'}}}
+*{{{Show the slide 'Objectives'}}}*
 
 .. R3
 
-At the end of this tutorial you will be able to
- 1. initialize a new repository,
+At the end of this tutorial you will be able to do the following to a repository
+ 
+ 1. initialize it,
  #. obtain the status of a repository,
- #. add new files to a repository,
- #. take snapshots of a repository,
- #. view the history of a repository,
- #. and set your user information for hg 
+ #. add new files to it,
+ #. take snapshots,
+ #. view the history,
+ #. and also set your user information for hg 
 
 .. L4
 
-{{{Show the slide for 'We need a repo!'}}}
+*{{{Show the slide for 'We need a repo!'}}}*
 
 .. R4
 
@@ -64,22 +65,30 @@ to the files.
 
 .. L5
 
-{{{Show the slide 'Initializing a Repo'}}}
+*{{{Show the slide 'Initializing a Repo'}}}*
 
 .. R5
 
-A repository can either be started using an init command or an existing
-repository could be cloned. Let us look at creating our own repository, now. We
-can look at obtaining already existing repositories, at a later stage.
+A fresh repository can either be started using an init command or an existing
+repository could be cloned. It adds a .hg directory to our working directory. 
+
+Let us look at creating our own repository, now. We can look at obtaining 
+already existing repositories, at a later stage.
+
+Switch to your terminal
 
 Let's say we have a folder called book, which has all the chapters of a book as
 text files. Let us convert that folder, into a hg repository.
 
 .. L6
 
-$ cd book/
-$ ls -a
-. .. chapter1.txt chapter2.txt chapter3.txt
+*{{{Switch to terminal}}}
+
+``$ cd book/``
+
+``$ ls -a``
+
+``. .. chapter1.txt chapter2.txt chapter3.txt``
 
 .. R6
 
@@ -88,81 +97,100 @@ repository using the hg init command
 
 .. L7
 
-$ hg init
-$ ls -a
-. .. .hg chapter1.txt chapter2.txt chapter3.txt
+``$ hg init``
+
+``$ ls -a``
+
+``. .. .hg chapter1.txt chapter2.txt chapter3.txt``
 
 .. R7
 
 The .hg directory indicates that our book directory is now a hg repository.
+
 Mercurial keeps all the history of the changes made, and a few other config
 files, etc. in this directory. The directory, book is called our working
 directory.
 
 .. L8
 
-{{{Show the slides 'Status Report'}}}
+*{{{Show the slides 'Status Report'}}}*
 
 .. R8
 
 We now have a fresh repository, but all our files are not being tracked or
 watched by mercurial, yet. We need to explicitly ask it to watch the files,
-that we want it to.
+that we want it to. Let's first see the status of our repo using the command.
 
 .. L9
 
-$hg status
+*{{{Switch to Terminal}}}
+
+``$hg status``
+
+*{{{Show the slides 'Status Report'}}}
 
 .. R9
 
-Gives the status of our repo. As a beginner, use it often.
+It gives the status of our repo. As a beginner, use it often. You can use 
+'hg help commandname' which gives the details about the command. For example,
 
 .. L10
 
-$hg help 'status'
+*{{{Switch to terminal}}}*
+
+``$hg help 'status'``
 
 .. R10
 
-You can use 'hg help commandname' which gives the details about the command.
-For example.
+You can see the status codes listed in the help for status command.
 
 .. L11
 
-$hg help status
 
-.. L12
-
-{{{Show the slides for 'Status Codes'}}}
+*{{{Show the slides for 'Status Codes'}}}*
 
 .. R11
 
-Let's now to try to discern what each of the status code associated with the
-files mean. By looking at the codes, it is clear that our files are not being
-tracked by hg yet. Now let's move onto 'Adding Files'.
+Let's now to try to understand what each of the status code associated with the
+files in our repository mean.
 
-.. L13
+.. L12
 
-$hg add
+*{{{Show the slides for 'Adding files'}}}*
 
 .. R12
 
+By looking at the codes, it is clear that our files are not being tracked by 
+hg yet. Now let's move onto 'Adding Files'.
+
+.. L13
+
+*{{{Switch to terminal}}}*
+
+``$hg add``
+
+
+.. R13
+
 This simply adds all the files in the (working) directory, to the repository.
-As expected, the status command shows an A before he file names. We could also
+As expected, the status command shows an A before the file names. We could also
 specify files individually, for example
 
 .. L14
 
-$ hg add chapter1.txt
+``$ hg add chapter1.txt``
 
-.. R13
+*{{{Show the slides for 'Adding files'}}}*
+
+.. R14
 
 If you have deleted files, hg status will show you the status code !. You can,
 then, tell hg to stop tracking these files, using the hg remove command. Look
 at hg help remove for more details.
 
-.. L15
+.. L14
 
-{{{Show the slides 'Taking Snapshots'}}}
+*{{{Show the slides 'Taking Snapshots'}}}*
 
 .. R14
 
@@ -170,9 +198,11 @@ We have added a set of new files to the repository, but we haven't told
 mercurial to remember these changes, i.e., to take a snapshot at this point in
 time. We do this by using the commit command.
 
-.. L16
+.. L15
 
-$ hg commit -u "Primal Pappachan <primal@fossee.in>" -m "Initial Commit."
+*{{{Switch to Terminal}}}*
+
+``$ hg commit -u "Primal Pappachan <primal@fossee.in>" -m "Initial Commit."``
 
 .. R15
 
@@ -185,9 +215,9 @@ Mercurial has now taken a snapshot of our repository and has attached our
 description along with it. To see the status of the files in the repository,
 use the hg status command.
 
-.. L17
+.. L16
 
-$ hg st
+``$ hg st``
 
 .. R16
 
@@ -195,29 +225,29 @@ The command does not return anything, when there are no uncommitted changes.
 Also, notice that I have started getting lazy and used only a short name st for
 the status command.
 
-.. L18
+.. L17
 
-{{{Show the slide 'Thumbnail views'}}}
+``{{{Show the slide 'Thumbnail views'}}}``
 
 .. R17
 
 To see the history of the changes to our repository, we use hg log. We can view
 the change that we just made to our repository.
 
-.. L19
+.. L18
 
-$ hg log
+``$ hg log``
 
 .. R18
 
 hg log gives the log of the changes made in the form of changesets. A changeset
 is a set of changes made to the repository between two consecutive commits. It
 also shows the date at which the commit was made. Please have a look of the
-various aspects of the changeset.
+various aspects of the changeset mentioned in the slide.
 
-.. L20
+.. L19
 
-{{{Show the slide 'User Information'}}}
+*{{{Show the slide 'User Information'}}}*
 
 .. R19
 
@@ -233,105 +263,105 @@ for all the projects that we are working on.
 For linux systems, we open the configuration file in our favorite editor and
 add the username details and our editor preferences.
 
-.. L21
+.. L20
 
+*{{{Switch to terminal}}}*
 
-vim ~/.hgrc 
-[ui]
-username = Primal Pappachan <primal@fossee.in>
-editor = vim
+``vim ~/.hgrc``
 
-.. R21
+``[ui]``
+
+``username = Primal Pappachan <primal@fossee.in>``
+
+``editor = vim``
+
+.. R20
 
 We have now set the user-name details for mercurial to use.
 
-.. L22
+.. L21
 
-{{{Show the slide 'Advice: commits, messages'}}} 
+*{{{Show the slide 'Advice: commits, messages'}}}*
 
-.. R22
+.. R21
 
 Some Recommended Practices for commit messages
 
 1. Atomic changes; one change with one commit
-
-#. Single line summary — 60 to 65 characters long
-
+#. Single line summary, 60 to 65 characters long
 #. Followed by paragraphs of detailed description
- -  Why the change?
- - What does it effect?
- - Known bugs/issues?
- - etc.
 
-.. L23
+ * Why the change?
+ * What does it effect?
+ * Known bugs/issues?
+ * etc.
 
-{{{Show the 'summary' slide'}}}
+.. L22
 
-.. R23
+*{{{Show the 'Summary' slide}}}*
+
+.. R22
 
 This brings us to the end of the tutorial. In this tutorial, we have
 seen,
+
  1. how to initialize a new repository using hg init,
- #. get the status of a repository using hg status and meaning of it's status
- codes
+ #. get the status of a repository using hg status and meaning of status codes
  #. make commits of changes to files, using hg commit 
  #. view the history of the repository using the hg log command,
  #. set our user information in the global hgrc file.
 
-.. L24
+.. L23
 
 {{{Show self assessment questions slide}}}
 
-.. R24 
+.. R23 
 
 Here are some self assessment questions for you to solve
 
  1. How can you tell hg to stop tracking deleted files?
- #. Here's a part of the output that is printed in 'hg log'.
-	changeset:   1:2278160e78d4
-	tag:         tip
-	user:        Primal Pappachan <primal@fossee.in>
-	date:        Sat Jan 26 22:16:53 2012 +0530
-	summary:     Added Readme
- Try to identify each component of this changeset and it's meaning. In the
- changeset, what is the significance of the number as well as hexadecimal
- string?
+ 2. What happens when 'hg commit' command is run first time without specifying 
+    -u paramter?
+ 3. Here's a part of the output that is printed in 'hg log':
+     changeset:   1:2278160e78d4
+     tag:         tip
+     user:        Primal Pappachan <primal@fossee.in>
+     date:        Sat Jan 26 22:16:53 2012 +0530
+     summary:     Added Readme
+     Try to identify each component of this changeset and it’s meaning. In the 
+     changeset, what is the significance of the number as well as hexadecimal 
+     string in the first line? 
 
- #. What happens when 'hg commit' command is run first time without specifying
- username as parameter or creating the hg configuration file? 
- 
-.. L25
+.. L24
 
-{{{Show the solutions slide to self assessment questions }}}
+*{{{Show the solutions slide to self assessment questions }}}*
 
-.. R25
+.. R24
 
 And the answers,
 
- 1. If you have deleted files, hg status will show you the status code !. You
- can, then, tell hg to stop tracking these files, using the hg remove command.
- #. The revision number is a handy notation that is only valid in that
- repository. The hexadecimal string is the permanent, unchanging identifier
- that will always identify that exact changeset in every copy of the repository
+ 1. If you have deleted files, hg status will show you the status code !. You 
+ can use hg remove command to tell mercurial to stop tracking files.
  
- #. If you have set the EMAIL environment variable, this will be used. Next,
- Mercurial will query your system to find out your local user name and host
- name, and construct a username from these components. Since this often results
- in a username that is not very useful, it will print a warning if it has to do
- this. If all of these mechanisms fail, Mercurial will fail, printing an error
- message. In this case, it will not let you commit until you set up a
- username.
+ 2. If you have set the EMAIL environment variable, this will be used. Next, 
+ Mercurial will query your system to find out your local user name and host 
+ name, and construct a username from these components. Since this often results 
+ in a username that is not very useful, it will print a warning if it has to do 
+ this. If all of these mechanisms fail, Mercurial will fail, printing an error 
+ message. In this case, it will not let you commit until you set up a username.
 
-.. L26
+ 3. The revision number is a handy notation that is only valid in that 
+ repository. The hexadecimal string is the permanent, unchanging identifier 
+ that will always identify that exact changeset in every copy of the repository.
+ 
+.. L25
 
-{{{Show the thank you slide}}}
+*{{{Show the thank you slide}}}*
 
-.. R26
+.. R25
 
 Hope you have enjoyed this tutorial and found it useful. Feel free to play
-around with Mercurial and read the documentation given by hg help command. When
-you are ready to move on, please proceed to the third tutorial on 'Version
-Control using Hg'
+around with Mercurial and read the documentation given by hg help command.
 
 Thank you
 

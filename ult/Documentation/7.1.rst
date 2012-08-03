@@ -1,0 +1,28 @@
+
+7.1 Manipulatin12.30g Lists
+======================
+
+1. Slicing
+   * Perform slicing on a list(0.33 - 2.26)
+   * Exercise 1: Obtain the primes less than 10, from the given list(2.34 - 2.58)
+   * Start and stop index in slicing(3.00 - 5.29)
+   * Exercise 2:Obtain all the multiples of three from the given list(5.47 - 6.10)
+
+#. Concatenate two lists
+   * Using the plus operator(6.12 - 7.12)
+
+#. Sorting lists
+   * Using the ``sort'' method(7.13 - 8.01)
+   * Using the ``sorted'' method(8.02 - 8.56)
+
+#. Reverse lists
+   * Using the ``reverse'' method(8.58 - 9.28)
+
+#. Striding
+   * Example which performs striding(8.58 - 9.47)
+   * Exercise 3: Obtain a list with marks in descending order from the given list(9.52 - 11.07)
+
+#. Summary(11.10 - 11.23)
+
+#. Evaluation Questions(11.25 - 12.30)
+

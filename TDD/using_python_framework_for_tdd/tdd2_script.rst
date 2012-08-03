@@ -155,7 +155,7 @@ tests into collections and improves reporting.
 
 .. L11
 
-{{{ Switch to slide-11, Unittest }}}
+{{{ Switch to slide-11(stay for 5 seconds) and switch to slide 12 }}}
 
    
 .. R12
@@ -170,7 +170,7 @@ files too.
 
 .. L12
 
-{{{ Show slide13, unittesting fibonacci.py }}}
+{{{ Show slide13(stay for 3 seconds) and switch to slide14 }}}
 
 
 .. R13
@@ -183,10 +183,31 @@ and closes ``fibonacci_testcases.dat`` file.
 
 .. L13
 
-{{{ Show slide13(stay for 3 seconds) and switch to slide14 }}}
+{{{ Show slide 15, test_fibonacci.py }}}
 
 
-.. R23
+.. R14
+
+Individual unittests and doctests may not be fiseable to use when
+multiple files are to be tested. For this purpose we have a python
+utility called Nose. Nose test aggregates unittests and doctests. Nose
+test utility can be installed by using the following command 
+``$ easy_install nose``. It can be run by issuing the command ``$ nosetests``
+in the root level of the directory containing all your python files to be tested.
+
+.. L14
+
+{{{ Show slide15(for 5 seconds), nose tests }}}
+
+{{{ Follow the commands in terminal. }}}
+
+::
+
+    $ easy_install nose
+    $ nosetests
+    
+.. R15    
+
 
 This brings us to the end of the tutorial.In this tutorial,
 we have learnt to,
@@ -195,38 +216,38 @@ we have learnt to,
  #. Design a Test driven approach for a given ``fibonacci`` function.
 
 
-.. L23
+.. L15
 
-{{{ switch to slide-13,Summary }}}
+{{{ switch to slide-17,Summary }}}
 
-.. R14
+.. R16
 
 Here are some self assessment questions for you to solve
  1.
 
  2. 
 
-.. L14
+.. L16
 
-{{{ switch to slide-14, Evaluation }}}
+{{{ switch to slide-18, Evaluation }}}
 
-.. R15
+.. R17
 
 And the answers are,
  1.
 
  2.
 
-.. L15
+.. L17
 
-{{{ switch to slide-15 ,Solutions}}}
+{{{ switch to slide-19 ,Solutions}}}
 
-.. R16
+.. R18
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
 
-.. L16
+.. L18
 
-{{{ Switch to slide-16, Thank you}}}
+{{{ Switch to slide-20, Thank you}}}
 

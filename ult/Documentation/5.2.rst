@@ -1,0 +1,32 @@
+
+5.2 Getting started with symbolics
+==================================
+
+1. Define symbolic expressions in sage(0.29 - 2.52)
+   * Exercise 1: Define given expressions as symbolic expressions(3.03 - 3.44)
+
+#. Use built-in constants and functions
+   * built-in constants(3.46 - 4.59)
+   * built-in functions(5.00 - 6.02)
+   * Exercise 2: Combined problem of built-in constants and functions(6.06 - 7.00)
+
+#. Define Symbolic functions
+   * Define arbitary functions(7.03 - 8.09)
+   * Define functions piecewise(8.10 - 9.19)
+   * Define functions convergent series & other series(9.20 - 11.37)
+   * Exercise 3:Define a piecewise function(11.43 - 12.57)
+
+#. Perform calculus using sage
+   * Differentiation(12.58 - 14.36)
+   * Integration(14.37 - 15.16)
+   * Find factors(15.17 - 15.45)
+   * Simplify(15.46 - 16.31)
+   * Find roots and substitute(16.32 - 18.02)
+   * Exercise 4: Perform calculus on given expressions(18.07 - 19.51)
+
+#. Matrices in Sage(19.52 - 20.56) 
+   * Exercise 5: Find the determinant and inverse of the given expression(20.57 - 21.43)
+
+#. Summary(21.46 - 22.27)
+
+#. Evaluation Questions(22.28 - 23.2s1) 

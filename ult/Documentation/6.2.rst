@@ -1,0 +1,23 @@
+
+6.2 Input Output
+================
+
+1. Print some value(0.26 - 1.58)
+   
+#. Print using modifiers
+   * Using modifiers(1.59 - 3.01)
+   * Exercise 1(3.06 - 3.57)
+   * Another example using print(3.58 - 5.43)
+
+#. Take input from user
+    * raw_input(5.44 - 6.49)
+    * Exercise 2(6.58 - 7.53)
+    * Exercise 3(7.59 - 8.30)
+
+#. Display a prompt to the user before taking the input
+    * Display a prompt(8.31 - 8.53)
+    * Exercise 4(8.58 - 9.33)
+
+#. Summary(9.38 - 10.02)
+
+#. Evaluation Questions(10.04 - 11.22)

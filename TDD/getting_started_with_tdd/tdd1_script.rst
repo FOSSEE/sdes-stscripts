@@ -175,9 +175,9 @@ This brings us to the end of the tutorial.In this tutorial,
 .. R14
 
 Here are some self assessment questions for you to solve
- 1.
 
- 2. 
+ 1. Design a TDD approach for a factorial function.
+ 2. Design a TDD approach for an armstrong function. 
 
 .. L14
 
@@ -186,9 +186,9 @@ Here are some self assessment questions for you to solve
 .. R15
 
 And the answers are,
- 1.
+ 1. {{{ show answer slide-1 }}}
 
- 2.
+ 2. {{{ show answer slide-2 }}}
 
 .. L15
 

@@ -1,0 +1,41 @@
+
+8.5 Testing and debugging
+=========================
+
+1. Understand what is software testing
+   * Definition (0.28 - 0.36)
+   
+#. Test simple functions for their functionality
+   * Example using gcd function (0.37 - 2.19)
+   * Use of __name__ == '__main__': (2.21 - 3.26)
+
+#. Automate tests. 
+   * Exercise 1: Write tests for gcd code (3.42 - 5.14)
+   * Exercise 2: Write automated tests for LCM (5.21 - 5.54)
+
+#. Understand the need for coding style 
+   * What is the need for coding style (6.15 - 6.29)
+   * Naming variables (6.36 - 7.24)  
+   * Code style points (7.26 - 7.59)
+   * Exercise 3: Give meaningful names to the variables in a code(8.04 - 8.21)
+
+#. Handle Errors and Exceptions
+   * Example of an error (8.28 - 9.21)
+   * Use Exception in programs (9.21 - 11.22)
+   * Understand the debugging process (10.33 - 11.52)
+   * How to debug a program in python (11.56 - 13.19)
+
+#. Summary(13.21 - 13.37)
+
+#. Evaluation Questions(13.41 - 14.38)
+
+
+
+
+
+
+
+ 
+ 
+ #. Learn some of the standards followed by the Python Community.
+ .
