@@ -1,0 +1,244 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Using Linux Tools
+%
+% Author: FOSSEE 
+% Copyright (c) 2009, FOSSEE, IIT Bombay
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
+}
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
+\usepackage{mathpazo,courier,euler}
+\usepackage{listings}
+\lstset{language=sh,
+    basicstyle=\ttfamily\bfseries,
+  showstringspaces=false,
+  keywordstyle=\color{black}\bfseries}
+
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT STARTS
+\begin{document}
+
+\sffamily \bfseries
+\title
+[Features of the Shell]
+{Features of the Shell}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
+
+% slide 1
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Objectives}
+\label{sec-2}
+
+At the end of this tutorial, you will be able to,
+\begin{itemize}
+\item Understand various features of the shell
+\item Learn about shell meta characters
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pre-requisites}
+\label{sec-3}
+
+Spoken tutorial on,
+\begin{itemize}
+\item Getting started with Linux
+\item Basic File Handling
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tab-completion}
+\begin{itemize}
+\item Hit tab to complete an incompletely typed word
+\item Tab twice to list all possibilities when ambiguous completion
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Tab-completion..}
+  \begin{itemize}
+  \item Bash provides tab completion for the following
+    \begin{enumerate}
+    \item File Names
+    \item Directory Names
+    \item Executable Names
+    \item User Names (when prefixed with a \~{})
+    \item Host Names (when prefixed with a @)
+    \item Variable Names (when prefixed with a \$)
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{History}
+\begin{itemize}
+\item Bash saves history of commands typed
+\item Up and down arrow keys allow to navigate history
+\item \texttt{Ctrl-r} searches for commands used
+\item No. of commands limited, generally upto 1000
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Shell Meta Characters}
+  \begin{itemize}
+  \item ``meta characters''  are special command directives
+  \item No meta-characters in file-names
+  \item While naming files, use characters A-Z, a-z, 0-9, . , - , \_
+  \item shell meta characters -- \\
+             \verb+/<>!$%^&*|{}[]"'`~;+
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\label{sec-8}
+
+  In this tutorial, we have learnt to,
+
+
+\begin{itemize}
+\item Implement features of shell like tab-completion and history
+\item Make use of the shell meta characters
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Evaluation}
+\label{sec-9}
+
+
+\begin{enumerate}
+\item Bash does not provide tab completion for Host Names. True or False? 
+\vspace{12pt}
+\item State the command which will list all the files in the current working
+      directory that end in either \verb~.c~ or \verb~.h~
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Solutions}
+\label{sec-10}
+
+
+\begin{enumerate}
+\item False
+\vspace{15pt}
+\item \$ ls *.[ch]
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{10pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT \\(NME-ICT) \\
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, Government of India 
+\item More information on this Mission is available at: \\{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+
+  \begin{block}{}
+  \begin{center}
+  {\Large THANK YOU!} 
+  \end{center}
+  \end{block}
+\begin{block}{}
+  \begin{center}
+    For more Information, visit our website\\
+    {\color{blue}\url{http://fossee.in/}}
+  \end{center}  
+  \end{block}
+\end{frame}
+
+
+\end{document}
+
