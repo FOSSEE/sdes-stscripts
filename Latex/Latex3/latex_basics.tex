@@ -7,40 +7,12 @@
   \setbeamercovered{transparent}
   \setbeamertemplate{navigation symbols}{}
 }
-
-\usepackage[T1]{fontenc}
-\usepackage{fixltx2e}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{float}
-\usepackage{wrapfig}
-\usepackage{soul}
-\usepackage{textcomp}
-\usepackage{marvosym}
-\usepackage{wasysym}
-\usepackage{latexsym}
-\usepackage{amssymb}
-\usepackage{hyperref}
-\tolerance=1000
-\usepackage[english]{babel} \usepackage{ae,aecompl}
-\usepackage{mathpazo,courier,euler} \usepackage[scaled=.95]{helvet}
-\usepackage{listings}
-\lstset{
-  language=TeX,
-  basicstyle=\ttfamily\bfseries,
-  commentstyle=\ttfamily\color{blue},
-  stringstyle=\ttfamily\color{orange},
-  showstringspaces=false,
-  breaklines=true,
-  postbreak = \space\dots
-}
-
 % Taken from Fernando's slides.
 \usepackage{ae,aecompl}
 \usepackage[scaled=.95]{helvet}
 
 \usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
+%\usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 
 % change the alerted colour to LimeGreen
@@ -52,7 +24,7 @@
 % \setbeamercovered{transparent}
 
 % theme split
-\usepackage{verbatim}
+
 \newenvironment{colorverbatim}[1][]%
 {%
 \color{blue}
@@ -61,14 +33,15 @@
 {%
 \endverbatim
 }%
-
+\usepackage{verbatim}
 \usepackage{mathpazo,courier,euler}
 \usepackage{listings}
 \lstset{language=sh,
     basicstyle=\ttfamily\bfseries,
   showstringspaces=false,
   keywordstyle=\color{black}\bfseries}
-
+\newcommand{\typ}[1]{\lstinline{#1}}
+%\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
 % logo
 \logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
 \logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
@@ -77,27 +50,25 @@
 \includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
 \hspace{281pt}
 \includegraphics[scale=0.80]{../images/3t-logo.pdf}}
-\newcommand{\typ}[1]{\lstinline{#1}}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT STARTS
 \begin{document}
+
+\sffamily \bfseries
+\title
+[{\LaTeX}: Basics and Structure]
+{{\LaTeX}: Basics and Structure}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}
+\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
+
+% slide 1
 \begin{frame}
-  \begin{center}
-    \vspace{12pt}
-    \textcolor{blue}{\huge {\LaTeX} basics and structure}
-  \end{center}
-  \vspace{18pt}
-  \begin{center}
-    \vspace{10pt}
-    \includegraphics[scale=0.95]{../images/fossee-logo.png}\\
-    \vspace{5pt}
-    \scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
-    \scriptsize Funded by National Mission on Education through ICT\\
-    \scriptsize  MHRD,Govt. of India\\
-    \includegraphics[scale=0.30]{../images/iitb-logo.png}\\
-  \end{center}
+   \titlepage
 \end{frame}
 
 \begin{frame}
@@ -105,24 +76,31 @@
   \label{sec-2}
     At the end of this tutorial, you will be able to,
   \begin{itemize}
-    \item Understand basic structure of a LaTeX document, its various document
-    classes and loading packages that add new features to the LaTeX system.
-    \item Create a LaTeX document with a title and an abstract.
-    \item Create numbered and non-numbered sections and subsections
-     in a LaTeX document.
-    \item Create an appendix in a LaTeX document.
-    \item Create a table of content in a LaTeX document.
+    \item Understand basic structure of a LaTeX document, 
+          its various document classes and loading packages 
+    \item Create a LaTeX document with a title and an abstract
   \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Objectives..}
+  \begin{itemize}
+    \item Create numbered and non-numbered sections and subsections
+          in a LaTeX document
+    \item Create an appendix in a LaTeX document
+    \item Create a table of content in a LaTeX document
+  \end{itemize}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Pre-requisite}
 \label{sec-3}
 
-  Spoken tutorial on -
+  Spoken tutorial on,
 
 \begin{itemize}
-\item Introduction to {\LaTeX}.
+\item {\LaTeX} Introduction
 \end{itemize}
 \end{frame}
 
@@ -133,56 +111,44 @@
     \begin{verbatim}
       \documentclass{article}
         \begin{document}
-          SciPy is open-source software for mathematics, science, and 
-            engineering.
+          SciPy is open-source software for mathematics, 
+           science, and engineering.
         \end{document}
     \end{verbatim}
   }
 \end{frame}
 
+
 \begin{frame}[fragile]
   \frametitle{\typ{documentclass command}}
-  \begin{center}
-    \begin{verbatim}
-      \documentclass{article}
-    \end{verbatim}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{\typ{documentclass command}\ \ldots}
-  \begin{center}
-    \begin{verbatim}
-      \documentclass [parameters] {DocumentClass}
-    \end{verbatim}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{\typ{documentclass command: A Closer look}}
   \begin{itemize}
     \item Used to select the \emph{class} of our document
     \item Some available classes - \typ{article}, \typ{proc},
-      \typ{report}, \typ{book}, \typ{slides}, \typ{letter}.
-    \item For example:
-      \typ{\\documentclass\[12pt,a4paper,draft\]\{report\}}\\
-      The parameters within \typ{\[ \]} are optional.
-      \begin{itemize}
-        \item \typ{12pt} -- sets the font size of main font and others are
-         relatively, adjusted. \typ{10pt} is the default. 
-        \item \typ{a4paper} -- specify paper size
-        \item \typ{draft} -- marks hyphenation and justification problems in
-        typesetting with a square in the margin
-      \end{itemize}
+      \typ{report}, \typ{book}, \typ{slides}, \typ{letter}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+  \frametitle{\typ{documentclass command}..}
+    \begin{itemize}
+    \item Example:
+      \typ{\\documentclass}
+       \typ{\[12pt,a4paper,draft\]\{report\}}\\
+      \tiny The parameters within \typ{\[ \]} are optional.
+      \begin{itemize}
+        \item \typ{12pt} -- sets the font size of main font 
+        \item \typ{a4paper} -- specify paper size
+        \item \typ{draft} -- makes LaTeX indicate hyphenation and justification
+                  problems
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
   \frametitle{\typ{usepackage command}}
   \begin{center}
-    \begin{verbatim}
-      \usepackage[options]{...}
-    \end{verbatim}
+      \lstinline{\usepackage[options]}\{...\}
   \end{center}
 \end{frame}
 
@@ -202,8 +168,7 @@
       \author{FOSSEE}
       \date{June 2010}
       \begin{document}
-        SciPy is open-source software for mathematics, science, 
-        and engineering.
+        SciPy is open-source software for mathematics, science, and engineering.
       \end{document}
     \end{verbatim}
   }
@@ -220,8 +185,7 @@
       \date{June 2010}
       \begin{document}
         \maketitle
-        SciPy is open-source software for mathematics, science, 
-        and engineering.
+        SciPy is open-source software for mathematics, science, and engineering.
       \end{document}
     \end{verbatim}
   }
@@ -242,11 +206,9 @@
       \begin{document}
         \maketitle
         \begin{abstract}
-          This document shows a glimpse of the features of Scipy that will 
-    be explored during this course.
+          This document shows a glimpse of the features of Scipy that will be explored during this course.
         \end{abstract}
-        SciPy is open-source software for mathematics, science,
-     and engineering.
+        SciPy is open-source software for mathematics, science, and engineering.
       \end{document}
     \end{verbatim}
   }
@@ -328,8 +290,7 @@
   \frametitle{Appendices}
   \begin{itemize}
     \item \lstinline{\appendix} command indicates the beginning of appendices.
-    \item Any content after \lstinline{\appendix}, will be added 
-    to the appendix.
+    \item Any content after \lstinline{\appendix}, will be added to the appendix.
     \item Use sectioning commands to add sections.
   \end{itemize}
 \end{frame}
@@ -361,13 +322,8 @@
 \begin{frame}[fragile]
   \frametitle{\typ{Exercise 1}}
   \begin{center}
-    Write a LaTeX script that creates a document of type article, which
-     contains both a table of content and an appendix. 
-    The table of content should be at the beginning of the document 
-    and the appendix at the end.
-    The book should contain two chapters, with the first chapter containing
-     two numbered and two un-numbered sections. The first un-numbered 
-    section should be present in the table of content.
+    Write a LaTeX script that creates a document of type article, which contains both a table of content and an appendix. The table of content should be at the beginning of the document and the appendix at the end.
+    The book should contain two chapters, with the first chapter containing two numbered and two un-numbered sections. The first un-numbered section should be present in the table of content.
   \end{center}
 \end{frame}
 
@@ -393,8 +349,7 @@
            Numbered-Section 2 Text
          \section*{Un-numbered Section3}
            \addcontentsline{toc}{section}{Numbered Subsection1}
-           First un-numbered Section Text.\\This appears in the 
-        table of content
+           First un-numbered Section Text.\\This appears in the table of content
          \section*{Un-numbered Section4}
            Second un-numbered Section Text
          \appendix
@@ -411,12 +366,10 @@
   \label{sec-8}
   In this tutorial, we have,
   \begin{itemize}
-    \item Gained an understanding of the basic structure of a LaTeX document,
-     its various document classes and loading packages that add new features to
+    \item Gained an understanding of the basic structure of a LaTeX document, its various document classes and loading packages that add new features to 
     \item   the LaTeX system.
     \item Created a LaTeX document with a title and an abstract.
-    \item Created both numbered and non-numbered sections and subsections
-    in a LaTeX document.
+    \item Created both numbered and non-numbered sections and subsections in a LaTeX document.
     \item Created an appendix in a LaTeX document.
     \item Created a table of content in a LaTeX document.
   \end{itemize}
@@ -427,9 +380,7 @@
   \label{sec-9}
   {\footnotesize 
   \begin{enumerate}
-    \item  Is the LaTeX code given below a valid input file (File compiles 
-successfully and produces the intended result, that is to produce a book 
-    with two chapters and an appendix.
+    \item  Is the LaTeX code given below a valid input file (File compiles successfully and produces the intended result, that is to produce a book with two chapters and an appendix.
   {\tiny 
     \begin{center}
       \begin{verbatim}
@@ -449,10 +400,7 @@ successfully and produces the intended result, that is to produce a book
       \end{verbatim}
     \end{center}
     }
-    \item subsection command can be placed at any arbitrary level. 
-    If they get numbered by default using the appropriate setcounter 
-command and secnumdepth parameter, do they automatically appear in the 
-table of content ?? 
+    \item subsection command can be placed at any arbitrary level. If they get numbered by default using the appropriate setcounter command and secnumdepth parameter, do they automatically appear in the table of content ?? 
   \end{enumerate}
   }
 \end{frame}
@@ -461,31 +409,28 @@ table of content ??
 \frametitle{\typ{Solutions}}
 \label{sec-10}
 \begin{enumerate}
-\item Although the given file looks syntactically valid, the output file is 
-    not what we expected. This is mainly because we are trying to use the 
-    section command to create sections in the appendix, for a document whose 
-    type is given as a book.
+\item Although the given file looks syntactically valid, the output file is not what we expected. This is mainly because we are trying to use the section command to create sections in the appendix, for a document whose type is given as a book.
 \vspace{15pt}
-\item No, the \textbackslash tableofcontents  command normally shows only 
-    numbered section headings, and only down to the level defined by the 
-    tocdepth counter.
+\item No, the \textbackslash tableofcontents  command normally shows only numbered section headings, and only down to the level defined by the tocdepth counter.
 \end{enumerate}
 \end{frame}
 
 \begin{frame}
+
   \begin{block}{}
   \begin{center}
-    \textcolor{blue}{\Large THANK YOU!} 
+  {\Large THANK YOU!} 
   \end{center}
   \end{block}
-  \begin{block}{}
-    \begin{center}
-      For more Information, visit our website\\
-      \url{http://fossee.in/}
-    \end{center}  
+\begin{block}{}
+  \begin{center}
+    For more Information, visit our website\\
+    {\color{blue}\url{http://fossee.in/}}
+  \end{center}  
   \end{block}
 \end{frame}
 
 \end{document}
+
 
 

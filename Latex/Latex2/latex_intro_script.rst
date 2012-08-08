@@ -1,30 +1,4 @@
-.. Objectives
-.. ----------
-
-.. At the end of this tutorial, you will 
-
-.. 1. Get acquainted to LaTeX.
-.. #. Know why we prefer LaTeX?
-.. #. Know the advantages and disadvantages of typesetting documents  
-..    using the LaTeX approach.
-.. #. Have a description, of a typical work flow; which uses LaTeX to typeset 
-..    documents.
-.. #. Recognise and differenciate between LaTeX commands, LaTeX comments and
-..    special characters, spacing and actual document content.
-.. #. Create and compile a very simple LaTeX document.
-
-.. Prerequisites
-.. -------------
-
-.. 1. Installing LaTeX 
-
-     
-.. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
-   Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
-   External Reviewer   :
-   Langauge Reviewer   : 
-   Checklist OK?       : 25-Feb-2012
-
+------
 Script
 ------
 
@@ -83,8 +57,8 @@ producing other kinds of documents, ranging from simple one page articles to
 complete books.
 
 LaTeX is pronounced Lah-tech or Lay-tec.
-TeX is pronounced Tech. TeX is also the first syllable in the Greek word for
-technology.
+'TeX' is pronounced Tech. 'TeX' is also the first syllable in the Greek word
+for technology.
 
 .. L5
 
@@ -100,7 +74,7 @@ Why we prefer LaTeX?
 
 .. L6
 
-{{{ Show the "Why LaTeX? ..." slide }}}
+{{{ Show the "Why LaTeX?.." slide }}}
 
 .. R6
 
@@ -111,7 +85,7 @@ Mark-up: a system of annotating text, adding extra information to specify
 structure and presentation of text.
 Document based markup: you don’t have to worry about each element individually. 
 
-This is essentially a fancy way of saying,LaTeX handles typesetting and lets 
+This is essentially a fancy way of saying, LaTeX handles typesetting and lets 
 you focus on content rather than appearance.
 
 .. L7
@@ -182,7 +156,7 @@ command and ends with an end command.
 
 .. L11
 
-{{{ Show the "Commands,Comments&Special Characters ..." slide }}}
+{{{ Show the "Commands,Comments&Special Characters.." slide }}}
 
 .. R11
 
@@ -247,26 +221,36 @@ our documents.
 .. L14
 
 {{{ Show the "Summary" slide }}}
-
+    
 .. R14
 
 This brings us to the end of this tutorial. In this tutorial, we have learnt
 
 1. About LaTeX.
-#. why we prefer LaTeX.
-#. About the advantages and disadvantages of typesetting documents  
+#. Why we prefer LaTeX.
+#. The advantages and disadvantages of typesetting documents  
    using the LaTeX approach.
+
+.. L15
+
+{{{ Show the "Summary.." slide }}}
+
+.. R15
+
+This brings us to the end of this tutorial. In this tutorial, we have learnt
+
 #. A description, of a typical work flow; which uses LaTeX to typeset 
    documents.
 #. The ability to recognize and differentiate between LaTeX commands, LaTeX
    comments and special characters, spacing and actual document content.
 #. To Create and compile a simple LaTeX document.
 
-.. L15
+
+.. L16
 
 {{{ Show the "Self assessment questions" slide }}}
 
-.. R15
+.. R16
 
 Here are some self assessment questions for you to solve
 
@@ -278,11 +262,11 @@ Here are some self assessment questions for you to solve
 temp_1.pdf using the dvipdfm command. Verify that the two files indeed look the
 same.
 
-.. L16
+.. L17
 
 {{{ Show the "Solutions" slide }}}
 
-.. R16
+.. R17
 
 And the answers,
 
@@ -290,11 +274,11 @@ And the answers,
 
 2. dvipdfm -o temp_1.pdf temp.dvi
 
-.. L17
+.. L18
 
 {{{ Show the SDES & FOSSEE slide }}}
 
-.. R17
+.. R18
 
 Software Development techniques for Engineers and Scientists - SDES, is an 
 initiative by FOSSEE. For more information, please visit the given link.
@@ -303,43 +287,43 @@ Free and Open-source Software for Science and Engineering Education - FOSSEE, is
 based at IIT Bombay which is funded by MHRD as part of National Mission on 
 Education through ICT.
 
-.. L18
+.. L19
 
 {{{ Show the ``About the Spoken Tutorial Project'' slide }}}
 
-.. R18
+.. R19
 
 Watch the video available at the following link. It summarises the Spoken 
 Tutorial project.If you do not have good bandwidth, you can download and 
 watch it. 
 
-.. L19
+.. L20
 
 {{{ Show the `` Spoken Tutorial Workshops'' slide }}}
 
-.. R19
+.. R20
 
 The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
 gives certificates to those who pass an online test.
 
 For more details, contact contact@spoken-tutorial.org
 
-.. L20
+.. L21
 
 {{{ Show the Acknowledgements slide }}}
 
-.. R20
+.. R21
 
 Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
 It is supported by the National Mission on Education through ICT, MHRD, 
 Government of India. More information on this mission is available at the 
 given link.
 
-.. L21
+.. L22
 
 {{{ Show the Thankyou slide }}}
 
-.. R21
+.. R22
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!

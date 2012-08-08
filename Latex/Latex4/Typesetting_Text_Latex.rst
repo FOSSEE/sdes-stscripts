@@ -17,7 +17,7 @@ Script
 
 .. R1
 
-Hello friends and welcome to the second tutorial on Typsetting Text in Latex. 
+Hello friends and welcome to the tutorial on Typesetting Text in Latex. 
 
 .. L2
 
@@ -25,24 +25,24 @@ Hello friends and welcome to the second tutorial on Typsetting Text in Latex.
 
 .. R2
 
-At the end of this tutorial you will be able to:
+At the end of this tutorial you will learn how to:
 
-1. Learn how to typeset your document using LaTEX.
+1. Typeset your document using LaTEX.
 
 #. Use lists, listings in your document for formatting text.
 
 .. L3
 
-{{{Show the slide 'Prerequisite'}}}
+{{{Show the slide 'Prerequisites'}}}
 
 .. R3
 
 Please make sure that you have gone through the following tutorials before you
 continue on this tutorial:
 
-1. LaTeX Part 1 - Getting Started 
-2. LaTeX Part 2 - Introduction
-3. LaTeX Part 3 - Structuring the Content
+1. Latex Installation
+2. Latex Introduction
+3. Latex Basics & Structuring
 
 
 .. L4
@@ -50,7 +50,7 @@ continue on this tutorial:
 {{{Show the slide 'Quotation Marks'}}}
 
 .. R4
-How can we add Quotation Marks to our document ?
+Let us begin with how to add qutation marks to our document.
 For this, we use ` (accent) character for the left quote &
 ' (apostrophe) character for the right quote. 
 For double quotes, we use them twice.
@@ -61,8 +61,8 @@ For double quotes, we use them twice.
 
 .. R5
 
-The \emph command is used to give the text an emphasized & italic effect.
-In tabular structures LaTeX doesn't add multiple spaces between words. 
+The <\emph> command is used to give the text an emphasized & italic effect.
+In tabular structures, LaTeX doesn't add multiple spaces between words. 
 Just like multiple empty lines, multiple spaces are considered 
 as a single space.
 Also, LaTeX starts a new paragraph at the beginning of the table. 
@@ -76,8 +76,8 @@ respectively.
 
 .. R6
 
-'\texttt' is used to change text to fixed width font & 
-'\textbf' is used to change text to bold face
+<'\texttt'> is used to change text to fixed width font & 
+<'\textbf'> is used to change text to bold face.
 We could also change the separating - (hyphen) to -- (n-dash) or --- (em-dash)
 to improve the appearance of the document.
 
@@ -88,7 +88,7 @@ to improve the appearance of the document.
 .. R7
 
 The 'enumerate' environment adds numbered lists to our document and
-the itemise environment adds un-numbered lists. \item command adds 
+the itemise environment adds un-numbered lists. <\item> command adds 
 a new entry to a list. Note, that LaTeX can easily handle nested lists. 
 In fact, most environments can be embedded within other environments, 
 without any problems.
@@ -101,7 +101,7 @@ without any problems.
 .. R8
 
 LaTeX provides a footnote command to add a footnote.
-In case we wish to add another Appendix before the section the footnote has 
+In case we wish to add another Appendix before the section, the footnote has 
 to be edited. To avoid this, LaTeX provides a handy system 
 of labels and referencing.
 
@@ -113,20 +113,21 @@ of labels and referencing.
 
 We can create labels for any elements in the document and then refer them
 anywhere in the document.
-\\label{labelname} command is used to create a lable for a particular element.
-Then, to refer to that element with a lable \\ref{labelname} command is used.
+<\\label{label-name}> command is used to create a label for a particular
+element. Then, to refer to that element with a label, <\\ref{label-name}> 
+command is used.
 
-But, remember that when you compile the document first time you will see
-question marks instead of the element you have refered using lables.
+But, remember that when you compile the document first time, you will see
+question marks instead of the element you have referred using labels.
 Do not worry, you just have to compile the document once again to make the
-elements refered by labels to appear.
+elements referred by labels to appear.
 
 So, whenever you use the labels & references remember to compile the document
 twice.
 
 .. L10
 
-{{{Show the slide 'Include Code'}}}
+{{{Show the slide 'Code Inclusion'}}}
 
 .. R10
 
@@ -138,22 +139,22 @@ including code in our document.
 
 First of all, we need to tell LaTeX, that we want to use the 
 listings package in our document. We do this by adding the directive 
-\usepackage{listings} to the preamble of our document.
+<\usepackage{listings}> to the preamble of our document.
 Then, we specify the language of the code that we are going to embed 
 into our document. This can be done in two ways,
-directly specifying it while declaration \lstinputlisting[language=Python] or 
-we can use the 'lstset' command.
+directly specifying it while declaration <\lstinputlisting[language=Python]> 
+or we can use the <'lstset'> command.
 
 
 .. L11
 
-{{{Show slide 'Including code..'}}}
+{{{Show slide 'Code Inclusion..'}}}
 
 .. R11
 
 Now, to put a line of code (inline and not as a separate block), 
-we use the \lstinline command. To embed a block of code, we use 
-the lstlisting environment (\begin{lstlisting} and \end{lstlisting}).
+we use the <\lstinline> command. To embed a block of code, we use 
+the lstlisting environment <(\begin{lstlisting} and \end{lstlisting})>.
 
 .. L12
 
@@ -164,7 +165,7 @@ the lstlisting environment (\begin{lstlisting} and \end{lstlisting}).
 This brings us to the end of the tutorial. In this tutorial, we have
 learnt to,
 
-1. Put Quotation Marks around text.
+1. Add Quotation Marks around text.
 
 #. Emphasize and give fixed width to fonts.
 
@@ -172,7 +173,7 @@ learnt to,
 
 #. Add Footnotes, Labels and References.
 
-#. To include code.
+#. Include code.
 
 .. L13
 
@@ -184,7 +185,7 @@ Here are some self assessment questions for you to solve.
 
 1. Which environment is used to include a block of code?
 
-#. Joe has numerous used labels inside his Latex document. 
+2. Joe has used numerous labels inside his Latex document. 
 But all the references to label names come up as question marks. 
 What might be the problem?
 
@@ -199,7 +200,7 @@ And the answers are,
 
 1. Use the lstlistings package to include code.
 
-#. While using labels, the latex document should be compiled twice 
+2. While using labels, the latex document should be compiled twice 
 for the references to show up.
 
 
@@ -213,8 +214,8 @@ for the references to show up.
 Software Development techniques for Engineers and Scientists - SDES, is an 
 initiative by FOSSEE. For more information, please visit the given link.
 
-Free and Open-source Software for Science and Engineering Education - FOSSEE, is
-based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Free and Open-source Software for Science and Engineering Education - FOSSEE,
+is based at IIT Bombay which is funded by MHRD as part of National Mission on 
 Education through ICT.
 
 .. L16

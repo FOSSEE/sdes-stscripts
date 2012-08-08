@@ -1,213 +1,156 @@
-.. Objectives
-.. ----------
-
-.. At the end of this tutorial, you will 
-
-.. 1. Get acquainted to LaTeX.
-.. #. Know why we prefer LaTeX?
-.. #. Know the advantages and disadvantages of typesetting documents  
-..    using the LaTeX approach.
-.. #. Have a description, of a typical work flow; which uses LaTeX to typeset 
-..    documents.
-.. #. Recognise and differenciate between LaTeX commands, LaTeX comments and
-..    special characters, spacing and actual document content.
-.. #. Create and compile a very simple LaTeX document.
-
-.. Prerequisites
-.. -------------
-
-.. 1. Installing LaTeX 
-
-     
-.. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
-   Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
-   External Reviewer   :
-   Langauge Reviewer   : 
-   Checklist OK?       : 25-Feb-2012
-
+--------
 Script
-------
+--------
 
 
 
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the  first slide containing title, name of the production               | Hello Friends and welcome to the tutorial on 'Introduction to LaTeX'.            |
-| team along with the logo of MHRD }}}                                             |                                                                                  |
+| {{{ Show the title slide}}}                                                      | Hello friends and welcome to the tutorial on Latex: Tables & Figures.            |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Objectives" slide }}}                                              | At the end of this tutorial, you will                                            |
+| {{{Show the slide containing the objectives}}}                                   | In this tutorial we will learn how to:                                           |
 |                                                                                  |                                                                                  |
-|                                                                                  | 1. Get acquainted to LaTeX.                                                      |
-|                                                                                  | #. Know why we prefer LaTeX?                                                     |
-|                                                                                  | #. Know the advantages and disadvantages of typesetting documents                |
-|                                                                                  |    using the LaTeX approach.                                                     |
-|                                                                                  | #. Get a brief idea on typical work flow; which uses LaTeX to typeset            |
-|                                                                                  |    documents.                                                                    |
-|                                                                                  | #. Know LaTeX commands, LaTeX comments and                                       |
-|                                                                                  |    special characters, spacing and actual document content.                      |
-|                                                                                  | #. Be able to create and compile a simple LaTeX document.                        |
-+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Pre-requisite" slide }}}                                           | Before beginning this tutorial, we would suggest having a working installation   |
-|                                                                                  | of LaTeX on your computer. You can do this by completing the tutorial on         |
-|                                                                                  | "LaTeX Installation".                                                            |
-+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Introduction" slide }}}                                            | LaTeX began as TeX, a computer program originally created by                     |
-|                                                                                  | Donald E. Knuth. It was designed mainly to aid typesetting                       |
-|                                                                                  | of text and mathematical formulae.                                               |
+|                                                                                  | 1. Add figures in Latex document.                                                |
 |                                                                                  |                                                                                  |
-|                                                                                  | It is a typesetting program that produces excellently typeset documents.         |
-|                                                                                  | Typesetting is placing text onto a page with all the style formatting defined,   |
-|                                                                                  | so that the content looks as intended. It is extensively used for producing      |
-|                                                                                  | high quality scientific and mathematical documents. It may also be used for      |
-|                                                                                  | producing other kinds of documents, ranging from simple one page articles to     |
-|                                                                                  | complete books.                                                                  |
+|                                                                                  | #. Include tabular environments in Latex document.                               |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{Show the slide 'Prerequisites'}}}                                             | Please make sure that you have gone through the following tutorials before you   |
+|                                                                                  | continue on this tutorial:                                                       |
 |                                                                                  |                                                                                  |
-|                                                                                  | LaTeX is pronounced Lah-tech or Lay-tec.                                         |
-|                                                                                  | TeX is pronounced Tech. TeX is also the first syllable in the Greek word for     |
-|                                                                                  | technology.                                                                      |
+|                                                                                  | 1. Latex Installation                                                            |
+|                                                                                  | #. Latex Introduction                                                            |
+|                                                                                  | #. Latex Basics & Structuring                                                    |
+|                                                                                  | #. Latex Typesetting Text                                                        |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Why LaTeX?" slide }}}                                              | Why we prefer LaTeX?                                                             |
-|                                                                                  | (a) LaTeX offers excellent visual quality.                                       |
-|                                                                                  | (b) Handles typesetting and lets you focus on content.                           |
-|                                                                                  | (c) Makes writing complex Math equation(S) extremely simple.                     |
-|                                                                                  | (d) It is also a standard used widely, especially by the scientific community.   |
-+----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Why LaTeX? ..." slide }}}                                          | We can define LaTex as a document based markup language. This sentence is        |
-|                                                                                  | deceptively simple, as it reveals a lot about LaTeX. We now break this sentence  |
-|                                                                                  | up as follows                                                                    |
-|                                                                                  | Mark-up: a system of annotating text, adding extra information to specify        |
-|                                                                                  | structure and presentation of text.                                              |
-|                                                                                  | Document based markup: you don’t have to worry about each element individually.  |
+| {{{Show the slide 'Figures'}}}                                                   | Let us start with seeing how to include 'figures' in a Latex document.           |
+|                                                                                  | To include graphics in a LaTeX document, we need to use the <graphicx> package.  |
+|                                                                                  | To use this package, we have to add the <\\usepackage{graphicx}> directive       |
+|                                                                                  | to the preamble of the document.                                                 |
 |                                                                                  |                                                                                  |
-|                                                                                  | This is essentially a fancy way of saying,LaTeX handles typesetting and lets     |
-|                                                                                  | you focus on content rather than appearance.                                     |
+|                                                                                  | Then, to add a graphic, use the <\\includegraphics> command.                     |
+|                                                                                  | The relative path of the image that we wish to include is passed as an           |
+|                                                                                  | argument to includegraphics. You can see two images in each slide of this        |
+|                                                                                  | presentation, these images are included using <\\includegraphics> command.       |
+|                                                                                  | It takes an optional argument, to scale an image. For our images a scale         |
+|                                                                                  | of 0.80 is used.                                                                 |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Advantages of using  LaTeX" slide }}}                              | Some of the advantages of using LaTeX approach to typesetting are                |
-|                                                                                  | (1) Easy availability of professionally crafted layouts/templates.               |
-|                                                                                  | (2) Typesetting of mathematical formulae is supported in a convenient            |
+| {{{Show slide 'includegraphics'}}}                                               | <\\includegraphics> command also takes other optional arguments such as:         |
+|                                                                                  |                                                                                  |
+|                                                                                  | 1. <width=x, height=x>                                                           |
+|                                                                                  |                                                                                  |
+|                                                                                  | If only the height or width is specified, the image is scaled,                   |
+|                                                                                  | maintaining the aspect ratio.                                                    |
+|                                                                                  |                                                                                  |
+|                                                                                  | #. <keepaspectratio>                                                             |
+|                                                                                  |                                                                                  |
+|                                                                                  | This parameter can either be set to true or false.                               |
+|                                                                                  | When set to true, the image is scaled according to both width and height,        |
+|                                                                                  | without changing the aspect ratio, so that it does not exceed both the           |
+|                                                                                  | width and the height dimensions.                                                 |
+|                                                                                  |                                                                                  |
+|                                                                                  | #. <angle=x>                                                                     |
+|                                                                                  |                                                                                  |
+|                                                                                  | This option can be used to rotate the image by x degrees, counter-clockwise.     |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{Show slide 'includegraphics..'}}}                                             | Here is the complete syntax for <\\includegraphics> command with                 |
+|                                                                                  | the optional arguments we just talked about and the relative path                |
+|                                                                                  | to the image.                                                                    |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{Show the slide 'Floats'}}}                                                    | Graphics (and tables) are treated specially because,                             |
+|                                                                                  | they cannot be split into pages.                                                 |
+|                                                                                  | They are "floated" across to the next page,                                      |
+|                                                                                  | if they do not fit on the current page, filling the current page with text.      |
+|                                                                                  | To make our graphic into a float, we should enlose it within                     |
+|                                                                                  | a figure environment. The figure environment takes an additional parameter       |
+|                                                                                  | for the location of the float.                                                   |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{Show the slide 'Floats..'}}}                                                  | The specifiers 't','b','p','h' & '!' are permissions to place the float at       |
+|                                                                                  | various locations.                                                               |
+|                                                                                  | 't' for top of page, 'b' for bottom of page, 'p' for a separate page for         |
+|                                                                                  | floats and 'h' for here, as in pproximately at the same point it occurs in       |
+|                                                                                  | the source text. '!' mark overrides few of LaTeX's internal parameters           |
+|                                                                                  | for good position of floats.                                                     |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{Show the slide Captions and References}}}                                     | The figure environment also, allows us to add a caption to the graphic           |
+|                                                                                  | using the <\\caption> command. This command will be placed within the figure     |
 |                                                                                  | environment.                                                                     |
-|                                                                                  | (3) Typesetting for most cases can be done with very little learning curve       |
-|                                                                                  | using easy to use/understand commands, that only specify the logical structure   |
-|                                                                                  | of the document.                                                                 |
-|                                                                                  | (4) Presence of lots of add-on packages.                                         |
-|                                                                                  | (5) It encourages creation of well structured texts.                             |
+|                                                                                  | To keep the graphic center aligned in the page,                                  |
+|                                                                                  | we use the center environment within the figure environment.                     |
+|                                                                                  | To label a figure, we just add a <\\label> command within the                    |
+|                                                                                  | figure environment.                                                              |
+|                                                                                  | Note that the label to a figure should be added after the caption command.       |
+|                                                                                  | Figures are auto numbered.                                                       |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Disadvantages of using  LaTeX" slide }}}                           | Some of the disadvantages of using LaTeX approach to typesetting are             |
-|                                                                                  | (1) Designing a whole new layout is difficult.                                   |
-|                                                                                  | (2) LaTeX is not a word processor, for example, the document author              |
-|                                                                                  | is not expected to worry about presentation details like the size of font.       |
+| {{{Show the slide Captions and References..}}}                                   | Here, you can see a sample code that shows the use of figure environment         |
+|                                                                                  | with caption & label.                                                            |
+|                                                                                  | It explains how to include image, how to center align it.                        |
+|                                                                                  | Also shows, how to add caption and label to an image.                            |
+|                                                                                  | You can note that the label is added after the caption, as we mentioned          |
+|                                                                                  | earlier.                                                                         |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "LaTeX input file format" slide }}}                                 | LaTeX input files are simple ASCII text files that are processed by a TeX        |
-|                                                                                  | processing engine.                                                               |
-|                                                                                  | Next comes the question of compiling LaTeX input files and viewing the output    |
-|                                                                                  | typeset document.                                                                |
-|                                                                                  | The process is a little different from other markup languages like HTML.         |
-|                                                                                  | We compile ASCII text files into typeset files that are normally DVI,            |
-|                                                                                  | Postscript or PDF files.                                                         |
-|                                                                                  | The latex command converts LaTeX input files into dvi files.                     |
-|                                                                                  | We can view DVI files on Gnu/Linux using xdvi.                                   |
-|                                                                                  | Further,  DVI files can be converted either to a post script file, using the     |
-|                                                                                  | dvips command or to a PDF file using the dvipdfm command.                        |
-|                                                                                  | The command pdflatex is used to convert LaTeX input files directly to pdf files. |
-|                                                                                  | The resultant PDF files can be viewed using standard applications                |
-|                                                                                  | on most platforms                                                                |
-|                                                                                  | (Eg: evince on Gnu/Linux). PDF file are also widely supported.                   |
+| {{{Show the slide 'Tables'}}}                                                    | Now, let us look at how to include Tables in our document.                       |
+|                                                                                  | To typeset content in a tabular format, we use the tabular environment.          |
+|                                                                                  | And to make it a float, it is enclosed in the table environment.                 |
+|                                                                                  | The table environment also allows us to add captions & labels to the table,      |
+|                                                                                  | just as we added in the figure environment.                                      |
+|                                                                                  | Tables are also auto numbered.                                                   |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Commands,Comments&Special Characters" slide }}}                    | Like most utilities in Linux, LaTeX is case sensitive. Commands begin            |
-|                                                                                  | with a backslash. LaTeX environments have a begin and end marker. The begin and  |
-|                                                                                  | end document commands, mark the beginning and the end of the content of the      |
-|                                                                                  | LaTeX document. The text in between the begin and end commands is typeset in     |
-|                                                                                  | the output document.Any content after <\end{document}> is ignored. The type of   |
-|                                                                                  | document that is being currently typeset in LaTex, is identified with the        |
-|                                                                                  | documentclass command. LaTeX then, typesets the document accordingly.            |
+| {{{Show the slide 'tabular'}}}                                                   | The tabular environment takes the columns, and the formatting of each column,    |
+|                                                                                  | as arguments. The possible arguments to the tabular environment are              |
 |                                                                                  |                                                                                  |
-|                                                                                  | All the commands in LaTeX begin with a \\. An environment begins with a begin    |
-|                                                                                  | command and ends with an end command.                                            |
+|                                                                                  | 1. l for left justified column content                                           |
+|                                                                                  |                                                                                  |
+|                                                                                  | #. r for right justified column content                                          |
+|                                                                                  |                                                                                  |
+|                                                                                  | #. c for centered column content                                                 |
+|                                                                                  |                                                                                  |
+|                                                                                  | #. | (pipe) produces a vertical line.                                            |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Commands,Comments&Special Characters ..." slide }}}                | But, how do we write comments with in the document. % character is used          |
-|                                                                                  | to indicate comments. Anything written after a % symbol in a                     |
-|                                                                                  | line, is ignored.                                                                |
-|                                                                                  | But what if we wanted to insert the % symbol in the document? We can do so by    |
-|                                                                                  | escaping it with a \\ (backslash). % is one of the many special characters in    |
-|                                                                                  | LaTeX. The others are shown on the screen. All of them, except the \\ itself,    |
-|                                                                                  | can be inserted by escaping it with a \\. To insert a \\ in our document,        |
-|                                                                                  | we use the command \textbackslash.                                               |
+| {{{Show the slide 'tabular..'}}}                                                 | Tabular also takes an optional parameter that specifies the position             |
+|                                                                                  | of the table; 't' for top, 'b' for bottom, or 'c' for center.                    |
+|                                                                                  | Each column of a table is separated by an '&' (ampersand) symbol and             |
+|                                                                                  | each row is separated by a new line.                                             |
 |                                                                                  |                                                                                  |
-|                                                                                  | What would happen if we escape a \\ with a \\?                                   |
-|                                                                                  | A double backslash is actually another command. It inserts a new line in the     |
-|                                                                                  | typeset document. Normally LaTeX automatically spaces the given input optimally. |
-|                                                                                  | But, sometimes we have to insert manual line breaks. The <\\\\>                  |
-|                                                                                  | command or <\newline>                                                            |
-|                                                                                  | command is used to insert a newline in the output document. A                    |
-|                                                                                  | single line break in the input document, doesn't cause any change in the         |
-|                                                                                  | output document.                                                                 |
-|                                                                                  |                                                                                  |
-|                                                                                  | A single empty line causes a change in paragraphs in the output. Multiple        |
-|                                                                                  | empty lines are equivalent to a single empty line. Similarly, multiple spaces    |
-|                                                                                  | are treated as a single space.                                                   |
+|                                                                                  | The <\\hline> command allows you to draw horizontal lines between                |
+|                                                                                  | two rows of the table.                                                           |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Typesetting a minimal document" slide }}}                          | Now, try to create a simple LaTeX document. Pause the tutorial and type the      |
-|                                                                                  | content shown on the screen in a text editor. Save the file as temp.tex          |
+| {{{Show the slide 'tabular..'}}}                                                 | A sample code that shows the complete use of the tabular                         |
+|                                                                                  | environment with all arguments and options.                                      |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{continue from paused state}}}                                                 | Now we compile the commands in the LaTeX input file that is, temp.tex into a     |
-| {{{ Show the "Compiling to DVI & PDF" slide }}}                                  | typeset file.                                                                    |
-|                                                                                  |                                                                                  |
-|                                                                                  | The first alternative is to compile LaTeX input file into a DVI                  |
-|                                                                                  | file. We use the latex command for this purpose. For compiling the LaTeX input   |
-|                                                                                  | file temp.tex into a DVI file, we use the following command                      |
-|                                                                                  |                                                                                  |
-|                                                                                  | <latex temp.tex>                                                                 |
-|                                                                                  |                                                                                  |
-|                                                                                  | The output file would be temp.dvi.                                               |
-|                                                                                  |                                                                                  |
-|                                                                                  | The other alternative is to create PDF files from LaTeX input files.             |
-|                                                                                  | We use the pdflatex command for this purpose. For compiling the LaTeX input      |
-|                                                                                  | file temp.tex into a PDF file, we use the following command                      |
-|                                                                                  |                                                                                  |
-|                                                                                  | <pdflatex temp.tex>                                                              |
-|                                                                                  |                                                                                  |
-|                                                                                  | Please note that, throughout this course we shall be using pdflatex to compile   |
-|                                                                                  | our documents.                                                                   |
+| {{{Show the slide 'List of Tables, Figures'}}}                                   | You could also add a list of tables or list of figures to the document,          |
+|                                                                                  | using <\\listoftables> & <\\listoffigures> commands respectively.                |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Summary" slide }}}                                                 | This brings us to the end of this tutorial. In this tutorial, we have learnt     |
+| {{{Show the 'summary' slide'}}}                                                  | This brings us to the end of the tutorial. In this tutorial, we have             |
+|                                                                                  | learnt to,                                                                       |
 |                                                                                  |                                                                                  |
-|                                                                                  | 1. About LaTeX.                                                                  |
-|                                                                                  | #. why we prefer LaTeX.                                                          |
-|                                                                                  | #. About the advantages and disadvantages of typesetting documents               |
-|                                                                                  |    using the LaTeX approach.                                                     |
-|                                                                                  | #. A description, of a typical work flow; which uses LaTeX to typeset            |
-|                                                                                  |    documents.                                                                    |
-|                                                                                  | #. The ability to recognize and differentiate between LaTeX commands, LaTeX      |
-|                                                                                  |    comments and special characters, spacing and actual document content.         |
-|                                                                                  | #. To Create and compile a simple LaTeX document.                                |
+|                                                                                  | 1. Add graphics to a LateX document                                              |
+|                                                                                  |                                                                                  |
+|                                                                                  | #. Include tabular environments in a LateX document                              |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Self assessment questions" slide }}}                               | Here are some self assessment questions for you to solve                         |
+| {{{Show self assessment questions slide}}}                                       | Here are some self assessment questions for you to solve,                        |
 |                                                                                  |                                                                                  |
-|                                                                                  |  1. Convert the temp.dvi created during the course of this tutorial to           |
-|                                                                                  |     temp_1.ps using the dvips command. Verify that the two files                 |
-|                                                                                  |     indeed look the same.                                                        |
-|                                                                                  |                                                                                  |
-|                                                                                  |  2. Convert the temp.dvi created during the course of this tutorial to           |
-|                                                                                  | temp_1.pdf using the dvipdfm command. Verify that the two files indeed look the  |
-|                                                                                  | same.                                                                            |
+|                                                                                  | 1. Which input parameter is used in the figure environment to make it float      |
+|                                                                                  |    to the bottom of the page ?                                                   |
+|                                                                                  | #. What is the mandatory argument in tabular environment specification ?         |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the "Solutions" slide }}}                                               | And the answers,                                                                 |
+| {{{Show the solutions slide to self assessment questions }}}                     | And the answers,                                                                 |
 |                                                                                  |                                                                                  |
-|                                                                                  | 1. dvips -o temp_1.ps temp.dvi                                                   |
-|                                                                                  |                                                                                  |
-|                                                                                  | 2. dvipdfm -o temp_1.pdf temp.dvi                                                |
+|                                                                                  | 1. Input parameter `b' is passed as argument, to make it float to the bottom     |
+|                                                                                  |    of the page.                                                                  |
+|                                                                                  | #. It is mandatory to specify alignment of each column in tabular                |
+|                                                                                  |    environment.                                                                  |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
 | {{{ Show the SDES & FOSSEE slide }}}                                             | Software Development techniques for Engineers and Scientists - SDES, is an       |
 |                                                                                  | initiative by FOSSEE. For more information, please visit the given link.         |
 |                                                                                  |                                                                                  |
-|                                                                                  | Free and Open-source Software for Science and Engineering Education - FOSSEE, is |
-|                                                                                  | based at IIT Bombay which is funded by MHRD as part of National Mission on       |
+|                                                                                  | Free and Open-source Software for Science and Engineering Education - FOSSEE,    |
+|                                                                                  | is based at IIT Bombay which is funded by MHRD as part of National Mission on    |
 |                                                                                  | Education through ICT.                                                           |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the ``About the Spoken Tutorial Project'' slide }}}                     | Watch the video available at the following link. It summarises the Spoken        |
+| {{{ Show the About the Spoken Tutorial Project slide }}}                         | Watch the video available at the following link. It summarises the Spoken        |
 |                                                                                  | Tutorial project.If you do not have good bandwidth, you can download and         |
 |                                                                                  | watch it.                                                                        |
 +----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-| {{{ Show the `` Spoken Tutorial Workshops'' slide }}}                            | The Spoken Tutorial Project Team conducts workshops using spoken tutorials,      |
+| {{{ Show the Spoken Tutorial Workshops slide }}}                                 | The Spoken Tutorial Project Team conducts workshops using spoken tutorials,      |
 |                                                                                  | gives certificates to those who pass an online test.                             |
 |                                                                                  |                                                                                  |
 |                                                                                  | For more details, contact contact@spoken-tutorial.org                            |

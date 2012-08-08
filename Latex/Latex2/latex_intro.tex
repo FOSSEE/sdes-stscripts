@@ -1,10 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Introduction to LaTeX 
-%
-% Author: FOSSEE 
-% Copyright (c) 2009, FOSSEE, IIT Bombay
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[17pt,compress]{beamer}
 \usepackage{beamerthemesplit}
 \mode<presentation>
@@ -63,11 +56,12 @@
 
 \sffamily \bfseries
 \title
-[Introduction to \LaTeX]
-{Introduction to \LaTeX}
+[\LaTeX: \:Installation]
+{\LaTeX: \:Installation}
 \author
 [FOSSEE]
-{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}
+\\\vspace{0.25cm}National Mission on Education
  through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
    Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
 }
@@ -83,9 +77,9 @@
 
 At the end of this tutorial, you will,
 \begin{itemize}
-\item Get acquainted to LaTeX.
-\item Know why we prefer LaTeX.
-\item Know the advantages and disadvantages of typesetting documents in LaTeX.
+\item Get acquainted to LaTeX
+\item Know why we prefer LaTeX
+\item Know the advantages and disadvantages of typesetting documents in LaTeX
 \end{itemize}
 \end{frame}
 
@@ -95,10 +89,10 @@ At the end of this tutorial, you will,
 
 \begin{itemize}
 \item Get a brief idea on typical work flow that uses LaTeX to typeset
-documents.
+documents
 \item Know about LaTeX commands, comments,
-      special characters, spacing, actual content.
-\item Be able to create and compile a simple LaTeX document.
+      special characters, spacing, actual content
+\item Be able to create and compile a simple LaTeX document
 \end{itemize}
 \end{frame}
 
@@ -106,31 +100,31 @@ documents.
 \frametitle{Pre-requisite}
 \label{sec-3}
 
-  Spoken tutorial on - 
+  Spoken tutorial on, 
 
 \begin{itemize}
-\item {\LaTeX} Installation.
+\item {\LaTeX} Installation
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Introduction}
     \begin{itemize}
-     \item Donald E. Knuth.
-      \item Typesetting program.
-      \item Excellently Typeset Documents - specially Math.
-      \item Anything from one page articles to huge books.
-      \item Pronounced \emph{Lah-tech} or \emph{Lay-tech}.
+     \item Donald E. Knuth
+      \item Typesetting program
+      \item Excellently Typeset Documents - specially Math
+      \item Anything from one page articles to huge books
+      \item Pronounced \emph{Lah-tech} or \emph{Lay-tech}
     \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Why {\LaTeX}?}
   \begin{itemize}
-  \item Excellent visual quality. 
-  \item Handles typesetting; lets you focus on content.
-  \item Makes writing Math extremely simple.
-  \item It is a standard -- widely used in Scientific community.
+  \item Excellent visual quality
+  \item Handles typesetting; lets you focus on content
+  \item Makes writing Math extremely simple
+  \item It is a standard -- widely used in Scientific community
   \end{itemize}
     \[\tilde{N}_{\mathbf{x}}\times \mathbf{r}(\mathbf{x}) f_{1k} \]
 \end{frame}
@@ -138,31 +132,31 @@ documents.
 \begin{frame}[fragile]
   \frametitle{Why \LaTeX?..}
   \begin{itemize}
-  \item It is a document based mark-up.
+  \item It is a document based mark-up
   \item Mark-up: annotating text, adding
-    information to specify structure and presentation of text.
+    information to specify structure and presentation of text
   \item Document based markup: don't have to worry
-    about individual elements. 
-  \item Allows you to focus on content.
+    about individual elements
+  \item Allows you to focus on content
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Advantages of using \LaTeX }
   \begin{itemize}
-    \item Availability of professional templates.
-    \item Typesetting complex formulae in a convenient environment.
-    \item Typesetting with very little effort.
-    \item Lot of add-on packages available.
-    \item Easy creation of well structured texts.
+    \item Availability of professional templates
+    \item Typesetting complex formulae in a convenient environment
+    \item Typesetting with very little effort
+    \item Lot of add-on packages available
+    \item Easy creation of well structured texts
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Disadvantages of using \LaTeX }
   \begin{itemize}
-    \item Designing whole new layout is difficult.
-    \item LaTeX is not a word processor.
+    \item Designing whole new layout is difficult
+    \item LaTeX is not a word processor
   \end{itemize}
 \end{frame}
 
@@ -170,7 +164,7 @@ documents.
   \frametitle{\LaTeX \ input file format}
   \begin{itemize}
     \item \LaTeX \: takes ASCII text file as input.
-    \item We can compile \LaTeX  \: files into DVI, Postscript or PDF files.
+    \item We can compile \LaTeX  \: files into DVI, Postscript or PDF files
     \item \alert{Note:} \typ{latex} vs. \typ{pdflatex} 
   \end{itemize}
 \end{frame}
@@ -178,10 +172,10 @@ documents.
 \begin{frame}[fragile]
   \frametitle{Commands,Comments\&Special Characters }
   \begin{itemize}
-    \item {\LaTeX} is case sensetive.
+    \item {\LaTeX} is case sensetive
     \item Commands begin with a \typ{\\}
     \item Environments have a \typ{\\begin} and \typ{\\end} 
-    \item Any content after the \typ{\\end\{document\}} is ignored.
+    \item Any content after the \typ{\\end\{document\}} is ignored
   \end{itemize}
 \end{frame}
 
@@ -189,11 +183,11 @@ documents.
   \frametitle{Commands,Comments\&Special Characters..}
   \begin{itemize}
     \item Anything after \typ{\%} symbol till end of the line
-      is a comment. 
+      is a comment
     \item Special characters (\typ{\~ \# \$ \^ \& \_ \{ \}}) are escaped by a
       \typ{\\} 
     \item \typ{\\} is inserted using \typ{\\textbackslash},
-     \typ{\\newline} or \typ{\\\\} to insert newlines.
+     \typ{\\newline} or \typ{\\\\} to insert newlines
   \end{itemize}
 \end{frame}
 
@@ -218,7 +212,7 @@ documents.
    \alert{latex temp.tex} \\
     \alert{pdflatex temp.tex} \\
       \em Note: Throughout this course, we shall use pdflatex to compile our
-        documents. 
+        documents
     \end{center}
 \end{frame}
 
@@ -226,12 +220,12 @@ documents.
 \frametitle{Summary}
 \label{sec-8}
 
-  In this tutorial, we have learnt,
+  In this tutorial we have learnt,
 \begin{itemize}
-  \item About LaTeX.
-  \item why we prefer LaTeX.
-  \item advantages and disadvantages of typesetting documents using
-        LaTeX approach.
+  \item About LaTeX
+  \item Why we prefer LaTeX
+  \item Advantages and disadvantages of typesetting documents using
+        LaTeX approach
 \end{itemize}
 \end{frame}
 
@@ -241,10 +235,10 @@ documents.
 
 \begin{itemize}
   \item About a typical work flow; which uses LaTeX to typeset
-        documents.
+        documents
   \item About LaTeX commands, comments, special characters, spacing,
-        actual document content.
-  \item How to create and compile a simple LaTeX document.
+        actual document content
+  \item How to create and compile a simple LaTeX document
 \end{itemize}
 \end{frame}
 
@@ -283,16 +277,19 @@ documents.
 \begin{center}
 \begin{itemize}
 \item \small{SDES}\\
-\small{\color{LimeGreen}Software Development techniques for Engineers and Scientists} \\
+\small{\color{LimeGreen}Software Development techniques for 
+Engineers and Scientists} \\
 \scriptsize An initiative by FOSSEE. \\
 \vspace{3pt}
-\scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
+\scriptsize For more information on SDES, please visit 
+{\color{blue}\url{http://fossee.in/sdes}}\\
 \vspace{12pt}
 \item \small{FOSSEE}\\
-\small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
+\small {\color{LimeGreen}Free and Open-source Software for \\
+Science and Engineering Education} \\
 \scriptsize Based at IIT Bombay, Funded by MHRD.\\
 \vspace{3pt}
-\scriptsize Part of National Mission on Education through ICT (NME-ICT). \\
+\scriptsize Part of National Mission on Education through ICT (NME-ICT) \\
 \end{itemize}
 \end{center}
 \end{frame}
@@ -300,7 +297,8 @@ documents.
 \begin{frame}
 \frametitle{About the Spoken Tutorial Project}
 \begin{itemize}
-\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org /What\_is\_a\_Spoken\_Tutorial}} 
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org
+ /What\_is\_a\_Spoken\_Tutorial}} 
 \item It summarises the Spoken Tutorial project 
 \item If you do not have good bandwidth, you can download and watch it
 \end{itemize}
@@ -311,7 +309,8 @@ documents.
 \begin{itemize}
 \item Conducts workshops using spoken tutorials 
 \item Gives certificates to those who pass an online test 
-\item For more details, please write to \\ \hspace {0.5cm}{\color{blue}contact@spoken-tutorial.org}
+\item For more details, please write to \\ \hspace {0.5cm}
+{\color{blue}contact@spoken-tutorial.org}
 \end{itemize}
 \end{frame}
 
@@ -319,8 +318,10 @@ documents.
 \frametitle{Acknowledgements}
 \begin{itemize}
 \item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
-\item It is supported by the National Mission on Education through  ICT, MHRD, Government of India 
-\item More information on this Mission is available at: \\{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\item It is supported by the National Mission on Education through  ICT, MHRD, 
+Government of India 
+\item More information on this Mission is available at: \\
+{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
 \end{itemize}
 \end{frame}
 
