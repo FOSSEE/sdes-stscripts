@@ -1,130 +1,176 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Using Linux Tools
-%
-% Author: FOSSEE 
-% Copyright (c) 2009, FOSSEE, IIT Bombay
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[12pt,compress]{beamer}
-
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
 \mode<presentation>
 {
   \usetheme{Warsaw}
   \useoutertheme{infolines}
   \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
 }
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
 
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
-%\usepackage{times}
 \usepackage[T1]{fontenc}
 
-% Taken from Fernando's slides.
-\usepackage{ae,aecompl}
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
 \usepackage{mathpazo,courier,euler}
-\usepackage[scaled=.95]{helvet}
-
-\definecolor{darkgreen}{rgb}{0,0.5,0}
-
 \usepackage{listings}
 \lstset{language=sh,
     basicstyle=\ttfamily\bfseries,
-    commentstyle=\color{red}\itshape,
-  stringstyle=\color{darkgreen},
   showstringspaces=false,
-  keywordstyle=\color{blue}\bfseries}
+  keywordstyle=\color{black}\bfseries}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT STARTS
+% logo
+\logo{\includegraphics[height=1.30 cm]{3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{3t-logo.pdf}}
+
 \begin{document}
 
+\sffamily \bfseries
+\title
+[File Permissions and Ownership]
+{File Permissions and Ownership}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [0.77cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
+
+% slide 1
 \begin{frame}
-
-\begin{center}
-\vspace{12pt}
-
-\textcolor{blue}{\huge Using Linux Tools\\Part III}
-\end{center}
-\vspace{18pt}
-\begin{center}
-\vspace{10pt}
-\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
-\vspace{5pt}
-\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
-\scriptsize Funded by National Mission on Education through ICT\\
-\scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.30]{../images/iitb-logo.png}\\
-\end{center}
+   \titlepage
 \end{frame}
+
 \begin{frame}
 \frametitle{Objectives}
 \label{sec-2}
 
 At the end of this tutorial, you will be able to,
 \begin{itemize}
-\item Display the contents of files.
-\item Read only parts of a file.
-\item Look at the statistical information of a file.
+\item Change file permissions
+\item Change ownership of files
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Pre-requisite}
+\frametitle{Pre-requisites}
 \label{sec-3}
 
-Spoken tutorial on -
+Spoken tutorial on, 
 \begin{itemize}
-\item Using Linux tools -- Part I
-\item Using Linux tools -- Part II
+\item Getting started with Linux
+\item Basic File Handling
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{less}}
-   \begin{itemize}
-  \item q: Quit
-  \item Arrows/Page Up/Page Down/Home/End: Navigation
-  \item ng: Jump to line number n
-  \item /pattern: Search. Regular expressions can be used
-  \item h: Help
+  \frametitle{Symbolic modes}
+  \begin{small}
+    \begin{center}
+      \begin{tabular}{lll}
+        Ref.  &  Class   &  Description                                                      \\
+        \hline
+        u     &  user    &  the owner of the file                                            \\
+        g     &  group   &  users who are members of the                                     \\
+              &          &  file's group  \\
+        o     &  others  &  users who are not the owner of the                           \\
+              &          &  file or members of the group\\
+        a     &  all     &  all three of the above; is the same                              \\
+              &          &  as \emph{ugo}
+      \end{tabular}
+    \end{center}
+   \end{small}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Symbolic modes...}
+  \begin{small}
+    \begin{center}
+      \begin{tabular}{ll}
+        Operator  &  Description                                                                   \\
+        \hline
+         +         &  adds the specified modes to the               \\
+                  &  specified classes                             \\
+         -         &  removes the specified modes from the          \\
+                  &  specified classes                             \\
+         =         &  modes specified are to be made the            \\
+                  &  exact modes for the specified classes  
+      \end{tabular}
+    \end{center}
+   \end{small}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Symbolic modes...}
+   \begin{small}
+    \begin{center}
+      \begin{tabular}{lll}
+        Mode  &  Name     &  Description                                 \\
+        \hline
+        r     &  read     &  read a file or list a directory's   \\
+              &           &  contents \\
+        w     &  write    &  write to a file or directory                \\\vspace{2pt}
+        x     &  execute  &  execute a file or recurse a   \\
+              &           &  directory tree
+      \end{tabular}
+    \end{center}
+  \end{small}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercise}
+  \begin{itemize}
+  \item Change the permissions of a directory including,
+  \begin{itemize}
+  \item All it's sub-directories
+  \item All files within the directory
+  \end{itemize} 
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exercise 1}
+  \frametitle{Solution}
   \begin{itemize}
-  \item Print only the first, fifth and the seventh fields of the file ``/etc/passwd''.
+  \item \$ chmod go-r -R <directory name>/
   \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{\texttt{paste}}
-      \begin{center}
-      \begin{tabular}{l|l}
-        \verb~students.txt~  &  \verb~marks.txt~  \\
-        Hussain              &  89 92 85          \\
-        Dilbert              &  98 47 67          \\
-        Anne                 &  67 82 76          \\
-        Raul                 &  78 97 60          \\
-        Sven                 &  67 68 69          \\
-      \end{tabular}
-    \end{center}
 \end{frame}
 
 \begin{frame}
 \frametitle{Summary}
-\label{sec-8}
 
   In this tutorial, we have learnt to,
 
-
 \begin{itemize}
-\item Display the contents of files using the ``cat'' command.
-\item View the contents of a file one screen at a time using the 
-      ``less'' command.
-\item Display specific contents of file using the ``head'' and 
-      ``tail'' commands.
-\item Use the ``cut'', ``paste'' and ``wc'' commands.
+\item Chane the permissions of files using the ``chmod'' command
+\item Use the ``chown'' command to change the ownership of files
 \end{itemize}
 \end{frame}
 
@@ -134,9 +180,14 @@ Spoken tutorial on -
 
 
 \begin{enumerate}
-\item How to view lines from 1 to 15 in wonderland.txt ?
-\vspace{15pt}
-\item In ``cut'' command, how to specify space as the delimiter ? 
+\item For a given file, change mode to r, w, x for all (user, group, others)
+\vspace{10pt}
+\item What changes, on specifying only an owner in the "chown" command?
+\begin{itemize}
+\item Only the owner of the file
+\item The group ownership of the file
+\item Neither the owner nor the group
+\end{itemize}
 \end{enumerate}
 \end{frame}
 \begin{frame}
@@ -145,26 +196,71 @@ Spoken tutorial on -
 
 
 \begin{enumerate}
-\item \$ head -15 wonderland.txt
+\item \$ chmod ugo+rwx <filename>
 \vspace{15pt}
-\item \$ cut -d " " <filename>
+\item Only the owner of the file
 \end{enumerate}
 \end{frame}
+
+\begin{frame}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{10pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT \\(NME-ICT) \\
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, Government of India 
+\item More information on this Mission is available at: \\{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
 \begin{frame}
 
   \begin{block}{}
   \begin{center}
-  \textcolor{blue}{\Large THANK YOU!} 
+  {\Large THANK YOU!} 
   \end{center}
   \end{block}
 \begin{block}{}
   \begin{center}
     For more Information, visit our website\\
-    \url{http://fossee.in/}
+    {\color{blue}\url{http://fossee.in/}}
   \end{center}  
   \end{block}
 \end{frame}
 
 \end{document}
-
-
