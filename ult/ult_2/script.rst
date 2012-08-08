@@ -3,16 +3,15 @@
    
    .. At the end of this tutorial, you will be able to:
    
-   ..   1. Copy files from one location to another.
-   ..   2. Remove files and directories.
-   ..   3. Change permissions and ownership of files.
-   ..   4. Navigate through directories and files.
+   ..   1. Remove files and directories.
+   ..   2. Copy files from one location to another.
+   ..   3. Move files and directories.
+   ..   4. Know the Linux File Hierarchy
 
 .. Prerequisites
 .. -------------
 
-..   1. Using Linux tools - Part 1
-
+..   1. Getting started with Linux
  
 Script
 ------
@@ -25,7 +24,7 @@ team along with the logo of MHRD }}}
 .. R1
 
 Hello friends and Welcome to the tutorial on 
-'Using linux tools - Part 2'.
+'Basic File handling'.
 
 .. L2
 
@@ -35,10 +34,10 @@ Hello friends and Welcome to the tutorial on
 
 At the end of this tutorial, you will be able to,
 
- 1. Copy files from one location to another.
- #. Remove files and directories.
- #. Change permissions and ownership of files.
- #. Navigate through directories and files.
+ 1. Remove files and directories.
+ #. Copy files from one location to another.
+ #. Move files and directories.
+ #. Know the Linux File Hierarchy
 
 .. L3
 
@@ -47,7 +46,7 @@ At the end of this tutorial, you will be able to,
 .. R3
 
 Before beginning this tutorial,we would suggest you to complete the 
-tutorial on "Using Linux tools - Part 1".
+tutorial on "Getting started with Linux".
 
 .. R4
 
@@ -59,9 +58,12 @@ Here's example to remove a file named "foo" from the directory "sdes",
 
 .. L4
 
+{{{ Copy the folder /sdes to your home folder }}}
+{{{ Open the terminal }}}
 {{{ Navigate to /home/user/sdes/ }}}
 ::
 
+    ls
     rm foo
     ls
 
@@ -101,6 +103,7 @@ how would we do it?
 
     pwd 
     cp linux-tools/scripts/foo linux-tools/
+    ls linux-tools/
 
 .. R8
 
@@ -112,10 +115,11 @@ target location,as,
 ::
 
     cp linux-tools/scripts/foo linux-tools/bar
+    ls linux-tools/
 
 .. R9
 
-This copies the file ``foo`` to the new location, but with the new name,
+A copy the file ``foo`` is created, but with the new name,
 ``bar``. 
 
 But, what would have happened if we had a file named ``bar`` already at the
@@ -149,7 +153,8 @@ Now, let's try to copy the directory ``sdes`` to a new directory called
 .. L11
 ::
 
-    cd /home/user
+    cd 
+    pwd
     cp -i sdes course
    
 .. R12
@@ -175,22 +180,22 @@ file. Instead, you can make use of only one command which can do this task at
 one go. The ``mv`` command can move files or directories. It also takes 
 the ``-i`` option to prompt before overwriting. 
 
-.. L14
+.. L13
 ::
 
     cd /home/user
     mv -i sdes/ course/
 
-.. R15
+.. R14
 
 Let us understand what exactly happened when we used the ``mv`` command
 
-.. L15
+.. L14
 ::
 
     ls course
 
-.. R16
+.. R15
 
 We can see that the ``sdes`` directory has been inserted as sub-directory
 of the ``course`` directory. The move command doesn't over-write
@@ -199,12 +204,13 @@ directories, but the ``-i`` option is useful when moving files around.
 A common way to rename files (or directories), is to copy a file (or a
 directory) to the same location, with a new name. 
 
-.. L16
+.. L15
 ::
 
     mv sdes/linux-tools sdes/linux
+    ls sdes
 
-.. R17
+.. R16
 
 It renames the ``linux-tools`` directory to just ``linux``
 
@@ -213,247 +219,67 @@ within the ``/home/`` directory, but other than that there are many other
 directories too. Let us take this opportunity to understand a few things 
 about the linux file hierarchy and file permissions. 
 
-.. L17
+.. L16
 ::
 
     cd /
 
 {{{ Switch to slide, Linux File Hierarchy }}}
 
-.. R18
+.. R17
 
 The ``/`` directory is called the root directory. All the files and
 directories, (even if they are on different physical devices) appear as
 sub-directories of the root directory. 
 
-.. L18
+.. L17
 
 {{{ Switch to terminal }}}
 ::
 
     ls 
 
-.. R19
+.. R18
 
 You can see the various directories present at the top most level.
 
-.. L19
+.. L18
 
 {{{ Pause for sometime and then continue }}}
 
-.. R20
+.. R19
 
 For more information, it is recommended that you look at the ``man`` page
 of ``hier``. 
 
-.. L20
+.. L19
 ::
 
     man hier
 
 {{{ Pause for sometime and then hit q }}}
 
-.. R21
 
-Let us now look at file permissions. Linux is a multi-user environment and
-allows users to set permissions to their files to allow only a set of
-people to read or write it. Similarly, it is not "safe" to allow system
-files to be edited by any user. All this access control is possible in
-Linux. 
-
-To start, in the root directory, say,
+.. L20
 
 .. L21
-::
-
-    ls -l
-
-.. R22
-
-You again get a list of all the sub-directories, but this time with a lot
-of additional information. Let us try and understand what this output says
-Consider the first line of the output,
-
-.. L22
-
-{{{ Highlight the required portions accordingly while narrating }}}
-
-.. R23
-
-The first column denotes the type and the access permissions of the file.
-The second is the number of links. The third and fourth are the owner and
-group of the file. The next field is the size of the file in bytes. The
-next field is the date and time of modification and the last column is the
-file name.
-We shall look at the permissions of the file now, ie., the first column of
-the output. 
-
-The first character in the first column specifies, whether the item is a
-file or a directory. Files have a ``-`` as the first character and
-directories have a ``d``. 
-
-The next 9 characters define the access permissions of the file. Before
-looking at it, we need to briefly study groups and users and ownership. 
-
-We already know what the first character in the first column (in the output
-of ``ls -l``) is for. The rest of the 9 characters are actually sets of 3
-characters of each. The first set of 3 characters defines the permissions
-of the user, the next 3 is for the group and the last three is for others.
-Based on the values of these characters, access is provided or denied to
-files, to each of the users. 
-
-So, what does each of the three characters stand for? Let's suppose we are
-looking at the set, corresponding to the permissions of the user. In the
-three characters, the first character can either be an ``r`` or a ``-``.
-Which means, the user can either have the permissions to read the file or
-not. If the character is ``r``, then the user has the permissions to read
-the file, else not. Similarly, ``w`` stands for write permissions and
-decides whether the user is allowed to write to the file. ``x`` stands for
-execute permissions. You cannot execute a file, if you do not have the
-permissions to execute it.
-
-Similarly, the next set of characters decides the same permissions for the
-members of the group, that the file is associated with. The last set of
-characters defines these permissions for the users, who are neither owners
-of the file nor in the group, with which the file is associated. 
-
-Now, it's not as if these permissions cannot be changed. If you are the
-owner of a file, you can change the permissions of a file, using the
-``chmod`` command.
-
-.. L23
-
-.. R24
-
-Let's say, we wish to give the execute permissions for a file, to both the
-user and the group, how do we go about doing it? To be more explicit, given
-a file ``foo.sh``, with the permissions flags as ``-rw-r--r--``, change it
-to ``-rwxr-xr--``. 
-
-The following command does it for us, 
-
-.. L24
-::
-
-    chmod ug+x foo.sh
-    ls -l foo.sh
-
-.. R25
-
-As you can see, the permissions have been set to the required value. But
-what did we exactly do? Let us try and understand. 
-
-.. L25
-
-{{{ Switch to slide,Symbolic modes }}}
-
-.. R26
-
-In the command, the parameter ``ug+x`` is the mode parameter to the
-``chmod`` command. It specifies the changes that need to be made to the
-permissions of the file ``foo.sh``. 
-The ``u`` and ``g`` stand for the user and group, respectively. The ``x``
-stands for the execute permission and ``+`` stands for adding the
-specified permission. So, essentially, we are asking ``chmod`` command to
-add the execute permission for the user and group. The permission of others
-will remain unchanged. 
-
-So, if we wished to add the execute permission to all the users, instead of
-adding it to just the user and group, we would have instead said 
-
-.. L26
-::
-
-    chmod a+x foo.sh 
-
-.. R27
-
-or 
-
-.. L27
-::
-
-    chmod ugo+x foo.sh
-
-.. R28
-
-Pause the video here, try out the following exercise and resume the video.
-
-.. L28
-
-.. L29
-
-{{{ Show slide with exercise 1 }}}
-
-.. R29
-
-Change the permissions of a directory along with all of its
-sub-directories and files.
-
-.. L30
-
-{{{ Show slide with solution 1 }}}
-
-.. R30
-
-To change the permissions of a directory along with all of its
-sub-directories and files, recursively, we use the ``-R`` option
-with the chmod command as shown
-
-  chmod go-r -R <directory name>/
-
-.. R31
-
-It is important to note that the permissions of a file can only be changed
-by a user who is the owner of a file or the superuser.
-
-What if we wish to change the ownership of a file? The ``chown`` command is
-used to change the owner and group. 
-By default, the owner of a file (or directory) is the user that
-created it. The group is a set of users that share the same access
-permissions i.e., read, write and execute. 
-For instance, to change the user and the group of the file
-``wonderland.txt`` to ``alice`` and ``users``, respectively, we say.
-
-.. L31
-::
-
-    chown fossee:users wonderland.txt
-
-.. R32
-
-We get an error saying, the operation is not permitted.
-We have attempted to change the ownership of a file that we own, to a
-different user. Logically, this shouldn't be possible, because, this can
-lead to problems, in a multi-user system. 
-Only the superuser is allowed to change the ownership of a file from one
-user to another. The superuser or the ``root`` user is the only user
-empowered to a certain set of tasks and hence is called the superuser. The
-command above would have worked, if you did login as the superuser and
-then changed the ownership of the file. 
-
-.. L32
-
-.. L33
 
 {{{ Show summary slide }}}
 
-.. R33
+.. R21
 
 This brings us to the end of the tutorial.In this tutorial, we have learnt to,
 
- 1. Copy and move files from one location to another, using the ``cp`` 
+ 1. Remove files using ``rm`` command.
+ #. Copy and move files from one location to another, using the ``cp`` 
     and ``mv`` commands respectively.
- #. Remove files using ``rm`` command. 
- #. Understand the Linux file hierarchy.
- #. Change permissions and ownership of files, using the ``chmod`` 
-    and ``chown`` commands respectively.
+ #. Learnt the file system hierarchy of Linux.
 
-.. L34
+.. L22
 
 {{{ Show self assessment questions slide }}}
 
-.. R34
+.. R22
 
 Here are some self assessment questions for you to solve
 
@@ -462,11 +288,11 @@ Here are some self assessment questions for you to solve
 2. How will you rename the file wonderland.txt to alice.txt using the 
    commands learnt so far?
 
-.. L35
+.. L23
 
 {{{ Solution of self assessment questions on slide }}}
 
-.. R35
+.. R23
 
 And the answers,
 
@@ -481,11 +307,56 @@ And the answers,
 
     mv wonderland.txt alice.txt
 
-.. L36
+.. L24
+
+{{{ Show the SDES & FOSSEE slide }}}
+
+.. R24
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L25
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R25
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L26
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R26
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L27
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R27
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L28
 
 {{{ Show the Thankyou slide }}}
 
-.. R36
+.. R28
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
