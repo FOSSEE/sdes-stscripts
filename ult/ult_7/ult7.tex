@@ -5,142 +5,120 @@
 % Copyright (c) 2009, FOSSEE, IIT Bombay
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt,compress]{beamer}
-
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
 \mode<presentation>
 {
   \usetheme{Warsaw}
   \useoutertheme{infolines}
   \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
 }
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
 
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
-%\usepackage{times}
 \usepackage[T1]{fontenc}
 
-% Taken from Fernando's slides.
-\usepackage{ae,aecompl}
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
 \usepackage{mathpazo,courier,euler}
-\usepackage[scaled=.95]{helvet}
-
-\definecolor{darkgreen}{rgb}{0,0.5,0}
-
 \usepackage{listings}
 \lstset{language=sh,
     basicstyle=\ttfamily\bfseries,
-    commentstyle=\color{red}\itshape,
-  stringstyle=\color{darkgreen},
   showstringspaces=false,
-  keywordstyle=\color{blue}\bfseries}
+  keywordstyle=\color{black}\bfseries}
 
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT STARTS
 \begin{document}
 
-\begin{frame}
+\sffamily \bfseries
+\title
+[Text Processing]
+{Text Processing}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
 
-\begin{center}
-\vspace{12pt}
-\textcolor{blue}{\huge Using Linux Tools\\Part VII}
-\end{center}
-\vspace{18pt}
-\begin{center}
-\vspace{10pt}
-\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
-\vspace{5pt}
-\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
-\scriptsize Funded by National Mission on Education through ICT\\
-\scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.30]{../images/iitb-logo.png}\\
-\end{center}
+% slide 1
+\begin{frame}
+   \titlepage
 \end{frame}
+
 \begin{frame}
 \frametitle{Objectives}
 \label{sec-2}
 
 At the end of this tutorial, you will be able to,
 \begin{itemize}
-\item Prepare scripts using 'Control Operators'.
-\item Understand what 'Environment Variables' are.
+\item Sort lines of text files
+\item Print lines matching a pattern
+\item Translate or delete characters
+\item Omit repeated lines
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Pre-requisite}
+\frametitle{Pre-requisites}
 \label{sec-3}
 
-Spoken tutorial on -
+Spoken tutorial on,
 \begin{itemize}
-\item Using Linux tools -- Part I
-\item Using Linux tools -- Part II
-\item Using Linux tools -- Part III
-\item Using Linux tools -- Part IV
-\item Using Linux tools -- Part V
-\item Using Linux tools -- Part VI
+\item Getting started with Linux
+\item Redirection and Piping
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{if}}
+  \frametitle{\texttt{sort}}
+\verb~$ cut -d " " -f 2- marks1.txt \~
+\verb~| paste -d " " students.txt -\~      
+\verb~| sort -t " " -k 2 -rn~      
   \begin{itemize}
-  \item Print message if directory exists in \texttt{pwd}
-  \end{itemize}
-  \begin{lstlisting}
-    #!/bin/bash
-    if test -d $1
-    then
-    echo "Yes, the directory" \
-    $1 "is present"
-    fi
-  \end{lstlisting} % $
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{\texttt{[ ]} - alias for \texttt{test}}
-  \begin{itemize}
-  \item Square brackets (\texttt{[]}) can be used instead of
-    \texttt{test}
-  \item 
-  \end{itemize}
-  \begin{lstlisting}
-    #!/bin/bash
-    if [ $1 -lt 0 ]
-    then
-    echo "number is negative"
-    else
-    echo "number is non-negative"
-    fi
-  \end{lstlisting} % $
-  \begin{itemize}
-  \item \alert{spacing is important, when using the square brackets}
+  \item \texttt{-t} the delimiter between fields
+  \item \texttt{-k} field to use for sorting
+  \item \texttt{-r} for sorting in the reverse order
+  \item \texttt{-n} to choose numerical sorting
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{for}}
-  \begin{block}{Problem}
-    Given a set of \texttt{.mp3} files, that have names beginning with
-    numbers followed by their names --- \texttt{08 - Society.mp3} ---
-    rename the files to have just the names. Also replace any spaces
-    in the name with hyphens. 
-  \end{block}
+  \frametitle{\texttt{tr}}
   \begin{itemize}
-  \item Loop over the list of files
-  \item Process the names, to get new names
-  \item Rename the files
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Environment Variables}
-  \begin{itemize}
-  \item Pass information from shell to programs running in it
-  \item Behavior of programs can change based on values of variables
-  \item Environment variables vs. Shell variables
-  \item Shell variables -- only current instance of the shell
-  \item Environment variables -- valid for the whole session
-  \item Convention -- environment variables are UPPER CASE
+  \item Translates or deletes characters
+  \item Reads from \texttt{stdin} and outputs to \texttt{stdout}
+  \item Given, two sets of characters, replaces one with other
   \end{itemize}
 \end{frame}
 
@@ -152,51 +130,120 @@ Spoken tutorial on -
 
 
 \begin{itemize}
-\item Prepare scripts using control structures like ``if'', ``if-else'',
-      ``for'' and ``while''.
-\item Use 'environment variables'.
-\item Export a variable to the environment of all the processes, using 
-      the ``export'' command.
+\item Use the ``sort'' command to sort lines of text files
+\item Use the ``grep'' command to search text pattern
 \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{Summary..}
+\begin{itemize}
+\item Use the ``tr'' command to translate and/or delete characters
+\item Use the ``uniq'' command to omit repeated lines in a text
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Evaluation}
 \label{sec-9}
 
 
 \begin{enumerate}
-\item Print the text ``dog man'' in such a way that the prompt 
-    continues after the text.
-\vspace{8pt}
-\item How can you add a new path variable ``/data/myscripts'' to \$PATH variable ?
+\item To obtain patterns; one per line, which of the following command is used ?
+\vspace{3pt}
+\begin{itemize}
+\item grep -f
+\item grep -i
+\item grep -v
+\item grep -e
+\end{itemize}
 \end{enumerate}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Evaluation..}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Translate the word `linux' to upper-case.
+\vspace{8pt}
+\item Sort the output of the ``ls -al'' command.
+\end{enumerate}
+\end{frame}
+
 \begin{frame}
 \frametitle{Solutions}
 \label{sec-10}
 
 
 \begin{enumerate}
-\item \$ echo -n dog man
+\item grep -f
 \vspace{15pt}
-\item \$ export PATH=\$PATH://data/myscripts
+\item \$ echo `linux' | tr a-z A-Z
+\vspace{15pt}
+\item \$ ls -al | sort -n -k5
 \end{enumerate}
 \end{frame}
+
+\begin{frame}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{10pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT \\(NME-ICT) \\
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, Government of India 
+\item More information on this Mission is available at: \\{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
 \begin{frame}
 
   \begin{block}{}
   \begin{center}
-  \textcolor{blue}{\Large THANK YOU!} 
+  {\Large THANK YOU!} 
   \end{center}
   \end{block}
 \begin{block}{}
   \begin{center}
     For more Information, visit our website\\
-    \url{http://fossee.in/}
+    {\color{blue}\url{http://fossee.in/}}
   \end{center}  
   \end{block}
 \end{frame}
 
+
 \end{document}
-
-

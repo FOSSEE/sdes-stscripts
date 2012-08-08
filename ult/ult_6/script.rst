@@ -3,19 +3,15 @@
    
    .. At the end of this tutorial, you will be able to:
    
-   ..   1. Prepare a simple shell script. 
-   ..   2. Run a script successfully and print it's result.
-   ..   3. Understand what an environment variable is.
+   ..   1. Understand various features of shell
+   ..   2. Learn about shell meta characters
 
 .. Prerequisites
 .. -------------
 
-..   1. Using Linux tools - Part 1
-..   2. Using Linux tools - Part 2
-..   3. Using Linux tools - Part 3
-..   4. Using Linux tools - Part 4
-..   5. Using Linux tools - Part 5
-
+..   1. Getting started with Linux
+..   2. Basic File Handling
+..   4. Advanced file handling
  
 Script
 ------
@@ -28,7 +24,7 @@ team along with the logo of MHRD }}}
 .. R1
 
 Hello friends and Welcome to the tutorial on 
-'Using linux tools - Part 6'.
+'Redirection and Piping'.
 
 .. L2
 
@@ -38,9 +34,8 @@ Hello friends and Welcome to the tutorial on
 
 At the end of this tutorial, you will be able to,
 
- 1. Prepare a simple shell script. 
- #. Run a script successfully and print it's result.
- #. Understand what an environment variable is.
+ 1. Understand various features of shell
+ #. Learn about shell meta characters
 
 .. L3
 
@@ -49,248 +44,236 @@ At the end of this tutorial, you will be able to,
 .. R3
 
 Before beginning this tutorial,we would suggest you to complete the 
-tutorial on "Using Linux tools from Part 1 to Part 5".
-
-Let us start with creating a simple shell script.
-A shell script is simply a sequence of commands, that are put into a file,
-instead of entering them one by one onto the shell. The script can then be
-run, to run the sequence of commands in a single shot instead of manually
-running, each of the individual commands. 
-For instance, let's say we wish to create a directory called ``marks`` in the
-home folder and save the results of the students into a file
-``results.txt``. 
-
-.. R4
-
-We open our editor and save the following text to ``results.sh``
+former tutorials as being displayed currently.
 
 .. L4
 
-{{{ Open an editor and type the following }}}
-::
+{{{ Show slide, with Tab-completion }}} 
 
-    #!/bin/bash
-    mkdir ~/marks
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | sort > ~/marks/results.txt
+.. R4
 
-.. R5
+The Bash shell has some nice features, that make our job of using the shell 
+easier and much more pleasant. We shall look at a few of them, here.
 
-We can now run the script as, 
+
+Bash provides the feature of tab completion. What does tab completion mean? 
+When you are trying to type a word, bash can complete the word for you, if you 
+have entered enough portion of the word (to complete it unambiguously) and 
+then hit the tab key.
+
+If on hitting the tab key, the word doesn't get completed, either the word 
+doesn't exist or the word cannot be decided unambiguously. If the case is the 
+latter one, hitting the tab key a second time, will list the possibilities.
 
 .. L5
 
-{{{ Open the terminal }}}
-::
+{{{ Show slide, with Tab-completion.. }}} 
 
-    ./results.sh
+.. R5
+
+Bash provides tab completion for the following.
+
+        File Names
+        Directory Names
+        Executable Names
+        User Names (when they are prefixed with a ~)
+        Host Names (when they are prefixed with a @)
+        Variable Names (when they are prefixed with a $)
 
 .. R6
 
-We get an error saying, Permission denied! Why? Can you think of the
-reason? Yes, the file doesn't have execute permissions.
-We make the file executable and then run it. 
+For example,
 
 .. L6
+
+{{{ Switch to terminal }}}
 ::
 
-    chmod u+x results.sh
-    ./results.sh
 
-.. R7
-
-We get back the prompt. We can check the contents of the file
-``results.txt`` to see if the script has run. 
-
-So, here, we have our first shell script. The first line of the script is used 
-to specify the interpreter or shell which should be used to execute the script. 
-In this case, we are asking it to use the bash shell.
-Once, the script has run, we get back the prompt. Here, we had to manually check,
-if the contents of the file are correct. It would be useful to have our script 
-print out messages. For this, we can use the ``echo`` command. We can edit our 
-``results.sh`` script, as follows.
+    pas<TAB><TAB>
+    PA<TAB>
+    ~/<TAB><TAB>
 
 .. L7
 
-{{{ Open an editor and type the following }}}
-::
+{{{ Show slide, with History }}}
 
-    #!/bin/bash
-    mkdir ~/marks
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | sort > ~/marks/results.txt
-    echo "Results generated."
+.. R7
 
-.. R8
-
-Now, on running the script, we get a message on the screen informing us,
-when the script has run. 
-
-Let's now say, that we wish to let the user decide the file to which the
-results should be written to. The results file, should be specifiable by an
-argument in the command line. We can do so, by editing the file, as below. 
+Bash also saves the history of the commands you have typed. So, you can go 
+back to a previously typed command. Use the up and down arrow keys to navigate 
+in your bash history.
+You can also search incrementally, for commands in your bash history. Ctrl-r 
+search for the commands that you have typed before. But, note that the number 
+of commands saved in the history is limited, generally upto a 1000 commands.
 
 .. L8
 
-{{{ Make the necessary changes in the previous script }}}
-
+{{{ Switch to terminal }}}
 ::
 
-    #!/bin/bash
-    mkdir ~/marks
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | sort > ~/marks/$1
-    echo "Results generated."
+    <Ctrl-r> pas
 
+.. R8
 
-{{{ Highlight the text ``$1`` }}}
+.. L9
+
+{{{ Show slide, with Shell Meta Characters }}} 
 
 .. R9
 
-The ``$1`` above, corresponds to the first command line argument to the
-script. So, we can run the script as shown below, to save the results to
-``grades.txt``. 
+Unix recognizes certain special characters, called "meta characters," as 
+command directives. The shell meta characters are recognized anywhere they 
+appear in the command line, even if they are not surrounded by blank space. 
+For that reason, it is safest to only use the characters A-Z, a-z, 0-9, and 
+the period, dash, and underscore characters when naming files and directories
+ on Unix. If your file or directory has a shell meta character in the name, 
+you will find it difficult to use the name in a shell command.
 
-.. L9
-::
+The characters that you see on the slide are the shell meta characters
 
-    ./results.sh grades.txt    
+ / < > ! $ % ^ & * | { } [ ] " ' ` ~ ;
 
 .. R10
 
-When we run the ``results.sh`` file, we are specifying the location of the
-script by using ``./``. But for any of the other commands, 
-we didn't have to specify their locations. Why? The
-shell has a set of locations where it searches, for the command that we are
-trying to run. 
+Let's take an example,
 
 .. L10
 
-.. L11
+{{{ Switch to terminal }}} 
+::
 
-{{{ Show slide, PATH }}}
+    ls file.*
 
 .. R11
 
-These set of locations are saved in an "environment"
-variable called PATH.let us look at what the value of the PATH variable is. To view the
-values of variables, we can use the echo command.
+It means, run on a directory containing the files file, file.c, file.lst, and 
+myfile would list the files file.c and file.lst. However,
 
-.. L12
+.. L11
 
-{{{ Switch to the terminal }}}
 ::
 
-    echo $PATH
+    ls file.?
 
 .. R12
 
-So, these are all the paths that are searched, when looking to execute a
-command. If we put the results.sh script in one of these locations, we
-could simply run it, without using the ``./`` at the beginning. 
+Run on the same directory would only list file.c because the ? only 
+matches  one character, no more, no less. This can save you a great deal of 
+typing time.
 
-.. L13
+For example, if there is a file called california_cornish_hens_with_wild_rice 
+and no other files whose names begin with 'c', you could view the file without 
+typing the whole name by typing this
 
-{{{ Show slide, variables & comments }}}
+.. L12
+
+::
+
+    more c*
 
 .. R13
 
-As expected, it is possible to define our own variables inside our shell
-scripts. For example,
+Here, the c* matches that long file name.
+
+File-names containing metacharacters can pose many problems and should never 
+be intentionally created.
+
+.. L13
 
 .. L14
 
-{{{ Switch to the terminal }}}
-::
-
-    name="FOSSEE"
+{{{ Switch to Summary slide }}}
 
 .. R14
 
-It creates a new variable ``name`` whose value is ``FOSSEE``. To refer to this
-variable, inside our shell script, we would refer to it, as ``$name``.
-Note that, there is no space around the ``=`` sign. 
+This brings us to the end of the end of this tutorial.
+In this tutorial, we have learnt to,
 
+1. Implement features of tab-completion and history.
+#. Make use of the shell meta characters.
+ 
 .. L15
-::
-
-    ls $name*
+ 
+{{{ Show self assessment questions slide }}}
 
 .. R15
 
-.. R16
+Here are some self assessment questions for you to solve:
 
-It is possible to store the output of a command in a variable, by enclosing
-the command in back-quotes. 
+1. Bash does not provide tab completion for Host Names. True of False?
+
+2. State the command which will list all the files in the current working 
+   directory that end in either .c or .h
 
 .. L16
+
+{{{ Solutions for the self assessment questions on slide }}}
+
+.. R16
+
+And the answers:
+
+1. False. Bash provides tab completion for Host Names when they are prefixed 
+   with a @ sign.
+
+  
+2. The command which will find the files ending either in .c or .h is,
 ::
 
-    count=`wc -l wonderland.txt`
+    ls *.[ch]
+
+
+.. L17
+
+{{{ Show the SDES & FOSSEE slide }}}
 
 .. R17
 
-It saves the number of lines in the file ``wonderland.txt`` in the variable
-count. 
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
 
-The ``#`` character is used to comment out content from a shell script.
-Anything that appears after the ``#`` character in a line, is ignored by
-the bash shell. 
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
 
 .. L18
 
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R18
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
 .. L19
 
-{{{ Switch to 'Summary' slide }}}
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
 
 .. R19
 
-This brings us to the end of the end of this tutorial.
-In this tutorial, we have learnt to, 
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
 
- 1. Prepare a shell script.
- #. Display the result of a script, using the ``echo`` command.
- #. Use the environment variable ``PATH``.
- #. Create variables and comment out content using the ``#`` sign.
+For more details, contact contact@spoken-tutorial.org
 
 .. L20
 
-{{{ Show self assessment questions slide }}}
+{{{ Show the ``Acknowledgements'' slide }}}
 
 .. R20
 
-Here are some self assessment questions for you to solve
-
- 1. Which sign is used to comment out content from a shell script.
-  
-    - $
-    - %
-    - #
-    - * 
-
- 2. How will you add directory ``/data/myscripts`` to the beginning of 
-    the $PATH environment variable ?
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
 
 .. L21
 
-{{{ Solution of self assessment questions on slide }}}
+{{{ Show the Thank you slide }}}
 
 .. R21
 
-And the answers,
-
- 1. We use the ``#`` sign to comment out the content from a shell script.
-
- 2. In order to add a directory to the beginning of the $PATH variable,we
-    say,
-::
-
-    $PATH=/data/myscripts:$PATH
-
-.. L22
-
-{{{ Show the Thank you slide }}}
-
-.. R22
-
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
-
-

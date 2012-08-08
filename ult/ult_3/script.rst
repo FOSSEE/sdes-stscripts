@@ -3,15 +3,14 @@
    
    .. At the end of this tutorial, you will be able to:
    
-   ..   1. Display the contents of files.
-   ..   2. Read only parts of a file.
-   ..   3. Look at the statistical information of a file.
-
+   ..   1. Change file permissions
+   ..   2. Change ownership of files
+  
 .. Prerequisites
 .. -------------
 
-..   1. Using Linux tools - Part 1
-..   2. Using Linux tools - Part 2
+..   1. Getting started with Linux
+..   2. Basic File Handling
  
 Script
 ------
@@ -23,8 +22,7 @@ team along with the logo of MHRD }}}
 
 .. R1
 
-Hello friends and Welcome to the tutorial on 
-'Using linux tools - Part 3'.
+Hello friends and Welcome to the tutorial on "File permissions and ownership".
 
 .. L2
 
@@ -34,9 +32,8 @@ Hello friends and Welcome to the tutorial on
 
 At the end of this tutorial, you will be able to,
 
- 1. Display the contents of files.
- #. Read only parts of a file.
- #. Look at the statistical information of a file.
+ 1. Change file permissions
+ #. Change ownership of files
 
 .. L3
 
@@ -45,174 +42,174 @@ At the end of this tutorial, you will be able to,
 .. R3
 
 Before beginning this tutorial,we would suggest you to complete the 
-tutorial on "Using Linux tools - Part 1" and "Using Linux tools - Part 2".
+former tutorials as being displayed currently.
+
+.. L4
 
 .. R4
 
-Let us begin with how to read a while as a whole.
-The ``cat`` command is the most commonly used command to display the
-contents of files. To view the contents of a file, say, ``foo.txt``, we
-simply say, 
-
-.. L4
-::
-
-    cat foo.txt
+Let us now look at file permissions. Linux is a multi-user environment and
+allows users to set permissions to their files to allow only a set of
+people to read or write it. Similarly, it is not "safe" to allow system
+files to be edited by any user. All this access control is possible in
+Linux. 
 
 .. R5
 
-You can see the contents of the file on the terminal. 
-
-The cat command could also be used to concatenate the text of multiple
-files. Say, we have two files,``foo.txt`` and ``bar.txt``, 
+To start, in the root directory, say,
 
 .. L5
+
+{{{ Open the terminal }}}
 ::
 
-    cat foo.txt bar.txt
+    cd /
+    ls -l
 
 .. R6
 
-It shows the output of both the files concatenated on the standard output. 
-But if we had a long file,the output of ``cat`` command is not convenient 
-to read.
-Let's look at the ``less`` command which turns out to be more useful in 
-such a case. 
-
-``less `` allows you to view the contents of a text file one screen at a
-time. 
+You get a list of all the sub-directories, with a lot of additional information.
+Let us try and understand the output.
 
 .. L6
-::
-
-    less wonderland.txt
-
-.. R7
-
-This shows us the file, one screen at a time.
 
 .. L7
 
-.. L8
+{{{ Highlight the required portions accordingly while narrating }}}
 
-{{{ Show slide with, less }}}
+.. R7
+
+The first column denotes the type and the access permissions of the file.
+The second is the number of links. The third and fourth are the owner and
+group of the file. The next field is the size of the file in bytes. The
+next field is the date and time of modification and the last column is the
+file name.
+We shall look at the permissions of the file now, ie., the first column of
+the output. 
+
+The first character in the first column specifies, whether the item is a
+file or a directory. Files have a ``-`` as the first character and
+directories have a ``d``. 
+
+The rest of the 9 characters are actually sets of 3 characters each. The 
+first set of 3 characters defines the permissions of the user, the next 3 
+is for the group and the last three is for others. 
+Based on the values of these characters, access to files is provided or denied, 
+to each of the users.
+
+So, what does each of the three characters stand for? Let's suppose, we are
+looking at the set, corresponding to the permissions of the user. In the
+three characters, the first character can either be an ``r`` or a ``-``.
+Which means, the user can either have the permission to read the file or
+not. If the character is ``r``, then the user has the permission to read
+the file, else not. Similarly, ``w`` stands for write permissions and
+decides whether the user is allowed to write to the file or not. ``x`` stands 
+for execute permissions. You cannot execute a file, if you do not have the
+permission to execute it.
+
+Similarly, the next set of characters decides the same permissions for the
+members of the group, that the file is associated with. The last set of
+characters defines these permissions for the users, who are neither owners
+of the file nor in the group, with which the file is associated. 
+
+Now, it's not as if these permissions cannot be changed. If you are the
+owner of a file, you can change the permissions of a file, using the
+``chmod`` command.
+
 
 .. R8
 
-``less`` has a list of commands that it allows you to use, once you have
-started viewing a file. A few of the common ones have been listed below. 
+Let's say, we wish to give the execute permissions for a file, to both the
+user and the group, how do we go about doing it? To be more explicit, given
+a file ``foo.sh``, with the permissions flags as ``-rw-r--r--``, change it
+to ``-rwxr-xr--``. 
 
-    * q: Quit.
+The following command does it for us, 
 
-    * [Arrows]/[Page Up]/[Page Down]/[Home]/[End]: Navigation.
+.. L8
+::
 
-    * ng: Jump to line number n. Default is the start of the file.
-
-    * /pattern: Search for pattern. Regular expressions can be used.
-
-    * h: Help. 
+    chmod ug+x foo.sh
+    ls -l foo.sh
 
 .. R9
 
-Let us move ahead with the topic. Often we just would like to get some 
-statistical information about the file, rather than viewing the contents 
-of the file. The ``wc`` command prints these details for a file. 
+As you can see, the permissions have been set to the required value. But
+what did we exactly do?  
 
 .. L9
-::
-
-    wc wonderland.txt
 
 .. L10
 
-{{{ Highlight the required portions accordingly while narrating }}}
+{{{ Switch to slide,Symbolic modes }}}
 
 .. R10
 
-As you can see, we get some information about the file.
-The first number is the number of lines, the second is the number of words
-and the third is the number of characters in the file. 
+Let us understand these parameters one by one.
+The ``u`` is the user who is the owner of the file. 
+``g`` stands for group which consists of users who are members of the
+file’s group. The reference ``o``, which we shall use later in the tutorial,    
+stands for others who are users of the file but not the owners or members of 
+a group.
+
+.. L11
+
+{{{ Switch to slide,Symbolic modes... }}}
 
 .. R11
 
-Let us now look at a couple of commands that let you see parts of files,
-instead of the whole file. The ``head`` and ``tail`` commands let you see 
-parts of files, as their names suggest, the start and the end of a file,
-respectively. 
+Let us now understand the operators. The plus operator adds the specified modes 
+to the specified classes. The minus operator removes the specified modes from 
+the specified classes. And finally the equal-to operator is used where modes 
+specified are to be made the exact modes for the specified classes.
 
-.. L11
-::
+.. L12
 
-    head wonderland.txt
+{{{ Switch to slide,Symbolic modes... }}}
 
 .. R12
 
-It prints only the first 10 lines of the file. Similarly tail will print the
-last 10 lines of the file. If we wish to change the number of lines that we
-wish to view, we use the option ``-n``. 
+We shall now learn the function of each mode. ``r`` stands for read which reads 
+a  file or lists a directory’s contents. ``w`` is for write by which we can     
+write to a file or a directory. ``x`` stands for execute. As the name suggests, 
+it executes a file or recurse a directory tree.
+   
+.. L13
 
-.. L12
-::
-
-    head -n 1 wonderland.txt
+{{{ Switch to the terminal }}}
+{{{ Highlight the command, chmod ug+x foo.sh }}}
 
 .. R13
 
-It prints only the first line of the file. Similarly, we could print only
-the last line of the file.
-
-The most common use of the tail command is to monitor a continuously
-changing file, for instance a log file. Say you have a process running,
-which is continuously logging it's information to a file, for instance the
-logs of the system messages. 
-
-.. L13
-::
-
-    tail -f /var/log/dmesg
+In the command, the parameter ``ug+x`` is the mode parameter to the
+``chmod`` command. It specifies the changes to be made to the
+permissions of the file ``foo.sh``. 
+The ``u`` and ``g`` stand for the user and group, respectively. The ``x``
+stands for the execute permission and ``+`` stands for adding the
+specified permission. So, essentially, we are asking ``chmod`` command to
+add the execute permission for the user and group. The permission of others
+will remain unchanged. 
 
 .. R14
 
-This will show the last 10 lines of the file as expected, but along with
-that, it starts monitoring the file. Any new lines added at the end of the
-file, will be shown. To interrupt tail, while it is monitoring, hit
-``Ctrl-C``. which will stop any process that is running from your
-current shell. 
-
-We looked at a couple of functions that allowed us to view a part of a file,
-line-wise. We shall now look at a couple of commands that will allow us to look
-at only certain sections of each line of a file and merge those parts.
-Let's take the ``/etc/passwd`` file as our example file. It contains
-information about each user of the system.
+So, if we wished to add the execute permission to all the users, instead of
+adding it to just the user and group, we would have instead said 
 
 .. L14
 ::
 
-    cat /etc/passwd
+    chmod a+x foo.sh 
 
 .. R15
 
-In the output, let us look at only the first, fifth, sixth and the last 
-columns.The first column is the user name, the fifth column is the user info, 
-the sixth column is the home folder and the last column is the path of the 
-shell program that the user uses. 
-Let's say we wish to look at only the user names of all the users in the
-file, how do we do it?
+or 
 
 .. L15
 ::
-    
-    cut -d : -f 1 /etc/passwd
+
+    chmod ugo+x foo.sh
 
 .. R16
-
-It gives us the required output. Let us understand this operation in detail.
-The first option ``-d`` specifies the delimiter between the various fields in
-the file, in this case it is the semicolon. If no delimiter is specified,
-the TAB character is assumed to be the delimiter. The ``-f`` option specifies,
-the field number that we want to choose. 
-You can print multiple fields, by separating the field numbers with a
-comma. 
 
 Pause the video here, try out the following exercise and resume the video.
 
@@ -220,155 +217,152 @@ Pause the video here, try out the following exercise and resume the video.
 
 .. L17
 
-{{{ Show slide with exercise 3 }}}
+{{{ Show slide with exercise }}}
 
 .. R17
 
-Print only the first, fifth and the seventh fields of the file ``/etc/passwd``.
-
-.. R18
-
-Switch to the terminal for solution
+Change the permissions of a directory along with all of its
+sub-directories and files.
 
 .. L18
 
-{{{ continue from paused state }}}
-{{{ Switch to the terminal }}}
+{{{ Show slide with solution }}}
 
-::
-    
-    cut -d : -f 1,5,7 /etc/passwd
+.. R18
+
+To change the permissions of a directory along with all of its
+sub-directories and files, recursively, we use the ``-R`` option
+with the chmod command as shown
+
+  chmod go-r -R <directory name>/
 
 .. R19
 
-We get the correct output.
-Instead of choosing by fields, ``cut`` also allows us to choose on the
-basis of characters or bytes. For instance, we could get the first 4
-characters of all the entries of the file, ``/etc/passwd`` by saying,
+It is important to note that the permissions of a file can only be changed
+by a user who is the owner of a file or the superuser.
+The superuser or the ``root`` user is the only user
+empowered to a certain set of tasks and hence is called the superuser.
+What if we wish to change the ownership of a file? The ``chown`` command is
+used to change the owner and group. 
+By default, the owner of a file (or directory) is the user that
+created it. The group is a set of users that share the same access
+permissions i.e., read, write and execute. 
+For instance, to change the user and the group of the file
+``wonderland.txt`` to ``alice`` and ``users``, respectively, we say,
 
 .. L19
 ::
 
-    cut -c 1-4 /etc/passwd 
+    chown alice:users wonderland.txt
 
 .. R20
 
-The end limits of the ranges can take sensible default values, if they are
-left out. For example, 
+We get an error saying, the operation is not permitted.
+We have attempted to change the ownership of a file that we own, to a
+different user. Logically, this shouldn't be possible, because, this can
+lead to problems, in a multi-user system. 
+Only the superuser is allowed to change the ownership of a file from one
+user to another. The command above would have worked, if you did login as 
+the superuser and then changed the ownership of the file. 
 
 .. L20
-::
 
-    cut -c -4 /etc/passwd 
+.. L21
+
+{{{ Show Summary slide }}}
 
 .. R21
 
-It gives the same output as before. If the start position has not been
-specified, it is assumed to be the start of the line. Similarly if the end
-position is not specified, it is assumed to be the end of the line. 
+This brings us to the end of the tutorial.In this tutorial, we have learnt to,
 
-.. L21
-::
-
-    cut -c 10- /etc/passwd 
-
-.. R22
-
-It prints all the characters from the 10th character up to the end of the
-line. 
-Let us now solve an inverse problem. Let's say we have two columns of data
-in two different files, and we wish to view them side by side. 
+ 1. Chane the permissions of files using the ``chmod'' command.
+ #. Use the ``chown'' command to change the ownership of files.
 
 .. L22
 
-.. L23
-
-{{{ Show slide with, paste }}}
-
-.. R23
-
-For instance, given a file containing the names of students in a file,
-students.txt, and another file with the marks of the students,marks.txt,
-
-.. R24
-
-we wish to view the contents, side by side. The ``paste`` command allows 
-us to do that. 
-
-.. L24
-::
-
-    paste students.txt marks.txt
-    paste -s students.txt marks.txt
-
-.. R25
-
-The first command gives us the output of the two files, next to each other
-and the second command gives us the output one below the other. 
-
-Now, this problem is a bit unrealistic because, we wouldn't have the marks
-of students in a file, without any information about the student to which
-they belong. Let's say our marks file had the first column as the roll
-number of the student, followed by the marks of the students. What would we
-then do, to get the same output that we got before? 
-
-Essentially we need to use both, the ``cut`` and ``paste`` commands, but
-how do we do that? That brings us to the concept of Redirection and Piping
-which is covered in the next spoken tutorial. 
-
-.. L25
-
-.. L26
-
-{{{ Switch to summary slide }}}
-
-.. R26
-
-This brings us to the end of this tutorial.
-In this tutorial, we have learnt to, 
-
- 1. Display the contents of files using the ``cat`` command.
- #. View the contents of a file one screen at a time using the 
-    ``less`` command.
- #. Display specific contents of file using the ``head`` and 
-    ``tail`` commands.
- #. Use the ``cut``, ``paste`` and ``wc`` commands.
-  
-.. L27
-
 {{{ Show self assessment questions slide }}}
 
-.. R27
+.. R22
 
 Here are some self assessment questions for you to solve
 
-1. How to view lines from 1 to 15 in wonderland.txt?
+ 1. For a given file, change mode to r, w, x for all (user, group, others)
+ 
+ 2. What changes, on specifying only an owner in the "chown" command?
+    
+    - Only the owner of the file
+    - The group ownership of the file
+    - Neither the owner nor the group
 
-2. In ``cut`` command, how to specify space as the delimiter? 
-
-.. L28
+.. L23
 
 {{{ Solution of self assessment questions on slide }}}
 
-.. R28
+.. R23
 
 And the answers,
 
-1. We can use the head command as,
+1. The required result can be obtained as,
 ::
 
-    head -15 wonderland.txt
+    chmod ugo+rwx wonderland.txt
 
-2. We use the -d option with the command as,
-::
 
-    cut -d " " <filename>
+2. For ``chown'' command, if only  an  owner (a username or numeric user ID) 
+   is given, then, that user is made the owner of each given file, and the 
+   files' group is not changed.
 
-.. L29
 
-{{{ Show the Thank you slide }}}
+.. L24
 
-.. R29
+{{{ Show the SDES & FOSSEE slide }}}
+
+.. R24
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L25
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R25
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L26
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R26
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L27
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R27
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L28
+
+{{{ Show the Thankyou slide }}}
+
+.. R28
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!

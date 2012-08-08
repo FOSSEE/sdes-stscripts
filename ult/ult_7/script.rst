@@ -3,18 +3,17 @@
    
    .. At the end of this tutorial, you will be able to:
    
-   ..   1. Prepare scripts using 'Control Operators'.
-   ..   2. Understand what 'Environment Variables' are.
+   ..   1. Sort lines of text files
+   ..   2. Print lines matching a pattern
+   ..   3. Translate or delete characters
+   ..   4. Omit repeated lines
+
 
 .. Prerequisites
 .. -------------
 
-..   1. Using Linux tools - Part 1
-..   2. Using Linux tools - Part 2
-..   3. Using Linux tools - Part 3
-..   4. Using Linux tools - Part 4
-..   5. Using Linux tools - Part 5
-..   6. Using Linux tools - Part 6
+..   1. Getting started with Linux
+..   2. Redirection and Piping
 
 
  
@@ -28,374 +27,367 @@ team along with the logo of MHRD }}}
 
 .. R1
 
-Hello friends and Welcome to the tutorial on
-'Using linux tools - Part 7'.
+Hello friends and Welcome to the tutorial on 'Text Processing'.
 
 .. L2
 
-{{{ Show the 'Objectives' slide }}}
+{{{ Show slide with objectives }}} 
 
 .. R2
 
 At the end of this tutorial, you will be able to,
 
- 1. Prepare scripts using 'Control Operators'.
- 2. Understand what 'Environment Variables' are.
- 
+ 1. Sort lines of text files
+ #. Print lines matching a pattern
+ #. Translate or delete characters
+ #. Omit repeated lines.
+
+
 .. L3
 
 {{{ Switch to the pre-requisite slide }}}
 
 .. R3
 
-Before beginning this tutorial, we suggest you to complete the
-tutorials, "Using Linux tools, Part 1 to Part 6".
+Before beginning this tutorial,we would suggest you to complete the 
+former tutorials as being displayed currently.
 
 .. R4
 
-We have many 'Control Structures and Operators' available in the linux bash.
-Let us look at how to use them.
-To write an 'if', or an 'if-else' construct, we need to check or test for a
-condition(s). The ``test`` command allows us to test for condition(s). It has
-a whole range of tests that can be performed. The man page of ``test``
-gives you the complete listing of various types of tests that can be performed 
-with it.
-
-Let's write a simple script with an ``if`` condition that tests whether a
-directory with a particular name, exists or not.
+In this tutorial, we shall learn about text processing.
+TO begin with, consider data kept in two files, namely marks1.txt and 
+students.txt
+Let us see what data they contain. Open a terminal and type, 
 
 .. L4
 
-.. L5
+{{{ Open the terminal }}}
+::
 
-{{{ Show slide, 'if' }}}
+    cat marks1.txt
+    cat students.txt
 
 .. R5
 
-Let us create a script named ``dir-test.sh`` with this code.
+Let's say we wish to sort the output in the alphabetical order
+of the names of the files. We can use the ``sort`` command for this
+purpose.
 
-    #!/bin/bash
-    if test -d $1
-    then
-      echo "Yes, the directory" $1 "is present"
-    fi
+We just pipe the previous output to the ``sort`` command as,
 
-When the script is run with an argument, it will print a message, if a
-directory with the said name exists in the current working directory.
+.. L5
+::
+
+    cut -d " " -f 2- marks1.txt | paste -d " " students.txt -| sort
 
 .. R6
 
-Let's write a simple script which returns back whether the argument passed
-is negative or not.
+Let's say we wish to sort the names, based on the marks in the first
+subject i.e. the first column after the name. ``sort`` command also allows us to
+specify the delimiter between the fields and sort the data on a particular
+field. ``-t`` option is used to specify the delimiter and ``-k`` option
+is used to specify the field. 
 
 .. L6
-
-{{{ Open the file sign.sh and show }}}
 ::
 
-   #!/bin/bash
-   if test $1 -lt 0
-   then
-     echo "number is negative"
-   else
-     echo "number is non-negative"
-   fi
-
-.. R7
-
-We can run the file with a set of different inputs and see if it works.
+    cut -d " " -f 2- marks1.txt | paste -d " " students.txt -| sort -t " " -k 2
 
 .. L7
 
-{{{ Switch to terminal }}}
-::
+{{{ Show slide with, Sort... }}}
 
-   ./sign.sh -11
+.. R7
+
+This command give us a sorted output as required. But, what if we would 
+like the output to appear in the reverse order. ``-r`` option allows the output
+to be sorted in the reverse order and the ``-n`` option is used to choose 
+a numerical sorting. 
 
 .. R8
 
-Instead of using the ``test`` command, square brackets may also be used.
+Let us do it on the terminal and see for ourselves, 
 
 .. L8
 
-.. L9
+{{{ Switch to the terminal }}}
+::
 
-{{{ Show slide, [ ] - alias for test }}}
+    cut -d " " -f 2- marks1.txt | paste -d " " students.txt -| 
+    sort -t " " -k 2 -rn
 
 .. R9
 
-Note that the spacing is important, when using the square brackets.
-The left square bracket ( ``[`` ) should be followed by a space and the right 
-square bracket ( ``]`` ) should be preceded by a space.
+Suppose, While you are compiling the student marklist, Anne walks up to you and
+wants to know her marks. You, being a kind person that you are, oblige.
+But you do not wish to her to see the marks that others have scored. What
+do you do? Here, the ``grep`` command comes to your rescue. 
 
-Let's create something interesting using the 'if-else' clause. Let's write a
-script, that greets the user, based on the time.
+``grep`` is a command line text search utility. You can use it to search
+for Anne and show her, what she scored. ``grep`` allows us to search for a
+search string in files. But we could, like any other command, pipe the
+output of other commands to it. So, we shall use the previous combination
+of cut and paste that we had, to get the marks of students along with their
+names and search for Anne in that. 
 
-.. L10
+.. L9
+::
 
-{{{ Open the file clause.sh and show }}}
-{{{ Highlight the required content wherever necessary, while narrating }}}
+    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | grep Anne 
 
 .. R10
 
-There are a couple of new things in this script. ``$LOGNAME`` is another
-'environment variable', which has the login name of the  user. The variables,
-``hour`` and ``now`` are actually taking the output of the commands that
-are placed in the back quotes.
+This will give us only the line containing the word Anne as the output.
+The grep command is by default case-sensitive. So, we wouldn't have got
+the result if we had searched for anne, with a small a, instead of 
+Anne, with a capital a. But, what if we didn't know, whether the name was 
+capitalized or not? ``grep`` allows you to do case-insensitive searches 
+by using the ``-i`` option. 
 
-Now, let us see how to run loops in bash. We shall look at the ``for`` and
-the ``while`` loops.
+.. L10
+::
 
-.. L11
-
-{{{ Show slide, 'for' }}}
+    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | grep -i Anne 
 
 .. R11
 
-Suppose we have a set of files, whose file-names contain numbers before the 
-text, say ``08 - Society.mp3``. We would like to rename these files by 
-removing the numbers before the text. How would we go about doing that?
+Now, in another scenario, if we wished to print all the lines, which do
+not contain the word Anne, we could use the ``-v`` option. 
 
-It is clear from the problem statement that we could loop over the list of
-files and rename each of them.
+.. L11
+::
+
+    cut -d " " -f 2- marks1.txt | paste -d " " students.txt - | grep -iv Anne
 
 .. R12
 
-First, let us look at a simple ``for`` loop, to understand how it works.
+grep allows us to do more complex searches, for instance, searching for
+sentences starting or ending with a particular pattern and regular
+expression based searches. 
+
+{{{ Show slide with, tr }}}
+
+``tr`` is a command that takes two sets of characters as parameters, and
+replaces occurrences of the characters in the first set with the
+corresponding elements from the other set. It reads from the standard
+output and writes to the standard output. 
+
+For instance, if we wish to replace all the lower case letters in the
+students file with upper case, we can do it as, 
 
 .. L12
 
-{{{ Switch to terminal }}}
+{{{ Switch to the terminal }}}
 ::
 
-    for animal in rat cat dog man
-    do
-      echo $animal
-    done
+    cat students.txt | tr a-z A-Z
 
 .. R13
 
-We just wrote a list of animals, each name separated by a space
-and then printed each name on a separate line. The variable ``animal`` is a
-'dummy' or a 'loop variable'. It can then be used to refer to the element of
-the list that is currently being dealt with. We could, obviously, use
-something as lame as ``i`` in place of ``animal``.
+A common task is to remove empty newlines from a file. The ``-s`` flag
+causes ``tr`` to compress sequences of identical adjacent characters in its
+output to a single token. For example,
 
 .. L13
+::
+
+    tr -s '\n' '\n'
 
 .. R14
 
-To generate a range of numbers and iterate over them, we do the following.
+Hit enter 2-3 times and see that every time we hit enter we get a newline.
 
 .. L14
+::
 
-{{{ Open the script ``for-1.sh`` and show }}}
+    <Enter>
+    <Enter> 
 
 .. R15
 
-Now, let us run the script and see what we get,
+It replaces sequences of one or more newline characters with a single newline.
+
+The ``-d`` flag causes ``tr`` to delete all tokens of the specified set of
+characters from its input. In this case, only a single character set
+argument is used. The following command removes carriage return characters,
+thereby converting a file in DOS/Windows format to the Unix format. 
 
 .. L15
-
-{{{ Switch to terminal }}}
 ::
 
-    sh for-1.sh
+    cat foo.txt | tr -d '\r' > bar.txt
 
 .. R16
 
-Now, we use a ``for`` loop to list the files that we are interested in.
+The ``-c`` flag complements the first set of characters.
 
 .. L16
-
-{{{ Open the script ``for-2.sh`` and show }}}
-{{{ Switch to terminal }}}
 ::
 
-    sh for-2.sh
+    tr -cd '[:alnum:]' 
 
 .. R17
-    
-If the file-names contain spaces, ``for`` assumes, each word separated by a 
-space,to be a single item in the list and prints it in a separate line. We 
-could modify the script slightly to overcome this problem.
+
+It therefore removes all non-alphanumeric characters.
+
+Let us consider one more scenario.Suppose we have a list of items, say books, 
+and we wish to obtain a list which names of all the books only once, without 
+any duplicates. To achieve this, we use the ``uniq`` command. Let us first 
+have a look at our file
 
 .. L17
-
-{{{ Open the script ``for-3.sh`` and show }}}
-{{{ Switch to terminal }}}
 ::
 
-    sh for-3.sh
+    cat items.txt
 
 .. R18
 
-Now, we have each file name printed on a separate line. The file names are
-in the form ``dd - Name.mp3`` and it has to be changed to the format
-``Name.mp3``. Also, if the name has spaces, we wish to replace it with
-hyphens.
+Now, let us try and get rid of the duplicate lines from this file using 
+the ``uniq`` command.
 
 .. L18
- 
-{{{ Open the script ``for-4.sh`` and show }}}
-{{{ Switch to terminal }}}
 ::
 
-    sh for-4.sh
+    uniq items.txt
 
 .. R19
 
-Now, we simply replace the echo command with a ``mv``  command.
+Nothing happens! Why? The ``uniq`` command removes duplicate lines only when 
+they are next to each other. So, henceforth, we get a sorted file from the 
+original file and work with that file. 
 
 .. L19
-
-{{{ Open the script ``for-5.sh`` and show }}}
-{{{ Switch to terminal }}}
 ::
 
-    sh for-5.sh
+    sort items.txt | uniq
 
 .. R20
 
-We see that we get our required output. All the files have been renamed and
-the spaces are removed.
-Now let us move ahead with ``while`` loop.
-The ``while`` command allows us to continuously execute a block of commands
-until the command that is controlling the loop is executing successfully.
+``uniq -u`` command gives the lines which are unique and do not have any 
+duplicates in the file. ``uniq -d`` outputs only those lines which 
+have duplicates. 
 
-.. L20
+.. L20 
+::
+
+    uniq -u items-sorted.txt 
 
 .. R21
 
-Let's start with the lamest example of a ''while'' loop.
+The ``-c`` option displays the number of times each line occurs in the file.
 
 .. L21
-
-{{{ Open the script ``while-1.sh`` and show }}}
-{{{ Switch to terminal }}}
 ::
 
-    sh while-1.sh
-
-.. R22
-
-This, as you can see, is an infinite loop that prints ``True``.
-
-Say, we wish to write a simple program that takes input from the user
-and prints it back, until the input is ``quit``, which then quits the program.
+    uniq -dc items-sorted.txt
 
 .. L22
 
-{{{ Open the script ``while-2.sh`` and show }}}
-{{{ Switch to terminal }}}
-::
+{{{ Show summary slide }}}
 
-    sh while-2.sh
+.. R22
+
+This brings us to the end of the end of this tutorial.
+In this tutorial, we have learnt to, 
+ 
+  1. Use the ``sort`` command to sort lines of text files.
+  #. Use the ``grep`` command to search text pattern.
+  #. Use the ``tr`` command to translate and/or delete characters.
+  #. Use the ``uniq`` command to omit repeated lines in a text. 
 
 .. L23
 
-{{{ Show slide, Environment Variables }}}
+{{{ Show self assessment questions slide }}}
 
 .. R23
 
-'Environment variables' are a way of passing information from the shell to the
-programs that are run in it. Standard UNIX variables are split into two 
-categories,'Environment variables' and 'Shell variables'. In broad terms, 
-'Shell variables' apply only to the current instance of the shell and are 
-used to set short-term working conditions; 'Environment variables' have a 
-farther reaching significance, and are set at login, valid for the duration of 
-the session. By convention, 'Environment variables' have UPPER CASE and 'Shell 
-variables' have lower case names.
+Here are some self assessment questions for you to solve
 
-You can see an example of environment variables in the slide.
+1. To obtain patterns; one per line, which of the following command is used ?
+   
+    - grep -f
+    - grep -i
+    - grep -v
+    - grep -e
 
-.. R24
+2. Translate the word 'linux' to upper-case.
 
-To see all the variables and their values, we could use any of the
-following,  
+3. Sort the output of the ``ls -al`` command.
 
 .. L24
 
-{{{ Switch to terminal }}}
-::
+{{{ Solution of self assessment questions on slide }}}
 
-    printenv | less
-    env
-    
-.. R25
-
-We have looked at the 'PATH' variable, in the previous tutorial. We shall now
-use the ``export`` command to change it's value.  
-
-.. L25
-::
-
-   export PATH=$PATH:$HOME/bin
-
-.. R26
-
-Observe the difference in the value of 'PATH' variable before and after 
-modifying it.
-
-``export`` command is used to export a variable to the environment of all
-the processes that are started from that shell.
-
-.. L26
-
-.. L27
-
-{{{ Switch to 'Summary' slide }}}
-
-.. R27
-
-This brings us to the end of this tutorial.
-In this tutorial, we have learnt to,
- 
- 1. Prepare scripts using control structures like ``if``, ``if-else``,
-    ``for`` and ``while``.
- 2. Use 'environment variables'.
- 3. Export a variable to the environment of all the processes, using
-    the ``export`` command.
-
-.. L28
-
-{{{ Show self assessment questions slide }}}
-
-.. R28
-
-Here are some self assessment questions for you to solve:
-
- 1. Print the text ``dog man`` in such a way that the prompt
-    continues after the text.
-
- 2. How can you add a new path variable ``/data/myscripts`` to $PATH variable ?
-
-.. L30
-
-{{{ Solutions of self assessment questions on slide }}}
-
-.. R30
+.. R24
 
 And the answers,
 
- 1. We print the given text using the ``echo`` command by using an additional
-    option -n as,
+1. In order to obtain patterns one per line, we use the ``grep`` command
+    alongwith the -f option.
+
+2. We use the tr command to change the word into uppercase 
 ::
 
-    $echo -n dog man
+    echo 'linux' | tr a-z A-Z
+ 
 
- 2. We can add a new path variable by using the export command as,
-    
+3. We use the sort command as, 
 ::
+     
+    ls -al | sort -n -k5
+The -n  means "sort numerically", and the -k5 option means to key off of 
+column five. 
 
-    $export PATH=$PATH://data/myscripts
+.. L25
 
-.. L31
+{{{ Show the SDES & FOSSEE slide }}}
+
+.. R25
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L26
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R26
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L27
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R27
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L28
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R28
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L29
 
 {{{ Show the Thank you slide }}}
 
-.. R31
+.. R29
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
-

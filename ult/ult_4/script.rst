@@ -3,15 +3,17 @@
    
    .. At the end of this tutorial, you will be able to:
    
-   ..   1. Understand what is Redirection and Piping.
-   ..   2. Learn various features of shell.
+   ..   1. Display the contents of files.
+   ..   2. Read only parts of a file.
+   ..   3. Look at the statistical information of a file.
 
 .. Prerequisites
 .. -------------
 
-..   1. Using Linux tools - Part 1
-..   2. Using Linux tools - Part 2
-..   3. Using Linux tools - Part 3
+..   1. Getting started with Linux
+..   2. Basic File Handling
+..   3. File permissions and ownership
+
  
 Script
 ------
@@ -24,7 +26,7 @@ team along with the logo of MHRD }}}
 .. R1
 
 Hello friends and Welcome to the tutorial on 
-'Using linux tools - Part 4'.
+'Advanced File Handling'.
 
 .. L2
 
@@ -34,8 +36,9 @@ Hello friends and Welcome to the tutorial on
 
 At the end of this tutorial, you will be able to,
 
- 1. Understand what is Redirection and Piping. 
- #. Learn various features of the shell.
+ 1. Display the contents of files.
+ #. Read only parts of a file.
+ #. Look at the statistical information of a file.
 
 .. L3
 
@@ -43,366 +46,388 @@ At the end of this tutorial, you will be able to,
 
 .. R3
 
-Before beginning this tutorial, we would suggest you to complete the 
-tutorial on "Using Linux tools from Part 1 to Part 3".
+Before beginning this tutorial,we would suggest you to complete the 
+former tutorials as being displayed currently.
 
 .. R4
 
-Let us begin with the concept of 'Redirection and Piping'  which 
-performs the  same operations as the ``cut`` and ``paste`` commands.
-
-Consider the files ``marks.txt`` and ``students.txt``.The contents of 
-the files  are as following:
+Let us begin with how to read a file as a whole.
+The ``cat`` command is the most commonly used command for this purpose.
+To view the contents of a file, say, ``foo.txt``, we
+simply say, 
 
 .. L4
 
-{{{ Open the terminal }}}
+{{{ Switch to terminal }}}
 ::
 
-    cat marks1.txt
-    cat students.txt
+    cat foo.txt
 
 .. R5
 
-Now, let us view the contents of both these files side-by-side.
+You can see the contents of the file on the terminal. 
+
+The cat command could also be used to concatenate the text of multiple
+files. Say, we have two files,``foo.txt`` and ``bar.txt``, 
 
 .. L5
 ::
 
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt -
+    cat foo.txt bar.txt
 
 .. R6
 
-Now, in order to view the same output in a new file at an other 
-location, we say,
+It shows the output of both the files concatenated on the standard output. 
+But if we had a long file,the output of ``cat`` command is not convenient 
+to read.
+Let's look at the ``less`` command which turns out to be more useful in 
+such a case. 
+
+``less `` allows you to view the contents of a text file one screen at a
+time. 
 
 .. L6
 ::
 
-    cut -d " " -f 2- marks1.txt > /tmp/m_tmp.txt
-    paste -d " " students.txt m_tmp.txt
+    less wonderland.txt
+
+<Press enter few times and show the contents of the file, then press Ctrl-z>
 
 .. R7
 
-First, let us try to understand the second solution,which is a two 
-step approach.
-Later, we shall look at the first solution. 
+This shows us the file, one screen at a time.
 
 .. L7
 
 .. L8
 
-{{{ Show slide, with Redirection }}}
+{{{ Show slide with, less }}}
 
 .. R8
 
-The standard output, in general, goes to the display.
-Hence, the output of the commands that we type, come out to the display.
-This may not be what we always require. 
+``less`` has a list of commands that it allows you to use, once you have
+started viewing a file. A few of the common ones have been listed below. 
 
-For instance, in the solution above, we use the cut command and get only
-the required columns of the file and write the output to a new temporary
-file. The ``>`` character is used to state that we wish to redirect the
-output, and it is followed by the location to which we wish to redirect. 
-For example,
+    * q: to Quit.
 
-    command > file1
+    * [Arrows]/[Page Up]/[Page Down]/[Home]/[End]:to Navigate through 
+      the content.
 
-.. L9
+    * ng: to jump to a given line number (n).Default, is the first line of 
+      a file.
 
-{{{ Show slide, with Redirection... }}}
+    * /pattern: Search for pattern. Regular expressions can be used.
+
+    * h: for Help. 
 
 .. R9
 
-Similarly, the standard input (stdin) can be redirected as,
-    
-    command < file1
+Let us move ahead with the topic. Often, we would like to get only some 
+statistical information about a file, rather than it's full contents. 
+The ``wc`` command prints these details for a file. 
 
-The input and the output redirection could be combined in a single command, 
-as, 
+.. L9
+::
 
-    command < infile > outfile
-
-There is actually a third kind of standard stream, called the Standard
-error (stderr). Any error messages that you get, are coming through this
-stream. Like ``stdout``, ``stderr`` also streams to the display by default,
-but it could be redirected to a file, as well. 
-
-.. R10
-
-For instance, let's reproduce an error using the ``cut`` command used
-before. We shall change the ``-f`` option to ``-c`` 
+    wc wonderland.txt
 
 .. L10
 
-{{{ Switch to terminal }}}
-::
+{{{ Highlight the required portions accordingly while narrating }}}
 
-    cut -d " " -c 2- marks1.txt > /tmp/m_tmp.txt
+.. R10
+
+As you can see, we get some information about the file.
+The first number is the number of lines, the second is the number of words
+and the third is the number of characters in the file. 
 
 .. R11
 
-This displays an error saying that the delimiter option should be used 
-with the fields option only. You may verify this by looking at the 
-``m_tmp.txt`` file, which is now empty.We can now, redirect the 
-``stderr`` also to a file, instead of showing it on the display. 
+Let us now look at a couple of commands that let's you see parts of files,
+instead of the whole file. The ``head`` and ``tail`` commands allow you to see 
+parts of files. As their names suggest, they display the start and end of a 
+file, respectively.
 
 .. L11
 ::
 
-    cut -d " " -f 2- marks1.txt 1> /tmp/m_tmp.txt 2> /tmp/m_err.txt
+    head wonderland.txt
 
 .. R12
 
-The above command redirects all the errors to the ``m_err.txt`` file
-and the output to the ``m_tmp.txt`` file. When redirecting, 1 stands
-for ``stdout`` and 2 stands for ``stderr``. 
-
-Let us complete the solution by using the ``paste`` command.
+It prints only the first 10 lines of the file. Similarly tail will print the
+last 10 lines of the file. If we wish to change the number of lines that we
+wish to view, we use the option ``-n``. 
 
 .. L12
 ::
 
-    paste -d " " students.txt m_tmp.txt
+    head -n 1 wonderland.txt
 
 .. R13
 
-So, in two steps we solved the problem of getting rid of the roll numbers
-from the marks file and displaying the marks along with the names of the
-students. Now, that we know how to redirect output, we could choose to
-write the output to a file, instead of showing on the display. 
+It prints only the first line of the file. Similarly, we could print only
+the last line of the file.
 
-Let us now look at the first solution. 
+The most common use of the tail command is to monitor a continuously
+changing file, for instance, a log file. Say, you have a process running,
+which is continuously logging it's information to a file, for instance, the
+logs of the system messages. 
 
 .. L13
 ::
 
-    cut -d " " -f 2- marks1.txt | paste -d " " students.txt -
-
-.. L14
-
-{{{ Show slide, with Piping }}}
+    tail -f /var/log/dmesg
 
 .. R14
 
-First of all, the hyphen at the end is to ask the paste command to 
-read the standard input, instead of looking for a FILE. The ``man`` 
-page of ``paste`` command gives us this information. 
+This will show the last 10 lines of the file as expected, but along with
+that, it starts monitoring the file. Any new lines added at the end of the
+file, will be shown. To interrupt tail, while it is monitoring, hit
+``Ctrl-C``. 
 
-The character ``|`` is called a pipe. 
-Now, let us observe the ``cut`` command. If we look at the command only 
-upto the ``|`` character, it appears as a normal ``cut`` command .
-So, the ``|`` character here, seems 
-to be joining the two commands in some way. 
-Essentially, what we are doing is, to redirect the output of the first
-command to ``stdin`` and the second command takes the input from the ``stdin``. 
+We looked at a couple of functions that allowed us to view a part of a file,
+line-wise. We shall now look at a couple of commands that will allow us to look
+at, only certain sections of each line of a file and merge those parts.
+Let's take the ``/etc/passwd`` file as our example file. It contains
+information about each user of the system.
 
-More generally, 
+.. L14
+::
 
-    command1 | command2
-
-executes ``command1`` and sends it's output to the ``stdin``, which is then
-used as the input for ``command2``. This activity is commonly called piping.
-
-.. L15
-
-{{{ Show slide, with Piping... }}}
+    cat /etc/passwd
 
 .. R15
 
-This is roughly equivalent to using two redirects and a temporary file.
+In the output, let us look at only the first, fifth, sixth and the last 
+columns.The first column is the ``user name``, the fifth column is the 
+``user info``, the sixth column is the ``home folder`` and the last column 
+is the ``path of the shell program`` that the user uses. 
+Let's say, we wish to look at only the user names in the file, how do we do it?
 
-    command1 > tempfile
-    command2 < tempfile
-    rm tempfile
-
-Also, given that a pipe is just a way to send the output of a command to
-the ``stdin``, it should be obvious to you that we can use a chain of
-pipes. Any number of commands can be piped together and therefore it should
- be noted that it is not restricted to only two commands. 
-
-The Bash shell has some nice features, that make our job of using the shell
-easier and much more pleasant. Let us have a look at few of them here. 
-
-Bash provides the feature of 'tab completion'. What does tab completion mean?
-When you are typing a word, bash helps you to complete the word.
-This can be done by entering some portion of the word and thereafter, 
-pressing the tab key. 
-
-If you do not get the desired word on pressing the tab key, it implies that 
-either the word doesn't exist or the word cannot be decided unambiguously. 
-In the latter case, pressing the tab key for a second time,will list out 
-all the possibilities.
-
-.. L16
-
-{{{ Show slide, with Tab-completion }}}
+.. L15
+::
+    
+    cut -d : -f 1 /etc/passwd
 
 .. R16
 
-Bash provides tab completion for the following. 
+It gives us the required output. Let us understand this operation in detail.
+The first option ``-d`` specifies the delimiter between the various fields in
+the file, in this case it is the ``semicolon``. If no delimiter is specified,
+the TAB character is assumed to be the delimiter. The ``-f`` option specifies,
+the field number that we wish to choose. 
+You can print multiple fields, by separating the field numbers with a
+comma. 
 
-  1. File Names
-  2. Directory Names
-  3. Executable Names
-  4. User Names (when they are prefixed with a ~)
-  5. Host Names (when they are prefixed with a @)
-  6. Variable Names (when they are prefixed with a $) 
+Pause the video here, try out the following exercise and resume the video.
 
-.. R17
-
-For example, 
+.. L16
 
 .. L17
 
-{{{ Switch to terminal }}}
-::
+{{{ Show slide with exercise }}}
 
-    pas<TAB><TAB>
-    ~/<TAB><TAB>
+.. R17
+
+Print only the first, fifth and the seventh fields of the file ``/etc/passwd``.
 
 .. R18
 
-Bash also saves the history of the commands you have typed earlier.
-This feature enables you to goto the previously typed commands and 
-use them as and when necessary. The up and down arrow keys will help 
-you to navigate 
-through these commands in the bash history. 
+Switch to the terminal for solution
 
 .. L18
-::
 
-    <UP-ARROW>
+{{{ continue from paused state }}}
+{{{ Switch to the terminal }}}
+
+::
+    
+    cut -d : -f 1,5,7 /etc/passwd
 
 .. R19
 
-You may also search incrementally, for commands in your bash history.
-``Ctrl-r`` searches for the commands that you have typed earlier. However, 
-it should be noted that the number of commands saved in the history is 
-limited, generally upto a 1000 commands. 
+We get the correct output.
+Instead of choosing by fields, ``cut`` also allows us to choose on the
+basis of characters or bytes. For instance, we could get the first 4
+characters of all the entries of the file, ``/etc/passwd`` by saying,
 
 .. L19
 ::
 
-   <Ctrl-r> pas
+    cut -c 1-4 /etc/passwd 
 
 .. R20
 
-Unix recognizes certain special characters, called "meta characters", as
-command directives. The shell meta characters are recognized anywhere they
-appear in the command line, even if they are not surrounded by a blank space.
-For this reason, it is always recommended to use only the characters A-Z, 
-a-z, 0-9, period, dash and underscore, when naming files and
-directories on Unix. If your file or directory has a shell meta character
-in the name, you may find it difficult to use this name in a shell command.
+The end limits of the ranges can take sensible default values, if they are
+left out. For example, 
 
 .. L20
+::
 
-.. L21
-
-{{{ Show slide, with Shell Meta Characters }}}
+    cut -c -4 /etc/passwd 
 
 .. R21
 
-The characters that you see on the slide are the shell meta characters
+It gives the same output as before. If the start position has not been
+specified, it is assumed to be the start of the line. Similarly if the end
+position is not specified, it is assumed to be the end of the line. 
+
+.. L21
+::
+
+    cut -c 10- /etc/passwd 
 
 .. R22
 
-Lets take an example,
+It prints all the characters from the 10th character up to the end of the
+line. 
+Let us now solve an inverse problem. Let's say we have two columns of data
+in two different files, and we wish to view them side by side. 
 
 .. L22
 
-{{{ Switch to terminal }}}
-::
+.. L23
 
-    ls file.?
+{{{ Show slide with, paste }}}
 
 .. R23
 
-It means, run on a directory containing the files file, file.c, file.lst, 
-and myfile would list the files file.c and file.lst. However,
-
-.. L23
-::
-
-    ls file.?
+For instance, consider a file 'students.txt' containing the names of students 
+and another file 'marks.txt' containing their respective marks.
 
 .. R24
 
-Run on the same directory would only list file.c because the ? only matches
-one character, no more, no less. This helps you save time, while typing. 
-
-For example, if there is a file called
-california_cornish_hens_with_wild_rice and no other files whose names begin
-with 'c', you could view the file without typing the whole name by typing
-this
+we wish to view the contents, side by side. The ``paste`` command allows 
+us to do that. 
 
 .. L24
 ::
 
-    more c*
+    paste students.txt marks.txt
+    paste -s students.txt marks.txt
 
 .. R25
 
-Here, the c* matches that long file name.
-File-names containing meta characters can pose many problems and should
-never be intentionally created.
+The first command gives us the output of the two files, next to each other
+and the second command gives us the output one below the other. 
+
+Now, this problem is a bit unrealistic because, we wouldn't have the marks
+of students in a file, without any information about the student to which
+they belong. Let's say our marks file had the first column as the roll
+number of the student, followed by the marks of the students. What would we
+do then, to get the same output that we got before? 
+
+Essentially we need to use both the ``cut`` and ``paste`` commands, but
+how do we do that? That brings us to the concept of Redirection and Piping
+which is covered in the next spoken tutorial. 
 
 .. L25
 
 .. L26
 
-{{{ Switch to Summary slide }}}
+{{{ Switch to summary slide }}}
 
 .. R26
 
-This brings us to the end of the end of this tutorial.
-In this tutorial, we have learnt to,
+This brings us to the end of this tutorial.
+In this tutorial, we have learnt to, 
 
- 1. Use the ``cut`` and ``paste`` commands in redirection.
- 2. Use the pipe ( | ) character. 
- 3. Implement features of shell, like tab-completion and history.
+ 1. Display the contents of files using the ``cat`` command.
+ #. View the contents of a file one screen at a time using the 
+    ``less`` command.
 
 .. L27
- 
-{{{ Show self assessment questions slide }}}
+
+{{{ Switch to slide Summary... }}}
 
 .. R27
 
-Here are some self assessment questions for you to solve:
-
- 1. Bash does not provide tab completion for Host Names. 
-    True of False? 
-
- 2. In a file /home/test.txt ,first line is "data:myscripts:20:30". How do we 
-    view only the minutes (last field, 30). 
-    
-    - cut -d : -f 4 /home/test.txt
-    - cut -f 3 /home/test.txt
-    - cut -d : -f 3 /home/test.txt
-    - None of these
+ 1. Display only specific contents of file using the ``head`` and 
+    ``tail`` commands.
+ #. Use the ``cut``, ``paste`` and ``wc`` commands.
+  
 
 .. L28
 
-{{{ Solutions for the self assessment questions on slide }}}
+{{{ Show self assessment questions slide }}}
 
 .. R28
 
-And the answers:
+Here are some self assessment questions for you to solve
 
- 1. False. Bash provides tab completion for Host Names when they are prefixed 
-    with a @ sign.
+1. How to view lines from 1 to 15 in ``wonderland.txt``?
 
- 2. The correct option would be
-::
-    
-    cut -d : -f 4 /home/test.txt
+2. In ``cut`` command, how to specify space as the delimiter? 
 
 .. L29
 
-{{{ Show the Thank you slide }}}
+{{{ Solution of self assessment questions on slide }}}
 
 .. R29
+
+And the answers,
+
+1. We can use the head command as,
+::
+
+    head -15 wonderland.txt
+
+2. We use the -d option with the command as,
+::
+
+    cut -d " " <filename>
+
+.. L30
+
+{{{ Show the SDES & FOSSEE slide }}}
+
+.. R30
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L31
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R31
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L32
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R32
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L33
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R33
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L34
+
+{{{ Show the Thank you slide }}}
+
+.. R34
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!

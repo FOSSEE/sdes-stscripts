@@ -43,45 +43,49 @@
 \setbeamercolor{emphbar}{bg=blue!20, fg=black}
 \newcommand{\emphbar}[1]
 
+\author[Primal Pappachan] {}
+\institute[FOSSEE group] {}   
+
+\date[IIT Bombay] {}
+
 
 \begin{document}
 
 \begin{frame}
 
 \begin{center}
-\vspace{12pt}
-\textcolor{blue}{\huge Version Control Using Hg - Part 2}
+\vspace{15pt}
+\textcolor{blue}{\large Version Control Using Mercurial} \\
+\textcolor{blue}{\huge Let there be a Repo!}
 \end{center}
-\vspace{18pt}
+\vspace{15pt}
 \begin{center}
-\vspace{10pt}
 \includegraphics[scale=0.95]{../images/fossee-logo.png}\\
 \vspace{5pt}
 \scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
 \scriptsize Funded by National Mission on Education through ICT\\
-\scriptsize  MHRD,Govt. of India\\
+\scriptsize  MHRD, Govt. of India\\
 \includegraphics[scale=0.15]{../images/iitb-logo.jpg}\\
 \end{center}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Prerequisite}
-	\textbf{Version Control Using Hg}
 	\begin{itemize}
-	\item Part I
+	\item \textbf{Version Control Using Mercurial}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Objectives}
-  At the end of this tutorial, you will be able to:
+  At the end of this tutorial, you will be able to do the following to a repository:
   \begin{itemize}
-  \item Initialize a new repository,
-  \item Obtain the status of a repository,
-  \item Add new files to a repository,
-  \item Take snapshots of a repository,
-  \item View the history of a repository,
-  \item Set your user information for hg 
+  \item Initialize it
+  \item Obtain the status,
+  \item Add new files to it,
+  \item Take snapshots,
+  \item View the history,    
+  \item \textcolor{blue}{And also} Set your user information for hg 
   \end{itemize}
 \end{frame}
 
@@ -92,10 +96,8 @@
   \frametitle{We need a repo!}
   \begin{itemize}
   \item A Repository (repo) is where all the action is!
-  \item Project files along with a special directory that stores all the
-    changes
-  \item We take snapshots of the whole repository; not individual
-    files. 
+  \item Project files along with a special directory that stores all the changes
+  \item We take snapshots of the whole repository; not individual files. 
   \end{itemize}
 \end{frame}
 
@@ -231,8 +233,13 @@
 \frametitle{Solutions}
 \begin{enumerate}
 \item \small{hg remove}
-\item \small{The revision number is a handy notation that is only valid in that repository. The hexadecimal string is the permanent, unchanging identifier that will always identify that exact changeset in every copy of the repository} 	
-\item \small{If you have set the EMAIL environment variable, this will be used. Next, Mercurial will query your system to find out your local user name and host name, and construct a username from these components. Since this often results in a username that is not very useful, it will print a warning if it has to do this. If all of these mechanisms fail, Mercurial will fail, printing an error message. In this case, it will not let you commit until you set up a username.}	
+\item \small{Initially it looks for the EMAIL environment variable, if it does not exist 
+it tries to use a combination of local user name and host name. If both 
+mechanisms fails, an error message will be printed and user will not be 
+allowed to commit.}
+\item \small{The revision number is a handy notation that is only valid in that 
+repository. The hexadecimal string is the permanent, unchanging identifier that 
+will always identify that exact changeset in every copy of the repository} 	
 \end{enumerate}
 \end{frame}
 \begin{frame}

@@ -5,7 +5,6 @@
 % Copyright (c) 2009, FOSSEE, IIT Bombay
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \documentclass[17pt,compress]{beamer}
 \usepackage{beamerthemesplit}
 \mode<presentation>
@@ -50,22 +49,21 @@
   keywordstyle=\color{black}\bfseries}
 
 % logo
-\logo{\includegraphics[height=1.30 cm]{3t-logo.pdf}}
-\logo{\includegraphics[height=1.30 cm]{fossee-logo.pdf}
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
 
 \hspace{7.5cm}
-\includegraphics[scale=0.99]{fossee-logo.pdf}\\
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
 \hspace{281pt}
-\includegraphics[scale=0.80]{3t-logo.pdf}}
-
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT STARTS
 \begin{document}
 
 \sffamily \bfseries
 \title
-[Advanced File Handling]
-{Advanced File Handling}
+[Features of the Shell]
+{Features of the Shell}
 \author
 [FOSSEE]
 {\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
@@ -84,9 +82,8 @@
 
 At the end of this tutorial, you will be able to,
 \begin{itemize}
-\item Display the contents of files
-\item Read only parts of a file
-\item Look at the statistical information of a file
+\item Understand various features of the shell
+\item Learn about shell meta characters
 \end{itemize}
 \end{frame}
 
@@ -102,35 +99,47 @@ Spoken tutorial on,
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{less}}
-   \begin{itemize}
-  \item q: Quit
-  \item Arrows/Page Up/Page Down/Home/End: Navigation
-  \item ng: Jump to line number n
-  \item /pattern: Search. Regular expressions can be used
-  \item h: Help
-  \end{itemize}
+\frametitle{Tab-completion}
+\begin{itemize}
+\item Hit tab to complete an incompletely typed word
+\item Tab twice to list all possibilities when ambiguous completion
+\end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Exercise 1}
+\begin{frame}[fragile]
+  \frametitle{Tab-completion..}
   \begin{itemize}
-  \item Print only the first, fifth and the seventh fields of the file \verb~/etc/passwd~
+  \item Bash provides tab completion for the following
+    \begin{enumerate}
+    \item File Names
+    \item Directory Names
+    \item Executable Names
+    \item User Names (when prefixed with a \~{})
+    \item Host Names (when prefixed with a @)
+    \item Variable Names (when prefixed with a \$)
+    \end{enumerate}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{paste}}
-      \begin{center}
-      \begin{tabular}{l|l}
-        \verb~students.txt~  &  \verb~marks.txt~  \\
-        Hussain              &  89 92 85          \\
-        Dilbert              &  98 47 67          \\
-        Anne                 &  67 82 76          \\
-        Raul                 &  78 97 60          \\
-        Sven                 &  67 68 69          \\
-      \end{tabular}
-    \end{center}
+\frametitle{History}
+\begin{itemize}
+\item Bash saves history of commands typed
+\item Up and down arrow keys allow to navigate history
+\item \texttt{Ctrl-r} searches for commands used
+\item No. of commands limited, generally upto 1000
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Shell Meta Characters}
+  \begin{itemize}
+  \item ``meta characters''  are special command directives
+  \item No meta-characters in file-names
+  \item While naming files, use characters A-Z, a-z, 0-9, . , - , \_
+  \item shell meta characters -- \\
+             \verb+/<>!$%^&*|{}[]"'`~;+
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -139,31 +148,22 @@ Spoken tutorial on,
 
   In this tutorial, we have learnt to,
 
+
 \begin{itemize}
-\item Display the contents of files using the ``cat'' command.
-\item View the contents of a file one screen at a time using the 
-      ``less'' command.
+\item Implement features of shell like tab-completion and history
+\item Make use of the shell meta characters
 \end{itemize}
 \end{frame}
-
-\begin{frame}
-\frametitle{Summary...}
-\begin{itemize}
-\item Display specific contents of file using the ``head'' and 
-      ``tail'' commands.
-\item Use the ``cut'', ``paste'' and ``wc'' commands.
-\end{itemize}
-\end{frame}
-
 \begin{frame}[fragile]
 \frametitle{Evaluation}
 \label{sec-9}
 
 
 \begin{enumerate}
-\item How to view lines from 1 to 15 in \verb~wonderland.txt~ ?
-\vspace{15pt}
-\item In ``cut'' command, how to specify space as the delimiter ? 
+\item Bash does not provide tab completion for Host Names. True or False? 
+\vspace{12pt}
+\item State the command which will list all the files in the current working
+      directory that end in either \verb~.c~ or \verb~.h~
 \end{enumerate}
 \end{frame}
 \begin{frame}
@@ -172,9 +172,9 @@ Spoken tutorial on,
 
 
 \begin{enumerate}
-\item \$ head -15 \verb~wonderland.txt~
+\item False
 \vspace{15pt}
-\item \$ cut -d " " <filename>
+\item \$ ls *.[ch]
 \end{enumerate}
 \end{frame}
 
@@ -239,6 +239,6 @@ Spoken tutorial on,
   \end{block}
 \end{frame}
 
-\end{document}
 
+\end{document}
 

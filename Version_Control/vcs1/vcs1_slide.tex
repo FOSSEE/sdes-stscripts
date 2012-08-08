@@ -1,11 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Using Linux Tools
-%
-% Author: FOSSEE 
-% Copyright (c) 2009, FOSSEE, IIT Bombay
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \documentclass[17pt,compress]{beamer}
 \usepackage{beamerthemesplit}
 \mode<presentation>
@@ -54,18 +46,21 @@
 \logo{\includegraphics[height=1.30 cm]{fossee-logo.pdf}
 
 \hspace{7.5cm}
-\includegraphics[scale=0.99]{fossee-logo.pdf}\\
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
 \hspace{281pt}
-\includegraphics[scale=0.80]{3t-logo.pdf}}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT STARTS
+%%%from primal's doc 
+\newcommand{\typ}[1]{\lstinline{#1}}
+\newcommand{\inctime}[1]{\addtocounter{time}{#1}{\tiny \thetime\ m}}
+%%%
+
 \begin{document}
 
 \sffamily \bfseries
 \title
-[Advanced File Handling]
-{Advanced File Handling}
+[Version Control with hg]
+{Version Control with hg}
 \author
 [FOSSEE]
 {\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
@@ -84,100 +79,134 @@
 
 At the end of this tutorial, you will be able to,
 \begin{itemize}
-\item Display the contents of files
-\item Read only parts of a file
-\item Look at the statistical information of a file
+  \item Understand what is Version Control
+  \item Identify the need for using Version Control
+  \item Install Mercurial
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Pre-requisites}
-\label{sec-3}
+% Introduction to course-need of version control, history, options available.
+\section{Introduction}
 
-Spoken tutorial on,
-\begin{itemize}
-\item Getting started with Linux
-\item Basic File Handling
-\end{itemize}
+\begin{frame}[fragile]
+  \begin{block}{What is Version Control?}
+    
+    A way to track changes made to files over time, by keeping copies
+    of files as we change them.
+    
+  \end{block}
+\end{frame}
+
+%% Home made version control system?
+\begin{frame}[fragile]
+  \frametitle{Home-brewed}
+  \begin{center}
+    An example of a \typ{home-brew} Version Control system
+    \includegraphics[height=1.7in,width=4in]{folder.png}
+    %%a screen-shot of folder with all crazy names.
+  \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{less}}
-   \begin{itemize}
-  \item q: Quit
-  \item Arrows/Page Up/Page Down/Home/End: Navigation
-  \item ng: Jump to line number n
-  \item /pattern: Search. Regular expressions can be used
-  \item h: Help
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Exercise 1}
+  \frametitle{Home-brewed contd.}
   \begin{itemize}
-  \item Print only the first, fifth and the seventh fields of the file \verb~/etc/passwd~
+  \item Listing the files in the folder:
+  \end{itemize}  
+  \begin{lstlisting} 
+	$ ls
+	a.out  id1.txt  id2.txt string.txt
+	identifier.cpp  id.txt  pda1.cpp
+	pda2.cpp  pda.cpp  pda.txt  
+  \end{lstlisting} %%$
+   %% listing out the crazy names
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Problems}  
+  \begin{block}{}    
+  \begin{itemize}
+  \item Name and changes made are not related or linked. 
+  \item Can't track sequence of changes made to a file. 
+  \item Does not scale. 
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The need for Version Control}
+  \begin{itemize}
+  \item Tracking the history and evolution of a project
+  \item To collaborate effectively on a project
+  \item To efficiently track down bugs and pin-point the changes that
+    caused it 
+  \item Useful for an individual and a group of people
+  \end{itemize}
+\end{frame}
+
+%% Introduction to how logs are managed in VCS.
+%% A analogy in logs and day-to-day life?
+\begin{frame}[fragile]
+  \frametitle{How does it work? --- Analogy}
+  It is similar to playing an Video game.
+  \begin{itemize}
+  \item We play games in stages
+  \item Once we finish a stage -- \alert{we SAVE}
+  \item We continue playing
+  \item But, if necessary, we could choose from one of the saved
+    states and start from there
+  %%\item We could alter the course of the game
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\texttt{paste}}
-      \begin{center}
-      \begin{tabular}{l|l}
-        \verb~students.txt~  &  \verb~marks.txt~  \\
-        Hussain              &  89 92 85          \\
-        Dilbert              &  98 47 67          \\
-        Anne                 &  67 82 76          \\
-        Raul                 &  78 97 60          \\
-        Sven                 &  67 68 69          \\
-      \end{tabular}
-    \end{center}
+  \frametitle{Mercurial or \typ{hg}}
+  \centering
+  \includegraphics[height=.70in,interpolate=true]{mercurial_logo}
+  \begin{itemize}
+  \item Easy to learn and use
+  \item Lightweight
+  \item Scales excellently
+  \item Written in Python
+  \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Summary}
-\label{sec-8}
-
-  In this tutorial, we have learnt to,
-
-\begin{itemize}
-\item Display the contents of files using the ``cat'' command.
-\item View the contents of a file one screen at a time using the 
-      ``less'' command.
-\end{itemize}
-\end{frame}
 
 \begin{frame}
-\frametitle{Summary...}
-\begin{itemize}
-\item Display specific contents of file using the ``head'' and 
-      ``tail'' commands.
-\item Use the ``cut'', ``paste'' and ``wc'' commands.
-\end{itemize}
+  \frametitle{Installation}
+  \begin{itemize}
+  \item \$ sudo apt-get install mercurial
+  \item \$ hg
+  \item \$ hg version
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Evaluation}
-\label{sec-9}
-
-
-\begin{enumerate}
-\item How to view lines from 1 to 15 in \verb~wonderland.txt~ ?
-\vspace{15pt}
-\item In ``cut'' command, how to specify space as the delimiter ? 
-\end{enumerate}
+  \frametitle{Summary...}
+  In this tutorial, we have learnt about,
+  \begin{itemize}
+  \item What is Version Control
+  \item The need for using Version Control
+  \item Installing Mercurial or hg
+  \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Evaluation}
+  \begin{enumerate}
+  \item Is Mercurial a Centralized VCS or Distributed VCS?
+  \item How can you retrive the version of Mercurial installed?
+  \end{enumerate}
+\end{frame}
+
 \begin{frame}
-\frametitle{Solutions}
-\label{sec-10}
-
-
-\begin{enumerate}
-\item \$ head -15 \verb~wonderland.txt~
-\vspace{15pt}
-\item \$ cut -d " " <filename>
-\end{enumerate}
+  \frametitle{Solutions}
+  \begin{enumerate}
+  \item Mercurial is a Distributed Version Control system.
+  \item hg version 
+  \end{enumerate}
 \end{frame}
 
+%%% 5 concluding slides %%%
 \begin{frame}
 \frametitle{SDES \& FOSSEE}
 \begin{center}
@@ -187,12 +216,12 @@ Spoken tutorial on,
 \scriptsize An initiative by FOSSEE. \\
 \vspace{3pt}
 \scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
-\vspace{10pt}
+\vspace{12pt}
 \item \small{FOSSEE}\\
 \small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
 \scriptsize Based at IIT Bombay, Funded by MHRD.\\
 \vspace{3pt}
-\scriptsize Part of National Mission on Education through ICT \\(NME-ICT) \\
+\scriptsize Part of National Mission on Education through ICT (NME-ICT). \\
 \end{itemize}
 \end{center}
 \end{frame}
@@ -225,7 +254,6 @@ Spoken tutorial on,
 \end{frame}
 
 \begin{frame}
-
   \begin{block}{}
   \begin{center}
   {\Large THANK YOU!} 
@@ -240,5 +268,3 @@ Spoken tutorial on,
 \end{frame}
 
 \end{document}
-
-
