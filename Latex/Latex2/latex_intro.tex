@@ -1,79 +1,98 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Introduction to LaTeX 
-%
-% Author: FOSSEE 
-% Copyright (c) 2009, FOSSEE, IIT Bombay
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[12pt,compress]{beamer}
-
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
 \mode<presentation>
 {
   \usetheme{Warsaw}
   \useoutertheme{infolines}
   \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
 }
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
 
 \usepackage[english]{babel}
 \usepackage[latin1]{inputenc}
-%\usepackage{times}
 \usepackage[T1]{fontenc}
 
-% Taken from Fernando's slides.
-\usepackage{ae,aecompl}
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
 \usepackage{mathpazo,courier,euler}
-\usepackage[scaled=.95]{helvet}
-
-\definecolor{darkgreen}{rgb}{0,0.5,0}
-
 \usepackage{listings}
 \lstset{language=sh,
     basicstyle=\ttfamily\bfseries,
-    commentstyle=\color{red}\itshape,
-  stringstyle=\color{darkgreen},
   showstringspaces=false,
-  keywordstyle=\color{blue}\bfseries}
-\newcommand{\inctime}[1]{\addtocounter{time}{#1}{\tiny \thetime\ m}}
+  keywordstyle=\color{black}\bfseries}
 
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
 \newcommand{\typ}[1]{\lstinline{#1}}
 
-\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
-\title {Introduction to {\LaTeX}}
-\author {FOSSEE}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT STARTS
+
 \begin{document}
 
-\begin{frame}
+\sffamily \bfseries
+\title
+[\LaTeX: \:Installation]
+{\LaTeX: \:Installation}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}
+\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
 
-\begin{center}
-\vspace{12pt}
-\textcolor{blue}{\huge Introduction to {\LaTeX}}
-\end{center}
-\vspace{18pt}
-\begin{center}
-\vspace{10pt}
-\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
-\vspace{5pt}
-\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
-\scriptsize Funded by National Mission on Education through ICT\\
-\scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.30]{../images/iitb-logo.png}\\
-\end{center}
+% slide 1
+\begin{frame}
+   \titlepage
 \end{frame}
 
 \begin{frame}
 \frametitle{Objectives}
 \label{sec-2}
 
-At the end of this tutorial, you will be able to,
+At the end of this tutorial, you will,
 \begin{itemize}
-\item Get acquainted to LaTeX.
-\item Know why we prefer LaTeX ??
-\item Know about the advantages and disadvantages of typesetting documents using the LaTeX approach.
-\item Have a description, of a typical work flow; which uses LaTeX to typeset documents.
-\item Recognize and differentiate between LaTeX commands, LaTeX comments and special characters, spacing and actual document content.
-\item Create and compile a very simple LaTeX document.
+\item Get acquainted to LaTeX
+\item Know why we prefer LaTeX
+\item Know the advantages and disadvantages of typesetting documents in LaTeX
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Objectives..}
+\label{sec-2}
+
+\begin{itemize}
+\item Get a brief idea on typical work flow that uses LaTeX to typeset
+documents
+\item Know about LaTeX commands, comments,
+      special characters, spacing, actual content
+\item Be able to create and compile a simple LaTeX document
 \end{itemize}
 \end{frame}
 
@@ -81,77 +100,71 @@ At the end of this tutorial, you will be able to,
 \frametitle{Pre-requisite}
 \label{sec-3}
 
-  Spoken tutorial on -
+  Spoken tutorial on, 
 
 \begin{itemize}
-\item Installing {\LaTeX}.
+\item {\LaTeX} Installation
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Introduction}
-  \begin{block}{{\LaTeX} - Introduction}
     \begin{itemize}
+     \item Donald E. Knuth
       \item Typesetting program
-       \begin{itemize}
-         \item What is typesetting?
-       \end{itemize}
       \item Excellently Typeset Documents - specially Math
       \item Anything from one page articles to huge books
       \item Pronounced \emph{Lah-tech} or \emph{Lay-tech}
     \end{itemize}
-  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Why {\LaTeX}?}
   \begin{itemize}
-  \item Excellent visual quality! 
-  \item Handles the typesetting; Lets you focus on content
-  \item Makes writing math extremely simple
+  \item Excellent visual quality
+  \item Handles typesetting; lets you focus on content
+  \item Makes writing Math extremely simple
   \item It is a standard -- widely used in Scientific community
   \end{itemize}
-  \begin{block}{}
-    \[\tilde{N}_{\mathbf{x}}\times \mathbf{r}(\mathbf{x}) f_{1k}(\mathbf{x},t) - \frac{1}{2} \tilde{N} \tilde{N}:\mathbf{BB}^{T}P(\mathbf{x},t) = -m_{k}f_{1k}(\mathbf{x},t) + 2 \mathop{\mathbf{\aa}}_{j=1}^{K} f_{1j}(\mathbf{x},t)m_{j}P_{k|j} \]
-  \end{block}
+    \[\tilde{N}_{\mathbf{x}}\times \mathbf{r}(\mathbf{x}) f_{1k} \]
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Why \LaTeX? \ldots}
+  \frametitle{Why \LaTeX?..}
   \begin{itemize}
-  \item {\LaTeX} is a document based mark-up
-  \item Mark-up $\rightarrow$ a system of annotating text, adding extra
+  \item It is a document based mark-up
+  \item Mark-up: annotating text, adding
     information to specify structure and presentation of text
-  \item Document based markup $\rightarrow$ you don't have to worry
-    about each element individually 
-  \item Allows you to focus on content, rather than appearance.
+  \item Document based markup: don't have to worry
+    about individual elements
+  \item Allows you to focus on content
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Advantages of using \LaTeX }
   \begin{itemize}
-    \item Easy availablity of professional templates.
-    \item Typesetting complex formulae in a convenient environment.
-    \item Can start typesetting with very little effort.
-    \item Presence of a lot of add-on packages.
-    \item Encourages creation of well structured texts.
+    \item Availability of professional templates
+    \item Typesetting complex formulae in a convenient environment
+    \item Typesetting with very little effort
+    \item Lot of add-on packages available
+    \item Easy creation of well structured texts
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Disadvantages of using \LaTeX }
   \begin{itemize}
-    \item Designing whole new layout is difficult.
-    \item LaTeX is not a word processor.
+    \item Designing whole new layout is difficult
+    \item LaTeX is not a word processor
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{\LaTeX \ input file format}
   \begin{itemize}
-    \item \LaTeX takes ASCII text file as input.
-    \item We can compile \LaTeX files into DVI,Postscript or PDF files.
+    \item \LaTeX \: takes ASCII text file as input.
+    \item We can compile \LaTeX  \: files into DVI, Postscript or PDF files
     \item \alert{Note:} \typ{latex} vs. \typ{pdflatex} 
   \end{itemize}
 \end{frame}
@@ -159,7 +172,7 @@ At the end of this tutorial, you will be able to,
 \begin{frame}[fragile]
   \frametitle{Commands,Comments\&Special Characters }
   \begin{itemize}
-    \item {\LaTeX} is case sensetive.
+    \item {\LaTeX} is case sensetive
     \item Commands begin with a \typ{\\}
     \item Environments have a \typ{\\begin} and \typ{\\end} 
     \item Any content after the \typ{\\end\{document\}} is ignored
@@ -167,16 +180,14 @@ At the end of this tutorial, you will be able to,
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Commands,Comments\&Special Characters \ldots}
+  \frametitle{Commands,Comments\&Special Characters..}
   \begin{itemize}
-    \item Anything that follows a \typ{\%} symbol till end of the line
-      is a comment 
+    \item Anything after \typ{\%} symbol till end of the line
+      is a comment
     \item Special characters (\typ{\~ \# \$ \^ \& \_ \{ \}}) are escaped by a
       \typ{\\} 
-    \item \typ{\\} symbol is inserted using \typ{\\textbackslash}
-      command
-    %\item \textbackslash newline or \textbackslash \textbackslash\ is used to insert newlines.
-    \item \typ{\\newline} or \typ{\\\\} is used to insert newlines.
+    \item \typ{\\} is inserted using \typ{\\textbackslash},
+     \typ{\\newline} or \typ{\\\\} to insert newlines
   \end{itemize}
 \end{frame}
 
@@ -188,26 +199,20 @@ At the end of this tutorial, you will be able to,
     \begin{verbatim}
       \documentclass{article}
         \begin{document}
-          SciPy is open-source software for mathematics, science, and engineering.
+          SciPy is open-source software for mathematics, science, and 
+          engineering.
         \end{document}
     \end{verbatim}
   }
 \end{frame}  
 
 \begin{frame}[fragile]
-  \frametitle{Compiling to DVI }
+  \frametitle{Compiling to DVI and PDF}
     \begin{center}
-   \alert{latex temp.tex}  
-    \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Compiling to PDF }
-    \begin{center}
-      \alert{pdflatex temp.tex}  
-    \end{center}
-    \begin{center}
-      \em Note: Throughout this course, we shall use pdflatex to compile our documents. 
+   \alert{latex temp.tex} \\
+    \alert{pdflatex temp.tex} \\
+      \em Note: Throughout this course, we shall use pdflatex to compile our
+        documents
     \end{center}
 \end{frame}
 
@@ -215,14 +220,25 @@ At the end of this tutorial, you will be able to,
 \frametitle{Summary}
 \label{sec-8}
 
-  In this tutorial, we have learnt,
+  In this tutorial we have learnt,
 \begin{itemize}
-  \item About LaTeX.
-  \item why we prefer LaTeX.
-  \item about the advantages and disadvantages of typesetting documents using the LaTeX approach.
-  \item A description, of a typical work flow; which uses LaTeX to typeset documents.
-  \item The ability to recognize and differentiate between LaTeX commands, LaTeXcomments and special characters, spacing and actual document content.
-  \item Created and compiled a very simple LaTeX document.
+  \item About LaTeX
+  \item Why we prefer LaTeX
+  \item Advantages and disadvantages of typesetting documents using
+        LaTeX approach
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary..}
+\label{sec-8}
+
+\begin{itemize}
+  \item About a typical work flow; which uses LaTeX to typeset
+        documents
+  \item About LaTeX commands, comments, special characters, spacing,
+        actual document content
+  \item How to create and compile a simple LaTeX document
 \end{itemize}
 \end{frame}
 
@@ -231,9 +247,11 @@ At the end of this tutorial, you will be able to,
 \frametitle{Self assessment questions}
 \label{sec-9}
 \begin{enumerate}
-  \item Convert the temp.dvi created during the course of this tutorial to temp\_1.ps using the dvips command. Verify that the two files indeed look the same.
+  \item Convert temp.dvi created in the tutorial to temp\_1.ps
+        using dvips command. Verify that  both files look same.
   \vspace{8pt}
-  \item Convert the temp.dvi created during the course of this tutorial to temp\_1.pdf using the dvipdfm command. Verify that the two files indeed look the same.
+  \item Convert this temp.dvi file to temp\_1.pdf using dvipdfm command.
+        Verify both the files look same.
 \end{enumerate}
 \end{frame}
 
@@ -242,35 +260,83 @@ At the end of this tutorial, you will be able to,
 \label{sec-10}
 \begin{enumerate}
   \item We can use the following command to convert temp.dvi to temp\_1.ps\\
-    \begin{block}{}
       \begin{center}
         dvips -o temp\_1.ps temp.dvi
       \end{center}
-    \end{block}
   \vspace{15pt}
   \item We can use the following command to convert temp.dvi to temp\_1.pdf\\
-    \begin{block}{}
       \begin{center}
-         dvipdfm -o temp\_1.pdf temp.dvi
+        dvipdfm -o temp\_1.pdf temp.dvi
       \end{center}
-    \end{block}
 \end{enumerate}
 \end{frame}
 
 
 \begin{frame}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for 
+Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit 
+{\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{12pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\
+Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT (NME-ICT) \\
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org
+ /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}
+{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, 
+Government of India 
+\item More information on this Mission is available at: \\
+{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
   \begin{block}{}
   \begin{center}
-    \textcolor{blue}{\Large THANK YOU!} 
+  {\Large THANK YOU!} 
   \end{center}
   \end{block}
 \begin{block}{}
   \begin{center}
-      For more Information, visit our website\\
-      \url{http://fossee.in/}
+    For more Information, visit our website\\
+    {\color{blue}\url{http://fossee.in/}}
   \end{center}  
   \end{block}
 \end{frame}
-
 
 \end{document}

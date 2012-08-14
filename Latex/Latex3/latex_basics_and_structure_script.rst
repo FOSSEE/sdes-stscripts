@@ -1,40 +1,14 @@
-.. Objectives
-.. ----------
-
-.. At the end of this tutorial, you will be able to
-
-.. 1. Understand basic structure of a LaTeX document, its various document
-..    classes and loading packages that add new features to the LaTeX system.
-.. #. Create a LaTeX document with a title and an abstract.
-.. #. Create numbered and non-numbered sections and sub-sections in a LaTeX
-..    document.
-.. #. Create an appendix in a LaTeX document.
-.. #. Create a 'table of contents' in a LaTeX document.
-
-.. Prerequisites
-.. -------------
-
-.. 1. Introduction to LaTeX 
-
-     
-.. Author              : Harish Badrinath < harish [at] fossee [dot] in > 
-   Internal Reviewer   : Kiran Isukapatla < kiran [at] fossee [dot] in >
-   External Reviewer   :
-   Langauge Reviewer   : 
-   Checklist OK?       : 26-Feb-2012
-
+------
 Script
 ------
 
 .. L1
 
-{{{ Show the  first slide containing the title, name of the production
-team along with the logo of MHRD }}}
+{{{ Show the title slide }}}
 
 .. R1
 
-Hello friends and welcome to the tutorial on "Basics of LaTeX and its 
-document structure".
+Hello friends and welcome to the tutorial on "LaTeX: Basics & Structure".
 
 .. L2
 
@@ -42,15 +16,25 @@ document structure".
 
 .. R2
 
-At the end of this tutorial, you will be able to
+At the end of this tutorial, you will be able to,
 
 1. Understand basic structure of a LaTeX document, its various document
    classes and loading packages that add new features to the LaTeX system.
 #. Create a LaTeX document with a title and an abstract.
-#. Create numbered and non-numbered sections and subsections in a LaTeX
+
+.. L2
+
+{{{ Show the "Objectives.." slide }}}
+
+.. R2
+
+At the end of this tutorial, you will be able to
+
+3. Create numbered and non-numbered, sections and subsections in a LaTeX
    document.
-#. Create an 'appendix' in a LaTeX document.
+#. Create an appendix in a LaTeX document.
 #. Create a table of content in a LaTeX document.
+
 
 .. L3
 
@@ -80,10 +64,9 @@ before the \begin{document} command is called the preamble, and is used to
 "configure" the LaTeX typesetter and change various parameters for typesetting.
 In our current example, the preamble is empty. We will add preamble content
 in the later part of the tutorial.
-This is processed by a TeX processor that generates an output file. Now, we 
-begin to look into each line in the example in more detail.
 
-The first line reads
+We will now see in the first line of the example we just showed,
+the <\\documentclass{article}> command.
 
 .. L5
 
@@ -123,7 +106,8 @@ report, book, slides and letter.
 the default. 
 a4paper: specifies the paper size
 draft:  marks hyphenation and justification problems in typesetting
-with a square in the margin
+with a square in the margin.
+makes LaTeX indicate hyphenation and justification problems with a small square in the right-hand margin of the problem line so they can be located quickly by a human. It also suppresses the inclusion of images and shows only a frame where they would normally occur.
 
 .. L8
 

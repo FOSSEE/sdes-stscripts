@@ -5,7 +5,11 @@
 
 .. Author : Primal Pappachan
    Internal Reviewer : Kiran Isukapatla
+<<<<<<< HEAD
+   Date: May 10 , 2012
+=======
    Date: May 10 2012
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 
 --------
 Script
@@ -41,7 +45,16 @@ At the end of this tutorial you will be able to
 
 .. R3
 
+<<<<<<< HEAD
+First, let's understand what 'Version Control' is. 'Version control' is a way 
+to track files over time and share them. This allows access to earlier 
+versions of a file(s) if and when required. It therefore enables us to make 
+changes to the content of a file, view it's change log and collaborate on a 
+single piece of work with a team of people.
+ 
+=======
 First, let's understand what 'Version Control' is. 
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 
 'Version control' is a way to track files over time and share them. 
 This allows access to earlier versions of a file(s) if and when required. 
@@ -54,9 +67,18 @@ change log and collaborate on a single piece of work with a team of people.
 
 .. R4
 
+<<<<<<< HEAD
+Let's look at an example of home-brewed Version Control system.
+
+Version control is a way of backing up files, before making changes. 
+Most people would have cooked up their own version control system, 
+without realizing, there were tools built by others, 
+that performs the task in a more organized and systematic way.  
+=======
 Lets look at an example of home-brewed Version Control system.Version control 
 is a way of backing up files, before making changes. Most people would have 
 cooked up their own version control system. 
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 
 .. L5
 
@@ -76,6 +98,12 @@ becomes difficult to maintain proper names for different versions of a file.
 Let's look at the various problems associated with this set-up.
 
 1. Name and changes made are not related or linked.
+<<<<<<< HEAD
+#. Can’t track sequence of changes made to a file.
+#. Does not scale.
+
+.. L6
+=======
 
 #. Can't track sequence of changes made to a file.
 
@@ -86,6 +114,7 @@ do this task in an organized way.
 
 
 .. L7
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 
 {{{Show the slide 'The need for Version Control'}}}
 
@@ -93,6 +122,15 @@ do this task in an organized way.
 
 Now, let's move to identifying the needs for a 'Version Control System'.
 
+<<<<<<< HEAD
+We have seen that one of the main motivations to use a Version Control system
+is the ability to go back to a working version of a file, 
+when something goes wrong. 
+Below are a few more advantages of using an automated version control system.
+
+1. By tracking the history of a project, any person may see the evolution of 
+a project.
+=======
 We have seen that one of the main motivations to use a Version Control system 
 is the ability to go back to a working version of a file, when something 
 goes wrong. Below are a few more advantages of using an automated version 
@@ -100,14 +138,23 @@ control system.
 
 1. By tracking the history of a project, any person may see the evolution
 of a project.
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 
 2. Allows for effective collaboration on a project, as everything is shared.
 
+<<<<<<< HEAD
+#. Helps to identify which additions have broken down a project and thus 
+aids in efficient tracking down of the bugs.
+
+#. It is good for a one man show as it is for a big group of people working 
+on a project.
+=======
 3. Helps to identify which additions have broken down a project and thus 
 aids in efficient tracking down of the bugs.
 
 4. It is good for a one man show as it is for a big group of people working
 on a project. 
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 
 
 .. L8
@@ -117,9 +164,15 @@ on a project.
 .. R8
 
 It is, in some ways, similar to playing a video game. We generally play games 
+<<<<<<< HEAD
+in stages. While playing, we save the game at some instances as per our choice.
+We continue playing, but we could, if necessary, choose to go back to one of 
+the saved states and start over. In this manner, we could change the state of 
+=======
 in stages. While playing, we save the game at some instances as per our choice. 
 We continue playing, but we could, if necessary, choose to go back to one of the
 saved states and start over. In this manner, we could change the state of 
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 the game.
 
 .. L9
@@ -148,7 +201,12 @@ Mercurial or hg is:
 
 {{{Show the slide 'Installation'}}}
 
+<<<<<<< HEAD
+Each of these tools have their own merits and demerits. 
+In this tutorial we shall learn how to use mercurial or hg.
+=======
 .. R10
+>>>>>>> d0c0139c362aa0d04073fbb901ee81b3c47bf158
 
 Let's now get into Installation
 

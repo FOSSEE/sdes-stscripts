@@ -4,8 +4,8 @@
 % Author: FOSSEE 
 % Copyright (c) 2009, FOSSEE, IIT Bombay
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass{beamer}
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
@@ -24,6 +24,7 @@
 \usepackage[english]{babel} \usepackage{ae,aecompl}
 \usepackage{mathpazo,courier,euler} \usepackage[scaled=.95]{helvet}
 \usepackage{listings}
+
 \lstset{
   language=TeX,
   basicstyle=\ttfamily\bfseries,
@@ -34,58 +35,94 @@
   postbreak = \space\dots
 }
 
-\newcommand{\typ}[1]{\lstinline{#1}}
-
 \mode<presentation>
 {
   \usetheme{Warsaw}
   \useoutertheme{infolines}
   \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
 }
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
 
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
 
-\setbeamercolor{emphbar}{bg=blue!20, fg=black}
-\newcommand{\emphbar}[1]
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
+\usepackage{mathpazo,courier,euler}
+\usepackage{listings}
+\lstset{language=sh,
+    basicstyle=\ttfamily\bfseries,
+  showstringspaces=false,
+  keywordstyle=\color{black}\bfseries}
+
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
+\newcommand{\typ}[1]{\lstinline{#1}}
 
 
 \begin{document}
 
-\begin{frame}
+\sffamily \bfseries
+\title
+[{\LaTeX}: Tables \& Figures]
+{{\LaTeX}: Tables \& Figures}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}
+\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
 
-\begin{center}
-\vspace{12pt}
-\textcolor{blue}{\huge {\LaTeX}:Tables, Figures and Floats}
-\end{center}
-\vspace{18pt}
-\begin{center}
-\vspace{10pt}
-\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
-\vspace{5pt}
-\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
-\scriptsize Funded by National Mission on Education through ICT\\
-\scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.15]{../images/iitb-logo.jpg}\\
-\end{center}
+\begin{frame}
+   \titlepage
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Objectives}
-  At the end of this session, you will be able to:
+  In this tutorial we will learn how to:
   \begin{itemize}
-  \item Learn how to add figures to your document
-  \item Include tabular environments
+  \item Add graphics in Latex document
+  \item Include tabular environments in Latex document
   \end{itemize}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Prerequisite}
+  \frametitle{Prerequisites}
   Spoken Tutorial on:
   \begin{enumerate}
-  \item {\LaTeX} - Getting Started
+  \item {\LaTeX} - Installation
   \item {\LaTeX} - Introduction
-  \item {\LaTeX} - Structuring the Content
+  \item {\LaTeX} - Basics \& Structuring
   \item {\LaTeX} - Typesetting Text
   \end{enumerate}
 \end{frame}
@@ -98,62 +135,86 @@
   \item To add a graphic, use \lstinline{\includegraphics} command
   \item Use relative path to the image
   \end{itemize}
-  \tiny See rev17 of \typ{hg}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{\lstinline{includgraphics}}
+  \frametitle{\lstinline{includegraphics}}
   It takes following optional arguments
   \begin{itemize}
-  \item \lstinline+scale+ --- specifies the factor by which to scale
-    the image 
-  \item \lstinline+height+, \lstinline+width+ --- If only one of them
+  \item \lstinline+height+, \lstinline+width+ -- If only one of them
     is specified, aspect ratio is maintained 
-  \item \lstinline+keepaspectratio+ --- boolean value to keep aspect
+  \item \lstinline+keepaspectratio+ -- boolean value to keep aspect
     ratio or not 
-  \item \lstinline+angle+ --- specify by what angle the image should
+  \item \lstinline+angle+ -- specify by what angle the image should
     be rotated 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\lstinline{includegraphics..}}
+    Syntax for \lstinline{includegraphics} command with optional arguments and 
+    relative path to the image:
+  \begin{itemize}
+  \item \lstinline{\includegraphics[<args>]}\{<img path> \}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Floats}
   \begin{itemize}
-  \item Graphics (\& Tables) are special because they cannot be broken
-    across pages 
-  \item They are ``floated'' to the next page, if they don't fit in
-    the current page 
+  \item Graphics (\& Tables) are special
+  \item They are ``floated'' to the next page
   \item Enclose graphic within \lstinline+figure+ environment to make
     it float 
   \item Figure environment takes additional parameter for location of
     float 
   \end{itemize}
-  \begin{table}
-    \caption{Permission Specifiers}
-    
-    \begin{tabular}{|c|c|}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Floats..}
+\begin{table}
+    \begin{tabular}{|c|l}
       Specifier & Permission\\\hline
       t & Top of page\\
       b & Bottom of page\\
       p & Separate page for floats\\
-      h & here (the same place where command appears in source)\\
-      ! & override \LaTeX's internal parameters for good position
+      h & Here (the same place)\\
+      ! & Overrides internal parameters
     \end{tabular}
   \end{table}
 \end{frame}
 
+
 \begin{frame}
   \frametitle{Captions and References}
   \begin{itemize}
-  \item Figure environment allows us add a caption
-  \item To place the image in the center we enclose it in the
+  \item \lstinline+caption+ to add captions to figures
+  \item To place the image in the center, we enclose it in the
     \lstinline+center+ environment 
   \item We can label images too
-  \item label should be added after the caption command
+  \item Add label after caption command
   \item Figures are auto numbered
   \end{itemize}
-  \tiny See rev17 of \typ{hg}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Captions and References..}
+  Sample code to include caption and label in a center aligned figure:
+  \vspace{8pt}
+  {\tiny
+    \begin{verbatim}
+      \begin{figure}
+          \begin{center}
+            \includegraphics{some image}
+          \end{center}
+          \caption{A caption for some image !}
+          \label{Label for some image !}
+      \end{figure}
+    \end{verbatim}
+  }
+\end{frame}  
+
 
 \begin{frame}[frame]
   \frametitle{Tables}
@@ -161,7 +222,7 @@
   \item \lstinline+tabular+ is used to typeset a table
   \item It is enclosed in a \lstinline+table+ environment to make it a
     float 
-  \item \lstinline+table+ environment also gives captions, auto
+  \item \lstinline+table+ environment also gives captions, labels \& auto
     numbering  
   \end{itemize}
 \end{frame}
@@ -170,12 +231,9 @@
 \begin{frame}[fragile]
   \frametitle{\lstinline+tabular+}
   \begin{itemize}
-  \item tabular takes formatting of each column as argument
+  \item Tabular takes formatting of each column as argument
   \end{itemize}
-
   \begin{table}
-    \caption{tabular environment}
-    
     \begin{tabular}{|l|l|}
       \lstinline+l+ & left justified column content\\\hline
       \lstinline+r+ & right justified column content\\\hline
@@ -183,17 +241,40 @@
       \lstinline+|+ & produces a vertical line\\
     \end{tabular}
   \end{table}
-  \begin{itemize}
-  \item also takes an optional parameter for specifying position of
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\lstinline+tabular+..}
+\begin{itemize}
+  \item Also takes an optional parameter for specifying position of
     table 
   \item \lstinline+t+ for top, \lstinline+b+ for bottom, \lstinline+c+
     for center 
-  \item each column of table is separated by \&
-  \item each row is separated by newline \lstinline{\\}
+  \item Seperate each column of a table by '\&'
+  \item Each row is separated by newline \lstinline{\\}
   \item \lstinline+\hline+ give a horizontal line between two rows
   \end{itemize}
-  \tiny See rev18 of \typ{hg}
 \end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{\lstinline+tabular+..}
+  A sample code that shows complete use of tabular environment:
+  \vspace{8pt}
+  {\tiny
+    \begin{verbatim}
+      \begin{center}
+          \begin{tabular}{ l | c || r | }
+            \hline
+            1 & 2 & 3 \\ \hline
+            4 & 5 & 6 \\ \hline
+            7 & 8 & 9 \\
+            \hline
+          \end{tabular}
+      \end{center}
+    \end{verbatim}
+  }
+\end{frame}  
 
 \begin{frame}[fragile]
   \frametitle{List of Tables, Figures}
@@ -204,7 +285,8 @@
 \end{frame}
 
 \begin{frame}[fragile]
-	\frametitle{Summary...}
+	\frametitle{Summary}
+    We learned how to,
 	\begin{itemize}
 	\item Add graphics to a LateX document
 	\item Include tabular environments in a LateX document
@@ -214,9 +296,9 @@
 \begin{frame}[fragile]
 \frametitle{Evaluation}
 \begin{enumerate}
-\item Why the figures and tables are called as floats?
-\item What are the input parameters the figure environment take to make it float?
-\item What is the mandatory arguement in tabular environment specification?
+\item Which input parameter is used in the figure environment to make it float
+      to the bottom of the page ?
+\item What is the mandatory argument in tabular environment specification ?
 \end{enumerate}
 \end{frame}
 \begin{frame}
@@ -224,34 +306,71 @@
 \frametitle{Solutions}
 \begin{enumerate}
 \vspace{15pt}
-\item Figures and tables are called as floats because they float to the nearest location.
-\item The following can be used as parameters to a figure environment to make it float.
-\begin{itemize}
-\item t - Top of the page.
-\item b - Bottom of the page.
-\item p - Separate pages for float
-\item h - Here(the place where command appears)
-\item !- To override Latex internal parameters for good position
-\end{itemize}
-
-\item Alignment of each column
+\item Input parameter `b' is passed as argument, to make it float to the bottom
+      of the page.
+\item It is mandatory to specify alignment of each column in tabular 
+      environment.
 \end{enumerate}
 \end{frame}
 
 \begin{frame}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{12pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT (NME-ICT) \\
+\end{itemize}
+\end{center}
+\end{frame}
 
-\begin{block}{}
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, Government of India 
+\item More information on this Mission is available at: \\{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{}
   \begin{center}
-  \textcolor{blue}{\Large THANK YOU!} 
+  {\Large THANK YOU!} 
   \end{center}
   \end{block}
 \begin{block}{}
   \begin{center}
     For more Information, visit our website\\
-    \url{http://fossee.in/}
+    {\color{blue}\url{http://fossee.in/}}
   \end{center}  
   \end{block}
 \end{frame}
 
 \end{document}
-
