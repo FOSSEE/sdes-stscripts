@@ -9,13 +9,7 @@
 .. Prerequisites
 .. -------------
 
-..   1. Using Linux tools - Part 1
-..   2. Using Linux tools - Part 2
-..   3. Using Linux tools - Part 3
-..   4. Using Linux tools - Part 4
-..   5. Using Linux tools - Part 5
-..   6. Using Linux tools - Part 6
-
+..   1. Shell scripts & Variables
 
  
 Script
@@ -393,9 +387,54 @@ And the answers,
 
 .. L31
 
-{{{ Show the Thank you slide }}}
+{{{ Show the SDES & FOSSEE slide }}}
 
 .. R31
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L32
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R32
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L33
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R33
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L34
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R34
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L35
+
+{{{ Show the Thank you slide }}}
+
+.. R35
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
