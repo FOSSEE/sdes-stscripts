@@ -1,0 +1,214 @@
+.. Objectives
+.. ----------
+   
+   .. At the end of this tutorial, you will be able to:
+   
+   ..   1. Search for files in many different ways
+   ..   2. Compare files with same names
+   ..   3. Create and extract an archive
+   ..   4. Customize a shell
+
+.. Prerequisites
+.. -------------
+
+..   1. Getting started with Linux  
+..   2. Basic File Handling
+
+ 
+Script
+------
+
+
+
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show the  first slide containing title, name of the production               | Hello friends and Welcome to the tutorial on                                     |
+| team along with the logo of MHRD }}}                                             | 'Miscellaneous Tools'.                                                           |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show slide with objectives }}}                                               | At the end of this tutorial, you will be able to,                                |
+|                                                                                  |                                                                                  |
+|                                                                                  |  1. Search for files in many different ways.                                     |
+|                                                                                  |  #. Compare files with same names.                                               |
+|                                                                                  |  #. Create and extract an archive.                                               |
+|                                                                                  |  #. Customize a shell.                                                           |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Switch to the pre-requisite slide }}}                                        | Before beginning this tutorial,we would suggest you to complete the              |
+|                                                                                  | previous tutorials as being displayed currently.                                 |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+|                                                                                  | There are a bunch of tools, that will prove to be handy in your day              |
+|                                                                                  | to day work. These tools will help you quickly perform tasks like searching      |
+|                                                                                  | for files, comparing files and checking if they are the same, viewing the        |
+|                                                                                  | exact differences between them, etc.                                             |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show slide, find }}}                                                         | Let us start with the first tool - 'find' .                                      |
+|                                                                                  | The ``find`` command lets you find files in a directory hierarchy. It            |
+|                                                                                  | offers a very complex feature set allowing you to search for files with a        |
+|                                                                                  | wide range of restrictions. We shall only look at some of the most               |
+|                                                                                  | frequently used ones.                                                            |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Open the terminal }}}                                                        | To find the files, which end with an extension, ``.pdf``, saved in the current   |
+| ::                                                                               | folder and all it's subfolders, we say                                           |
+|                                                                                  |                                                                                  |
+|     find . -name "*.pdf"                                                         |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| ::                                                                               | The ``find`` command also lists out the directory and sub-directory names        |
+|                                                                                  | To list them, we say,                                                            |
+|     find . -type d                                                               |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+|                                                                                  | In short, ``find`` allows you to set limits on file-size, modification time      |
+|                                                                                  | and whole lot of other things which you can explore on seeing the man page       |
+|                                                                                  | of ``find``.                                                                     |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| ::                                                                               | Let us now move on to the next tool, the compare tool.                           |
+|                                                                                  |                                                                                  |
+|    find . -name quick.c                                                          | To compare two files, whether they are identical or not, we can use the          |
+|    ./Desktop/programs/quick.c                                                    | ``cmp`` command. Let us consider some situation. Suppose, we run the ``find``    |
+|    ./c-folder/quick.c                                                            | command to locate some file, and it turns out that we have a file with same      |
+|    cmp Desktop/programs/quick.c c-folder/quick.c                                 | name in different location.                                                      |
+|                                                                                  |                                                                                  |
+|                                                                                  | In this case, if we are unsure, whether both the files are the same, we can use  |
+|                                                                                  | the ``cmp`` command to check if the files are identical.                         |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show slide, cmp }}}                                                          | If the cmp command doesn't return any output, it means that both files are       |
+|                                                                                  | exactly identical. If there are any differences in the file, it gives you        |
+|                                                                                  | the exact byte location at which the first difference occurred.                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Switch to the terminal }}}                                                   | Let us now make a small change in one of quick.c file and run the ``cmp``        |
+|                                                                                  | command again.                                                                   |
+| ::                                                                               |                                                                                  |
+|                                                                                  |                                                                                  |
+|    cmp Desktop/programs/quick.c c-folder/quick.c                                 |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+|                                                                                  | As we can see, it gives the exact location as to where a change is made.         |
+|                                                                                  |                                                                                  |
+|                                                                                  | Now, we may not be happy with just the knowledge that the files are              |
+|                                                                                  | different. We may want to see the exact differences between the two files.       |
+|                                                                                  | The ``diff`` command can be used to find the exact differences between the       |
+|                                                                                  | files.                                                                           |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| ::                                                                               | We get back a line by line difference between the two files.                     |
+|                                                                                  |                                                                                  |
+|    diff Desktop/programs/quick.c c-folder/quick.c                                |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show slide, diff }}}                                                         | The ``>`` mark indicates the content that has been added to the second file,     |
+|                                                                                  | which was not present in the first file. The ``<`` mark indicates the lines      |
+|                                                                                  | that were present in the first file, but are not existent in the second file.    |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show slide, tar }}}                                                          | You would often come across (archive) files which are called *tarballs*. A       |
+|                                                                                  | tar ball is essentially a collection of files, which may or may not be           |
+|                                                                                  | compressed. Essentially, it eases the job of storing, backing up and             |
+|                                                                                  | transporting multiple files, at once.                                            |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Switch to terminal }}}                                                       | The following set of commands extracts the contents of the ``allfiles.tar``      |
+| ::                                                                               | tarball to the directory extract.                                                |
+|                                                                                  |                                                                                  |
+|    mkdir extract                                                                 |                                                                                  |
+|    cp allfiles.tar extract/                                                      |                                                                                  |
+|    cd extract                                                                    |                                                                                  |
+|    tar -xvf allfiles.tar                                                         |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show slide, extracting an archive }}}                                        | The option, ``x`` tells ``tar`` to extract the files in the archive file         |
+|                                                                                  | specified by the ``f`` option. The ``v`` option tells ``tar`` to give out a      |
+|                                                                                  | verbose output.                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Switch to terminal }}}                                                       | Similarly, if we wish to create a ``tar`` archive, we use the ``c`` option       |
+| ::                                                                               | instead of the ``x`` option. For instance, the command below creates an          |
+|                                                                                  | archive from all the files with the ``.txt`` extension.                          |
+|     tar -cvzf newarchive.tar *.txt                                               |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+|                                                                                  | You can also create and extract compressed archives using ``tar``. It            |
+|                                                                                  | supports a wide variety of compressions like gzip, bzip2, lzma, etc.             |
+|                                                                                  |                                                                                  |
+|                                                                                  | We need to add an additional option to ``tar`` to handle these                   |
+|                                                                                  | compressions.                                                                    |
+|                                                                                  |                                                                                  |
+|                                                                                  |                                                                                  |
+|                                                                                  | +-------------+------------+                                                     |
+|                                                                                  | | Compression | Option     |                                                     |
+|                                                                                  | +-------------+------------+                                                     |
+|                                                                                  | | gzip        | ``-z``     |                                                     |
+|                                                                                  | | bzip2       | ``-j``     |                                                     |
+|                                                                                  | | lzma        | ``--lzma`` |                                                     |
+|                                                                                  | +-------------+------------+                                                     |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| ::                                                                               | So, if we wished to create a gzip archive in the previous command, we            |
+|                                                                                  | change it to the following                                                       |
+|     tar -cvzf newarchive.tar.gz *.txt                                            |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show slide, customizing your shell }}}                                       | What would you do, if you want bash to execute a particular command each         |
+|                                                                                  | time you start it up? For instance, say you want the current directory to        |
+|                                                                                  | be your Desktop instead of your home folder, each time bash starts up.           |
+|                                                                                  | Bash reads and executes commands in a whole bunch                                |
+|                                                                                  | of files called start-up files, when it starts up.                               |
+|                                                                                  |                                                                                  |
+|                                                                                  | When bash starts up as an interactive login shell, it reads the files            |
+|                                                                                  | ``/etc/profile``, ``~/.bash_profile``, ``~/.bash_login``, and                    |
+|                                                                                  | ``~/.profile`` in that order.                                                    |
+|                                                                                  |                                                                                  |
+|                                                                                  | When an interactive shell that is not a login shell is started, bash reads       |
+|                                                                                  | and executes commands from ~/.bashrc. This can be prevented using the ``--norc`` |
+|                                                                                  | option. Instead of using the ``~/.bashrc`` file on start-up, we can force        |
+|                                                                                  | the bash to use another file, for which the ``--rcfile`` option may be used.     |
+|                                                                                  |                                                                                  |
+|                                                                                  | Now, you know what you should do, to change the current directory to you         |
+|                                                                                  | Desktop. Just put a ``cd ~/Desktop`` into your ``~/.bashrc`` and you are         |
+|                                                                                  | set!                                                                             |
+|                                                                                  | But as you know that the start-up files are used for a lot more complex things   |
+|                                                                                  | than this. You could set (or unset) aliases and a whole bunch of environment     |
+|                                                                                  | variables in the ``.bashrc``, like changing environment variables etc.           |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Switch to 'Summary' slide }}}                                                | This brings us to the end of the end of this tutorial.                           |
+|                                                                                  | In this tutorial, we have learnt to,                                             |
+|                                                                                  |                                                                                  |
+|                                                                                  |  1. Make use of the ``find`` command to find files in a directory hierarchy.     |
+|                                                                                  |  #. Find the differences between files with the same name, using the             |
+|                                                                                  |     ``cmp`` and ``diff`` commands.                                               |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Switch to 'Summary..' slide }}}                                              | #. Extract and create compressed archive's using the ``tar`` command.            |
+|                                                                                  |  #. Customize one's shell according to one's choice.                             |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show self assessment questions slide }}}                                     | Here are some self assessment questions for you to solve                         |
+|                                                                                  |                                                                                  |
+|                                                                                  |  1. Look at the man page of ``find`` and state the options which                 |
+|                                                                                  |     deal with symbolic links.                                                    |
+|                                                                                  |                                                                                  |
+|                                                                                  |  2. How do you append tar files to an archive?                                   |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Solution of self assessment questions on slide }}}                           | And the answers,                                                                 |
+|                                                                                  |                                                                                  |
+|                                                                                  | 1. The  -H,  -L  and  -P options with the ``find`` command control               |
+|                                                                                  |     the treatment of symbolic links.                                             |
+|                                                                                  |                                                                                  |
+|                                                                                  |  2. To append tar files to an archive, we can use the ``tar`` command            |
+|                                                                                  |     either with the ``-A`` option or the ``-r`` option, as,                      |
+|                                                                                  | ::                                                                               |
+|                                                                                  |                                                                                  |
+|                                                                                  |     $ tar -Af <tar_file> <tar_file_to_be_added>                                  |
+|                                                                                  |                    OR                                                            |
+|                                                                                  |     $ tar -rf <tar_file> <tar_file_to_be_added>                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+|                                                                                  |                                                                                  |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show the SDES & FOSSEE slide }}}                                             | Software Development techniques for Engineers and Scientists - SDES, is an       |
+|                                                                                  | initiative by FOSSEE. For more information, please visit the given link.         |
+|                                                                                  |                                                                                  |
+|                                                                                  | Free and Open-source Software for Science and Engineering Education - FOSSEE, is |
+|                                                                                  | based at IIT Bombay which is funded by MHRD as part of National Mission on       |
+|                                                                                  | Education through ICT.                                                           |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show the ``About the Spoken Tutorial Project'' slide }}}                     | Watch the video available at the following link. It summarises the Spoken        |
+|                                                                                  | Tutorial project.If you do not have good bandwidth, you can download and         |
+|                                                                                  | watch it.                                                                        |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show the `` Spoken Tutorial Workshops'' slide }}}                            | The Spoken Tutorial Project Team conducts workshops using spoken tutorials,      |
+|                                                                                  | gives certificates to those who pass an online test.                             |
+|                                                                                  |                                                                                  |
+|                                                                                  | For more details, contact contact@spoken-tutorial.org                            |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show the ``Acknowledgements'' slide }}}                                      | Spoken Tutorial Project is a part of the "Talk to a Teacher" project.            |
+|                                                                                  | It is supported by the National Mission on Education through ICT, MHRD,          |
+|                                                                                  | Government of India. More information on this mission is available at the        |
+|                                                                                  | given link.                                                                      |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+| {{{ Show the Thank you slide }}}                                                 | Hope you have enjoyed this tutorial and found it useful.                         |
+|                                                                                  | Thank you!                                                                       |
++----------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
