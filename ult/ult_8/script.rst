@@ -252,10 +252,10 @@ the bash shell.
 This brings us to the end of the end of this tutorial.
 In this tutorial, we have learnt to, 
 
- 1. Prepare a shell script.
- #. Display the result of a script, using the ``echo`` command.
- #. Use the environment variable ``PATH``.
- #. Create variables and comment out content using the ``#`` sign.
+1. Prepare a shell script.
+#. Display the result of a script, using the ``echo`` command.
+#. Use the environment variable ``PATH``.
+#. Create variables and comment out content using the ``#`` sign.
 
 .. L20
 
@@ -283,19 +283,64 @@ Here are some self assessment questions for you to solve
 
 And the answers,
 
- 1. We use the ``#`` sign to comment out the content from a shell script.
+1. We use the ``#`` sign to comment out the content from a shell script.
 
- 2. In order to add a directory to the beginning of the $PATH variable,we
-    say,
+2. In order to add a directory to the beginning of the $PATH variable,we
+   say,
 ::
 
     $PATH=/data/myscripts:$PATH
 
 .. L22
 
-{{{ Show the Thank you slide }}}
+{{{ Show the SDES & FOSSEE slide }}}
 
 .. R22
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L23
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R23
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L24
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R24
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L35
+
+{{{ Show the ``Acknowledgements'' slide }}}
+
+.. R35
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L26
+
+{{{ Show the Thank you slide }}}
+
+.. R26
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
