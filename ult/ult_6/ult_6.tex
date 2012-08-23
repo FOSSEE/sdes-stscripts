@@ -82,8 +82,8 @@
 
 At the end of this tutorial, you will be able to,
 \begin{itemize}
-\item Understand various features of the shell
-\item Learn about shell meta characters
+\item Understand various features of the Shell
+\item Learn about Shell Metacharacters
 \end{itemize}
 \end{frame}
 
@@ -109,12 +109,12 @@ Spoken tutorial on,
 \begin{frame}[fragile]
   \frametitle{Tab-completion..}
   \begin{itemize}
-  \item Bash provides tab completion for the following
+  \item Bash provides tab completion for,
     \begin{enumerate}
     \item File Names
     \item Directory Names
     \item Executable Names
-    \item User Names (when prefixed with a \~{})
+    \item User Names (when prefixed with a \~{} )
     \item Host Names (when prefixed with a @)
     \item Variable Names (when prefixed with a \$)
     \end{enumerate}
@@ -125,22 +125,36 @@ Spoken tutorial on,
 \frametitle{History}
 \begin{itemize}
 \item Bash saves history of commands typed
-\item Up and down arrow keys allow to navigate history
+\item Up and down arrow keys allow to navigate through history
 \item \texttt{Ctrl-r} searches for commands used
 \item No. of commands limited, generally upto 1000
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Shell Meta Characters}
+  \frametitle{Shell Metacharacters}
   \begin{itemize}
-  \item ``meta characters''  are special command directives
-  \item No meta-characters in file-names
+  \item ``Metacharacters''  are special command directives
+  \item No Metacharacters in file-names
   \item While naming files, use characters A-Z, a-z, 0-9, . , - , \_
-  \item shell meta characters -- \\
+  \item shell Metacharacters -- \\
              \verb+/<>!$%^&*|{}[]"'`~;+
   \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{File names}
+  \begin{itemize}
+\item Eg: Consider a file named \verb+california_cornish_hens_with_+
+\verb+wild_rice+
+\item If no other file-name begins with ``c'', 
+\end{itemize}
+\hspace{29pt}\verb~$ more c*~
+\begin{itemize}
+\item c* matches that long file name
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Summary}
