@@ -128,14 +128,12 @@ Spoken tutorial on,
 \begin{frame}[fragile]
   \frametitle{\texttt{`diff'}}
   \begin{itemize}
-  \item We know the files are different, but want exact differences
+  \item We know the files are different, but want exact differences i.e. line by line
   \end{itemize}
-  \begin{lstlisting}
-   $diff Desktop/programs/quick.c 
-    c-folder/quick.c
-  \end{lstlisting} % $
+\hspace{30pt}\verb~$diff Desktop/programs/quick.c ~\\
+\hspace{40pt}\verb~c-folder/quick.c~
+ 
   \begin{itemize}
-  \item line by line difference between files
   \item \texttt{>} indicates content only in second file
   \item \texttt{<} indicates content only in first file
   \end{itemize}
@@ -152,13 +150,11 @@ Spoken tutorial on,
 
 \begin{frame}[fragile]
 \frametitle{Extracting an archive}
+\verb~mkdir extract~
+\verb~cp allfiles.tar extract/~
+\verb~cd extract~\\
+\verb~tar -xvf allfiles.tar~
 
-\begin{lstlisting}
-$ mkdir extract 
-$ cp allfiles.tar extract/ 
-$ cd extract 
-$ tar -xvf allfiles.tar
-\end{lstlisting} %$
 
 \begin{itemize}
 \item \texttt{-x} --- Extract files within the archive
@@ -240,7 +236,11 @@ $ tar -xvf allfiles.tar
 \begin{enumerate}
 \item  -H,  -L  and  -P   
 \vspace{15pt}
-\item \$ tar -Af <tar\_file> <tar\_file\_to\_be\_added>
+\item \$tar -Af <tar-file><tar-file-to-be-added>
+\begin{center}
+OR \\
+\end{center}
+\$tar -rf <tar-file><tar-file-to-be-added>
 \end{enumerate}
 
 \end{frame}
