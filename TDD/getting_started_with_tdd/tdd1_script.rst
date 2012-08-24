@@ -1,205 +1,263 @@
-.. Objectives
-.. ----------
-   
-   .. At the end of this tutorial, you will be able to:
-   
-   ..   1. Know what is TDD.
-   ..   2. Understand the use of test cases.
-   ..   3. Write simple tests for a function.
-
-.. Prerequisites
-.. -------------
-
-..   1. Getting started with functions
-
- 
+------
 Script
 ------
 
 .. L1
 
-{{{ Show the  first slide containing title, name of the production
-team along with the logo of MHRD }}}
+{{{ Show the "Title" slide }}}
 
 .. R1
 
-Hello friends and Welcome to the tutorial on 
-'Test driven development - Part 1'.
+Hello friends and welcome to the tutorial on, 
+'Getting started with TDD'
 
 .. L2
 
-{{{ Show slide with objectives }}} 
+{{{ Show "Objectives" slide }}} 
 
 .. R2
 
 At the end of this tutorial, you will be able to,
 
- 1. understand basics of Test Driven Development.
- #. understand the use test cases.
- #. write simple tests for a function.
+ 1. Understand basics of Test Driven Development.
+ #. Understand the use test cases.
+ #. Write simple tests for a function.
 
 .. L3
 
-{{{ Switch to the slide3, pre-requisite slide }}}
+{{{ Switch the "Pre-requisite" slide }}}
 
 .. R3
 
-Before beginning this tutorial,we would suggest you to complete the 
+Before beginning this tutorial, we would suggest you to complete the 
 tutorial on "Getting started with functions".
-
-.. R4
-
-Test-driven development is a software development 
-process that relies on the repetition of a very short 
-development cycle.
-In TDD,one writes a failing automated test case that 
-defines a desired improvement or new function, then produces
-code to pass that test and finally refactors the new code to
-acceptable standards.
-
 
 .. L4
 
-{{{ Switch to slide4 ,What is TDD?}}}
+{{{ show "What is TDD?" slide }}}
 
+.. R4
 
-.. R5
+Test-driven development is a software development process that relies on the
+repetition of a very short development cycle.
 
-To illustrate TDD, lets take a simple program. Consider a 
-function ``fibonacci``, that takes one argument and returns 
-the nth number of ``fibonacci`` series.
+The basics of Test Driven Development are,
+
+1. Decide the new feature you want to implement & the methodology to test it.
+#. Write tests for the new feature decided upon.
+#. Just write enough code so that the test can run, but, it fails.
+
 
 .. L5
 
-{{{ Switch to slide5, First test- fibonacci }}}
+{{{ show "What is TDD?.." slide }}}
 
-.. R6 
+.. R5
 
-To test ``fibonacci`` function, we need test
-cases.
-As shown in this slide,
-test cases are expected outputs for a given set of inputs.
+#. Modify the code so that all the current tests & the previous tests pass.
+#. Run tests to see if all the tests pass successfully.
+#. Refactor the code - optimize the algorithm, remove duplication & 
+   documentation, etc.
+#. And finally run the tests again to see if all the tests pass.
 
 
 .. L6
 
-{{{ Switch to slide6, Test cases }}}
+{{{ show "First test - fibonacci" slide }}}
 
-.. R7
+.. R6
 
-The sample code for test cases is shown here. Observe that if 
-any ``if`` statement is executed, test aborts after printing the
-error message.
+To illustrate TDD, lets take a simple program. Consider a function "fibonacci",
+that takes one argument and returns the nth number of fibonacci series.
+As shown in the example, c will contain the 3rd digit of the fibonacci series
+that starts counting from 0(zero).
+
 
 .. L7
- 
-{{{ Switch to slide7, Test cases-Code }}}
 
-.. R8
+{{{ show "Test Cases" slide }}}
+	
+.. R7 
 
-The ``fibonacci`` function is written just enough so that 
-test can run.
+To test any function it is important to have enough test cases & their expected
+outputs before you start writing the test cases. Test cases are expected
+outputs for a given set of inputs. So, to test fibonacci function,
+we need test cases. As shown in this slide, our test cases are, when 'n=3', '2'
+is the expected output from the fibonnaci series. Similarly, when 'n=4', '3'
+is the expected output.
+Test cases can either be true or false depending on their actual behaviour
+against the expected behaviour.
 
 
 .. L8
+ 
+{{{ show "Test cases-Code" slide }}}
 
-{{{ switch to slide8, Stubs }}}
+.. R8
 
-.. R9
+The sample code for test cases is shown here. Observe that if any "if"
+statement is executed, test aborts after printing the error message.
 
-Combine the function and test cases and put them together in 
-``fibonacci.py`` file.Add the test cases after name=main idiom.
 
 .. L9
 
-{{{ Switch to slide9, fibonacci.py }}}
+{{{ show the "Stubs" slide }}}
 
-.. R10
+.. R9
 
-Lets run fibonacci.py by typing ``python fibonacci.py``.
-As we haven't written any meaningful code in our ``fibonacci``
-function, it fails immediately.
-Our next step is to write just minimum code to pass our tests.
+Now, the fibonacci function is written just enough so that the tests can run.
+But, obviously the tests are going to fail.
+
 
 .. L10
 
-{{{ Run the fibonacci.py in terminal and show the error output.}}}
-::
-     
-    python fibonacci.py
+{{{ show "fibonacci.py" slide }}}
 
+.. R10
+
+We will now combine the fibonnaci stub function we just wrote & the test cases 
+together in "fibonacci.py" file. Note that the test cases should be added
+after "name=main" idiom.
+
+.. L11 
+
+{{{ show the "first run" slide }}}
+{{{ Run the fibonacci.py in terminal and show the error output & switch back to
+slide }}}
+>>> python fibonacci.py
+       
 .. R11
 
-Modify the fibonacci stub function with given code. 
-Save and run it again as `` python fibonacci.py``. 
-{{{ pause }}}
-Observe that, there will be no errors, as 
-the test passes successfully.
+Now, let us run the fibonacci.py file. To do this, switch to the terminal & 
+type "python fibonacci.py".
 
-.. L11
 
-{{{ switch to slide-11, Euclidean Algorithm }}}
-Switch to terminal and modify fibonacci function in ``nano``
-editor and run.
-::
+The tests fail as we just have a stub "fibonacci" function and no meaningful
+code in it. Our next step is to write just minimum code to pass our tests.
 
-    python fibonacci.py
-   
-.. R12
-
-The same ``fibonacci`` function is modified to make it more readable
-and easy to understand using recursion.
-Pause this video here.Replace the ``fibonacci`` function with recursive one.
-Run the modified ``fibonacci.py`` file. The test should pass again 
-without any errors.
-After successfully achieving this result, you can resume the video.
 
 .. L12
 
-{{{ Show slide12, Euclidean Algorithm- Recursive}}}
+{{{ show "Fibonnaci" slide }}}
+{{{ switch to terminal }}}
+>>> python fibonacci.py
 
 
-.. R13
+.. R12
 
-This brings us to the end of the tutorial.In this tutorial,
- we have learnt to,
+Modify the fibonacci stub function with given code & save the file. Now, switch
+to terminal and run it again as "python fibonacci.py".
  
- 1. Undestand the basic steps involved in Test driven development.
- #. Design a Test driven approach for a given ``fibonacci`` function.
+{{{ pause }}}
+Observe that, there will be no errors, as the test passes successfully.
 
 
 .. L13
 
-{{{ switch to slide-13,Summary }}}
+{{{ Show "Fibonacci - Recursive" slide }}}
+   
+.. R13
+
+Finally, the same "fibonacci" function is modified to make it more readable
+and easy to understand using recursion.
+Pause this video here. Replace the "fibonacci" function with recursive one.
+Run the modified "fibonacci.py" file. The test should pass again without any
+errors. After successfully achieving this result, you can resume the video.
+
+.. L14
+
+{{{ show "Summary" slide }}}
 
 .. R14
 
-Here are some self assessment questions for you to solve
+This brings us to the end of the tutorial. In this tutorial,  we have learnt,
+ 
+ 1. The basic steps involved in Test driven development.
+ #. How to use test cases.
+ #. How to write simple tests for a function.
+
+
+.. L15
+
+{{{ show "Evaluation" slide }}}
+
+.. R15
+
+Here are some self assessment questions for you to solve,
 
  1. Design a TDD approach for a factorial function.
  2. Design a TDD approach for an armstrong function. 
 
-.. L14
+Try out the excercises for yourself & resume the video for solutions.
 
-{{{ switch to slide-14, Evaluation }}}
-
-.. R15
-
-And the answers are,
- 1. {{{ show answer slide-1 }}}
-
- 2. {{{ show answer slide-2 }}}
-
-.. L15
-
-{{{ switch to slide-15 ,Solutions}}}
-
-.. R16
-
-Hope you have enjoyed this tutorial and found it useful.
-Thank you!
 
 .. L16
 
-{{{ Switch to slide-16, Thankyou}}}
+{{{ show "Factorial" slide}}}
 
+.. R16
+
+Given here is a TDD approach to a factorial function.
+
+.. L17
+
+{{{ show "Armstrong" slide}}}
+
+.. R17
+
+Given here is a TDD approach to an armstrong function.
+
+
+.. L18
+
+{{{ Show the SDES & FOSSEE slide }}}
+
+.. R18
+
+Software Development techniques for Engineers and Scientists - SDES, is an 
+initiative by FOSSEE. For more information, please visit the given link.
+
+Free and Open-source Software for Science and Engineering Education - FOSSEE, is
+based at IIT Bombay which is funded by MHRD as part of National Mission on 
+Education through ICT.
+
+.. L19
+
+{{{ Show the ``About the Spoken Tutorial Project'' slide }}}
+
+.. R19
+
+Watch the video available at the following link. It summarises the Spoken 
+Tutorial project.If you do not have good bandwidth, you can download and 
+watch it. 
+
+.. L20
+
+{{{ Show the `` Spoken Tutorial Workshops'' slide }}}
+
+.. R20
+
+The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
+gives certificates to those who pass an online test.
+
+For more details, contact contact@spoken-tutorial.org
+
+.. L21
+
+{{{ Show the Acknowledgements slide }}}
+
+.. R21
+
+Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
+It is supported by the National Mission on Education through ICT, MHRD, 
+Government of India. More information on this mission is available at the 
+given link.
+
+.. L22
+
+{{{ Show the Thankyou slide }}}
+
+.. R22
+
+Hope you have enjoyed this tutorial and found it useful.
+Thank you!
