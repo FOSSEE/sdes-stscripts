@@ -50,7 +50,7 @@ At the end of this tutorial, you will be able to,
 .. R3
 
 Before beginning this tutorial,we would suggest you to complete the 
-former tutorials as being displayed currently.
+previous tutorials as being displayed currently.
 
 .. R4
 
@@ -70,7 +70,7 @@ Let us see what data they contain. Open a terminal and type,
 .. R5
 
 Let's say we wish to sort the output in the alphabetical order
-of the names of the files. We can use the ``sort`` command for this
+of the names of students. We can use the ``sort`` command for this
 purpose.
 
 We just pipe the previous output to the ``sort`` command as,
@@ -259,47 +259,58 @@ original file and work with that file.
 .. L19
 ::
 
-    sort items.txt | uniq
+    sort items.txt > items-sorted.txt
 
 .. R20
 
-``uniq -u`` command gives the lines which are unique and do not have any 
-duplicates in the file. ``uniq -d`` outputs only those lines which 
-have duplicates. 
+Now, the ``uniq`` command will work. Let's try it out
 
-.. L20 
+.. L20
+
+::
+
+    uniq items-sorted.txt
+
+.. R21
+
+The same result can also be obtained by a more precise command. We include the 
+option ``-u`` which gives the lines which are unique and do not have any 
+duplicates in the file
+
+.. L21 
 ::
 
     uniq -u items-sorted.txt 
 
-.. R21
+.. R22
 
+``uniq -d`` outputs only those lines which have duplicates. 
 The ``-c`` option displays the number of times each line occurs in the file.
 
-.. L21
+.. L22
 ::
 
     uniq -dc items-sorted.txt
 
-.. L22
+.. L23
 
 {{{ Show summary slide }}}
 
-.. R22
+.. R23
 
 This brings us to the end of the end of this tutorial.
 In this tutorial, we have learnt to, 
  
-  1. Use the ``sort`` command to sort lines of text files.
-  #. Use the ``grep`` command to search text pattern.
-  #. Use the ``tr`` command to translate and/or delete characters.
-  #. Use the ``uniq`` command to omit repeated lines in a text. 
+1. Use the ``sort`` command to sort lines of text files.
+#. Use the ``grep`` command to search text pattern.
+#. Use the ``tr`` command to translate and/or delete characters.
+#. Use the ``uniq`` command to omit repeated lines in a text. 
 
-.. L23
+.. L24
 
 {{{ Show self assessment questions slide }}}
 
-.. R23
+.. R24
 
 Here are some self assessment questions for you to solve
 
@@ -314,11 +325,11 @@ Here are some self assessment questions for you to solve
 
 3. Sort the output of the ``ls -al`` command.
 
-.. L24
+.. L25
 
 {{{ Solution of self assessment questions on slide }}}
 
-.. R24
+.. R25
 
 And the answers,
 
@@ -338,11 +349,11 @@ And the answers,
 The -n  means "sort numerically", and the -k5 option means to key off of 
 column five. 
 
-.. L25
+.. L26
 
 {{{ Show the SDES & FOSSEE slide }}}
 
-.. R25
+.. R26
 
 Software Development techniques for Engineers and Scientists - SDES, is an 
 initiative by FOSSEE. For more information, please visit the given link.
@@ -351,43 +362,43 @@ Free and Open-source Software for Science and Engineering Education - FOSSEE, is
 based at IIT Bombay which is funded by MHRD as part of National Mission on 
 Education through ICT.
 
-.. L26
+.. L27
 
 {{{ Show the ``About the Spoken Tutorial Project'' slide }}}
 
-.. R26
+.. R27
 
 Watch the video available at the following link. It summarises the Spoken 
 Tutorial project.If you do not have good bandwidth, you can download and 
 watch it. 
 
-.. L27
+.. L28
 
 {{{ Show the `` Spoken Tutorial Workshops'' slide }}}
 
-.. R27
+.. R28
 
 The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
 gives certificates to those who pass an online test.
 
 For more details, contact contact@spoken-tutorial.org
 
-.. L28
+.. L29
 
 {{{ Show the ``Acknowledgements'' slide }}}
 
-.. R28
+.. R29
 
 Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
 It is supported by the National Mission on Education through ICT, MHRD, 
 Government of India. More information on this mission is available at the 
 given link.
 
-.. L29
+.. L30
 
 {{{ Show the Thank you slide }}}
 
-.. R29
+.. R30
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!

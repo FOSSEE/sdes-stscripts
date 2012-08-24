@@ -11,7 +11,7 @@
 
 ..   1. Getting started with Linux
 ..   2. Basic File Handling
-..   4. Advanced file handling
+
  
 Script
 ------
@@ -24,7 +24,7 @@ team along with the logo of MHRD }}}
 .. R1
 
 Hello friends and Welcome to the tutorial on 
-'Redirection and Piping'.
+'Features of the Shell'.
 
 .. L2
 
@@ -44,7 +44,7 @@ At the end of this tutorial, you will be able to,
 .. R3
 
 Before beginning this tutorial,we would suggest you to complete the 
-former tutorials as being displayed currently.
+previous tutorials as being displayed currently.
 
 .. L4
 
@@ -73,12 +73,12 @@ latter one, hitting the tab key a second time, will list the possibilities.
 
 Bash provides tab completion for the following.
 
-        File Names
-        Directory Names
-        Executable Names
-        User Names (when they are prefixed with a ~)
-        Host Names (when they are prefixed with a @)
-        Variable Names (when they are prefixed with a $)
+- File Names
+- Directory Names
+- Executable Names
+- User Names (when they are prefixed with a ~)- tilde
+- Host Names (when they are prefixed with a @)- at sign
+- Variable Names (when they are prefixed with a $)- dollar sign
 
 .. R6
 
@@ -127,7 +127,7 @@ command directives. The shell meta characters are recognized anywhere they
 appear in the command line, even if they are not surrounded by blank space. 
 For that reason, it is safest to only use the characters A-Z, a-z, 0-9, and 
 the period, dash, and underscore characters when naming files and directories
- on Unix. If your file or directory has a shell meta character in the name, 
+on Unix. If your file or directory has a shell meta character in the name, 
 you will find it difficult to use the name in a shell command.
 
 The characters that you see on the slide are the shell meta characters
@@ -147,8 +147,8 @@ Let's take an example,
 
 .. R11
 
-It means, run on a directory containing the files file, file.c, file.lst, and 
-myfile would list the files file.c and file.lst. However,
+It means, run on a directory containing the files - file.c, file.lst, and 
+file.txt. However,
 
 .. L11
 
@@ -158,28 +158,27 @@ myfile would list the files file.c and file.lst. However,
 
 .. R12
 
-Run on the same directory would only list file.c because the ? only 
-matches  one character, no more, no less. This can save you a great deal of 
-typing time.
+Run on the same directory would only list file.c because the ?(question mark) 
+matches only one character, in our case it is ``.c``. This can save you a great 
+deal of typing time.
 
-For example, if there is a file called california_cornish_hens_with_wild_rice 
+.. L13
+
+{{{ Show slide, with File names }}}
+
+.. R13
+
+For example,if there is a file called ``california_cornish_hens_with_wild_rice``
 and no other files whose names begin with 'c', you could view the file without 
-typing the whole name by typing this
-
-.. L12
-
+typing the whole name by typing 
 ::
 
     more c*
 
-.. R13
-
 Here, the c* matches that long file name.
 
-File-names containing metacharacters can pose many problems and should never 
-be intentionally created.
-
-.. L13
+Hence, File-names containing metacharacters can pose many problems and should 
+never be intentionally created.
 
 .. L14
 
@@ -277,3 +276,4 @@ given link.
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
+

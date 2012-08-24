@@ -1,0 +1,221 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Using Linux Tools
+%
+% Author: FOSSEE 
+% Copyright (c) 2009, FOSSEE, IIT Bombay
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
+}
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
+\usepackage{mathpazo,courier,euler}
+\usepackage{listings}
+\lstset{language=sh,
+    basicstyle=\ttfamily\bfseries,
+  showstringspaces=false,
+  keywordstyle=\color{black}\bfseries}
+
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT STARTS
+\begin{document}
+
+\sffamily \bfseries
+\title
+[Control structures and Operators]
+{Control structures and Operators}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [0.8cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
+
+% slide 1
+\begin{frame}
+   \titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Objectives}
+\label{sec-2}
+
+At the end of this tutorial, you will be able to,
+\begin{itemize}
+\item Prepare scripts using `Control Operators'
+\item Use Environment Variables
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pre-requisites}
+\label{sec-3}
+
+Spoken tutorial on -
+\begin{itemize}
+\item Shell scripts \& Variables
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{if}}
+  \begin{itemize}
+  \item Print message if directory exists in \texttt{pwd}
+  \end{itemize}
+  \begin{lstlisting}
+    #!/bin/bash
+    if test -d $1
+    then
+    echo "Yes, the directory" $1 
+         "is present"
+    fi
+  \end{lstlisting} % $
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{[ ]} - alias for \texttt{test}}
+  \begin{itemize}
+  \item Square brackets (\texttt{[]}) instead of \texttt{test}
+  \end{itemize}
+  \begin{lstlisting}
+    #!/bin/bash
+    if [ $1 -lt 0 ]
+    then
+    echo "number is negative"
+    else
+    echo "number is non-negative"
+    fi
+  \end{lstlisting} % $
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Exercise}
+\begin{itemize}
+\item Given a set of \texttt{.mp3} files, with names beginning with numbers 
+      followed by text -- eg: \texttt{08 - Society.mp3}
+
+\begin{itemize}
+\item Rename the files to have just the names
+\item Replace any spaces in the name with hyphens
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+%  \begin{itemize}
+%  \item Loop over the list of files
+%  \item Process the names, to get new names
+%  \item Rename the files
+%  \end{itemize}
+%\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Shell Variables vs. Environment variables}
+ %\texttt{Environment variables vs. Shell variables}
+\begin{table}
+\begin{tabular}{|l|l|}
+\hline
+Shell var. & Environment var.\\\hline
+only current instance & valid for the whole\\
+of the shell & whole session\\\hline
+UPPER CASE & lower case\\\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary}
+\label{sec-8}
+
+  In this tutorial, we have learnt to,
+
+
+\begin{itemize}
+\item Prepare scripts using control structures -- ``if'', ``if-else'',
+      ``for'' \& ``while''
+\item Use environment variables
+\item Export variable to environment of all processes, using 
+      ``export'' command
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Evaluation}
+\label{sec-9}
+
+
+\begin{enumerate}
+\item Print the text ``dog man'' in such a way that the prompt continues after 
+the text.
+\vspace{8pt}
+\item How can you add a new path variable ``\texttt{/myscripts}'' to \$PATH variable ?
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Solutions}
+\label{sec-10}
+
+
+\begin{enumerate}
+\item \$ echo -n dog man
+\vspace{15pt}
+\item \$export PATH=\$PATH://myscripts
+\end{enumerate}
+\end{frame}
+\begin{frame}
+
+  \begin{block}{}
+  \begin{center}
+  {\Large THANK YOU!} 
+  \end{center}
+  \end{block}
+\begin{block}{}
+  \begin{center}
+    For more Information, visit our website\\
+    {\color{blue}\url{http://fossee.in/}}
+  \end{center}  
+  \end{block}
+\end{frame}
+
+
+\end{document}
+
+

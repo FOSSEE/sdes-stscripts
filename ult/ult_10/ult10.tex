@@ -1,0 +1,265 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Using Linux Tools
+%
+% Author: FOSSEE 
+% Copyright (c) 2009, FOSSEE, IIT Bombay
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[17pt,compress]{beamer}
+\usepackage{beamerthemesplit}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
+}
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+\usepackage{verbatim}
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+
+\usepackage{mathpazo,courier,euler}
+\usepackage{listings}
+\lstset{language=sh,
+    basicstyle=\ttfamily\bfseries,
+  showstringspaces=false,
+  keywordstyle=\color{black}\bfseries}
+
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
+
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT STARTS
+\begin{document}
+
+\sffamily \bfseries
+\title
+[Miscellaneous Tools]
+{Miscellaneous Tools}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.9cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
+
+% slide 1
+\begin{frame}
+   \titlepage
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Objectives}
+\label{sec-2}
+
+At the end of this tutorial, you will be able to,
+\begin{itemize}
+\item Search for files in various ways
+\item Compare files with same names
+\item Create and extract an archive
+\item Customize a shell
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pre-requisites}
+\label{sec-3}
+
+Spoken tutorial on,
+\begin{itemize}
+\item Getting started with Linux
+\item Basic File Handling
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{`find'}}
+  \begin{itemize}
+  \item `find' command helps to find files in a directory hierarchy
+  \item Offers a very complex feature set\\ For eg: search files by name, owner, date,etc.
+  \item Look at the \texttt{man} page of `find' 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{`cmp'}}
+  \begin{lstlisting}
+   $ find . -name quick.c
+   ./Desktop/programs/quick.c
+   ./c-folder/quick.c
+   $ cmp Desktop/programs/quick.c 
+     c-folder/quick.c
+  \end{lstlisting} % $
+  \begin{itemize}
+  \item No output when files are exactly same
+  \item Else, gives location where the first difference occurs 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{\texttt{`diff'}}
+  \begin{itemize}
+  \item We know the files are different, but want exact differences i.e. line by line
+  \end{itemize}
+\hspace{30pt}\verb~$diff Desktop/programs/quick.c ~\\
+\hspace{40pt}\verb~c-folder/quick.c~
+ 
+  \begin{itemize}
+  \item \texttt{>} indicates content only in second file
+  \item \texttt{<} indicates content only in first file
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{`tar'}}
+\begin{itemize}
+\item \emph{tarball} -- essentially a collection of files
+\item May or may not be compressed
+\item Eases the job of storing, backing-up \& transporting files
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Extracting an archive}
+\verb~mkdir extract~
+\verb~cp allfiles.tar extract/~
+\verb~cd extract~\\
+\verb~tar -xvf allfiles.tar~
+
+
+\begin{itemize}
+\item \texttt{-x} --- Extract files within the archive
+\item \texttt{-f} --- Specify the archive file
+\item \texttt{-v} --- Be verbose
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Compressed archives}
+  \begin{itemize}
+  \item \texttt{tar} - create \& extract compressed archives
+  \item Additional option to handle compressed archives
+    \begin{center}
+      \begin{tabular}{|l|l|}\hline
+        Compression      &  Option   \\\hline
+        gzip   &  \texttt{-z}        \\\hline
+        bzip2  &  \texttt{-j}        \\\hline
+        lzma   &  \texttt{-{}-lzma}  \\\hline
+      \end{tabular}
+    \end{center}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Customizing your shell}
+\begin{itemize}
+\item Bash reads \texttt{/etc/profile},
+  \texttt{\textasciitilde{}/.bash\_profile},
+  \texttt{\textasciitilde{}/.bash\_login}, and
+  \texttt{\textasciitilde{}/.profile} in that order, when starting
+  up as a login shell. 
+\item \texttt{\textasciitilde{}/.bashrc} is read, when not a login
+  shell 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Summary}
+\label{sec-8}
+
+  In this tutorial, we have learnt to,
+
+
+\begin{itemize}
+\item Use ``find'' command to find files in a directory hierarchy
+\item Find differences between files with the same name, using the
+    ``cmp'' and ``diff'' commands
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary..}
+\label{sec-8}
+
+\begin{itemize}
+\item Extract and create compressed archive's using the ``tar'' command
+\item Customize one's shell according to one's choice
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Evaluation}
+\label{sec-9}
+
+
+\begin{enumerate}
+\item Look at the man page of ``find'' and state the options which
+    deal with symbolic links.
+\vspace{8pt}
+\item How do you append tar files to an archive ?
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Solutions}
+
+\begin{enumerate}
+\item  -H,  -L  and  -P   
+\vspace{15pt}
+\item \$tar -Af <tar-file><tar-file-to-be-added>
+\begin{center}
+OR \\
+\end{center}
+\$tar -rf <tar-file><tar-file-to-be-added>
+\end{enumerate}
+
+\end{frame}
+\begin{frame}
+
+  \begin{block}{}
+  \begin{center}
+  {\Large THANK YOU!} 
+  \end{center}
+  \end{block}
+\begin{block}{}
+  \begin{center}
+    For more Information, visit our website\\
+    {\color{blue}\url{http://fossee.in/}}
+  \end{center}  
+  \end{block}
+\end{frame}
+
+\end{document}
+
+
+

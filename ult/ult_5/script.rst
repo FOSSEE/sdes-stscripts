@@ -44,14 +44,14 @@ At the end of this tutorial, you will be able to,
 .. R3
 
 Before beginning this tutorial,we would suggest you to complete the 
-former tutorials as being displayed currently.
+previous tutorials as being displayed currently.
 
 .. R4
 
 Let us begin with the concept of 'Redirection and Piping'  which 
 performs the  same operations as the ``cut`` and ``paste`` commands.
 
-Consider the files ``marks.txt`` and ``students.txt``.The contents of 
+Consider the files ``marks1.txt`` and ``students.txt``.The contents of 
 the files  are as following:
 
 .. L4
@@ -175,7 +175,7 @@ Let us complete the solution by using the ``paste`` command.
 
 So, in two steps we solved the problem of getting rid of the roll numbers
 from the marks file and displaying the marks along with the names of the
-students. Now, that we know how to redirect output, we could choose to
+students. Now that we know how to redirect output, we could choose to
 write the output to a file, instead of showing on the display. 
 
 Let us now look at the first solution. 
@@ -206,8 +206,8 @@ upto the ``|`` character, it appears as a normal ``cut`` command .
 
 So, the ``|`` character here, seems 
 to be joining the two commands in some way. 
-Essentially, what we are doing is, to redirect the output of the first
-command to ``stdin`` and the second command takes the input from the ``stdin``. 
+Essentially, what we are doing is, redirect the output of the first
+command to ``stdin`` which then becomes input to the second command. 
 This activity is commonly called piping and the character ``|`` is called 
 a pipe. 
 
@@ -219,9 +219,9 @@ a pipe.
 
 This is roughly equivalent to using two redirects and a temporary file.
 
-    command1 > tempfile
-    command2 < tempfile
-    rm tempfile
+    - command1 > tempfile 
+    - command2 < tempfile 
+    - rm tempfile
 
 Also, given that a pipe is just a way to send the output of a command to
 the ``stdin``, it should be obvious to you that we can use a chain of
@@ -238,7 +238,7 @@ This brings us to the end of the end of this tutorial.
 In this tutorial, we have learnt to,
 
  1. Use the ``cut`` and ``paste`` commands in redirection.
- 2. Use the pipe ( | ) character. 
+ 2. Apply the concept of Piping.
  
 .. L19
  
@@ -248,7 +248,7 @@ In this tutorial, we have learnt to,
 
 Here are some self assessment questions for you to solve:
 
-1. How will you redirect the content of a file to a device ?
+1. How to redirect content from file to device ?
 
 2. How to view last field(30), in a file located at /home/test.txt whose
    first line is "data:myscripts:20:30"

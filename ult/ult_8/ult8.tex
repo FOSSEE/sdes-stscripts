@@ -62,8 +62,8 @@
 
 \sffamily \bfseries
 \title
-[Redirection and Piping]
-{Redirection and Piping}
+[Shell scripts \& Variables]
+{Shell scripts \& Variables}
 \author
 [FOSSEE]
 {\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
@@ -82,8 +82,9 @@
 
 At the end of this tutorial, you will be able to,
 \begin{itemize}
-\item Understand what is Redirection
-\item Learn the concept of Piping
+\item Prepare a simple shell script. 
+\item Run a script successfully and print it's result.
+\item Understand what an environment variable is.
 \end{itemize}
 \end{frame}
 
@@ -94,84 +95,37 @@ At the end of this tutorial, you will be able to,
 Spoken tutorial on,
 \begin{itemize}
 \item Getting started with Linux
-\item Basic File Handling
-\item Advanced File handling
+\item Basic file handling
+\item Redirection and Piping
+\item Text Processing
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Redirection} 
-
+  \frametitle{\texttt{PATH}}
   \begin{itemize}
-  \item The standard output (stdout) stream goes to the display
-  \item May not be always, what we need
-  \item \texttt{>} states that output is redirected to the specified location 
-  \item It is followed by location to redirect,
+  \item Shell searches in a set of locations 
+  \item Locations are saved in ``environment'' variable called PATH
   \end{itemize}
-  \begin{lstlisting}
-    $ command > file1
-  \end{lstlisting} % $
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Redirection..} 
+  \hspace{30pt}\texttt{\$ echo \$PATH}
+  %\hspace{26pt}  \verb~$ echo $PATH~
   \begin{itemize}
-  \item Similarly, the standard input (stdin) can be redirected as
-  \end{itemize}
-  \hspace{29pt}\texttt{\$ command < file1}
-  \begin{itemize}
-  \item input and output redirection could be combined
-  \end{itemize}
-  \hspace{29pt}\texttt{\$ command < infile > outfile}
-\end{frame}
-
-\begin{frame}
-\frametitle{stderr}
-  \begin{itemize}
-  \item Standard error (stderr) is the third standard stream
-  \item All error messages come through this stream
-  \item \texttt{stderr} can also be redirected
+  \item Put results.sh in 1 of these locations
+  \item It can then be run without \texttt{./} 
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Piping}
-\begin{lstlisting}
-$ cut -d " " -f 2- marks1.txt 
-  | paste -d " " students.txt -
-  \end{lstlisting} % $
+  \frametitle{Variables \& Comments}
+  \verb~$ name=FOSSEE~
+  \verb~$ count=`wc -l wonderland.txt`~
+  \verb~$ echo $count # Shows the value~
+  \verb~of count~
   \begin{itemize}
-  \item \texttt{-} at the end asks \texttt{paste} to read from
-    \texttt{stdin} instead of FILE 
-  \item \texttt{cut} command here is a normal command
+  \item \alert{NOTE:} No space around the \texttt{=} sign
+  \item All text following the \texttt{\#} is considered a comment
   \end{itemize}
 \end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Piping..}
-\begin{itemize}
-  \item the \texttt{|} seems to be joining the two commands
-  \item Redirects output of first command to \texttt{stdin}, which
-    becomes input to the second command
-  \item This is called piping; \texttt{|} is called a pipe
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Piping..}
-  \begin{itemize}
-  \item Roughly same as -- two redirects and a temporary file
-  \end{itemize}
-  \begin{lstlisting}
-    $ command1 > tempfile
-    $ command2 < tempfile
-    $ rm tempfile
-\end{lstlisting} % $
-\begin{itemize}
-\item Any number of commands can be piped together
-\end{itemize}
-\end{frame}
-
 
 \begin{frame}
 \frametitle{Summary}
@@ -181,39 +135,57 @@ $ cut -d " " -f 2- marks1.txt
 
 
 \begin{itemize}
-\item Use the ``cut'' and ``paste'' commands in redirection
-\item Apply the concept of Piping
+\item Prepare a shell script.
+\item Display the result of a script, using the ``echo'' command.
+\item Use the environment variable ``PATH''.
+\item Create variables and comment out content using the ``\#'' sign.
 \end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Evaluation}
 \label{sec-9}
 
 
 \begin{enumerate}
-\item How to redirect content from file to device ?
-\vspace{12pt}
-\item How to view last field (30), in a file located at \verb~/home/test.txt~ 
-whose first line is "data:myscripts:20:30"
-\vspace{5pt}
-\begin{itemize}
-\item cut -d : -f 4 /home/test.txt
-\item cut -f 3 /home/test.txt
-\item cut -d : -f 3 /home/test.txt
-\end{itemize}
+\item Which sign is used to comment out content from a shell script?\\
+%\begin{itemize}
+{\color{LimeGreen}$\bullet$} \$ \hspace{80pt}{\color{LimeGreen}$\bullet$} \% \\
+{\color{LimeGreen}$\bullet$} \# \hspace{80pt}{\color{LimeGreen}$\bullet$} * \\
+\vspace{8pt}
+\item How will you add directory ``/data/scripts'' to the beginning of 
+    the \$PATH environment variable ?
 \end{enumerate}
 \end{frame}
+
+%\begin{frame}[fragile]
+%\frametitle{Evaluation}
+%\label{sec-9}
+
+
+%\begin{enumerate}
+%\item Which sign is used to comment out content from a shell script?
+%\begin{itemize}
+%\item \$ 
+%\item \%
+%\item \#
+%\item *
+%\end{itemize}
+%\vspace{8pt}
+%\item How will you add directory ``/data/myscripts'' to the beginning of 
+%    the \$PATH environment variable ?
+%\end{enumerate}
+%\end{frame}
+
 \begin{frame}
 \frametitle{Solutions}
 \label{sec-10}
 
 
 \begin{enumerate}
-\item \$ cat filename > device\\
-For eg:\\
-\hspace{8pt} \verb~cat sound.wav > /dev/audio~    
-\vspace{22pt}
-\item \$ cut -d : -f 4 /home/test.txt
+\item `` \# ''
+\vspace{15pt}
+\item \texttt{\$ PATH=/data/scripts:\$PATH}
 \end{enumerate}
 \end{frame}
 
