@@ -1,4 +1,4 @@
-\documentclass[12pt,presentation]{beamer}
+\documentclass[17pt,compress]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{fixltx2e}
@@ -13,63 +13,98 @@
 \usepackage{latexsym}
 \usepackage{amssymb}
 \usepackage{hyperref}
-\tolerance=1000
-\usepackage[english]{babel} \usepackage{ae,aecompl}
-\usepackage{mathpazo,courier,euler} \usepackage[scaled=.95]{helvet}
+\usepackage{beamerthemesplit}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \useoutertheme{infolines}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
+}
+% Taken from Fernando's slides.
+\usepackage{ae,aecompl}
+\usepackage[scaled=.95]{helvet}
+
+\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+% change the alerted colour to LimeGreen
+\definecolor{LimeGreen}{RGB}{50,205,50}
+\setbeamercolor{structure}{fg=LimeGreen}
+\author[FOSSEE]{}
+\institute[IIT Bombay]{}
+\date[]{}
+% \setbeamercovered{transparent}
+
+% theme split
+
+\newenvironment{colorverbatim}[1][]%
+{%
+\color{blue}
+\verbatim
+}%
+{%
+\endverbatim
+}%
+\usepackage{verbatim}
+\usepackage{mathpazo,courier,euler}
 \usepackage{listings}
-\lstset{language=Python, basicstyle=\ttfamily\bfseries,
-commentstyle=\color{red}\itshape, stringstyle=\color{green},
-showstringspaces=false, keywordstyle=\color{blue}\bfseries}
-\providecommand{\alert}[1]{\textbf{#1}}
+\lstset{language=sh,
+    basicstyle=\ttfamily\bfseries,
+  showstringspaces=false,
+  keywordstyle=\color{black}\bfseries}
+\newcommand{\typ}[1]{\lstinline{#1}}
+%\newcommand{\kwrd}[1]{ \texttt{\textbf{\color{blue}{#1}}}  }
+% logo
+\logo{\includegraphics[height=1.30 cm]{../images/3t-logo.pdf}}
+\logo{\includegraphics[height=1.30 cm]{../images/fossee-logo.pdf}
 
-\title{SEES: Test Driven Development}
-\author{FOSSEE}
-
-\usetheme{Warsaw}\usecolortheme{default}\useoutertheme{infolines}\setbeamercovered{transparent}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+\hspace{7.5cm}
+\includegraphics[scale=0.99]{../images/fossee-logo.pdf}\\
+\hspace{281pt}
+\includegraphics[scale=0.80]{../images/3t-logo.pdf}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT STARTS
 \begin{document}
 
+\sffamily \bfseries
+\title
+[Getting started with TDD]
+{Getting started with TDD}
+\author
+[FOSSEE]
+{\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}
+\\\vspace{0.25cm}National Mission on Education
+ through ICT\\{\color{blue}\url{ http://sakshat.ac.in}} \\ [1.65cm]
+   Contributed by FOSSEE Team \\IIT Bombay  \\[0.3cm]
+}
+
+% slide 1
 \begin{frame}
-\begin{center}
-\vspace{12pt}
-\textcolor{blue}{\huge Test Driven Development \\Part I}
-\end{center}
-\vspace{18pt}
-\begin{center}
-\vspace{10pt}
-\includegraphics[scale=0.95]{../images/fossee-logo.png}\\
-\vspace{5pt}
-\scriptsize Developed by FOSSEE Team, IIT-Bombay. \\ 
-\scriptsize Funded by National Mission on Education through ICT\\
-\scriptsize  MHRD,Govt. of India\\
-\includegraphics[scale=0.30]{../images/iitb-logo.png}\\
-\end{center}
+   \titlepage
 \end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
+
 
 \begin{frame}
   \frametitle{Objectives}
   At the end of this tutorial, you will be able to,
   \begin{itemize}
-  \item Know what is TDD.
-  \item Understand the use of test cases.
-  \item Write simple tests for a function.
+  \item Understand basics of Test Driven Development
+  \item Understand the use of test cases
+  \item Write simple tests for a function
  
   \end{itemize}
 \end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Pre-requisite}
 \label{sec-3}
 
-Spoken tutorial on -
+Spoken tutorial on,
 \begin{itemize}
-\item Getting started with functions.
+\item Getting started with functions
 \end{itemize}
 \end{frame}
 
@@ -77,38 +112,41 @@ Spoken tutorial on -
 
 \begin{frame}
   \frametitle{What is TDD?}
-  The basic steps of TDD are roughly as follows --
-  \begin{enumerate}
+  The basic steps of TDD are,
+  \begin{itemize}
   \item Decide upon the feature to implement and the methodology of
-    testing it.
-  \item Write the tests for the feature decided upon.
-  \item Just write enough code, so that the test can be run, but it fails.
-  \item Improve the code, to just pass the test and at the same time
-    passing all previous tests.
-  \item Run the tests to see, that all of them run successfully.
-  \item Refactor the code you've just written -- optimize the algorithm,
-    remove duplication, add documentation, etc.
-  \item Run the tests again, to see that all the tests still pass.
-  
-  \end{enumerate}
+    testing it
+  \item Write the tests for the feature decided upon
+  \item Just write enough code, so that the test can be run, but it fails
+   \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{First Test}
+
+\begin{frame}
+  \frametitle{What is TDD?..}
+  \begin{itemize}
+  \item Modify the code to pass all current tests \& previous tests
+  \item Run the tests to see if all tests pass
+  \item Refactor the code -- optimize the algorithm,
+    remove duplication, add documentation, etc.
+  \item Run the tests again
+  \end{itemize}
+\end{frame}
+
 
 \begin{frame}[fragile]
   \frametitle{First Test -- fibonacci}
   \begin{itemize}
-  \item simple program -- Returns nth fibonacci number
   \item What are our code units?
     \begin{itemize}
     \item Only one function \texttt{fibonacci}
     \item Takes one number as argument
-    \item Returns one number, which is the nth number of fibonacci series.
+    \item Returns, nth number of fibonacci series
     \end{itemize}
 \begin{lstlisting}
 c = fibonacci(3)
 \end{lstlisting}
-  \item c will contain 3rd number of fibonacci series,counting from 0.
+  \item c contains 3rd digit of the series, counting from 0.
   \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,18 +154,20 @@ c = fibonacci(3)
 \begin{frame}[fragile]
   \frametitle{Test Cases}
   \begin{itemize}
-  \item Important to have test cases and expected outputs even before
-    writing the first test!
+  \item Important to have test cases and expected outputs before
+    writing tests
   \item $n=3$, $fibonacci=2$
   \item $n=4$, $fibonacci=3$
   \item Tests are just a series of assertions
-  \item True or False, depending on expected and actual behavior
+  \item True or False, depending on the behaviour
   \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
   \frametitle{Test Cases -- Code}
+\small
+{
 \begin{lstlisting}
 tc1 = fibonacci(3)
 if tc1 != 2:
@@ -143,6 +183,7 @@ if tc2 != 3:
 
 print "All tests passed!"
 \end{lstlisting}
+}
 \begin{itemize}
 \item The function \texttt{fibonacci} doesn't even exist!
 \end{itemize}
@@ -164,6 +205,8 @@ def fibonacci(a):
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{\texttt{fibonacci.py}}
+\tiny
+{
 \begin{lstlisting}
 def fibonacci(n):
     pass
@@ -181,10 +224,13 @@ if __name__ == '__main__':
         exit(1)
     print "All tests passed!"
 \end{lstlisting}
+}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
   \frametitle{First run}
+\small
+{
 \begin{lstlisting}
 $ python fibonacci.py
 Traceback (most recent call last):
@@ -194,19 +240,21 @@ Traceback (most recent call last):
 TypeError: %d format: 
 a number is required, not NoneType
 \end{lstlisting} %$
-
+}
   \begin{itemize}
-  \item We have our code unit stub, and a failing test. 
-  \item The next step is to write code, so that the test just passes.
+  \item We have our code unit stub, and a failing test
+  \item The next step is to write code, so that the test just passes
   \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-  \frametitle{Euclidean Algorithm}
+  \frametitle{Fibonacci}
   \begin{itemize}
   \item Modify the \texttt{fibonacci} stub function
   \item Then, run the script to see if the tests pass.
   \end{itemize}
+\small
+{
 \begin{lstlisting}
 def fibonacci(n):
     a, b = 0, 1
@@ -216,20 +264,17 @@ def fibonacci(n):
 
 \end{lstlisting}
 \begin{lstlisting}
-$ python fibonacci.py
-All tests passed!
 \end{lstlisting} %$
-  \begin{itemize}
-  \item \alert{Success!}
-  \end{itemize}
+}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-  \frametitle{Euclidean Algorithm -- Recursive}
+  \frametitle{Fibonacci -- Recursive}
   \begin{itemize}
   \item Final improvement -- make \texttt{fibonacci} recursive
-  \item More readable and easier to understand
+  \tiny
+{
 \begin{lstlisting}
 def fibonacci(n):
     if n == 0:
@@ -240,6 +285,9 @@ def fibonacci(n):
         return fibonacci(n-1) + fibonacci(n-2)
         
 \end{lstlisting}
+}
+  \small 
+  \item More readable and easier to understand
   \item Check that the tests pass again
   \end{itemize}
 \end{frame}
@@ -250,12 +298,14 @@ def fibonacci(n):
 \frametitle{Summary}
 \label{sec-8}
 
-  In this tutorial, we have learnt to,
+In this tutorial, we learnt,
 
 
 \begin{itemize}
-\item Understand the basic steps involved in Test driven development.
-\item Design a TDD approach for a given \texttt{fibonacci} function.
+\item The basic steps involved in Test driven development
+\item How to use test cases
+\item How to write simple tests for a function
+
 
 \end{itemize}
 \end{frame}
@@ -267,17 +317,16 @@ def fibonacci(n):
 
 
 \begin{enumerate}
-\item Design a TDD approach for a \texttt{factorial} function.
+\item Design a TDD approach for a \texttt{factorial} function
 \vspace{8pt}
-\item Design a TDD approach for an \texttt{armstrong} function.
+\item Design a TDD approach for an \texttt{armstrong} function
 \end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Solutions}
+\frametitle{Factorial}
 \label{sec-10}
-\begin{enumerate}
-\vspace{15pt}
+\begin{itemize}
 \item
 {\tiny
 \begin{lstlisting}
@@ -300,21 +349,18 @@ if __name__ == '__main__':
     print 'All tests passed...'
 \end{lstlisting}
 }
-\end{enumerate}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Solutions}
+\frametitle{Armstrong}
 \label{sec-10}
-\begin{enumerate}
-\vspace{15pt}
+\begin{itemize}
 \item
 {\tiny
 \begin{lstlisting}
 def armstrong(n):
-   sum = 0
-   temp = 0 
-   remainder = 0
+   sum, remainder = 0
    temp = n 
    while  temp > 0 :
       remainder = temp % 10
@@ -336,24 +382,77 @@ if __name__ == '__main__':
     print 'All tests passed...'
 \end{lstlisting}
 }
-\end{enumerate}
+\end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for 
+Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit 
+{\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{12pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\
+Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT (NME-ICT) \\
+\end{itemize}
+\end{center}
+\end{frame}
 
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org
+ /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}
+{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, 
+Government of India 
+\item More information on this Mission is available at: \\
+{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
   \begin{block}{}
   \begin{center}
-  \textcolor{blue}{\Large THANK YOU!} 
+  {\Large THANK YOU!} 
   \end{center}
   \end{block}
 \begin{block}{}
   \begin{center}
     For more Information, visit our website\\
-    \url{http://fossee.in/}
+    {\color{blue}\url{http://fossee.in/}}
   \end{center}  
   \end{block}
 \end{frame}
+
 
 
 \end{document}
