@@ -55,8 +55,8 @@ previous tutorials as being displayed currently.
 .. R4
 
 In this tutorial, we shall learn about text processing.
-TO begin with, consider data kept in two files, namely marks1.txt and 
-students.txt
+TO begin with, consider data kept in two files, namely ``marks1.txt`` and 
+``students.txt``.
 Let us see what data they contain. Open a terminal and type, 
 
 .. L4
@@ -118,16 +118,16 @@ Let us do it on the terminal and see for ourselves,
 
 .. R9
 
-Suppose, While you are compiling the student marklist, Anne walks up to you and
+Suppose, While you are compiling the students marklist, Anne walks up to you and
 wants to know her marks. You, being a kind person that you are, oblige.
-But you do not wish to her to see the marks that others have scored. What
+But you do not wish her to see the marks that others have scored. What
 do you do? Here, the ``grep`` command comes to your rescue. 
 
 ``grep`` is a command line text search utility. You can use it to search
 for Anne and show her, what she scored. ``grep`` allows us to search for a
 search string in files. But we could, like any other command, pipe the
 output of other commands to it. So, we shall use the previous combination
-of cut and paste that we had, to get the marks of students along with their
+of ``cut and paste`` that we had, to get the marks of students along with their
 names and search for Anne in that. 
 
 .. L9
@@ -138,7 +138,7 @@ names and search for Anne in that.
 .. R10
 
 This will give us only the line containing the word Anne as the output.
-The grep command is by default case-sensitive. So, we wouldn't have got
+The ``grep`` command is by default case-sensitive. So, we wouldn't have got
 the result if we had searched for anne, with a small a, instead of 
 Anne, with a capital a. But, what if we didn't know, whether the name was 
 capitalized or not? ``grep`` allows you to do case-insensitive searches 
@@ -161,49 +161,55 @@ not contain the word Anne, we could use the ``-v`` option.
 
 .. R12
 
-grep allows us to do more complex searches, for instance, searching for
+``grep`` allows us to do more complex searches. For instance, searching for
 sentences starting or ending with a particular pattern and regular
 expression based searches. 
 
+.. L12
+
 {{{ Show slide with, tr }}}
+
+.. R12
 
 ``tr`` is a command that takes two sets of characters as parameters, and
 replaces occurrences of the characters in the first set with the
 corresponding elements from the other set. It reads from the standard
-output and writes to the standard output. 
+input and writes to the standard output. 
+
+.. R13
 
 For instance, if we wish to replace all the lower case letters in the
 students file with upper case, we can do it as, 
 
-.. L12
+.. L13
 
 {{{ Switch to the terminal }}}
 ::
 
     cat students.txt | tr a-z A-Z
 
-.. R13
+.. R14
 
 A common task is to remove empty newlines from a file. The ``-s`` flag
 causes ``tr`` to compress sequences of identical adjacent characters in its
 output to a single token. For example,
 
-.. L13
+.. L14
 ::
 
     tr -s '\n' '\n'
 
-.. R14
+.. R15
 
 Hit enter 2-3 times and see that every time we hit enter we get a newline.
 
-.. L14
+.. L15
 ::
 
     <Enter>
     <Enter> 
 
-.. R15
+.. R16
 
 It replaces sequences of one or more newline characters with a single newline.
 
@@ -212,129 +218,143 @@ characters from its input. In this case, only a single character set
 argument is used. The following command removes carriage return characters,
 thereby converting a file in DOS/Windows format to the Unix format. 
 
-.. L15
+.. L16
 ::
 
     cat foo.txt | tr -d '\r' > bar.txt
 
-.. R16
-
-The ``-c`` flag complements the first set of characters.
-
-.. L16
-::
-
-    tr -cd '[:alnum:]' 
-
 .. R17
 
-It therefore removes all non-alphanumeric characters.
-
-Let us consider one more scenario.Suppose we have a list of items, say books, 
-and we wish to obtain a list which names of all the books only once, without 
-any duplicates. To achieve this, we use the ``uniq`` command. Let us first 
-have a look at our file
+The ``-c`` flag complements the first set of characters.
 
 .. L17
 ::
 
-    cat items.txt
+    tr -cd '[:alnum:]' 
 
 .. R18
 
-Now, let us try and get rid of the duplicate lines from this file using 
-the ``uniq`` command.
+It therefore removes all non-alphanumeric characters.
+
+Let us consider one more scenario.Suppose we have a list of items, say books, 
+and we wish to obtain a list of names of all the books only once, without 
+any duplicates. To achieve this, we use the ``uniq`` command. Let us first 
+have a look at our file
 
 .. L18
 ::
 
-    uniq items.txt
+    cat items.txt
 
 .. R19
+
+Now, let us try and get rid of the duplicate lines from this file using 
+the ``uniq`` command.
+
+.. L19
+::
+
+    uniq items.txt
+
+.. R20
 
 Nothing happens! Why? The ``uniq`` command removes duplicate lines only when 
 they are next to each other. So, henceforth, we get a sorted file from the 
 original file and work with that file. 
 
-.. L19
+.. L20
 ::
 
     sort items.txt > items-sorted.txt
 
-.. R20
+.. R21
 
 Now, the ``uniq`` command will work. Let's try it out
 
-.. L20
+.. L21
 
 ::
 
     uniq items-sorted.txt
 
-.. R21
+.. R22
 
 The same result can also be obtained by a more precise command. We include the 
 option ``-u`` which gives the lines which are unique and do not have any 
 duplicates in the file
 
-.. L21 
+.. L22 
 ::
 
     uniq -u items-sorted.txt 
 
-.. R22
+.. R23
 
 ``uniq -d`` outputs only those lines which have duplicates. 
 The ``-c`` option displays the number of times each line occurs in the file.
 
-.. L22
+.. L23
 ::
 
     uniq -dc items-sorted.txt
 
-.. L23
+.. L24
 
 {{{ Show summary slide }}}
 
-.. R23
+.. R24
 
 This brings us to the end of the end of this tutorial.
 In this tutorial, we have learnt to, 
  
 1. Use the ``sort`` command to sort lines of text files.
 #. Use the ``grep`` command to search text pattern.
+
+.. L25
+
+{{{ Show summary slide.. }}}
+
+.. R25
+
 #. Use the ``tr`` command to translate and/or delete characters.
 #. Use the ``uniq`` command to omit repeated lines in a text. 
 
-.. L24
+.. L26
 
 {{{ Show self assessment questions slide }}}
 
-.. R24
+.. R26
 
 Here are some self assessment questions for you to solve
 
-1. To obtain patterns; one per line, which of the following command is used ?
+1. To obtain a one-per-line pattern, which command is used?
    
     - grep -f
     - grep -i
     - grep -v
     - grep -e
 
+.. L27
+
+{{{ Show self assessment questions slide.. }}}
+
+.. R27
+
 2. Translate the word 'linux' to upper-case.
 
-3. Sort the output of the ``ls -al`` command.
+3. Sort the output of ``ls -al`` command, numerically and by filesize in 
+   ascending order. 
 
-.. L25
+.. L28
 
 {{{ Solution of self assessment questions on slide }}}
 
-.. R25
+.. R28
 
 And the answers,
 
 1. In order to obtain patterns one per line, we use the ``grep`` command
-    alongwith the -f option.
+   alongwith the -f option.
 
 2. We use the tr command to change the word into uppercase 
 ::
@@ -349,11 +369,11 @@ And the answers,
 The -n  means "sort numerically", and the -k5 option means to key off of 
 column five. 
 
-.. L26
+.. L29
 
 {{{ Show the SDES & FOSSEE slide }}}
 
-.. R26
+.. R29
 
 Software Development techniques for Engineers and Scientists - SDES, is an 
 initiative by FOSSEE. For more information, please visit the given link.
@@ -362,43 +382,43 @@ Free and Open-source Software for Science and Engineering Education - FOSSEE, is
 based at IIT Bombay which is funded by MHRD as part of National Mission on 
 Education through ICT.
 
-.. L27
+.. L30
 
 {{{ Show the ``About the Spoken Tutorial Project'' slide }}}
 
-.. R27
+.. R30
 
 Watch the video available at the following link. It summarises the Spoken 
 Tutorial project.If you do not have good bandwidth, you can download and 
 watch it. 
 
-.. L28
+.. L31
 
 {{{ Show the `` Spoken Tutorial Workshops'' slide }}}
 
-.. R28
+.. R31
 
 The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
 gives certificates to those who pass an online test.
 
 For more details, contact contact@spoken-tutorial.org
 
-.. L29
+.. L32
 
 {{{ Show the ``Acknowledgements'' slide }}}
 
-.. R29
+.. R32
 
 Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
 It is supported by the National Mission on Education through ICT, MHRD, 
 Government of India. More information on this mission is available at the 
 given link.
 
-.. L30
+.. L33
 
 {{{ Show the Thank you slide }}}
 
-.. R30
+.. R33
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!
