@@ -38,9 +38,9 @@ Hello friends and Welcome to the tutorial on
 
 At the end of this tutorial, you will be able to,
 
- 1. Prepare a simple shell script. 
- #. Run a script successfully and print it's result.
- #. Understand what an environment variable is.
+1. Prepare a simple shell script. 
+#. Run a script successfully and print it's result.
+#. Understand what an environment variable is.
 
 .. L3
 
@@ -56,7 +56,7 @@ previous tutorials as being displayed currently.
 Let us start with creating a simple shell script.
 A shell script is simply a sequence of commands, that are put into a file,
 instead of entering them one by one onto the shell. The script can then be
-run, to run the sequence of commands in a single shot instead of manually
+run, to execute the sequence of commands in a single shot instead of manually
 running, each of the individual commands. 
 For instance, let's say we wish to create a directory called ``marks`` in the
 home folder and save the results of the students into a file
@@ -127,8 +127,7 @@ edit ``results.sh`` script, as follows.
 
 .. R9
 
-Now, on running the script, we get a message on the screen informing us,
-when the script has run. 
+Now, we get a message on the screen on running the script.
 
 Let's now say, that we wish to let the user decide the file to which the
 results should be written to. The results file, should be specifiable by an
@@ -150,7 +149,7 @@ argument in the command line. We can do so, by editing the file, as below.
 
 .. R10
 
-The ``$1`` above, corresponds to the first command line argument to the
+The ``$1`` above, corresponds to the first command line argument in the
 script. So, we can run the script as shown below, to save the results to
 ``grades.txt``. 
 
@@ -162,7 +161,7 @@ script. So, we can run the script as shown below, to save the results to
 .. R11
 
 When we run the ``results.sh`` file, we are specifying the location of the
-script by using ``./``. But for any of the other commands, 
+script by using ``./``(DOT FORWARD SLASH). But for any of the other commands, 
 we didn't have to specify their locations. Why? The
 shell has a set of locations where it searches, for the command that we are
 trying to run. 
@@ -190,7 +189,8 @@ To view the values of variables, we can use the echo command.
 
 So, these are all the paths that are searched, when looking to execute a
 command. If we put ``results.sh`` script in one of these locations, we
-could simply run it, without using the ``./`` at the beginning. 
+could simply run it, without using the ``./``(DOT FORWARD SLASH) at the 
+beginning. 
 
 .. R14
 
@@ -270,10 +270,10 @@ Here are some self assessment questions for you to solve
    - $
    - %
    - #
-   - * 
+   - \* 
 
-2. How will you add directory ``/data/myscripts`` to the beginning of 
-    the $PATH environment variable ?
+2. How will you add ``/data/myscripts`` directory to the beginning of the $PATH 
+   environment variable ?
 
 .. L21
 
@@ -325,11 +325,11 @@ gives certificates to those who pass an online test.
 
 For more details, contact contact@spoken-tutorial.org
 
-.. L35
+.. L25
 
 {{{ Show the ``Acknowledgements'' slide }}}
 
-.. R35
+.. R25
 
 Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
 It is supported by the National Mission on Education through ICT, MHRD, 
