@@ -45,6 +45,10 @@ At the end of this tutorial, you will be able to,
 Before beginning this tutorial,we would suggest you to complete the 
 previous tutorials as being displayed currently.
 
+.. L4
+
+{{{ Show slide, 'Control Structures' }}}
+
 .. R4
 
 We have many 'Control Structures and Operators' available in the linux bash.
@@ -57,8 +61,6 @@ with it.
 
 Let's write a simple script with an ``if`` condition that tests whether a
 directory with a particular name, exists or not.
-
-.. L4
 
 .. L5
 
@@ -143,7 +145,7 @@ the ``while`` loops.
 
 .. L11
 
-{{{ Show slide, 'for' }}}
+{{{ Show slide 'Exercise' }}}
 
 .. R11
 
@@ -289,7 +291,7 @@ and prints it back, until the input is ``quit``, which then quits the program.
 
 .. L23
 
-{{{ Show slide, Environment Variables }}}
+{{{ Show slide, Environment Variables vs. Environment Variables }}}
 
 .. R23
 
@@ -302,7 +304,6 @@ farther reaching significance, and are set at login, valid for the duration of
 the session. By convention, 'Environment variables' have UPPER CASE and 'Shell 
 variables' have lower case names.
 
-You can see an example of environment variables in the slide.
 
 .. R24
 
@@ -365,11 +366,11 @@ Here are some self assessment questions for you to solve:
 
 2. How can you add a new path variable ``/myscripts`` to $PATH variable ?
 
-.. L30
+.. L29
 
 {{{ Solutions of self assessment questions on slide }}}
 
-.. R30
+.. R29
 
 And the answers,
 
@@ -385,11 +386,11 @@ And the answers,
 
     $export PATH=$PATH://myscripts
 
-.. L31
+.. L30
 
 {{{ Show the SDES & FOSSEE slide }}}
 
-.. R31
+.. R30
 
 Software Development techniques for Engineers and Scientists - SDES, is an 
 initiative by FOSSEE. For more information, please visit the given link.
@@ -398,43 +399,43 @@ Free and Open-source Software for Science and Engineering Education - FOSSEE, is
 based at IIT Bombay which is funded by MHRD as part of National Mission on 
 Education through ICT.
 
-.. L32
+.. L31
 
 {{{ Show the ``About the Spoken Tutorial Project'' slide }}}
 
-.. R32
+.. R31
 
 Watch the video available at the following link. It summarises the Spoken 
 Tutorial project.If you do not have good bandwidth, you can download and 
 watch it. 
 
-.. L33
+.. L32
 
 {{{ Show the `` Spoken Tutorial Workshops'' slide }}}
 
-.. R33
+.. R32
 
 The Spoken Tutorial Project Team conducts workshops using spoken tutorials,
 gives certificates to those who pass an online test.
 
 For more details, contact contact@spoken-tutorial.org
 
-.. L34
+.. L33
 
 {{{ Show the ``Acknowledgements'' slide }}}
 
-.. R34
+.. R33
 
 Spoken Tutorial Project is a part of the "Talk to a Teacher" project.
 It is supported by the National Mission on Education through ICT, MHRD, 
 Government of India. More information on this mission is available at the 
 given link.
 
-.. L35
+.. L34
 
 {{{ Show the Thank you slide }}}
 
-.. R35
+.. R34
 
 Hope you have enjoyed this tutorial and found it useful.
 Thank you!

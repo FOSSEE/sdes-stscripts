@@ -62,8 +62,8 @@
 
 \sffamily \bfseries
 \title
-[Control structures and Operators]
-{Control structures and Operators}
+[Control Structures and Operators]
+{Control Structures and Operators}
 \author
 [FOSSEE]
 {\small Talk to a Teacher\\{\color{blue}\url{http://spoken-tutorial.org}}\\\vspace{0.25cm}National Mission on Education
@@ -93,8 +93,22 @@ At the end of this tutorial, you will be able to,
 
 Spoken tutorial on -
 \begin{itemize}
-\item Shell scripts \& Variables
+\item Shell Scripts \& Variables
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Control Structures}
+  \begin{itemize}
+  \item Many Control Structures and Operators in Bash
+  \item \texttt{test} command to test for conditions
+  \item A whole range of tests that can be performed
+    \begin{itemize}
+    \item \texttt{STRING1 = STRING2} -- string equality
+    \item \texttt{-e FILE} -- existence of FILE
+    \end{itemize}
+  \item \texttt{man} page of \texttt{test} gives list of various tests
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -132,7 +146,7 @@ Spoken tutorial on -
   \frametitle{Exercise}
 \begin{itemize}
 \item Given a set of \texttt{.mp3} files, with names beginning with numbers 
-      followed by text -- eg: \texttt{08 - Society.mp3}
+      followed by text -- Eg: \texttt{08 - Society.mp3}
 
 \begin{itemize}
 \item Rename the files to have just the names
@@ -149,13 +163,13 @@ Spoken tutorial on -
 %\end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Shell Variables vs. Environment variables}
+  \frametitle{Shell Variables vs. Environment Variables}
  %\texttt{Environment variables vs. Shell variables}
 \begin{table}
 \begin{tabular}{|l|l|}
 \hline
 Shell var. & Environment var.\\\hline
-only current instance & valid for the whole\\
+Only current instance & Valid for the whole\\
 of the shell & whole session\\\hline
 UPPER CASE & lower case\\\hline
 \end{tabular}
@@ -197,9 +211,56 @@ the text.
 \begin{enumerate}
 \item \$ echo -n dog man
 \vspace{15pt}
-\item \$export PATH=\$PATH://myscripts
+\item \$ export PATH=\$PATH://myscripts
 \end{enumerate}
 \end{frame}
+
+\begin{frame}
+\frametitle{SDES \& FOSSEE}
+\begin{center}
+\begin{itemize}
+\item \small{SDES}\\
+\small{\color{LimeGreen}Software Development techniques for Engineers and Scientists} \\
+\scriptsize An initiative by FOSSEE. \\
+\vspace{3pt}
+\scriptsize For more information on SDES, please visit {\color{blue}\url{http://fossee.in/sdes}}\\
+\vspace{10pt}
+\item \small{FOSSEE}\\
+\small {\color{LimeGreen}Free and Open-source Software for \\Science and Engineering Education} \\
+\scriptsize Based at IIT Bombay, Funded by MHRD.\\
+\vspace{3pt}
+\scriptsize Part of National Mission on Education through ICT \\(NME-ICT) \\
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{About the Spoken Tutorial Project}
+\begin{itemize}
+\item Watch the video available at {\color{blue}\url{http://spoken-tutorial.org /What\_is\_a\_Spoken\_Tutorial}} 
+\item It summarises the Spoken Tutorial project 
+\item If you do not have good bandwidth, you can download and watch it
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spoken Tutorial Workshops}The Spoken Tutorial Project Team 
+\begin{itemize}
+\item Conducts workshops using spoken tutorials 
+\item Gives certificates to those who pass an online test 
+\item For more details, please write to \\ \hspace {0.5cm}{\color{blue}contact@spoken-tutorial.org}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item Spoken Tutorial Project is a part of the Talk to a Teacher  project 
+\item It is supported by the National Mission on Education through  ICT, MHRD, Government of India 
+\item More information on this Mission is available at: \\{\color{blue}\url{http://spoken-tutorial.org/NMEICT-Intro}}
+\end{itemize}
+\end{frame}
+
 \begin{frame}
 
   \begin{block}{}
