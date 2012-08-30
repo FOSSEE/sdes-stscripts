@@ -85,7 +85,7 @@ folder and all it's subfolders, we say
 
 .. R7
 
-The ``find`` command also lists out the directory and sub-directory names
+The ``find`` command also lists out the directory and sub-directory names.
 To list them, we say,
 
 .. L7
@@ -133,7 +133,7 @@ the exact byte location at which the first difference occurred.
 
 .. R11
 
-Let us now make a small change in one of quick.c file and run the ``cmp`` 
+Let us now make a small change in one of the quick.c file and run the ``cmp`` 
 command again.
 
 .. L11
@@ -223,6 +223,10 @@ archive from all the files with the ``.txt`` extension.
 
     tar -cvzf newarchive.tar *.txt
 
+.. L19
+
+{{{ Show slide, Compressed Archives }}}
+
 .. R19
 
 You can also create and extract compressed archives using ``tar``. It
@@ -236,15 +240,17 @@ compressions.
 | Compression | Option     |
 +-------------+------------+
 | gzip        | ``-z``     |
++-------------+------------+
 | bzip2       | ``-j``     |
++-------------+------------+
 | lzma        | ``--lzma`` |
 +-------------+------------+
 
-.. L19
+
 
 .. R20
 
-So, if we wished to create a gzip archive in the previous command, we
+So, if we wish to create a gzip archive in the previous command, we
 change it to the following
 
 .. L20
@@ -266,7 +272,7 @@ of files called start-up files, when it starts up.
 
 When bash starts up as an interactive login shell, it reads the files
 ``/etc/profile``, ``~/.bash_profile``, ``~/.bash_login``, and
-``~/.profile`` in that order.
+``~/.profile`` in order.
 
 When an interactive shell that is not a login shell is started, bash reads 
 and executes commands from ~/.bashrc. This can be prevented using the ``--norc``
@@ -289,9 +295,9 @@ variables in the ``.bashrc``, like changing environment variables etc.
 This brings us to the end of the end of this tutorial.
 In this tutorial, we have learnt to, 
 
- 1. Make use of the ``find`` command to find files in a directory hierarchy.
- #. Find the differences between files with the same name, using the
-    ``cmp`` and ``diff`` commands.
+1. Make use of the ``find`` command to find files in a directory hierarchy.
+#. Find the differences between files with the same name, using the
+   ``cmp`` and ``diff`` commands.
 
 .. L23
 
@@ -299,8 +305,8 @@ In this tutorial, we have learnt to,
 
 .. R23
 
- #. Extract and create compressed archive's using the ``tar`` command.
- #. Customize one's shell according to one's choice. 
+3. Extract and create compressed archive's using the ``tar`` command.
+#. Customize one's shell according to one's choice. 
  
 .. L24
 
@@ -310,10 +316,10 @@ In this tutorial, we have learnt to,
 
 Here are some self assessment questions for you to solve
 
- 1. Look at the man page of ``find`` and state the options which
-    deal with symbolic links.
+1. Look at the man page of ``find`` and state the options which
+   deal with symbolic links.
      
- 2. How do you append tar files to an archive?
+2. How do you append tar files to an archive?
 
 .. L25
 
@@ -324,10 +330,10 @@ Here are some self assessment questions for you to solve
 And the answers,
 
 1. The  -H,  -L  and  -P options with the ``find`` command control 
-    the treatment of symbolic links.
+   the treatment of symbolic links.
 
- 2. To append tar files to an archive, we can use the ``tar`` command 
-    either with the ``-A`` option or the ``-r`` option, as,
+2. To append tar files to an archive, we can use the ``tar`` command 
+   either with the ``-A`` option or the ``-r`` option, as,
 ::
 
     $ tar -Af <tar_file> <tar_file_to_be_added> 
