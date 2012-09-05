@@ -35,10 +35,10 @@ Hello friends and Welcome to the tutorial on
 
 At the end of this tutorial, you will be able to,
 
- 1. Know what is linux. 
- #. Understand the need for linux in today's world.
- #. Move around in directories and files.
- #. Use basic commands of Linux.
+1. Know what is linux. 
+#. Understand the need for linux in today's world.
+#. Move around in directories and files.
+#. Use basic commands of Linux.
 
 .. L3
 
@@ -51,12 +51,7 @@ System that is inspired by Unix and runs on a variety of hardware
 platforms.
 
 Linux is a modular operating system, with it's basic design based on the
-principles established in Unix. It consists of an important and central
-piece called the Linux kernel, which, manages system resources like process
-control, networking, peripherals and file system access. This is
-complemented by the application software, written on top of the kernel that
-gives the higher level functionality that facilitates the user to carry out
-various tasks.
+principles established in Unix. 
 
 .. L4
 
@@ -68,16 +63,14 @@ GNU/Linux can be downloaded in its entirety from the Internet completely
 for free with no registration fees, no costs per user, free updates, and
 freely available source code.
 The security model used in Linux is based on the UNIX idea of security,
-which is known to be robust and of proven quality. Also, there are no
-viruses in the GNU/Linux world.
+which is known to be robust and of proven quality. 
 
 Linux is used a lot for scientific computing. Why? Beause,
 we can share our operating system and the libraries that we are using
 with our co-workers, without any headaches of licensing.
 There are a host of tools and libraries, that are useful in day-to-day 
 scientific computing work.GNU/Linux distributions are very stable and 
-known for their up-time. We don't have the fear of losing our 
-computational work, due to system crashes.
+known for their up-time. 
 
 .. L5
 
@@ -107,6 +100,7 @@ command line interface.
 To logout from the CLI, you can use the ``logout`` command. 
 
 .. L7
+::
 
     logout
 
@@ -161,7 +155,7 @@ files present, as an argument. To see all the files present in the
 
 Note that everything in GNU/Linux and the Unix world is case sensitive.
 
-As you can see, our home folder has two html files.
+As you can see, our home folder has many files.
 What if we wanted the files to be more organized? Say,
 we would like to put all our work during this course in a separate
 directory. Let us now create a directory ``sdes`` by saying
@@ -255,8 +249,11 @@ Every command in Linux has such a list of options that can be passed to the
 command to do specific tasks. Hit the ``q`` key to quit the ``man`` page.
 
 .. L20
+::
 
     q
+
+.. R21
 
 To see the manual on man itself do,
 
@@ -265,7 +262,7 @@ To see the manual on man itself do,
 
     man man
 
-.. L21
+.. L22
 
 {{{ Switch to slide, Using additional options }}}
 
@@ -278,8 +275,6 @@ option. This gives a brief description of the options available for that
 command.
 
 Pause the video here, try out the following exercise and resume the video.
-
-.. L22
 
 .. L23
 
@@ -351,9 +346,9 @@ their description. Looking through the list tells us that ``rm`` or
 
 This brings us to the end of the tutorial.In this tutorial, we have learnt to,
 
- 1. Understand the basic structure of linux and it's need.
- #. Use ``pwd'' command, to check the current working directory.
- #. List a directory's contents by using the command ``ls''.
+1. Understand the basic structure of linux and it's need.
+#. Use ``pwd'' command, to check the current working directory.
+#. List a directory's contents by using the command ``ls''.
 
 .. L30
 
@@ -361,11 +356,11 @@ This brings us to the end of the tutorial.In this tutorial, we have learnt to,
 
 .. R30 
 
- #. Use commands like ``mkdir`` and ``rmdir`` to make and remove directories 
-    respectively.
- #. Use commands such as ``man`` and ``whatis`` to get a description of 
-    what a particular command does.
- #. Search the manual page names and descriptions, using the “ apropos” command.
+#. Use commands like ``mkdir`` and ``rmdir`` to make and remove directories 
+   respectively.
+#. Use commands such as ``man`` and ``whatis`` to get a description of 
+   what a particular command does.
+#. Search the manual page names and descriptions, using the ``apropos'' command 
 
 .. L31
  
@@ -391,7 +386,6 @@ And the answers,
 
 2. In order to view the attributes of a file, we use the -l option with 
    the ls command.
-
 ::
 
     ls -l <filename>  
